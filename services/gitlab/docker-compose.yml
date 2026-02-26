@@ -1,0 +1,19 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest # hoặc pin version: gitlab/gitlab-ce:<version>-ce.0
+    container_name: gitlab
+    restart: unless-stopped
+    hostname: gitlab.local
+    shm_size: "256m"
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:30000'
+        gitlab_rails['gitlab_shell_ssh_port'] = 30022
+    ports:
+      - "30000:30000" # HTTP -> must match external_url port
+      - "30022:22" # SSH (optional)
+      - "30443:443" # HTTPS (optional)
+    volumes:
+      - ./gitlab/config:/etc/gitlab
+      - ./gitlab/logs:/var/log/gitlab
+      - ./gitlab/data:/var/opt/gitlab
