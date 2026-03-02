@@ -1,0 +1,146 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This REST-based API aims to leverage the tools of the <a href=\"https://github.com/GIScience/oshdb\" target=\"_blank\">OSHDB</a> through allowing to access some of its functionalities via HTTP requests. \nThe official documentation can be found <a href=\"https://docs.ohsome.org/ohsome-api/stable\" target=\"_blank\">here</a>. ",
+        "version": "1.10.4",
+        "title": "ohsome API",
+        "contact": {
+            "name": "Heidelberg Institute for Geoinformation Technology",
+            "url": "https://www.heigit.org",
+            "email": "info@heigit.org"
+        },
+        "license": {
+            "name": "License of the used data",
+            "url": "https://ohsome.org/copyrights"
+        }
+    },
+    "host": "api.ohsome.org",
+    "basePath": "/v1",
+    "tags": [{
+        "name": "Metadata",
+        "description": "Request metadata of the underlying OSHDB"
+    }],
+    "paths": {
+        "/metadata": {
+            "get": {
+                "tags": ["Metadata"],
+                "summary": "Metadata of the underlying OSHDB data-extract",
+                "operationId": "Metadata",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/MetadataResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "405": {
+                        "description": "Method not allowed"
+                    },
+                    "413": {
+                        "description": "Payload too large"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    },
+                    "501": {
+                        "description": "Not implemented"
+                    },
+                    "503": {
+                        "description": "Service Unavailable"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "Attribution": {
+            "type": "object",
+            "required": ["text", "url"],
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "description": "Copyright info about the used data"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL to the copyright and license info"
+                }
+            },
+            "title": "Attribution"
+        },
+        "ExtractRegion": {
+            "type": "object",
+            "required": ["spatialExtent"],
+            "properties": {
+                "spatialExtent": {
+                    "description": "Spatial extent of this extract-region",
+                    "$ref": "#/definitions/JsonNode"
+                },
+                "temporalExtent": {
+                    "description": "Temporal extent of this extract-region",
+                    "$ref": "#/definitions/TemporalExtent"
+                },
+                "replicationSequenceNumber": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Replication sequence number"
+                }
+            },
+            "title": "ExtractRegion"
+        },
+        "JsonNode": {
+            "type": "object",
+            "title": "JsonNode"
+        },
+        "MetadataResponse": {
+            "type": "object",
+            "required": ["apiVersion", "attribution", "extractRegion", "timeout"],
+            "properties": {
+                "attribution": {
+                    "description": "License and copyright info",
+                    "$ref": "#/definitions/Attribution"
+                },
+                "apiVersion": {
+                    "type": "string",
+                    "description": "Specific version of this API"
+                },
+                "timeout": {
+                    "type": "number",
+                    "format": "double",
+                    "description": "Maximal response timeout in seconds"
+                },
+                "extractRegion": {
+                    "description": "Extract region object holding the spatial|temporal extent + attribution",
+                    "$ref": "#/definitions/ExtractRegion"
+                }
+            },
+            "title": "MetadataResponse"
+        },
+        "TemporalExtent": {
+            "type": "object",
+            "required": ["fromTimestamp", "toTimestamp"],
+            "properties": {
+                "fromTimestamp": {
+                    "type": "string",
+                    "description": "Timestamp in the format YYYY-MM-DDThh:mm:ssZ"
+                },
+                "toTimestamp": {
+                    "type": "string",
+                    "description": "Timestamp in the format YYYY-MM-DDThh:mm:ssZ"
+                }
+            },
+            "title": "TemporalExtent"
+        }
+    }
+}

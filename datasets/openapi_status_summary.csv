@@ -1,0 +1,1524 @@
+dataset,operation,2xx_code,4xx_code
+Bills-api,GetAmendments,200,400|404
+Bills-api,GetAmendment,200,400|404
+Bills-api,GetNewsArticles,200,400|404
+Bills-api,GET /api/v1/BillTypes,200,400
+Bills-api,GetBills,200,400
+Bills-api,GetBill,200,400|404
+Bills-api,GetBillStageDetails,200,400|404
+Bills-api,GET /api/v1/Bills/{billId}/Stages,200,400|404
+Bills-api,GET /api/v1/Publications/{publicationId}/Documents/{documentId},200,400|404
+Bills-api,GET /api/v1/Publications/{publicationId}/Documents/{documentId}/Download,200,400|404
+Bills-api,SearchPingPongItems,200,400|404
+Bills-api,GetPingPongItem,200,400|404
+Bills-api,GET /api/v1/PublicationTypes,200,400
+Bills-api,GetBillPublication,200,400|404
+Bills-api,GET /api/v1/Bills/{billId}/Stages/{stageId}/Publications,200,400|404
+Bills-api,GET /api/v1/Rss/allbills.rss,200,
+Bills-api,GET /api/v1/Rss/publicbills.rss,200,
+Bills-api,GET /api/v1/Rss/privatebills.rss,200,
+Bills-api,GET /api/v1/Rss/Bills/{id}.rss,200,400|404
+Bills-api,GetSittings,200,400
+Bills-api,GET /api/v1/Stages,200,400
+CanadaHoliday,Holidays,200,
+CanadaHoliday,Provinces,200,
+CanadaHoliday,Province,200,400
+CanadaHoliday,Holiday,200,400
+Genome-nexus,fetchVariantAnnotationPOST,200,
+Genome-nexus,fetchVariantAnnotationByIdPOST,200,
+Genome-nexus,fetchVariantAnnotationByIdGET,200,
+Genome-nexus,fetchVariantAnnotationByGenomicLocationPOST,200,
+Genome-nexus,fetchVariantAnnotationByGenomicLocationGET,200,
+Genome-nexus,fetchVariantAnnotationGET,200,
+Genome-nexus,fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST,200,
+Genome-nexus,fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET,200,
+Genome-nexus,fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST,200,
+Genome-nexus,fetchCanonicalEnsemblGeneIdByHugoSymbolGET,200,
+Genome-nexus,fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST,200,
+Genome-nexus,fetchCanonicalEnsemblTranscriptByHugoSymbolGET,200,
+Genome-nexus,fetchEnsemblTranscriptsGET,200,
+Genome-nexus,fetchEnsemblTranscriptsByEnsemblFilterPOST,200,
+Genome-nexus,fetchEnsemblTranscriptByTranscriptIdGET,200,
+Genome-nexus,fetchGeneXrefsGET,200,
+Genome-nexus,fetchPdbHeaderPOST,200,
+Genome-nexus,fetchPdbHeaderGET,200,
+Genome-nexus,fetchPfamDomainsByPfamAccessionPOST,200,
+Genome-nexus,fetchPfamDomainsByAccessionGET,200,
+Genome-nexus,fetchPostTranslationalModificationsGET,200,
+Genome-nexus,fetchPostTranslationalModificationsByPtmFilterPOST,200,
+Genome-nexus,fetchVersionGET,200,
+github,meta/root,200,
+github,security-advisories/list-global-advisories,200,422|429
+github,security-advisories/get-global-advisory,200,404
+github,apps/get-authenticated,200,
+github,apps/create-from-manifest,201,404|422
+github,apps/get-webhook-config-for-app,200,
+github,apps/update-webhook-config-for-app,200,
+github,apps/list-webhook-deliveries,200,400|422
+github,apps/get-webhook-delivery,200,400|422
+github,apps/redeliver-webhook-delivery,202,400|422
+github,apps/list-installation-requests-for-authenticated-app,200,401
+github,apps/list-installations,200,
+github,apps/get-installation,200,404
+github,apps/delete-installation,204,404
+github,apps/create-installation-access-token,201,401|403|404|422
+github,apps/suspend-installation,204,404
+github,apps/unsuspend-installation,204,404
+github,apps/delete-authorization,204,422
+github,apps/check-token,200,404|422
+github,apps/reset-token,200,422
+github,apps/delete-token,204,422
+github,apps/scope-token,200,401|403|404|422
+github,apps/get-by-slug,200,403|404
+github,classroom/get-an-assignment,200,404
+github,classroom/list-accepted-assignments-for-an-assignment,200,
+github,classroom/get-assignment-grades,200,404
+github,classroom/list-classrooms,200,
+github,classroom/get-a-classroom,200,404
+github,classroom/list-assignments-for-a-classroom,200,
+github,codes-of-conduct/get-all-codes-of-conduct,200,
+github,codes-of-conduct/get-conduct-code,200,404
+github,emojis/get,200,
+github,code-security/get-configurations-for-enterprise,200,403|404
+github,code-security/create-configuration-for-enterprise,201,400|403|404
+github,code-security/get-default-configurations-for-enterprise,200,
+github,code-security/get-single-configuration-for-enterprise,200,403|404
+github,code-security/update-enterprise-configuration,200,403|404|409
+github,code-security/delete-configuration-for-enterprise,204,400|403|404|409
+github,code-security/attach-enterprise-configuration,202,403|404|409
+github,code-security/set-configuration-as-default-for-enterprise,200,403|404
+github,code-security/get-repositories-for-enterprise-configuration,200,403|404
+github,dependabot/list-alerts-for-enterprise,200,403|404|422
+github,secret-scanning/list-alerts-for-enterprise,200,404
+github,activity/list-public-events,200,403
+github,activity/get-feeds,200,
+github,gists/list,200,403
+github,gists/create,201,403|404|422
+github,gists/list-public,200,403|422
+github,gists/list-starred,200,401|403
+github,gists/get,200,403|404
+github,gists/update,200,404|422
+github,gists/delete,204,403|404
+github,gists/list-comments,200,403|404
+github,gists/create-comment,201,403|404
+github,gists/get-comment,200,403|404
+github,gists/update-comment,200,404
+github,gists/delete-comment,204,403|404
+github,gists/list-commits,200,403|404
+github,gists/list-forks,200,403|404
+github,gists/fork,201,403|404|422
+github,gists/check-is-starred,204,403|404
+github,gists/star,204,403|404
+github,gists/unstar,204,403|404
+github,gists/get-revision,200,403|404|422
+github,gitignore/get-all-templates,200,
+github,gitignore/get-template,200,
+github,apps/list-repos-accessible-to-installation,200,401|403
+github,apps/revoke-installation-access-token,204,
+github,issues/list,200,404|422
+github,licenses/get-all-commonly-used,200,
+github,licenses/get,200,403|404
+github,markdown/render,200,
+github,markdown/render-raw,200,
+github,apps/get-subscription-plan-for-account,200,401|404
+github,apps/list-plans,200,401|404
+github,apps/list-accounts-for-plan,200,401|404|422
+github,apps/get-subscription-plan-for-account-stubbed,200,401|404
+github,apps/list-plans-stubbed,200,401
+github,apps/list-accounts-for-plan-stubbed,200,401
+github,meta/get,200,
+github,activity/list-public-events-for-repo-network,200,403|404
+github,activity/list-notifications-for-authenticated-user,200,401|403|422
+github,activity/mark-notifications-as-read,202|205,401|403
+github,activity/get-thread,200,401|403
+github,activity/mark-thread-as-read,205,403
+github,activity/mark-thread-as-done,204,
+github,activity/get-thread-subscription-for-authenticated-user,200,401|403
+github,activity/set-thread-subscription,200,401|403
+github,activity/delete-thread-subscription,204,401|403
+github,meta/get-octocat,200,
+github,orgs/list,200,
+github,billing/get-github-billing-usage-report-org,200,400|403
+github,orgs/get,200,404
+github,orgs/update,200,409|422
+github,orgs/delete,202,403|404
+github,actions/get-actions-cache-usage-for-org,200,
+github,actions/get-actions-cache-usage-by-repo-for-org,200,
+github,actions/list-hosted-runners-for-org,200,
+github,actions/create-hosted-runner-for-org,201,
+github,actions/get-hosted-runners-github-owned-images-for-org,200,
+github,actions/get-hosted-runners-partner-images-for-org,200,
+github,actions/get-hosted-runners-limits-for-org,200,
+github,actions/get-hosted-runners-machine-specs-for-org,200,
+github,actions/get-hosted-runners-platforms-for-org,200,
+github,actions/get-hosted-runner-for-org,200,
+github,actions/update-hosted-runner-for-org,200,
+github,actions/delete-hosted-runner-for-org,202,
+github,oidc/get-oidc-custom-sub-template-for-org,200,
+github,oidc/update-oidc-custom-sub-template-for-org,201,403|404
+github,actions/get-github-actions-permissions-organization,200,
+github,actions/set-github-actions-permissions-organization,204,
+github,actions/list-selected-repositories-enabled-github-actions-organization,200,
+github,actions/set-selected-repositories-enabled-github-actions-organization,204,
+github,actions/enable-selected-repository-github-actions-organization,204,
+github,actions/disable-selected-repository-github-actions-organization,204,
+github,actions/get-allowed-actions-organization,200,
+github,actions/set-allowed-actions-organization,204,
+github,actions/get-github-actions-default-workflow-permissions-organization,200,
+github,actions/set-github-actions-default-workflow-permissions-organization,204,
+github,actions/list-self-hosted-runner-groups-for-org,200,
+github,actions/create-self-hosted-runner-group-for-org,201,
+github,actions/get-self-hosted-runner-group-for-org,200,
+github,actions/update-self-hosted-runner-group-for-org,200,
+github,actions/delete-self-hosted-runner-group-from-org,204,
+github,actions/list-github-hosted-runners-in-group-for-org,200,
+github,actions/list-repo-access-to-self-hosted-runner-group-in-org,200,
+github,actions/set-repo-access-to-self-hosted-runner-group-in-org,204,
+github,actions/add-repo-access-to-self-hosted-runner-group-in-org,204,
+github,actions/remove-repo-access-to-self-hosted-runner-group-in-org,204,
+github,actions/list-self-hosted-runners-in-group-for-org,200,
+github,actions/set-self-hosted-runners-in-group-for-org,204,
+github,actions/add-self-hosted-runner-to-group-for-org,204,
+github,actions/remove-self-hosted-runner-from-group-for-org,204,
+github,actions/list-self-hosted-runners-for-org,200,
+github,actions/list-runner-applications-for-org,200,
+github,actions/generate-runner-jitconfig-for-org,201,404|409|422
+github,actions/create-registration-token-for-org,201,
+github,actions/create-remove-token-for-org,201,
+github,actions/get-self-hosted-runner-for-org,200,
+github,actions/delete-self-hosted-runner-from-org,204,
+github,actions/list-labels-for-self-hosted-runner-for-org,200,404
+github,actions/add-custom-labels-to-self-hosted-runner-for-org,200,404|422
+github,actions/set-custom-labels-for-self-hosted-runner-for-org,200,404|422
+github,actions/remove-all-custom-labels-from-self-hosted-runner-for-org,200,404
+github,actions/remove-custom-label-from-self-hosted-runner-for-org,200,404|422
+github,actions/list-org-secrets,200,
+github,actions/get-org-public-key,200,
+github,actions/get-org-secret,200,
+github,actions/create-or-update-org-secret,201|204,
+github,actions/delete-org-secret,204,
+github,actions/list-selected-repos-for-org-secret,200,
+github,actions/set-selected-repos-for-org-secret,204,
+github,actions/add-selected-repo-to-org-secret,204,409
+github,actions/remove-selected-repo-from-org-secret,204,409
+github,actions/list-org-variables,200,
+github,actions/create-org-variable,201,
+github,actions/get-org-variable,200,
+github,actions/update-org-variable,204,
+github,actions/delete-org-variable,204,
+github,actions/list-selected-repos-for-org-variable,200,409
+github,actions/set-selected-repos-for-org-variable,204,409
+github,actions/add-selected-repo-to-org-variable,204,409
+github,actions/remove-selected-repo-from-org-variable,204,409
+github,orgs/list-attestations,200,
+github,orgs/list-blocked-users,200,
+github,orgs/check-blocked-user,204,404
+github,orgs/block-user,204,422
+github,orgs/unblock-user,204,
+github,campaigns/list-org-campaigns,200,404
+github,campaigns/create-campaign,200,400|404|422|429
+github,campaigns/get-campaign-summary,200,404|422
+github,campaigns/update-campaign,200,400|404|422
+github,campaigns/delete-campaign,204,404
+github,code-scanning/list-alerts-for-org,200,404
+github,code-security/get-configurations-for-org,200,403|404
+github,code-security/create-configuration,201,
+github,code-security/get-default-configurations,200,403|404
+github,code-security/detach-configuration,204,400|403|404|409
+github,code-security/get-configuration,200,403|404
+github,code-security/update-configuration,200|204,
+github,code-security/delete-configuration,204,400|403|404|409
+github,code-security/attach-configuration,202,
+github,code-security/set-configuration-as-default,200,403|404
+github,code-security/get-repositories-for-configuration,200,403|404
+github,codespaces/list-in-organization,200,401|403|404
+github,codespaces/set-codespaces-access,204,400|404|422
+github,codespaces/set-codespaces-access-users,204,400|404|422
+github,codespaces/delete-codespaces-access-users,204,400|404|422
+github,codespaces/list-org-secrets,200,
+github,codespaces/get-org-public-key,200,
+github,codespaces/get-org-secret,200,
+github,codespaces/create-or-update-org-secret,201|204,404|422
+github,codespaces/delete-org-secret,204,404
+github,codespaces/list-selected-repos-for-org-secret,200,404
+github,codespaces/set-selected-repos-for-org-secret,204,404|409
+github,codespaces/add-selected-repo-to-org-secret,204,404|409|422
+github,codespaces/remove-selected-repo-from-org-secret,204,404|409|422
+github,copilot/get-copilot-organization-details,200,401|403|404|422
+github,copilot/list-copilot-seats,200,401|403|404
+github,copilot/add-copilot-seats-for-teams,201,401|403|404|422
+github,copilot/cancel-copilot-seat-assignment-for-teams,200,401|403|404|422
+github,copilot/add-copilot-seats-for-users,201,401|403|404|422
+github,copilot/cancel-copilot-seat-assignment-for-users,200,401|403|404|422
+github,copilot/copilot-metrics-for-organization,200,403|404|422
+github,dependabot/list-alerts-for-org,200,400|403|404|422
+github,dependabot/list-org-secrets,200,
+github,dependabot/get-org-public-key,200,
+github,dependabot/get-org-secret,200,
+github,dependabot/create-or-update-org-secret,201|204,
+github,dependabot/delete-org-secret,204,
+github,dependabot/list-selected-repos-for-org-secret,200,
+github,dependabot/set-selected-repos-for-org-secret,204,
+github,dependabot/add-selected-repo-to-org-secret,204,409
+github,dependabot/remove-selected-repo-from-org-secret,204,409
+github,packages/list-docker-migration-conflicting-packages-for-organization,200,401|403
+github,activity/list-public-org-events,200,
+github,orgs/list-failed-invitations,200,404
+github,orgs/list-webhooks,200,404
+github,orgs/create-webhook,201,404|422
+github,orgs/get-webhook,200,404
+github,orgs/update-webhook,200,404|422
+github,orgs/delete-webhook,204,404
+github,orgs/get-webhook-config-for-org,200,
+github,orgs/update-webhook-config-for-org,200,
+github,orgs/list-webhook-deliveries,200,400|422
+github,orgs/get-webhook-delivery,200,400|422
+github,orgs/redeliver-webhook-delivery,202,400|422
+github,orgs/ping-webhook,204,404
+github,api-insights/get-route-stats-by-actor,200,
+github,api-insights/get-subject-stats,200,
+github,api-insights/get-summary-stats,200,
+github,api-insights/get-summary-stats-by-user,200,
+github,api-insights/get-summary-stats-by-actor,200,
+github,api-insights/get-time-stats,200,
+github,api-insights/get-time-stats-by-user,200,
+github,api-insights/get-time-stats-by-actor,200,
+github,api-insights/get-user-stats,200,
+github,apps/get-org-installation,200,
+github,orgs/list-app-installations,200,
+github,interactions/get-restrictions-for-org,200,
+github,interactions/set-restrictions-for-org,200,422
+github,interactions/remove-restrictions-for-org,204,
+github,orgs/list-pending-invitations,200,404
+github,orgs/create-invitation,201,404|422
+github,orgs/cancel-invitation,204,404|422
+github,orgs/list-invitation-teams,200,404
+github,orgs/list-issue-types,200,404
+github,orgs/create-issue-type,200,404|422
+github,orgs/update-issue-type,200,404|422
+github,orgs/delete-issue-type,204,404|422
+github,issues/list-for-org,200,404
+github,orgs/list-members,200,422
+github,orgs/check-membership-for-user,204,404
+github,orgs/remove-member,204,403
+github,codespaces/get-codespaces-for-user-in-org,200,401|403|404
+github,codespaces/delete-from-organization,202,401|403|404
+github,codespaces/stop-in-organization,200,401|403|404
+github,copilot/get-copilot-seat-details-for-user,200,401|403|404|422
+github,orgs/get-membership-for-user,200,403|404
+github,orgs/set-membership-for-user,200,403|422
+github,orgs/remove-membership-for-user,204,403|404
+github,migrations/list-for-org,200,
+github,migrations/start-for-org,201,404|422
+github,migrations/get-status-for-org,200,404
+github,migrations/download-archive-for-org,,404
+github,migrations/delete-archive-for-org,204,404
+github,migrations/unlock-repo-for-org,204,404
+github,migrations/list-repos-for-org,200,404
+github,orgs/list-org-roles,200,404|422
+github,orgs/revoke-all-org-roles-team,204,
+github,orgs/assign-team-to-org-role,204,404|422
+github,orgs/revoke-org-role-team,204,
+github,orgs/revoke-all-org-roles-user,204,
+github,orgs/assign-user-to-org-role,204,404|422
+github,orgs/revoke-org-role-user,204,
+github,orgs/get-org-role,200,404|422
+github,orgs/list-org-role-teams,200,404|422
+github,orgs/list-org-role-users,200,404|422
+github,orgs/list-outside-collaborators,200,
+github,orgs/convert-member-to-outside-collaborator,202|204,403|404
+github,orgs/remove-outside-collaborator,204,422
+github,packages/list-packages-for-organization,200,400|401|403
+github,packages/get-package-for-organization,200,
+github,packages/delete-package-for-org,204,401|403|404
+github,packages/restore-package-for-org,204,401|403|404
+github,packages/get-all-package-versions-for-package-owned-by-org,200,401|403|404
+github,packages/get-package-version-for-organization,200,
+github,packages/delete-package-version-for-org,204,401|403|404
+github,packages/restore-package-version-for-org,204,401|403|404
+github,orgs/list-pat-grant-requests,200,403|404|422
+github,orgs/review-pat-grant-requests-in-bulk,202,403|404|422
+github,orgs/review-pat-grant-request,204,403|404|422
+github,orgs/list-pat-grant-request-repositories,200,403|404
+github,orgs/list-pat-grants,200,403|404|422
+github,orgs/update-pat-accesses,202,403|404|422
+github,orgs/update-pat-access,204,403|404|422
+github,orgs/list-pat-grant-repositories,200,403|404
+github,private-registries/list-org-private-registries,200,400|404
+github,private-registries/create-org-private-registry,201,404|422
+github,private-registries/get-org-public-key,200,404
+github,private-registries/get-org-private-registry,200,404
+github,private-registries/update-org-private-registry,204,404|422
+github,private-registries/delete-org-private-registry,204,400|404
+github,projects/list-for-org,200,422
+github,projects/create-for-org,201,401|403|404|410|422
+github,orgs/get-all-custom-properties,200,403|404
+github,orgs/create-or-update-custom-properties,200,403|404
+github,orgs/get-custom-property,200,403|404
+github,orgs/create-or-update-custom-property,200,403|404
+github,orgs/remove-custom-property,204,403|404
+github,orgs/list-custom-properties-values-for-repos,200,403|404
+github,orgs/create-or-update-custom-properties-values-for-repos,204,403|404|422
+github,orgs/list-public-members,200,
+github,orgs/check-public-membership-for-user,204,404
+github,orgs/set-public-membership-for-authenticated-user,204,403
+github,orgs/remove-public-membership-for-authenticated-user,204,
+github,repos/list-for-org,200,
+github,repos/create-in-org,201,403|422
+github,repos/get-org-rulesets,200,404
+github,repos/create-org-ruleset,201,404
+github,repos/get-org-rule-suites,200,404
+github,repos/get-org-rule-suite,200,404
+github,repos/get-org-ruleset,200,404
+github,repos/update-org-ruleset,200,404
+github,repos/delete-org-ruleset,204,404
+github,orgs/get-org-ruleset-history,200,404
+github,orgs/get-org-ruleset-version,200,404
+github,secret-scanning/list-alerts-for-org,200,404
+github,security-advisories/list-org-repository-advisories,200,400|404
+github,orgs/list-security-manager-teams,200,
+github,orgs/add-security-manager-team,204,
+github,orgs/remove-security-manager-team,204,
+github,billing/get-github-actions-billing-org,200,
+github,billing/get-github-packages-billing-org,200,
+github,billing/get-shared-storage-billing-org,200,
+github,hosted-compute/list-network-configurations-for-org,200,
+github,hosted-compute/create-network-configuration-for-org,201,
+github,hosted-compute/get-network-configuration-for-org,200,
+github,hosted-compute/update-network-configuration-for-org,200,
+github,hosted-compute/delete-network-configuration-from-org,204,
+github,hosted-compute/get-network-settings-for-org,200,
+github,copilot/copilot-metrics-for-team,200,403|404|422
+github,teams/list,200,403
+github,teams/create,201,403|422
+github,teams/get-by-name,200,404
+github,teams/update-in-org,200|201,403|404|422
+github,teams/delete-in-org,204,
+github,teams/list-discussions-in-org,200,
+github,teams/create-discussion-in-org,201,
+github,teams/get-discussion-in-org,200,
+github,teams/update-discussion-in-org,200,
+github,teams/delete-discussion-in-org,204,
+github,teams/list-discussion-comments-in-org,200,
+github,teams/create-discussion-comment-in-org,201,
+github,teams/get-discussion-comment-in-org,200,
+github,teams/update-discussion-comment-in-org,200,
+github,teams/delete-discussion-comment-in-org,204,
+github,reactions/list-for-team-discussion-comment-in-org,200,
+github,reactions/create-for-team-discussion-comment-in-org,200|201,
+github,reactions/delete-for-team-discussion-comment,204,
+github,reactions/list-for-team-discussion-in-org,200,
+github,reactions/create-for-team-discussion-in-org,200|201,
+github,reactions/delete-for-team-discussion,204,
+github,teams/list-pending-invitations-in-org,200,
+github,teams/list-members-in-org,200,
+github,teams/get-membership-for-user-in-org,200,404
+github,teams/add-or-update-membership-for-user-in-org,200,403|422
+github,teams/remove-membership-for-user-in-org,204,403
+github,teams/list-projects-in-org,200,
+github,teams/check-permissions-for-project-in-org,200,404
+github,teams/add-or-update-project-permissions-in-org,204,403
+github,teams/remove-project-in-org,204,
+github,teams/list-repos-in-org,200,
+github,teams/check-permissions-for-repo-in-org,200|204,404
+github,teams/add-or-update-repo-permissions-in-org,204,
+github,teams/remove-repo-in-org,204,
+github,teams/list-child-in-org,200,
+github,orgs/enable-or-disable-security-product-on-all-org-repos,204,422
+github,projects/get-card,200,401|403|404
+github,projects/update-card,200,401|403|404|422
+github,projects/delete-card,204,401|403|404
+github,projects/move-card,201,401|403|422
+github,projects/get-column,200,401|403|404
+github,projects/update-column,200,401|403
+github,projects/delete-column,204,401|403
+github,projects/list-cards,200,401|403
+github,projects/create-card,201,401|403|422
+github,projects/move-column,201,401|403|422
+github,projects/get,200,401|403
+github,projects/update,200,401|403|404|410|422
+github,projects/delete,204,401|403|404|410
+github,projects/list-collaborators,200,401|403|404|422
+github,projects/add-collaborator,204,401|403|404|422
+github,projects/remove-collaborator,204,401|403|404|422
+github,projects/get-permission-for-user,200,401|403|404|422
+github,projects/list-columns,200,401|403
+github,projects/create-column,201,401|403|422
+github,rate-limit/get,200,404
+github,repos/get,200,403|404
+github,repos/update,200,403|404|422
+github,repos/delete,204,403|404
+github,actions/list-artifacts-for-repo,200,
+github,actions/get-artifact,200,
+github,actions/delete-artifact,204,
+github,actions/download-artifact,,410
+github,actions/get-actions-cache-usage,200,
+github,actions/get-actions-cache-list,200,
+github,actions/delete-actions-cache-by-key,200,
+github,actions/delete-actions-cache-by-id,204,
+github,actions/get-job-for-workflow-run,200,
+github,actions/download-job-logs-for-workflow-run,,
+github,actions/re-run-job-for-workflow-run,201,403
+github,actions/get-custom-oidc-sub-claim-for-repo,200,400|404
+github,actions/set-custom-oidc-sub-claim-for-repo,201,400|404|422
+github,actions/list-repo-organization-secrets,200,
+github,actions/list-repo-organization-variables,200,
+github,actions/get-github-actions-permissions-repository,200,
+github,actions/set-github-actions-permissions-repository,204,
+github,actions/get-workflow-access-to-repository,200,
+github,actions/set-workflow-access-to-repository,204,
+github,actions/get-allowed-actions-repository,200,
+github,actions/set-allowed-actions-repository,204,
+github,actions/get-github-actions-default-workflow-permissions-repository,200,
+github,actions/set-github-actions-default-workflow-permissions-repository,204,409
+github,actions/list-self-hosted-runners-for-repo,200,
+github,actions/list-runner-applications-for-repo,200,
+github,actions/generate-runner-jitconfig-for-repo,201,404|409|422
+github,actions/create-registration-token-for-repo,201,
+github,actions/create-remove-token-for-repo,201,
+github,actions/get-self-hosted-runner-for-repo,200,
+github,actions/delete-self-hosted-runner-from-repo,204,
+github,actions/list-labels-for-self-hosted-runner-for-repo,200,404
+github,actions/add-custom-labels-to-self-hosted-runner-for-repo,200,404|422
+github,actions/set-custom-labels-for-self-hosted-runner-for-repo,200,404|422
+github,actions/remove-all-custom-labels-from-self-hosted-runner-for-repo,200,404
+github,actions/remove-custom-label-from-self-hosted-runner-for-repo,200,404|422
+github,actions/list-workflow-runs-for-repo,200,
+github,actions/get-workflow-run,200,
+github,actions/delete-workflow-run,204,
+github,actions/get-reviews-for-run,200,
+github,actions/approve-workflow-run,201,403|404
+github,actions/list-workflow-run-artifacts,200,
+github,actions/get-workflow-run-attempt,200,
+github,actions/list-jobs-for-workflow-run-attempt,200,404
+github,actions/download-workflow-run-attempt-logs,,
+github,actions/cancel-workflow-run,202,409
+github,actions/review-custom-gates-for-run,204,
+github,actions/force-cancel-workflow-run,202,409
+github,actions/list-jobs-for-workflow-run,200,
+github,actions/download-workflow-run-logs,,
+github,actions/delete-workflow-run-logs,204,403
+github,actions/get-pending-deployments-for-run,200,
+github,actions/review-pending-deployments-for-run,200,
+github,actions/re-run-workflow,201,
+github,actions/re-run-workflow-failed-jobs,201,
+github,actions/get-workflow-run-usage,200,
+github,actions/list-repo-secrets,200,
+github,actions/get-repo-public-key,200,
+github,actions/get-repo-secret,200,
+github,actions/create-or-update-repo-secret,201|204,
+github,actions/delete-repo-secret,204,
+github,actions/list-repo-variables,200,
+github,actions/create-repo-variable,201,
+github,actions/get-repo-variable,200,
+github,actions/update-repo-variable,204,
+github,actions/delete-repo-variable,204,
+github,actions/list-repo-workflows,200,
+github,actions/get-workflow,200,
+github,actions/disable-workflow,204,
+github,actions/create-workflow-dispatch,204,
+github,actions/enable-workflow,204,
+github,actions/list-workflow-runs,200,
+github,actions/get-workflow-usage,200,
+github,repos/list-activities,200,422
+github,issues/list-assignees,200,404
+github,issues/check-user-can-be-assigned,204,404
+github,repos/create-attestation,201,403|422
+github,repos/list-attestations,200,
+github,repos/list-autolinks,200,
+github,repos/create-autolink,201,422
+github,repos/get-autolink,200,404
+github,repos/delete-autolink,204,404
+github,repos/check-automated-security-fixes,200,404
+github,repos/enable-automated-security-fixes,204,
+github,repos/disable-automated-security-fixes,204,
+github,repos/list-branches,200,404
+github,repos/get-branch,200,404
+github,repos/get-branch-protection,200,404
+github,repos/update-branch-protection,200,403|404|422
+github,repos/delete-branch-protection,204,403
+github,repos/get-admin-branch-protection,200,
+github,repos/set-admin-branch-protection,200,
+github,repos/delete-admin-branch-protection,204,404
+github,repos/get-pull-request-review-protection,200,
+github,repos/update-pull-request-review-protection,200,422
+github,repos/delete-pull-request-review-protection,204,404
+github,repos/get-commit-signature-protection,200,404
+github,repos/create-commit-signature-protection,200,404
+github,repos/delete-commit-signature-protection,204,404
+github,repos/get-status-checks-protection,200,404
+github,repos/update-status-check-protection,200,404|422
+github,repos/remove-status-check-protection,204,
+github,repos/get-all-status-check-contexts,200,404
+github,repos/add-status-check-contexts,200,403|404|422
+github,repos/set-status-check-contexts,200,404|422
+github,repos/remove-status-check-contexts,200,404|422
+github,repos/get-access-restrictions,200,404
+github,repos/delete-access-restrictions,204,
+github,repos/get-apps-with-access-to-protected-branch,200,404
+github,repos/add-app-access-restrictions,200,422
+github,repos/set-app-access-restrictions,200,422
+github,repos/remove-app-access-restrictions,200,422
+github,repos/get-teams-with-access-to-protected-branch,200,404
+github,repos/add-team-access-restrictions,200,422
+github,repos/set-team-access-restrictions,200,422
+github,repos/remove-team-access-restrictions,200,422
+github,repos/get-users-with-access-to-protected-branch,200,404
+github,repos/add-user-access-restrictions,200,422
+github,repos/set-user-access-restrictions,200,422
+github,repos/remove-user-access-restrictions,200,422
+github,repos/rename-branch,201,403|404|422
+github,checks/create,201,
+github,checks/get,200,
+github,checks/update,200,
+github,checks/list-annotations,200,
+github,checks/rerequest-run,201,403|404|422
+github,checks/create-suite,200|201,
+github,checks/set-suites-preferences,200,
+github,checks/get-suite,200,
+github,checks/list-for-suite,200,
+github,checks/rerequest-suite,201,
+github,code-scanning/list-alerts-for-repo,200,403|404
+github,code-scanning/get-alert,200,403|404
+github,code-scanning/update-alert,200,400|403|404
+github,code-scanning/get-autofix,200,400|403|404
+github,code-scanning/create-autofix,200|202,400|403|404|422
+github,code-scanning/commit-autofix,201,400|403|404|422
+github,code-scanning/list-alert-instances,200,403|404
+github,code-scanning/list-recent-analyses,200,403|404
+github,code-scanning/get-analysis,200,403|404
+github,code-scanning/delete-analysis,200,400|403|404
+github,code-scanning/list-codeql-databases,200,403|404
+github,code-scanning/get-codeql-database,200,403|404
+github,code-scanning/delete-codeql-database,204,403|404
+github,code-scanning/create-variant-analysis,201,404|422
+github,code-scanning/get-variant-analysis,200,404
+github,code-scanning/get-variant-analysis-repo-task,200,404
+github,code-scanning/get-default-setup,200,403|404
+github,code-scanning/update-default-setup,200|202,403|404|409
+github,code-scanning/upload-sarif,202,400|403|404|413
+github,code-scanning/get-sarif,200,403|404
+github,code-security/get-configuration-for-repository,200|204,403|404
+github,repos/codeowners-errors,200,404
+github,codespaces/list-in-repository-for-authenticated-user,200,401|403|404
+github,codespaces/create-with-repo-for-authenticated-user,201|202,400|401|403|404
+github,codespaces/list-devcontainers-in-repository-for-authenticated-user,200,400|401|403|404
+github,codespaces/repo-machines-for-authenticated-user,200,401|403|404
+github,codespaces/pre-flight-with-repo-for-authenticated-user,200,401|403|404
+github,codespaces/check-permissions-for-devcontainer,200,401|403|404|422
+github,codespaces/list-repo-secrets,200,
+github,codespaces/get-repo-public-key,200,
+github,codespaces/get-repo-secret,200,
+github,codespaces/create-or-update-repo-secret,201|204,
+github,codespaces/delete-repo-secret,204,
+github,repos/list-collaborators,200,404
+github,repos/check-collaborator,204,404
+github,repos/add-collaborator,201|204,403|422
+github,repos/remove-collaborator,204,403|422
+github,repos/get-collaborator-permission-level,200,404
+github,repos/list-commit-comments-for-repo,200,
+github,repos/get-commit-comment,200,404
+github,repos/update-commit-comment,200,404
+github,repos/delete-commit-comment,204,404
+github,reactions/list-for-commit-comment,200,404
+github,reactions/create-for-commit-comment,200|201,422
+github,reactions/delete-for-commit-comment,204,
+github,repos/list-commits,200,400|404|409
+github,repos/list-branches-for-head-commit,200,409|422
+github,repos/list-comments-for-commit,200,
+github,repos/create-commit-comment,201,403|422
+github,repos/list-pull-requests-associated-with-commit,200,409
+github,repos/get-commit,200,404|409|422
+github,checks/list-for-ref,200,
+github,checks/list-suites-for-ref,200,
+github,repos/get-combined-status-for-ref,200,404
+github,repos/list-commit-statuses-for-ref,200,
+github,repos/get-community-profile-metrics,200,
+github,repos/compare-commits,200,404
+github,repos/get-content,200,403|404
+github,repos/create-or-update-file-contents,200|201,404|409|422
+github,repos/delete-file,200,404|409|422
+github,repos/list-contributors,200|204,403|404
+github,dependabot/list-alerts-for-repo,200,400|403|404|422
+github,dependabot/get-alert,200,403|404
+github,dependabot/update-alert,200,400|403|404|409|422
+github,dependabot/list-repo-secrets,200,
+github,dependabot/get-repo-public-key,200,
+github,dependabot/get-repo-secret,200,
+github,dependabot/create-or-update-repo-secret,201|204,
+github,dependabot/delete-repo-secret,204,
+github,dependency-graph/diff-range,200,403|404
+github,dependency-graph/export-sbom,200,403|404
+github,dependency-graph/create-repository-snapshot,201,
+github,repos/list-deployments,200,
+github,repos/create-deployment,201|202,409|422
+github,repos/get-deployment,200,404
+github,repos/delete-deployment,204,404|422
+github,repos/list-deployment-statuses,200,404
+github,repos/create-deployment-status,201,422
+github,repos/get-deployment-status,200,404
+github,repos/create-dispatch-event,204,404|422
+github,repos/get-all-environments,200,
+github,repos/get-environment,200,
+github,repos/create-or-update-environment,200,422
+github,repos/delete-an-environment,204,
+github,repos/list-deployment-branch-policies,200,
+github,repos/create-deployment-branch-policy,200,404
+github,repos/get-deployment-branch-policy,200,
+github,repos/update-deployment-branch-policy,200,
+github,repos/delete-deployment-branch-policy,204,
+github,repos/get-all-deployment-protection-rules,200,
+github,repos/create-deployment-protection-rule,201,
+github,repos/list-custom-deployment-rule-integrations,200,
+github,repos/get-custom-deployment-protection-rule,200,
+github,repos/disable-deployment-protection-rule,204,
+github,actions/list-environment-secrets,200,
+github,actions/get-environment-public-key,200,
+github,actions/get-environment-secret,200,
+github,actions/create-or-update-environment-secret,201|204,
+github,actions/delete-environment-secret,204,
+github,actions/list-environment-variables,200,
+github,actions/create-environment-variable,201,
+github,actions/get-environment-variable,200,
+github,actions/update-environment-variable,204,
+github,actions/delete-environment-variable,204,
+github,activity/list-repo-events,200,
+github,repos/list-forks,200,400
+github,repos/create-fork,202,400|403|404|422
+github,git/create-blob,201,403|404|409|422
+github,git/get-blob,200,403|404|409|422
+github,git/create-commit,201,404|409|422
+github,git/get-commit,200,404|409
+github,git/list-matching-refs,200,409
+github,git/get-ref,200,404|409
+github,git/create-ref,201,409|422
+github,git/update-ref,200,409|422
+github,git/delete-ref,204,409|422
+github,git/create-tag,201,409|422
+github,git/get-tag,200,404|409
+github,git/create-tree,201,403|404|409|422
+github,git/get-tree,200,404|409|422
+github,repos/list-webhooks,200,404
+github,repos/create-webhook,201,403|404|422
+github,repos/get-webhook,200,404
+github,repos/update-webhook,200,404|422
+github,repos/delete-webhook,204,404
+github,repos/get-webhook-config-for-repo,200,
+github,repos/update-webhook-config-for-repo,200,
+github,repos/list-webhook-deliveries,200,400|422
+github,repos/get-webhook-delivery,200,400|422
+github,repos/redeliver-webhook-delivery,202,400|422
+github,repos/ping-webhook,204,404
+github,repos/test-push-webhook,204,404
+github,migrations/get-import-status,200,404
+github,migrations/start-import,201,404|422
+github,migrations/update-import,200,
+github,migrations/cancel-import,204,
+github,migrations/get-commit-authors,200,404
+github,migrations/map-commit-author,200,404|422
+github,migrations/get-large-files,200,
+github,migrations/set-lfs-preference,200,422
+github,apps/get-repo-installation,200,404
+github,interactions/get-restrictions-for-repo,200,
+github,interactions/set-restrictions-for-repo,200,409
+github,interactions/remove-restrictions-for-repo,204,409
+github,repos/list-invitations,200,
+github,repos/update-invitation,200,
+github,repos/delete-invitation,204,
+github,issues/list-for-repo,200,404|422
+github,issues/create,201,400|403|404|410|422
+github,issues/list-comments-for-repo,200,404|422
+github,issues/get-comment,200,404
+github,issues/update-comment,200,422
+github,issues/delete-comment,204,
+github,reactions/list-for-issue-comment,200,404
+github,reactions/create-for-issue-comment,200|201,422
+github,reactions/delete-for-issue-comment,204,
+github,issues/list-events-for-repo,200,422
+github,issues/get-event,200,403|404|410
+github,issues/get,200,404|410
+github,issues/update,200,403|404|410|422
+github,issues/add-assignees,201,
+github,issues/remove-assignees,200,
+github,issues/check-user-can-be-assigned-to-issue,204,404
+github,issues/list-comments,200,404|410
+github,issues/create-comment,201,403|404|410|422
+github,issues/list-events,200,410
+github,issues/list-labels-on-issue,200,404|410
+github,issues/add-labels,200,404|410|422
+github,issues/set-labels,200,404|410|422
+github,issues/remove-all-labels,204,404|410
+github,issues/remove-label,200,404|410
+github,issues/lock,204,403|404|410|422
+github,issues/unlock,204,403|404
+github,reactions/list-for-issue,200,404|410
+github,reactions/create-for-issue,200|201,422
+github,reactions/delete-for-issue,204,
+github,issues/remove-sub-issue,200,400|404
+github,issues/list-sub-issues,200,404|410
+github,issues/add-sub-issue,201,403|404|410|422
+github,issues/reprioritize-sub-issue,200,403|404|422
+github,issues/list-events-for-timeline,200,404|410
+github,repos/list-deploy-keys,200,
+github,repos/create-deploy-key,201,422
+github,repos/get-deploy-key,200,404
+github,repos/delete-deploy-key,204,
+github,issues/list-labels-for-repo,200,404
+github,issues/create-label,201,404|422
+github,issues/get-label,200,404
+github,issues/update-label,200,
+github,issues/delete-label,204,
+github,repos/list-languages,200,
+github,licenses/get-for-repo,200,404
+github,repos/merge-upstream,200,409|422
+github,repos/merge,201|204,403|404|409|422
+github,issues/list-milestones,200,404
+github,issues/create-milestone,201,404|422
+github,issues/get-milestone,200,404
+github,issues/update-milestone,200,
+github,issues/delete-milestone,204,404
+github,issues/list-labels-for-milestone,200,
+github,activity/list-repo-notifications-for-authenticated-user,200,
+github,activity/mark-repo-notifications-as-read,202|205,
+github,repos/get-pages,200,404
+github,repos/create-pages-site,201,409|422
+github,repos/update-information-about-pages-site,204,400|409|422
+github,repos/delete-pages-site,204,404|409|422
+github,repos/list-pages-builds,200,
+github,repos/request-pages-build,201,
+github,repos/get-latest-pages-build,200,
+github,repos/get-pages-build,200,
+github,repos/create-pages-deployment,200,400|404|422
+github,repos/get-pages-deployment,200,404
+github,repos/cancel-pages-deployment,204,404
+github,repos/get-pages-health-check,200|202,400|404|422
+github,repos/check-private-vulnerability-reporting,200,422
+github,repos/enable-private-vulnerability-reporting,204,422
+github,repos/disable-private-vulnerability-reporting,204,422
+github,projects/list-for-repo,200,401|403|404|410|422
+github,projects/create-for-repo,201,401|403|404|410|422
+github,repos/get-custom-properties-values,200,403|404
+github,repos/create-or-update-custom-properties-values,204,403|404|422
+github,pulls/list,200,422
+github,pulls/create,201,403|422
+github,pulls/list-review-comments-for-repo,200,
+github,pulls/get-review-comment,200,404
+github,pulls/update-review-comment,200,
+github,pulls/delete-review-comment,204,404
+github,reactions/list-for-pull-request-review-comment,200,404
+github,reactions/create-for-pull-request-review-comment,200|201,422
+github,reactions/delete-for-pull-request-comment,204,
+github,pulls/get,200,404|406
+github,pulls/update,200,403|422
+github,codespaces/create-with-pr-for-authenticated-user,201|202,401|403|404
+github,pulls/list-review-comments,200,
+github,pulls/create-review-comment,201,403|422
+github,pulls/create-reply-for-review-comment,201,404
+github,pulls/list-commits,200,
+github,pulls/list-files,200,422
+github,pulls/check-if-merged,204,404
+github,pulls/merge,200,403|404|405|409|422
+github,pulls/list-requested-reviewers,200,
+github,pulls/request-reviewers,201,403|422
+github,pulls/remove-requested-reviewers,200,422
+github,pulls/list-reviews,200,
+github,pulls/create-review,200,403|422
+github,pulls/get-review,200,404
+github,pulls/update-review,200,422
+github,pulls/delete-pending-review,200,404|422
+github,pulls/list-comments-for-review,200,404
+github,pulls/dismiss-review,200,404|422
+github,pulls/submit-review,200,403|404|422
+github,pulls/update-branch,202,403|422
+github,repos/get-readme,200,404|422
+github,repos/get-readme-in-directory,200,404|422
+github,repos/list-releases,200,404
+github,repos/create-release,201,404|422
+github,repos/get-release-asset,200,404
+github,repos/update-release-asset,200,
+github,repos/delete-release-asset,204,
+github,repos/generate-release-notes,200,404
+github,repos/get-latest-release,200,
+github,repos/get-release-by-tag,200,404
+github,repos/get-release,200,401
+github,repos/update-release,200,404
+github,repos/delete-release,204,
+github,repos/list-release-assets,200,
+github,repos/upload-release-asset,201,422
+github,reactions/list-for-release,200,404
+github,reactions/create-for-release,200|201,422
+github,reactions/delete-for-release,204,
+github,repos/get-branch-rules,200,
+github,repos/get-repo-rulesets,200,404
+github,repos/create-repo-ruleset,201,404
+github,repos/get-repo-rule-suites,200,404
+github,repos/get-repo-rule-suite,200,404
+github,repos/get-repo-ruleset,200,404
+github,repos/update-repo-ruleset,200,404
+github,repos/delete-repo-ruleset,204,404
+github,repos/get-repo-ruleset-history,200,404
+github,repos/get-repo-ruleset-version,200,404
+github,secret-scanning/list-alerts-for-repo,200,404
+github,secret-scanning/get-alert,200,404
+github,secret-scanning/update-alert,200,400|404|422
+github,secret-scanning/list-locations-for-alert,200,404
+github,secret-scanning/create-push-protection-bypass,200,403|404|422
+github,secret-scanning/get-scan-history,200,404
+github,security-advisories/list-repository-advisories,200,400|404
+github,security-advisories/create-repository-advisory,201,403|404|422
+github,security-advisories/create-private-vulnerability-report,201,403|404|422
+github,security-advisories/get-repository-advisory,200,403|404
+github,security-advisories/update-repository-advisory,200,403|404|422
+github,security-advisories/create-repository-advisory-cve-request,202,400|403|404|422
+github,security-advisories/create-fork,202,400|403|404|422
+github,activity/list-stargazers-for-repo,200,422
+github,repos/get-code-frequency-stats,200|202|204,422
+github,repos/get-commit-activity-stats,200|202|204,
+github,repos/get-contributors-stats,200|202|204,
+github,repos/get-participation-stats,200,404
+github,repos/get-punch-card-stats,200|204,
+github,repos/create-commit-status,201,
+github,activity/list-watchers-for-repo,200,
+github,activity/get-repo-subscription,200,403|404
+github,activity/set-repo-subscription,200,
+github,activity/delete-repo-subscription,204,
+github,repos/list-tags,200,
+github,repos/list-tag-protection,200,403|404
+github,repos/create-tag-protection,201,403|404
+github,repos/delete-tag-protection,204,403|404
+github,repos/download-tarball-archive,,
+github,repos/list-teams,200,404
+github,repos/get-all-topics,200,404
+github,repos/replace-all-topics,200,404|422
+github,repos/get-clones,200,403
+github,repos/get-top-paths,200,403
+github,repos/get-top-referrers,200,403
+github,repos/get-views,200,403
+github,repos/transfer,202,
+github,repos/check-vulnerability-alerts,204,404
+github,repos/enable-vulnerability-alerts,204,
+github,repos/disable-vulnerability-alerts,204,
+github,repos/download-zipball-archive,,
+github,repos/create-using-template,201,
+github,repos/list-public,200,422
+github,search/code,200,403|422
+github,search/commits,200,
+github,search/issues-and-pull-requests,200,403|422
+github,search/labels,200,403|404|422
+github,search/repos,200,422
+github,search/topics,200,
+github,search/users,200,422
+github,teams/get-legacy,200,404
+github,teams/update-legacy,200|201,403|404|422
+github,teams/delete-legacy,204,404|422
+github,teams/list-discussions-legacy,200,
+github,teams/create-discussion-legacy,201,
+github,teams/get-discussion-legacy,200,
+github,teams/update-discussion-legacy,200,
+github,teams/delete-discussion-legacy,204,
+github,teams/list-discussion-comments-legacy,200,
+github,teams/create-discussion-comment-legacy,201,
+github,teams/get-discussion-comment-legacy,200,
+github,teams/update-discussion-comment-legacy,200,
+github,teams/delete-discussion-comment-legacy,204,
+github,reactions/list-for-team-discussion-comment-legacy,200,
+github,reactions/create-for-team-discussion-comment-legacy,201,
+github,reactions/list-for-team-discussion-legacy,200,
+github,reactions/create-for-team-discussion-legacy,201,
+github,teams/list-pending-invitations-legacy,200,
+github,teams/list-members-legacy,200,404
+github,teams/get-member-legacy,204,404
+github,teams/add-member-legacy,204,403|404|422
+github,teams/remove-member-legacy,204,404
+github,teams/get-membership-for-user-legacy,200,404
+github,teams/add-or-update-membership-for-user-legacy,200,403|404|422
+github,teams/remove-membership-for-user-legacy,204,403
+github,teams/list-projects-legacy,200,404
+github,teams/check-permissions-for-project-legacy,200,404
+github,teams/add-or-update-project-permissions-legacy,204,403|404|422
+github,teams/remove-project-legacy,204,404|422
+github,teams/list-repos-legacy,200,404
+github,teams/check-permissions-for-repo-legacy,200|204,404
+github,teams/add-or-update-repo-permissions-legacy,204,403|422
+github,teams/remove-repo-legacy,204,
+github,teams/list-child-legacy,200,403|404|422
+github,users/get-authenticated,200,401|403
+github,users/update-authenticated,200,401|403|404|422
+github,users/list-blocked-by-authenticated-user,200,401|403|404
+github,users/check-blocked,204,401|403|404
+github,users/block,204,401|403|404|422
+github,users/unblock,204,401|403|404
+github,codespaces/list-for-authenticated-user,200,401|403|404
+github,codespaces/create-for-authenticated-user,201|202,401|403|404
+github,codespaces/list-secrets-for-authenticated-user,200,
+github,codespaces/get-public-key-for-authenticated-user,200,
+github,codespaces/get-secret-for-authenticated-user,200,
+github,codespaces/create-or-update-secret-for-authenticated-user,201|204,404|422
+github,codespaces/delete-secret-for-authenticated-user,204,
+github,codespaces/list-repositories-for-secret-for-authenticated-user,200,401|403|404
+github,codespaces/set-repositories-for-secret-for-authenticated-user,204,401|403|404
+github,codespaces/add-repository-for-secret-for-authenticated-user,204,401|403|404
+github,codespaces/remove-repository-for-secret-for-authenticated-user,204,401|403|404
+github,codespaces/get-for-authenticated-user,200,401|403|404
+github,codespaces/update-for-authenticated-user,200,401|403|404
+github,codespaces/delete-for-authenticated-user,202,401|403|404
+github,codespaces/export-for-authenticated-user,202,401|403|404|422
+github,codespaces/get-export-details-for-authenticated-user,200,404
+github,codespaces/codespace-machines-for-authenticated-user,200,401|403|404
+github,codespaces/publish-for-authenticated-user,201,401|403|404|422
+github,codespaces/start-for-authenticated-user,200,400|401|402|403|404|409
+github,codespaces/stop-for-authenticated-user,200,401|403|404
+github,packages/list-docker-migration-conflicting-packages-for-authenticated-user,200,
+github,users/set-primary-email-visibility-for-authenticated-user,200,401|403|404|422
+github,users/list-emails-for-authenticated-user,200,401|403|404
+github,users/add-email-for-authenticated-user,201,401|403|404|422
+github,users/delete-email-for-authenticated-user,204,401|403|404|422
+github,users/list-followers-for-authenticated-user,200,401|403
+github,users/list-followed-by-authenticated-user,200,401|403
+github,users/check-person-is-followed-by-authenticated,204,401|403|404
+github,users/follow,204,401|403|404|422
+github,users/unfollow,204,401|403|404
+github,users/list-gpg-keys-for-authenticated-user,200,401|403|404
+github,users/create-gpg-key-for-authenticated-user,201,401|403|404|422
+github,users/get-gpg-key-for-authenticated-user,200,401|403|404
+github,users/delete-gpg-key-for-authenticated-user,204,401|403|404|422
+github,apps/list-installations-for-authenticated-user,200,401|403
+github,apps/list-installation-repos-for-authenticated-user,200,403|404
+github,apps/add-repo-to-installation-for-authenticated-user,204,403|404
+github,apps/remove-repo-from-installation-for-authenticated-user,204,403|404|422
+github,interactions/get-restrictions-for-authenticated-user,200|204,
+github,interactions/set-restrictions-for-authenticated-user,200,422
+github,interactions/remove-restrictions-for-authenticated-user,204,
+github,issues/list-for-authenticated-user,200,404
+github,users/list-public-ssh-keys-for-authenticated-user,200,401|403|404
+github,users/create-public-ssh-key-for-authenticated-user,201,401|403|404|422
+github,users/get-public-ssh-key-for-authenticated-user,200,401|403|404
+github,users/delete-public-ssh-key-for-authenticated-user,204,401|403|404
+github,apps/list-subscriptions-for-authenticated-user,200,401|404
+github,apps/list-subscriptions-for-authenticated-user-stubbed,200,401
+github,orgs/list-memberships-for-authenticated-user,200,401|403|422
+github,orgs/get-membership-for-authenticated-user,200,403|404
+github,orgs/update-membership-for-authenticated-user,200,403|404|422
+github,migrations/list-for-authenticated-user,200,401|403
+github,migrations/start-for-authenticated-user,201,401|403|422
+github,migrations/get-status-for-authenticated-user,200,401|403|404
+github,migrations/get-archive-for-authenticated-user,,401|403
+github,migrations/delete-archive-for-authenticated-user,204,401|403|404
+github,migrations/unlock-repo-for-authenticated-user,204,401|403|404
+github,migrations/list-repos-for-authenticated-user,200,404
+github,orgs/list-for-authenticated-user,200,401|403
+github,packages/list-packages-for-authenticated-user,200,400
+github,packages/get-package-for-authenticated-user,200,
+github,packages/delete-package-for-authenticated-user,204,401|403|404
+github,packages/restore-package-for-authenticated-user,204,401|403|404
+github,packages/get-all-package-versions-for-package-owned-by-authenticated-user,200,401|403|404
+github,packages/get-package-version-for-authenticated-user,200,
+github,packages/delete-package-version-for-authenticated-user,204,401|403|404
+github,packages/restore-package-version-for-authenticated-user,204,401|403|404
+github,projects/create-for-authenticated-user,201,401|403|422
+github,users/list-public-emails-for-authenticated-user,200,401|403|404
+github,repos/list-for-authenticated-user,200,401|403|422
+github,repos/create-for-authenticated-user,201,400|401|403|404|422
+github,repos/list-invitations-for-authenticated-user,200,401|403|404
+github,repos/accept-invitation-for-authenticated-user,204,403|404|409
+github,repos/decline-invitation-for-authenticated-user,204,403|404|409
+github,users/list-social-accounts-for-authenticated-user,200,401|403|404
+github,users/add-social-account-for-authenticated-user,201,401|403|404|422
+github,users/delete-social-account-for-authenticated-user,204,401|403|404|422
+github,users/list-ssh-signing-keys-for-authenticated-user,200,401|403|404
+github,users/create-ssh-signing-key-for-authenticated-user,201,401|403|404|422
+github,users/get-ssh-signing-key-for-authenticated-user,200,401|403|404
+github,users/delete-ssh-signing-key-for-authenticated-user,204,401|403|404
+github,activity/list-repos-starred-by-authenticated-user,200,401|403
+github,activity/check-repo-is-starred-by-authenticated-user,204,401|403|404
+github,activity/star-repo-for-authenticated-user,204,401|403|404
+github,activity/unstar-repo-for-authenticated-user,204,401|403|404
+github,activity/list-watched-repos-for-authenticated-user,200,401|403
+github,teams/list-for-authenticated-user,200,403|404
+github,users/get-by-id,200,404
+github,users/list,200,
+github,users/get-by-username,200,404
+github,users/list-attestations,200|201|204,404
+github,packages/list-docker-migration-conflicting-packages-for-user,200,401|403
+github,activity/list-events-for-authenticated-user,200,
+github,activity/list-org-events-for-authenticated-user,200,
+github,activity/list-public-events-for-user,200,
+github,users/list-followers-for-user,200,
+github,users/list-following-for-user,200,
+github,users/check-following-for-user,204,404
+github,gists/list-for-user,200,422
+github,users/list-gpg-keys-for-user,200,
+github,users/get-context-for-user,200,404|422
+github,apps/get-user-installation,200,
+github,users/list-public-keys-for-user,200,
+github,orgs/list-for-user,200,
+github,packages/list-packages-for-user,200,400|401|403
+github,packages/get-package-for-user,200,
+github,packages/delete-package-for-user,204,401|403|404
+github,packages/restore-package-for-user,204,401|403|404
+github,packages/get-all-package-versions-for-package-owned-by-user,200,401|403|404
+github,packages/get-package-version-for-user,200,
+github,packages/delete-package-version-for-user,204,401|403|404
+github,packages/restore-package-version-for-user,204,401|403|404
+github,projects/list-for-user,200,422
+github,activity/list-received-events-for-user,200,
+github,activity/list-received-public-events-for-user,200,
+github,repos/list-for-user,200,
+github,billing/get-github-actions-billing-user,200,
+github,billing/get-github-packages-billing-user,200,
+github,billing/get-shared-storage-billing-user,200,
+github,users/list-social-accounts-for-user,200,
+github,users/list-ssh-signing-keys-for-user,200,
+github,activity/list-repos-starred-by-user,200,
+github,activity/list-repos-watched-by-user,200,
+github,meta/get-all-versions,200,404
+github,meta/get-zen,200,
+gitlab-v4,getApiV4GroupsIdBadgesBadgeId,200,
+gitlab-v4,putApiV4GroupsIdBadgesBadgeId,200,
+gitlab-v4,deleteApiV4GroupsIdBadgesBadgeId,204,
+gitlab-v4,getApiV4GroupsIdBadges,200,
+gitlab-v4,postApiV4GroupsIdBadges,201,
+gitlab-v4,getApiV4GroupsIdBadgesRender,200,
+gitlab-v4,deleteApiV4GroupsIdAccessRequestsUserId,204,
+gitlab-v4,putApiV4GroupsIdAccessRequestsUserIdApprove,200,
+gitlab-v4,getApiV4GroupsIdAccessRequests,200,
+gitlab-v4,postApiV4GroupsIdAccessRequests,200,
+gitlab-v4,deleteApiV4ProjectsIdRepositoryMergedBranches,202,404
+gitlab-v4,getApiV4ProjectsIdRepositoryBranchesBranch,200,404
+gitlab-v4,deleteApiV4ProjectsIdRepositoryBranchesBranch,204,404
+gitlab-v4,headApiV4ProjectsIdRepositoryBranchesBranch,204,404
+gitlab-v4,getApiV4ProjectsIdRepositoryBranches,200,404
+gitlab-v4,postApiV4ProjectsIdRepositoryBranches,201,400
+gitlab-v4,putApiV4ProjectsIdRepositoryBranchesBranchUnprotect,200,404
+gitlab-v4,putApiV4ProjectsIdRepositoryBranchesBranchProtect,200,404
+gitlab-v4,getApiV4ProjectsIdBadgesBadgeId,200,
+gitlab-v4,putApiV4ProjectsIdBadgesBadgeId,200,
+gitlab-v4,deleteApiV4ProjectsIdBadgesBadgeId,204,
+gitlab-v4,getApiV4ProjectsIdBadges,200,
+gitlab-v4,postApiV4ProjectsIdBadges,201,
+gitlab-v4,getApiV4ProjectsIdBadgesRender,200,
+gitlab-v4,deleteApiV4ProjectsIdAccessRequestsUserId,204,
+gitlab-v4,putApiV4ProjectsIdAccessRequestsUserIdApprove,200,
+gitlab-v4,getApiV4ProjectsIdAccessRequests,200,
+gitlab-v4,postApiV4ProjectsIdAccessRequests,200,
+gitlab-v4,putApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId,200,403|422
+gitlab-v4,deleteApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesMetricImageId,204,403|422
+gitlab-v4,getApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages,200,404
+gitlab-v4,postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImages,200,403
+gitlab-v4,postApiV4ProjectsIdAlertManagementAlertsAlertIidMetricImagesAuthorize,200,403
+gitlab-v4,getApiV4AdminBatchedBackgroundMigrationsId,200,401|403|404
+gitlab-v4,getApiV4AdminBatchedBackgroundMigrations,200,401|403
+gitlab-v4,putApiV4AdminBatchedBackgroundMigrationsIdResume,200,401|403|404|422
+gitlab-v4,putApiV4AdminBatchedBackgroundMigrationsIdPause,200,401|403|404|422
+gitlab-v4,getApiV4AdminCiVariablesKey,200,404
+gitlab-v4,putApiV4AdminCiVariablesKey,200,404
+gitlab-v4,deleteApiV4AdminCiVariablesKey,204,404
+gitlab-v4,getApiV4AdminCiVariables,200,
+gitlab-v4,postApiV4AdminCiVariables,201,400
+gitlab-v4,getApiV4AdminDatabasesDatabaseNameDictionaryTablesTableName,200,401|403|404
+gitlab-v4,getApiV4AdminClustersClusterId,200,403|404
+gitlab-v4,putApiV4AdminClustersClusterId,200,400|403|404
+gitlab-v4,deleteApiV4AdminClustersClusterId,204,403|404
+gitlab-v4,postApiV4AdminClustersAdd,201,400|403|404
+gitlab-v4,getApiV4AdminClusters,200,403
+gitlab-v4,postApiV4AdminMigrationsTimestampMark,201,401|403|404|422
+gitlab-v4,deleteApiV4ApplicationsId,204,
+gitlab-v4,getApiV4Applications,200,
+gitlab-v4,postApiV4Applications,200,
+gitlab-v4,getApiV4Avatar,200,
+gitlab-v4,getApiV4BroadcastMessagesId,200,
+gitlab-v4,putApiV4BroadcastMessagesId,200,
+gitlab-v4,deleteApiV4BroadcastMessagesId,200,
+gitlab-v4,getApiV4BroadcastMessages,200,
+gitlab-v4,postApiV4BroadcastMessages,201,
+gitlab-v4,getApiV4BulkImportsImportIdEntitiesEntityId,200,401|404
+gitlab-v4,getApiV4BulkImportsImportIdEntities,200,401|404
+gitlab-v4,getApiV4BulkImportsImportId,200,401|404
+gitlab-v4,getApiV4BulkImportsEntities,200,401|404
+gitlab-v4,getApiV4BulkImports,200,401|404
+gitlab-v4,postApiV4BulkImports,200,400|401|404|422
+gitlab-v4,getApiV4ApplicationAppearance,200,
+gitlab-v4,putApiV4ApplicationAppearance,200,
+gitlab-v4,getApiV4ApplicationPlanLimits,200,401|403
+gitlab-v4,putApiV4ApplicationPlanLimits,200,400|401|403
+gitlab-v4,getApiV4Metadata,200,401
+gitlab-v4,getApiV4Version,200,401
+gitlab-v4,listProjectJobs,200,
+gitlab-v4,getSingleJob,200,
+gitlab-v4,triggerManualJob,200,
+GitLabBranch,GET /projects,200,400
+GitLabBranch,POST /projects,201,400
+GitLabBranch,GET /projects/{id}/repository/branches,200,
+GitLabBranch,POST /projects/{id}/repository/branches,201,
+GitLabBranch,GET /projects/{id}/repository/branches/{branch},200,
+GitLabBranch,DELETE /projects/{id}/repository/branches/{branch},202,
+GitLabBranch,POST /projects/{id}/protected_branches,201,
+GitLabBranch,DELETE /projects/{id}/protected_branches/{name},202,
+GitLabBranch,DELETE /projects/{id}/repository/merged_branches,202,
+GitLabCommit,GET /projects,200,400
+GitLabCommit,POST /projects,201,400
+GitLabCommit,GET /projects/{id}/repository/commits,200,400
+GitLabCommit,POST /projects/{id}/repository/commits,201,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha},200,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/refs,200,400
+GitLabCommit,POST /projects/{id}/repository/commits/{sha}/cherry_pick,201,400
+GitLabCommit,POST /projects/{id}/repository/commits/{sha}/revert,201,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/diff,200,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/comments,201,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/discussions,200,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/statuses,200,400
+GitLabCommit,POST /projects/{id}/statuses/{sha},201,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/merge_requests,200,400
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/signature,200,400
+GitLabGroups,GET /groups,200,400
+GitLabGroups,POST /groups,201,400
+GitLabGroups,GET /groups/{id},200,400
+GitLabGroups,PUT /groups/{id},200,400
+GitLabGroups,DELETE /groups/{id},202,400
+GitLabGroups,POST /groups/{id}/share,200,400
+GitLabGroups,DELETE /groups/{id}/share/{group_id},204,400
+GitLabGroups,GET /groups/{id}/subgroups,200,400
+GitLabGroups,GET /groups/{id}/hooks,200,400
+GitLabGroups,POST /groups/{id}/hooks,201,400
+GitLabGroups,GET /groups/{id}/hooks/{hook_id},200,400
+GitLabGroups,PUT /groups/{id}/hooks/{hook_id},200,400
+GitLabGroups,DELETE /groups/{id}/hooks/{hook_id},204,400
+GitLabGroups,GET /groups/{id}/descendant_groups,200,400
+GitLabGroups,GET /groups/{id}/projects,200,400
+GitLabGroups,POST /groups/{id}/projects/{project_id},201,400
+GitLabGroups,GET /groups/{id}/projects/shared,200,400
+GitLabIssues,GET /projects,200,400
+GitLabIssues,POST /projects,201,400
+GitLabIssues,GET /issues,200,400
+GitLabIssues,GET /issues/{id},200,400
+GitLabIssues,GET /groups,200,400
+GitLabIssues,POST /groups,201,400
+GitLabIssues,GET /groups/{id}/issues,200,400
+GitLabIssues,GET /projects/{id}/issues,200,400
+GitLabIssues,POST /projects/{id}/issues,201,400
+GitLabIssues,GET /projects/{id}/issues/{issue_iid},200,400
+GitLabIssues,PUT /projects/{id}/issues/{issue_iid},200,400
+GitLabIssues,DELETE /projects/{id}/issues/{issue_iid},204,400
+GitLabIssues,PUT /projects/{id}/issues/{issue_iid}/reorder,200,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/move,200,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/subscribe,201,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/unsubscribe,201,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/todo,201,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/time_estimate,201,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/reset_time_estimate,201,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/add_spent_time,201,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/reset_spent_time,201,400
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/time_stats,200,400
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/related_merge_requests,200,400
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/closed_by,200,400
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/participants,200,400
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/metric_images,200,400
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/metric_images,201,400
+GitLabProject,GET /projects,200,400
+GitLabProject,POST /projects,201,400
+GitLabProject,POST /projects/user/{user_id},201,400
+GitLabProject,GET /projects/{id},200,400
+GitLabProject,PUT /projects/{id},201,400
+GitLabProject,DELETE /projects/{id},204,400
+GitLabProject,GET /projects/{id}/users,200,400
+GitLabProject,POST /projects/{id}/fork,201,400
+GitLabProject,DELETE /projects/{id}/fork,204,400
+GitLabProject,GET /projects/{id}/forks,200,400
+GitLabProject,POST /projects/{id}/star,201,400
+GitLabProject,POST /projects/{id}/unstar,201,400
+GitLabProject,GET /projects/{id}/starrers,200,400
+GitLabProject,GET /projects/{id}/languages,200,400
+GitLabProject,POST /projects/{id}/archive,201,400
+GitLabProject,POST /projects/{id}/unarchive,201,400
+GitLabProject,POST /projects/{id}/restore,201,400
+GitLabProject,POST /projects/{id}/uploads,201,400
+GitLabProject,POST /projects/{id}/share,201,400
+GitLabProject,DELETE /projects/{id}/share/{group_id},204,400
+GitLabProject,GET /projects/{id}/hooks,200,400
+GitLabProject,POST /projects/{id}/hooks,201,400
+GitLabProject,GET /projects/{id}/hooks/{hook_id},200,400
+GitLabProject,PUT /projects/{id}/hooks/{hook_id},200,400
+GitLabProject,DELETE /projects/{id}/hooks/{hook_id},200,400
+GitLabProject,POST /projects/{id}/housekeeping,201,400
+GitLabProject,PUT /projects/{id}/transfer,200,400
+GitLabProject,POST /projects/{id}/fork/{forked_from_id},201,400
+GitLabProject,GET /projects/{id}/snapshot,200,400
+GitLabProject,GET /users/{user_id}/projects,200,400
+GitLabProject,GET /users/{user_id}/starred_projects,200,400
+GitLabRepository,GET /projects,200,400
+GitLabRepository,POST /projects,201,400
+GitLabRepository,GET /projects/{id}/repository/tree,200,400
+GitLabRepository,GET /projects/{id}/repository/blobs/{sha},200,
+GitLabRepository,GET /projects/{id}/repository/blobs/{sha}/raw,200,
+GitLabRepository,GET /projects/{id}/repository/archive,200,
+GitLabRepository,GET /projects/{id}/repository/compare,200,
+GitLabRepository,GET /projects/{id}/repository/contributors,200,
+GitLabRepository,GET /projects/{id}/repository/merge_base,200,
+GitLabRepository,GET /projects/{id}/repository/changelog,200,
+petstore,updatePet,200,400|404|422
+petstore,addPet,200,400|422
+petstore,findPetsByStatus,200,400
+petstore,findPetsByTags,200,400
+petstore,getPetById,200,400|404
+petstore,updatePetWithForm,200,400
+petstore,deletePet,200,400
+petstore,uploadFile,200,400|404
+petstore,getInventory,200,
+petstore,placeOrder,200,400|422
+petstore,getOrderById,200,400|404
+petstore,deleteOrder,200,400|404
+petstore,createUser,200,
+petstore,createUsersWithListInput,200,
+petstore,loginUser,200,400
+petstore,logoutUser,200,
+petstore,getUserByName,200,400|404
+petstore,updateUser,200,400|404
+petstore,deleteUser,200,400|404
+ProShop,read_users_users__get,200,404|422
+ProShop,create_user_users__post,200,404|422
+ProShop,read_user_users_id__user_id__get,200,404|422
+ProShop,update_user_users_id__user_id__put,200,404|422
+ProShop,delete_user_users_id__user_id__delete,200,404|422
+ProShop,read_products_products__get,200,404|422
+ProShop,create_product_products__post,200,404|422
+ProShop,read_product_products_id__product_id__get,200,404|422
+ProShop,update_product_products_id__product_id__put,200,404|422
+ProShop,delete_product_products_id__product_id__delete,200,404|422
+ProShop,read_orders_orders__get,200,404|422
+ProShop,create_order_orders__post,200,404|422
+ProShop,read_order_orders_id__order_id__get,200,404|422
+ProShop,update_order_orders_id__order_id__put,200,404|422
+ProShop,delete_order_orders_id__order_id__delete,200,404|422
+ProShop,root__get,200,
+soundcloud,GET /connect,,401
+soundcloud,POST /oauth2/token,200,400|401
+soundcloud,GET /me,200,401
+soundcloud,GET /me/activities,200,401
+soundcloud,GET /me/activities/all/own,200,401
+soundcloud,GET /me/activities/tracks,200,401
+soundcloud,GET /me/connections,200,401
+soundcloud,GET /me/connections/{connection_id},200,401|404
+soundcloud,GET /me/likes/tracks,200,401
+soundcloud,GET /me/favorites/ids,200,404
+soundcloud,GET /me/followings,200,401
+soundcloud,GET /me/followings/tracks,200,401
+soundcloud,GET /me/followings/{user_id},200,401|404
+soundcloud,PUT /me/followings/{user_id},200|201,401|404
+soundcloud,DELETE /me/followings/{user_id},200,401|404|422
+soundcloud,GET /me/followers,200,401
+soundcloud,GET /me/followers/{follower_id},200,401
+soundcloud,GET /me/playlists,200,401|404
+soundcloud,GET /me/playlists/{playlist_id},200,
+soundcloud,GET /me/tracks,200,401
+soundcloud,GET /me/tracks/{track_id},200,
+soundcloud,GET /tracks,200,400|401
+soundcloud,POST /tracks,201,400|401
+soundcloud,GET /playlists,200,400|401
+soundcloud,POST /playlists,201,401|404
+soundcloud,GET /users,200,400|401
+soundcloud,GET /playlists/{playlist_id},200,400|401
+soundcloud,PUT /playlists/{playlist_id},200,401|404
+soundcloud,DELETE /playlists/{playlist_id},200,404
+soundcloud,GET /playlists/{playlist_id}/tracks,200,400|401
+soundcloud,GET /playlists/{playlist_id}/reposters,200,401|404
+soundcloud,GET /tracks/{track_id},200,401|404
+soundcloud,PUT /tracks/{track_id},200,400|401
+soundcloud,DELETE /tracks/{track_id},200,404
+soundcloud,GET /tracks/{track_id}/streams,200,401|404
+soundcloud,GET /tracks/{track_id}/comments,200,401|404
+soundcloud,POST /tracks/{track_id}/comments,201,422|429
+soundcloud,GET /tracks/{track_id}/favoriters,200,401|404
+soundcloud,GET /tracks/{track_id}/reposters,200,401|404
+soundcloud,GET /tracks/{track_id}/related,200,401|404
+soundcloud,GET /resolve,,
+soundcloud,GET /users/{user_id},200,401|404
+soundcloud,GET /users/{user_id}/comments,200,401|404
+soundcloud,GET /users/{user_id}/favorites,200,401
+soundcloud,GET /users/{user_id}/followers,200,401
+soundcloud,GET /users/{user_id}/followings,200,401
+soundcloud,GET /users/{user_id}/followings/{following_id},200,401|404
+soundcloud,GET /users/{user_id}/playlists,200,401
+soundcloud,GET /users/{user_id}/tracks,200,401
+soundcloud,GET /users/{user_id}/web-profiles,200,401|404
+soundcloud,GET /users/{user_id}/likes/tracks,200,400|401|404
+soundcloud,POST /likes/tracks/{track_id},200,400|401|404|429
+soundcloud,DELETE /likes/tracks/{track_id},200,400|404
+soundcloud,POST /likes/playlists/{playlist_id},200|201,400|401|404|429
+soundcloud,DELETE /likes/playlists/{playlist_id},200,400|404
+soundcloud,POST /reposts/tracks/{track_id},201,401|404
+soundcloud,DELETE /reposts/tracks/{track_id},200,401|404
+soundcloud,POST /reposts/playlists/{playlist_id},201,401|404
+soundcloud,DELETE /reposts/playlists/{playlist_id},200,401|404
+stripe,PostAccountLinks,200,
+stripe,GetApplePayDomains,200,
+stripe,PostApplePayDomains,200,
+stripe,PostEphemeralKeys,200,
+stripe,GetRadarValueListItems,200,
+stripe,PostRadarValueListItems,200,
+stripe,GetTaxRates,200,
+stripe,PostTaxRates,200,
+stripe,GetTestHelpersTestClocks,200,
+stripe,PostTestHelpersTestClocks,200,
+stripe,GetWebhookEndpoints,200,
+stripe,PostWebhookEndpoints,200,
+stripe,GetReportingReportTypes,200,
+telegrambot,POST /addStickerToSet,200,
+telegrambot,POST /answerCallbackQuery,200,
+telegrambot,POST /answerInlineQuery,200,
+telegrambot,POST /answerPreCheckoutQuery,200,
+telegrambot,POST /answerShippingQuery,200,
+telegrambot,POST /close,200,
+telegrambot,POST /copyMessage,200,
+telegrambot,POST /createNewStickerSet,200,
+telegrambot,POST /deleteChatPhoto,200,
+telegrambot,POST /deleteChatStickerSet,200,
+telegrambot,POST /deleteMessage,200,
+telegrambot,POST /deleteStickerFromSet,200,
+telegrambot,POST /deleteWebhook,200,
+telegrambot,POST /editMessageCaption,200,
+telegrambot,POST /editMessageLiveLocation,200,
+telegrambot,POST /editMessageMedia,200,
+telegrambot,POST /editMessageReplyMarkup,200,
+telegrambot,POST /editMessageText,200,
+telegrambot,POST /exportChatInviteLink,200,
+telegrambot,POST /forwardMessage,200,
+telegrambot,POST /getChat,200,
+telegrambot,POST /getChatAdministrators,200,
+telegrambot,POST /getChatMember,200,
+telegrambot,POST /getChatMembersCount,200,
+telegrambot,POST /getFile,200,
+telegrambot,POST /getGameHighScores,200,
+telegrambot,POST /getMe,200,
+telegrambot,POST /getMyCommands,200,
+telegrambot,POST /getStickerSet,200,
+telegrambot,POST /getUpdates,200,
+telegrambot,POST /getUserProfilePhotos,200,
+telegrambot,POST /getWebhookInfo,200,
+telegrambot,POST /kickChatMember,200,
+telegrambot,POST /leaveChat,200,
+telegrambot,POST /logOut,200,
+telegrambot,POST /pinChatMessage,200,
+telegrambot,POST /promoteChatMember,200,
+telegrambot,POST /restrictChatMember,200,
+telegrambot,POST /sendAnimation,200,
+telegrambot,POST /sendAudio,200,
+telegrambot,POST /sendChatAction,200,
+telegrambot,POST /sendContact,200,
+telegrambot,POST /sendDice,200,
+telegrambot,POST /sendDocument,200,
+telegrambot,POST /sendGame,200,
+telegrambot,POST /sendInvoice,200,
+telegrambot,POST /sendLocation,200,
+telegrambot,POST /sendMediaGroup,200,
+telegrambot,POST /sendMessage,200,
+telegrambot,POST /sendPhoto,200,
+telegrambot,POST /sendPoll,200,
+telegrambot,POST /sendSticker,200,
+telegrambot,POST /sendVenue,200,
+telegrambot,POST /sendVideo,200,
+telegrambot,POST /sendVideoNote,200,
+telegrambot,POST /sendVoice,200,
+telegrambot,POST /setChatAdministratorCustomTitle,200,
+telegrambot,POST /setChatDescription,200,
+telegrambot,POST /setChatPermissions,200,
+telegrambot,POST /setChatPhoto,200,
+telegrambot,POST /setChatStickerSet,200,
+telegrambot,POST /setChatTitle,200,
+telegrambot,POST /setGameScore,200,
+telegrambot,POST /setMyCommands,200,
+telegrambot,POST /setPassportDataErrors,200,
+telegrambot,POST /setStickerPositionInSet,200,
+telegrambot,POST /setStickerSetThumb,200,
+telegrambot,POST /setWebhook,200,
+telegrambot,POST /stopMessageLiveLocation,200,
+telegrambot,POST /stopPoll,200,
+telegrambot,POST /unbanChatMember,200,
+telegrambot,POST /unpinAllChatMessages,200,
+telegrambot,POST /unpinChatMessage,200,
+telegrambot,POST /uploadStickerFile,200,
+twitter,account.settings.get,200,
+twitter,account.settings.post,200,
+twitter,account.update_delivery_device,200,
+twitter,account.update_profile,200,
+twitter,accounts.update_profile_background_image,200,
+twitter,accounts.update_profile_colors,200,
+twitter,accounts.update_profile_image,200,
+twitter,application.rate_limit_status,200,
+twitter,blocks.create,200,
+twitter,blocks.destroy,200,
+twitter,blocks.ids,200,
+twitter,blocks.list,200,
+twitter,direct_messages,200,
+twitter,direct_messages.destroy,200,
+twitter,direct_messages.new,200,
+twitter,direct_messages.sent,200,
+twitter,direct_messages.show,200,
+twitter,favorites.create,200,
+twitter,favorites.destroy,200,
+twitter,favorites.list,200,
+twitter,followers.ids,200,
+twitter,friends.ids,200,
+twitter,friendships.create,200,
+twitter,friendships.destroy,200,
+twitter,friendships.incoming,200,
+twitter,friendships.lookup,200,
+twitter,friendships.outgoing,200,
+twitter,friendships.show,200,
+twitter,friendships.update,200,
+twitter,geo.place_id,200,
+twitter,geo.places,200,
+twitter,geo.reverse_geocode,200,
+twitter,geo.search,200,
+twitter,geo.similar_places,200,
+twitter,help.configurations,200,
+twitter,help.languages,200,
+twitter,help.privacy,200,
+twitter,help.tos,200,
+twitter,lists.create,200,
+twitter,lists.destroy,200,
+twitter,lists.list,200,
+twitter,lists.members,200,
+twitter,lists.members.create,200,
+twitter,lists.members.create_all,200,
+twitter,lists.members.destroy,200,
+twitter,lists.members.destroy_all,200,
+twitter,lists.members.show,200,
+twitter,lists.memberships,200,
+twitter,lists.show,200,
+twitter,lists.statuses,200,
+twitter,lists.subscribers,200,
+twitter,lists.subscribers.create,200,
+twitter,lists.subscribers.destroy,200,
+twitter,lists.subscribers.show,200,
+twitter,lists.subscriptions,200,
+twitter,lists.update,200,
+twitter,saved_searches.create,200,
+twitter,saved_searches.destroy,200,
+twitter,saved_searches.list,200,
+twitter,savedsearchesid,200,
+twitter,search.tweets,200,
+twitter,statuses.destroy,200,
+twitter,statuses.home_timeline,200,
+twitter,statuses.mentions.timeline,200,
+twitter,statuses.oembed,200,
+twitter,statusesretweetid,200,
+twitter,statuses.retweets,200,
+twitter,statuses.show,200,
+twitter,statuses.update,200,
+twitter,statuses.update_with_media,200,
+twitter,statuses.user_timeline,200,
+twitter,trends.available,200,
+twitter,trends.closest,200,
+twitter,trends.place,200,
+twitter,users.contributees,200,
+twitter,users.contributors,200,
+twitter,users.lookup,200,
+twitter,users.report_spam,200,
+twitter,users.search,200,
+twitter,users.show,200,
+twitter,users.suggestions,200,
+twitter,users.suggestions.slug,200,
+twitter,users.suggestionsslugmembers,200,
+yahoo_finance,GetChart,200,
+yahoo_finance,GetQuote,200,
+yahoo_finance,Spark,200,
