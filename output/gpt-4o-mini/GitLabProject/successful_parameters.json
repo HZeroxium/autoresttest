@@ -1,0 +1,1382 @@
+{
+  "get_projects": {
+    "archived|query": [
+      true
+    ],
+    "id_after|query": [
+      50,
+      130
+    ],
+    "id_before|query": [
+      300,
+      260,
+      210,
+      1
+    ],
+    "last_activity_after|query": [
+      "2023-09-01T00:00:00Z",
+      "2023-08-20T00:00:00Z"
+    ],
+    "last_activity_before|query": [
+      "2023-10-22T00:00:00Z",
+      "2023-11-15T00:00:00Z"
+    ],
+    "membership|query": [
+      false,
+      true
+    ],
+    "min_access_level|query": [
+      30
+    ],
+    "order_by|query": [
+      "path",
+      "created_at"
+    ],
+    "owned|query": [
+      false,
+      true,
+      []
+    ],
+    "repository_storage|query": [
+      "default",
+      "enterprise",
+      "s3"
+    ],
+    "search_namespaces|query": [
+      false,
+      true
+    ],
+    "search|query": [
+      "documentation",
+      "integration",
+      "repository"
+    ],
+    "simple|query": [
+      true,
+      false
+    ],
+    "sort|query": [
+      "asc",
+      "desc"
+    ],
+    "starred|query": [
+      false,
+      true
+    ],
+    "statistics|query": [
+      true,
+      false
+    ],
+    "visibility|query": [
+      "public"
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ],
+    "with_issues_enabled|query": [
+      true
+    ],
+    "with_merge_requests_enabled|query": [
+      false
+    ],
+    "with_programming_language|query": [
+      "Python"
+    ]
+  },
+  "post_projects": {
+    "allow_merge_on_skipped_pipeline|query": [
+      false,
+      true
+    ],
+    "auto_cancel_pending_pipelines|query": [],
+    "auto_devops_deploy_strategy|query": [],
+    "auto_devops_enabled|query": [],
+    "autoclose_referenced_issues|query": [],
+    "avatar|query": [],
+    "build_coverage_regex|query": [
+      true,
+      "default",
+      "Z53Se",
+      "PhUC8CPyL2bVN4Oun0A",
+      "disabled",
+      "Content Creation-deletion_scheduled-101",
+      "z",
+      "private"
+    ],
+    "build_git_strategy|query": [],
+    "build_timeout|query": [],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [],
+    "container_registry_enabled|query": [],
+    "default_branch|query": [],
+    "description|query": [],
+    "emails_disabled|query": [],
+    "forking_access_level|query": [],
+    "import_url|query": [],
+    "initialize_with_readme|query": [],
+    "issues_access_level|query": [],
+    "issues_enabled|query": [],
+    "jobs_enabled|query": [],
+    "lfs_enabled|query": [],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [],
+    "name|query": [
+      "SampleProject",
+      "477AcGxPz8",
+      19.078003820556702,
+      "tb8BBGfhBUH",
+      "1e",
+      "OvOOiMCBhhqSO",
+      "FeatureShowcase",
+      "ef",
+      "2ROnfbhCS6AYhC",
+      "DevelopmentProject",
+      "Om",
+      "Education Project",
+      "GR1348941xuRNLVR9pvrJ9VJrxmbh",
+      "NixEiFT3n8HLGpdum",
+      "GR1348941hzsPLkfB1r3eEyw9XsLN"
+    ],
+    "namespace_id|query": [],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [],
+    "path|query": [
+      "sample-project",
+      "root",
+      "eZ",
+      "GwuQ2dTK",
+      "bzVol9eCfDnpEUt2H1q3QT7KAZM",
+      "eZ-deletion_scheduled-8",
+      [
+        1143,
+        -2949,
+        9401,
+        -1421,
+        5355,
+        -3411,
+        -1998,
+        2542,
+        6807,
+        -9866,
+        -6831,
+        5728,
+        6865
+      ],
+      "community-engagement-deletion_scheduled-65"
+    ],
+    "printing_merge_request_link_enabled|query": [],
+    "public_builds|query": [],
+    "remove_source_branch_after_merge|query": [],
+    "repository_access_level|query": [],
+    "repository_storage|query": [],
+    "request_access_enabled|query": [],
+    "resolve_outdated_diff_discussions|query": [],
+    "shared_runners_enabled|query": [],
+    "show_default_award_emojis|query": [],
+    "snippets_access_level|query": [],
+    "snippets_enabled|query": [],
+    "tag_list|query": [],
+    "template_name|query": [],
+    "visibility|query": [],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": []
+  },
+  "post_projects_user_user_id": {
+    "allow_merge_on_skipped_pipeline|query": [],
+    "auto_cancel_pending_pipelines|query": [],
+    "auto_devops_deploy_strategy|query": [],
+    "auto_devops_enabled|query": [],
+    "autoclose_referenced_issues|query": [],
+    "avatar|query": [],
+    "build_coverage_regex|query": [],
+    "build_git_strategy|query": [],
+    "build_timeout|query": [],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [],
+    "container_registry_enabled|query": [],
+    "description|query": [],
+    "emails_disabled|query": [],
+    "forking_access_level|query": [],
+    "import_url|query": [],
+    "initialize_with_readme|query": [],
+    "issues_access_level|query": [],
+    "issues_enabled|query": [],
+    "jobs_enabled|query": [],
+    "lfs_enabled|query": [],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [],
+    "name|query": [],
+    "namespace_id|query": [],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [],
+    "path|query": [],
+    "printing_merge_request_link_enabled|query": [],
+    "public_builds|query": [],
+    "remove_source_branch_after_merge|query": [],
+    "repository_access_level|query": [],
+    "repository_storage|query": [],
+    "request_access_enabled|query": [],
+    "resolve_outdated_diff_discussions|query": [],
+    "shared_runners_enabled|query": [],
+    "show_default_award_emojis|query": [],
+    "snippets_access_level|query": [],
+    "snippets_enabled|query": [],
+    "suggestion_commit_message|query": [],
+    "tag_list|query": [],
+    "template_name|query": [],
+    "user_id|path": [],
+    "visibility|query": [],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": []
+  },
+  "get_projects_id": {
+    "id|path": [
+      1,
+      3,
+      9,
+      16,
+      20,
+      10,
+      13,
+      4,
+      8,
+      17,
+      5,
+      14,
+      6,
+      65,
+      19,
+      18,
+      63,
+      "",
+      226,
+      62,
+      224
+    ],
+    "license|query": [
+      true,
+      [],
+      13
+    ],
+    "statistics|query": [
+      true,
+      false,
+      ""
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ]
+  },
+  "put_projects_id": {
+    "allow_merge_on_skipped_pipeline|query": [
+      true,
+      false
+    ],
+    "auto_cancel_pending_pipelines|query": [
+      "disabled"
+    ],
+    "auto_devops_deploy_strategy|query": [
+      "timed_incremental"
+    ],
+    "auto_devops_enabled|query": [],
+    "autoclose_referenced_issues|query": [
+      true
+    ],
+    "avatar|query": [],
+    "build_coverage_regex|query": [
+      "coverage\\s*:\\s*(\\d+)"
+    ],
+    "build_git_strategy|query": [
+      "clone"
+    ],
+    "build_timeout|query": [],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [
+      "default"
+    ],
+    "ci_default_git_depth|query": [
+      20
+    ],
+    "ci_forward_deployment_enabled|query": [
+      true
+    ],
+    "container_registry_enabled|query": [],
+    "default_branch|query": [],
+    "description|query": [
+      "u"
+    ],
+    "emails_disabled|query": [
+      false,
+      true
+    ],
+    "forking_access_level|query": [],
+    "import_url|query": [
+      "https://github.com/example/repo.git"
+    ],
+    "issues_access_level|query": [
+      "disabled",
+      "private"
+    ],
+    "issues_enabled|query": [
+      true
+    ],
+    "jobs_enabled|query": [
+      true,
+      false
+    ],
+    "lfs_enabled|query": [
+      false
+    ],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [
+      false
+    ],
+    "name|query": [
+      "Education Project"
+    ],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [
+      true
+    ],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [],
+    "path|query": [
+      "test-repo",
+      "education-project",
+      "GwuQ2dTK",
+      "showcase-project",
+      "P0",
+      "development-project"
+    ],
+    "public_builds|query": [
+      true
+    ],
+    "remove_source_branch_after_merge|query": [
+      false,
+      true
+    ],
+    "repository_access_level|query": [
+      "private"
+    ],
+    "repository_storage|query": [
+      "default"
+    ],
+    "request_access_enabled|query": [
+      false,
+      true
+    ],
+    "resolve_outdated_diff_discussions|query": [
+      false
+    ],
+    "service_desk_enabled|query": [],
+    "shared_runners_enabled|query": [
+      true
+    ],
+    "show_default_award_emojis|query": [
+      true
+    ],
+    "snippets_access_level|query": [
+      "enabled"
+    ],
+    "snippets_enabled|query": [
+      true,
+      false
+    ],
+    "suggestion_commit_message|query": [],
+    "tag_list|query": [
+      [
+        "demo",
+        "showcase"
+      ],
+      [
+        "test",
+        "example"
+      ]
+    ],
+    "id|path": [
+      1,
+      3,
+      9,
+      8,
+      5,
+      20,
+      2,
+      23,
+      6
+    ],
+    "visibility|query": [
+      "public"
+    ],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": [
+      true
+    ]
+  },
+  "delete_projects_id": {
+    "id|path": [
+      1,
+      17,
+      18,
+      24,
+      28,
+      8,
+      20,
+      10,
+      41,
+      9,
+      25,
+      14,
+      12,
+      101,
+      13,
+      23,
+      5,
+      203,
+      16,
+      7,
+      202
+    ]
+  },
+  "get_projects_id_users": {
+    "id|path": [
+      1,
+      5,
+      4,
+      3,
+      20,
+      19,
+      10,
+      2,
+      30,
+      50,
+      81
+    ],
+    "search|query": [
+      "integration",
+      "documentation",
+      "repository",
+      "default",
+      [
+        827,
+        2070,
+        9292,
+        2125,
+        -8299,
+        5081,
+        -886
+      ],
+      {
+        "y": 2083,
+        "v": -8592,
+        "z": -4475,
+        "p": -8601,
+        "B": -6649,
+        "t": 418,
+        "M": -9115,
+        "I": 1550,
+        "i": -3641
+      },
+      "undefined",
+      "John Doe",
+      {
+        "Y": 2938,
+        "m": -3024,
+        "p": 214,
+        "P": -743,
+        "r": 7417,
+        "T": 540,
+        "R": -3378,
+        "g": 7030,
+        "e": -4536
+      },
+      8,
+      []
+    ],
+    "skip_users|query": [
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      {
+        "o": 2145,
+        "A": 90,
+        "s": -8544,
+        "F": -4237,
+        "Y": 7951,
+        "m": -5613,
+        "b": 3911,
+        "G": 5115
+      },
+      209.00974568318554,
+      [],
+      "1tg8p4",
+      18,
+      []
+    ]
+  },
+  "post_projects_id_fork": {
+    "id|path": [
+      1,
+      13,
+      2,
+      4,
+      24,
+      10,
+      20,
+      8,
+      18,
+      12,
+      5,
+      201
+    ],
+    "name|query": [
+      "uqLTh",
+      "DxpwMlpcBJbqnWqymly",
+      "New Project A",
+      "GowUcntcYSwnCM",
+      "hoQtn",
+      "Project Zeta",
+      "Administrator",
+      "Demo Forked Project"
+    ],
+    "namespace_id|query": [
+      1,
+      104,
+      71,
+      65,
+      101,
+      76,
+      110,
+      67,
+      63,
+      68,
+      59,
+      105,
+      64,
+      62
+    ],
+    "namespace_path|query": [
+      "default",
+      "team-a"
+    ],
+    "namespace|query": [
+      205,
+      {
+        "id": 1,
+        "name": "Administrator",
+        "path": "root",
+        "kind": "user",
+        "full_path": "root",
+        "avatar_url": "https://www.gravatar.com/avatar/b58501bd72ec6997bb59a0cdca3947a8a14d1dd0eae72b868ffc13cf177cc549?s=80&d=identicon",
+        "web_url": "http://localhost:30000/root"
+      },
+      206,
+      208,
+      148
+    ],
+    "path|query": [
+      "gdLWkel0",
+      "default",
+      "new-project-a",
+      "gomtil4",
+      "sample-fork",
+      "EcommercePlatform",
+      "test-project-ii"
+    ]
+  },
+  "delete_projects_id_fork": {
+    "id|path": [
+      1,
+      17,
+      18,
+      20,
+      10,
+      12,
+      9,
+      25,
+      24,
+      14,
+      101,
+      13,
+      88,
+      23,
+      16
+    ]
+  },
+  "get_projects_id_forks": {
+    "archived|query": [
+      true
+    ],
+    "id|path": [
+      23,
+      1,
+      18,
+      17,
+      24,
+      8,
+      20,
+      9,
+      82,
+      2,
+      28,
+      7,
+      41,
+      10,
+      12,
+      13,
+      101,
+      25,
+      64,
+      14,
+      5,
+      15,
+      16
+    ],
+    "membership|query": [
+      true
+    ],
+    "min_access_level|query": [
+      30
+    ],
+    "order_by|query": [
+      "created_at"
+    ],
+    "owned|query": [
+      true
+    ],
+    "search|query": [
+      "default",
+      "John Doe"
+    ],
+    "simple|query": [
+      true
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "starred|query": [
+      true
+    ],
+    "statistics|query": [
+      {
+        "commit_count": 0,
+        "storage_size": 0,
+        "repository_size": 0,
+        "wiki_size": 0,
+        "lfs_objects_size": 0,
+        "job_artifacts_size": 0,
+        "pipeline_artifacts_size": 0,
+        "packages_size": 0,
+        "snippets_size": 0,
+        "uploads_size": 0,
+        "container_registry_size": 0
+      }
+    ],
+    "visibility|query": [
+      "private"
+    ],
+    "with_custom_attributes|query": [],
+    "with_issues_enabled|query": [
+      true
+    ],
+    "with_merge_requests_enabled|query": [
+      true
+    ]
+  },
+  "post_projects_id_star": {
+    "id|path": [
+      1,
+      7,
+      24,
+      18,
+      9,
+      16,
+      10,
+      20,
+      11,
+      8,
+      5,
+      14,
+      17,
+      202,
+      4,
+      101,
+      111
+    ]
+  },
+  "post_projects_id_unstar": {
+    "id|path": [
+      1,
+      5,
+      7,
+      13,
+      8,
+      12,
+      9,
+      20,
+      19,
+      16,
+      11,
+      101,
+      10,
+      202,
+      18,
+      14
+    ]
+  },
+  "get_projects_id_starrers": {
+    "id|path": [
+      1,
+      7,
+      4,
+      17,
+      19,
+      6,
+      3,
+      20,
+      18,
+      2,
+      88,
+      5,
+      16,
+      9,
+      14,
+      15,
+      11,
+      10,
+      8,
+      12
+    ],
+    "search|query": [
+      "documentation",
+      "default",
+      "John Doe",
+      "integration",
+      "Robert Brown"
+    ]
+  },
+  "get_projects_id_languages": {
+    "id|path": [
+      1,
+      8,
+      17,
+      7,
+      2,
+      9,
+      14,
+      4,
+      19,
+      13,
+      20,
+      3,
+      6,
+      18,
+      16,
+      5,
+      64,
+      11,
+      101,
+      12,
+      15
+    ]
+  },
+  "post_projects_id_archive": {
+    "id|path": [
+      18,
+      1,
+      5,
+      10,
+      23,
+      24,
+      20,
+      19,
+      6,
+      17,
+      11,
+      15,
+      27,
+      22,
+      33,
+      25,
+      14,
+      16,
+      34,
+      30,
+      50,
+      44,
+      47,
+      36,
+      38,
+      46,
+      68,
+      35,
+      42,
+      31,
+      54,
+      4,
+      62,
+      73,
+      100,
+      3,
+      7,
+      32,
+      94,
+      101,
+      88,
+      104,
+      124,
+      123,
+      136,
+      79,
+      144,
+      65,
+      157,
+      103,
+      12,
+      202,
+      57,
+      121,
+      59,
+      184,
+      60,
+      82,
+      185,
+      151,
+      180,
+      120,
+      255,
+      234,
+      191,
+      253,
+      197,
+      222,
+      129,
+      77,
+      278,
+      275
+    ]
+  },
+  "post_projects_id_unarchive": {
+    "id|path": [
+      1,
+      8,
+      17,
+      2,
+      9,
+      28,
+      15,
+      4,
+      5,
+      14,
+      19,
+      6,
+      16,
+      64,
+      93,
+      3,
+      7,
+      18
+    ]
+  },
+  "post_projects_id_restore": {
+    "id|path": [
+      1,
+      20,
+      24,
+      10,
+      8,
+      9,
+      18,
+      12,
+      5,
+      101
+    ]
+  },
+  "post_projects_id_uploads": {
+    "id|path": []
+  },
+  "post_projects_id_share": {
+    "id|path": [
+      5,
+      6,
+      4,
+      10,
+      2,
+      7
+    ],
+    "expires_at|query": [],
+    "group_access|query": [
+      40,
+      20,
+      30
+    ],
+    "group_id|query": [
+      104,
+      105,
+      101
+    ]
+  },
+  "delete_projects_id_share_group_id": {
+    "id|path": [
+      5,
+      6,
+      4,
+      10,
+      2,
+      7
+    ],
+    "group_id|path": [
+      104,
+      105,
+      101
+    ]
+  },
+  "get_projects_id_hooks": {
+    "id|path": [
+      1,
+      2,
+      20,
+      9,
+      19,
+      29,
+      26,
+      28,
+      5,
+      33,
+      8,
+      38,
+      32,
+      21,
+      34,
+      13,
+      56,
+      18,
+      14,
+      101,
+      90,
+      87,
+      12,
+      102,
+      134,
+      81,
+      94,
+      131,
+      74,
+      130,
+      175,
+      173,
+      159,
+      65,
+      57,
+      47,
+      48,
+      4,
+      112,
+      52,
+      100,
+      174,
+      95,
+      165,
+      103,
+      124,
+      11,
+      24,
+      15,
+      132,
+      93,
+      76,
+      17,
+      223,
+      185,
+      99
+    ]
+  },
+  "post_projects_id_hooks": {
+    "confidential_issues_events|query": [
+      true,
+      false
+    ],
+    "confidential_note_events|query": [
+      true,
+      false
+    ],
+    "deployment_events|query": [
+      true,
+      false
+    ],
+    "enable_ssl_verification|query": [
+      false,
+      true
+    ],
+    "id|path": [
+      1,
+      20,
+      4,
+      5,
+      3,
+      10,
+      19,
+      2,
+      30,
+      50
+    ],
+    "issues_events|query": [
+      false,
+      true
+    ],
+    "job_events|query": [
+      false,
+      true
+    ],
+    "merge_requests_events|query": [
+      true,
+      false
+    ],
+    "note_events|query": [
+      true,
+      false
+    ],
+    "pipeline_events|query": [
+      true
+    ],
+    "push_events_branch_filter|query": [
+      "enabled",
+      "release"
+    ],
+    "push_events|query": [
+      true
+    ],
+    "tag_push_events|query": [
+      false,
+      true
+    ],
+    "token|query": [
+      "token123",
+      "token161718",
+      "token252627",
+      "token131415",
+      "token282930",
+      "token456",
+      "token222324",
+      "token101112"
+    ],
+    "url|query": [
+      "https://example.com/hook1",
+      "http://localhost:30000/root",
+      "https://example.com/hook3",
+      "https://example.com/hook2",
+      "https://example.com/hook7",
+      "http://localhost:30000/root/GwuQ2dTK",
+      "https://example.com/hook8",
+      "http://localhost:30000/root/ZiBgkl52QBVu1jOMFvnhak0SWuVw-deletion_scheduled-18",
+      "http://localhost:30000/root/P0",
+      "http://localhost:30000/root/education-project",
+      "http://localhost:30000/groups/community-engagement-deletion_scheduled-72",
+      "http://localhost:30000/community-engagement-deletion_scheduled-72/P0",
+      "http://localhost:30000/groups/marketing-squad-deletion_scheduled-67",
+      "https://example.com/hook4",
+      "https://example.com/hook9",
+      "http://localhost:30000/community-engagement-deletion_scheduled-99/P0",
+      "http://localhost:30000/groups/finance-team-deletion_scheduled-71",
+      "https://example.com/hook6",
+      "http://localhost:30000/groups/marketing-squad-deletion_scheduled-69",
+      "https://example.com/hook10",
+      "http://localhost:30000/groups/design-group-deletion_scheduled-64",
+      "http://localhost:30000/groups/my-awesome-group-deletion_scheduled-59",
+      "http://localhost:30000/groups/community-engagement-deletion_scheduled-99",
+      "http://localhost:30000/root/z3Zv1QsEFSglPLtXU5",
+      "http://localhost:30000/project-collaborators-deletion_scheduled-60/P0",
+      "http://localhost:30000/groups/customer-support-deletion_scheduled-82",
+      "http://localhost:30000/groups/community-engagement-deletion_scheduled-62",
+      "https://example.com/hook5",
+      "http://localhost:30000/community-engagement-deletion_scheduled-62/P0"
+    ],
+    "wiki_page_events|query": [
+      true,
+      false
+    ]
+  },
+  "get_projects_id_hooks_hook_id": {
+    "id|path": [
+      1,
+      4
+    ],
+    "hook_id|path": [
+      2,
+      23,
+      18,
+      62,
+      4,
+      76
+    ]
+  },
+  "put_projects_id_hooks_hook_id": {
+    "confidential_issues_events|query": [],
+    "confidential_note_events|query": [],
+    "deployment_events|query": [],
+    "enable_ssl_verification|query": [],
+    "hook_id|path": [
+      18,
+      9
+    ],
+    "id|path": [
+      4
+    ],
+    "issues_events|query": [],
+    "job_events|query": [],
+    "merge_requests_events|query": [],
+    "note_events|query": [],
+    "pipeline_events|query": [],
+    "push_events_branch_filter|query": [],
+    "push_events|query": [],
+    "tag_push_events|query": [
+      true
+    ],
+    "token|query": [
+      "token252627"
+    ],
+    "url|query": [
+      "http://localhost:30000/root/GwuQ2dTK",
+      "https://example1.com/hooks"
+    ],
+    "wiki_events|query": [
+      false
+    ],
+    "releases_events|query": []
+  },
+  "delete_projects_id_hooks_hook_id": {
+    "hook_id|path": [
+      1,
+      65,
+      72,
+      7,
+      16.063949933204697,
+      2,
+      18,
+      6,
+      9
+    ],
+    "id|path": [
+      1,
+      4
+    ]
+  },
+  "post_projects_id_housekeeping": {
+    "id|path": [
+      1,
+      4,
+      7,
+      2,
+      9,
+      16,
+      18,
+      24,
+      19,
+      10,
+      20,
+      12,
+      8,
+      71,
+      67,
+      63,
+      3,
+      65,
+      76,
+      64,
+      62,
+      110,
+      68,
+      6,
+      11,
+      15,
+      5,
+      202,
+      14,
+      59,
+      13,
+      226,
+      17,
+      101
+    ]
+  },
+  "put_projects_id_transfer": {
+    "id|path": [
+      1,
+      110,
+      107,
+      105,
+      109
+    ],
+    "namespace|query": [
+      1,
+      203
+    ]
+  },
+  "post_projects_id_fork_forked_from_id": {
+    "forked_from_id|path": [
+      17,
+      9,
+      14,
+      18,
+      3.1748686079052346,
+      1,
+      6,
+      12,
+      20,
+      3,
+      7,
+      2,
+      8
+    ],
+    "id|path": [
+      1,
+      8,
+      6,
+      10,
+      15,
+      11,
+      4,
+      117,
+      12,
+      120
+    ]
+  },
+  "get_projects_id_snapshot": {
+    "id|path": [
+      1,
+      16,
+      10,
+      9,
+      13,
+      4,
+      8,
+      17,
+      20,
+      3,
+      5,
+      14,
+      65,
+      6,
+      19,
+      63,
+      62,
+      18,
+      64,
+      235,
+      231,
+      226,
+      241,
+      224,
+      225,
+      230
+    ],
+    "wiki|query": [
+      true,
+      false,
+      ""
+    ]
+  },
+  "get_users_user_id_projects": {
+    "archived|query": [
+      false,
+      true
+    ],
+    "id_after|query": [],
+    "id_before|query": [],
+    "membership|query": [
+      true
+    ],
+    "min_access_level|query": [
+      50
+    ],
+    "order_by|query": [],
+    "owned|query": [
+      true
+    ],
+    "search|query": [],
+    "simple|query": [],
+    "sort|query": [
+      "asc",
+      "desc"
+    ],
+    "starred|query": [],
+    "statistics|query": [],
+    "user_id|path": [
+      1
+    ],
+    "visibility|query": [
+      "private"
+    ],
+    "with_custom_attributes|query": [],
+    "with_issues_enabled|query": [
+      true
+    ],
+    "with_merge_requests_enabled|query": [
+      false,
+      true
+    ],
+    "with_programming_language|query": [
+      true
+    ]
+  },
+  "get_users_user_id_starred_projects": {
+    "archived|query": [
+      true
+    ],
+    "membership|query": [
+      false,
+      true
+    ],
+    "min_access_level|query": [],
+    "order_by|query": [
+      "name",
+      "id"
+    ],
+    "owned|query": [
+      true,
+      false
+    ],
+    "search|query": [
+      "John Doe",
+      "default"
+    ],
+    "simple|query": [
+      true
+    ],
+    "sort|query": [],
+    "starred|query": [
+      true
+    ],
+    "statistics|query": [],
+    "user_id|path": [
+      1
+    ],
+    "visibility|query": [],
+    "with_custom_attributes|query": [
+      true
+    ],
+    "with_issues_enabled|query": [
+      true
+    ],
+    "with_merge_requests_enabled|query": [
+      true
+    ]
+  }
+}

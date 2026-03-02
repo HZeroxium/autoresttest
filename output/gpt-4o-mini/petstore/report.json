@@ -1,0 +1,31 @@
+{
+  "Title": "AutoRestTest Report for 'Swagger Petstore - OpenAPI 3.0' (petstore)",
+  "Duration": "3600 seconds",
+  "Total Requests Sent": 282185,
+  "Status Code Distribution": {
+    "400": 35830,
+    "500": 145151,
+    "200": 81079,
+    "404": 19309,
+    "415": 171,
+    "414": 170,
+    "405": 475
+  },
+  "Number of Total Operations": 19,
+  "Number of Successfully Processed Operations": 13,
+  "Percentage of Successfully Processed Operations": "68.42%",
+  "Number of Unique Server Errors": 17223,
+  "Operations with Server Errors": {
+    "updatePet": 2077,
+    "createUsersWithListInput": 7788,
+    "getUserByName": 5303,
+    "placeOrder": 824,
+    "deleteUser": 10651,
+    "findPetsByTags": 8309,
+    "createUser": 5709,
+    "uploadFile": 2698,
+    "updateUser": 5373,
+    "addPet": 2374,
+    "getInventory": 94045
+  }
+}

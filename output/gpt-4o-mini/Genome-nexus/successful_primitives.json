@@ -1,0 +1,12 @@
+{
+  "fetchEnsemblTranscriptsGET": [],
+  "fetchPostTranslationalModificationsGET": [],
+  "fetchPfamDomainsByPfamAccessionPOST": [],
+  "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": [],
+  "fetchPdbHeaderPOST": [],
+  "fetchVariantAnnotationByIdPOST": [],
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": [],
+  "fetchPostTranslationalModificationsByPtmFilterPOST": [],
+  "fetchEnsemblTranscriptsByEnsemblFilterPOST": [],
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": []
+}

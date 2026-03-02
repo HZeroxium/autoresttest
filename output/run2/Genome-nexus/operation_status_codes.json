@@ -1,0 +1,96 @@
+{
+  "fetchPfamDomainsByAccessionGET": {
+    "404": 220,
+    "200": 143,
+    "400": 1
+  },
+  "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+    "404": 101,
+    "200": 104
+  },
+  "fetchPfamDomainsByPfamAccessionPOST": {
+    "404": 45,
+    "200": 113
+  },
+  "fetchGeneXrefsGET": {
+    "404": 47,
+    "400": 45,
+    "200": 88
+  },
+  "fetchEnsemblTranscriptByTranscriptIdGET": {
+    "200": 123,
+    "404": 1
+  },
+  "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+    "200": 110,
+    "404": 74
+  },
+  "fetchVariantAnnotationPOST": {
+    "200": 138,
+    "404": 105
+  },
+  "fetchVersionGET": {
+    "200": 150
+  },
+  "fetchVariantAnnotationByIdPOST": {
+    "404": 47,
+    "200": 92
+  },
+  "fetchVariantAnnotationByGenomicLocationPOST": {
+    "404": 73,
+    "200": 91
+  },
+  "fetchPostTranslationalModificationsGET": {
+    "200": 150
+  },
+  "fetchEnsemblTranscriptsGET": {
+    "200": 137,
+    "404": 1
+  },
+  "fetchVariantAnnotationByIdGET": {
+    "200": 143,
+    "404": 11,
+    "400": 1
+  },
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+    "404": 264,
+    "200": 198
+  },
+  "fetchVariantAnnotationByGenomicLocationGET": {
+    "200": 152,
+    "404": 193
+  },
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+    "404": 113,
+    "200": 90
+  },
+  "fetchPdbHeaderGET": {
+    "200": 98,
+    "404": 98,
+    "400": 1
+  },
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+    "404": 34,
+    "200": 123
+  },
+  "fetchVariantAnnotationGET": {
+    "200": 135,
+    "404": 6
+  },
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+    "404": 125,
+    "200": 112
+  },
+  "fetchPostTranslationalModificationsByPtmFilterPOST": {
+    "404": 235,
+    "200": 145
+  },
+  "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+    "404": 27,
+    "200": 120
+  },
+  "fetchPdbHeaderPOST": {
+    "404": 80,
+    "200": 96
+  }
+}

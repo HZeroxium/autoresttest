@@ -1,0 +1,151 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "1d"
+    ],
+    "enabled": [
+      689,
+      true,
+      false
+    ],
+    "keep_n": [
+      {
+        "r": 1946,
+        "l": -8577,
+        "O": -9863,
+        "q": -8383,
+        "E": 7872,
+        "Y": -4628,
+        "z": -7146,
+        "k": 4686,
+        "J": 1017,
+        "v": 6186
+      },
+      10
+    ],
+    "older_than": [
+      "90d"
+    ],
+    "name_regex": [],
+    "name_regex_delete": [
+      "^release-alpha.*",
+      "^debug-.*$",
+      "^beta-.*$",
+      "^draft-.*$",
+      "^deprecated-.*"
+    ],
+    "name_regex_keep": [
+      true
+    ],
+    "next_run_at": [
+      "2024-07-20T02:30:00Z",
+      true,
+      null,
+      "default",
+      "2026-02-27T12:53:46.634Z",
+      "2026-02-27T12:49:37.666Z",
+      "2026-02-27T12:51:00.842Z",
+      "2024-07-05T06:00:00Z"
+    ]
+  },
+  "post_projects_user_user_id": {},
+  "get_projects_id": {},
+  "put_projects_id": {
+    "cadence": [
+      "monthly",
+      "1d",
+      "biweekly"
+    ],
+    "enabled": [
+      true,
+      false
+    ],
+    "keep_n": [
+      20,
+      3,
+      5,
+      4,
+      7,
+      10,
+      12,
+      true,
+      2,
+      85.18020295286944
+    ],
+    "older_than": [
+      "14d",
+      "90d",
+      "1d"
+    ],
+    "name_regex": [
+      "^hotfix-.*$",
+      "^prod-.*$",
+      "^build-.*$",
+      "6.153354838972847",
+      "aW",
+      ".*",
+      "Administrator / 9rqx7SXu"
+    ],
+    "name_regex_delete": [
+      "^debug-.*$",
+      "^beta-.*$",
+      "^draft-.*$"
+    ],
+    "name_regex_keep": [
+      ".*-prod$",
+      ".*-stable$",
+      "^release$",
+      "^main$",
+      false,
+      "^stable-.*$",
+      null,
+      ".*-final$",
+      "^release-.*$",
+      2.543410227630003
+    ],
+    "next_run_at": [
+      "2024-07-05T08:00:00Z",
+      "2026-02-25T14:26:29.817Z",
+      "2024-07-01T12:00:00Z",
+      "2024-07-15T12:00:00Z",
+      "2024-07-10T10:15:00Z",
+      false,
+      true,
+      null,
+      "2024-07-02T18:30:00Z",
+      402.42363819199545,
+      "2024-07-01T00:00:00Z",
+      "2024-06-27T15:45:00Z",
+      7
+    ]
+  },
+  "delete_projects_id": {},
+  "get_projects_id_users": {},
+  "post_projects_id_fork": {},
+  "delete_projects_id_fork": {},
+  "get_projects_id_forks": {},
+  "post_projects_id_star": {},
+  "post_projects_id_unstar": {},
+  "get_projects_id_starrers": {},
+  "get_projects_id_languages": {},
+  "post_projects_id_archive": {},
+  "post_projects_id_unarchive": {},
+  "post_projects_id_restore": {},
+  "post_projects_id_uploads": {
+    "file": []
+  },
+  "post_projects_id_share": {},
+  "delete_projects_id_share_group_id": {},
+  "get_projects_id_hooks": {},
+  "post_projects_id_hooks": {},
+  "get_projects_id_hooks_hook_id": {},
+  "put_projects_id_hooks_hook_id": {},
+  "delete_projects_id_hooks_hook_id": {},
+  "post_projects_id_housekeeping": {},
+  "put_projects_id_transfer": {},
+  "post_projects_id_fork_forked_from_id": {},
+  "get_projects_id_snapshot": {},
+  "get_users_user_id_projects": {},
+  "get_users_user_id_starred_projects": {}
+}

@@ -1,0 +1,443 @@
+{
+  "get_projects": {
+    "archived|query": [
+      true,
+      false
+    ],
+    "id_after|query": [
+      50,
+      250,
+      400,
+      350,
+      300,
+      1,
+      500,
+      150,
+      100,
+      450,
+      200
+    ],
+    "id_before|query": [
+      150,
+      350,
+      550,
+      300,
+      600,
+      500,
+      200,
+      400,
+      250,
+      1,
+      450
+    ],
+    "last_activity_after|query": [
+      "2023-06-15T00:00:00Z",
+      "2023-03-10T00:00:00Z",
+      "2026-02-25T14:27:27.912Z",
+      "2023-07-01T00:00:00Z",
+      "2023-02-01T00:00:00Z",
+      "2023-10-10T00:00:00Z",
+      "2023-05-30T00:00:00Z",
+      "2023-08-18T00:00:00Z",
+      "2023-04-20T00:00:00Z"
+    ],
+    "last_activity_before|query": [
+      "2023-01-01T00:00:00Z",
+      "2023-05-31T23:59:59Z",
+      "2026-02-25T23:45:14.740Z",
+      "2023-02-28T23:59:59Z",
+      "2023-09-30T23:59:59Z",
+      "2023-07-31T23:59:59Z",
+      "2023-01-31T23:59:59Z",
+      "2023-06-30T23:59:59Z",
+      "2023-11-16T14:30:00Z",
+      "2023-08-30T23:59:59Z",
+      "2023-03-31T23:59:59Z"
+    ],
+    "membership|query": [
+      false,
+      true
+    ],
+    "min_access_level|query": [
+      20,
+      10,
+      50,
+      40,
+      30
+    ],
+    "order_by|query": [
+      "id",
+      "name",
+      "created_at",
+      "path",
+      "updated_at",
+      "storage_size",
+      "wiki_size",
+      "packages_size",
+      "last_activity_at",
+      "repository_size"
+    ],
+    "owned|query": [
+      false,
+      true
+    ],
+    "repository_storage|query": [
+      "default",
+      "main",
+      "Qa",
+      "legacy",
+      "backup"
+    ],
+    "search_namespaces|query": [
+      true,
+      false
+    ],
+    "search|query": [
+      "demo project",
+      "my project",
+      "0QH",
+      "project delta",
+      "project gamma",
+      "project epsilon",
+      "test project",
+      "project beta",
+      "example project"
+    ],
+    "simple|query": [
+      true,
+      false
+    ],
+    "sort|query": [
+      "asc",
+      "desc"
+    ],
+    "starred|query": [
+      true,
+      false
+    ],
+    "statistics|query": [
+      true
+    ],
+    "visibility|query": [
+      "public",
+      "internal",
+      "private"
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ],
+    "with_issues_enabled|query": [
+      true,
+      false
+    ],
+    "with_merge_requests_enabled|query": [
+      true,
+      false
+    ],
+    "with_programming_language|query": [
+      "Python",
+      "PHP",
+      "Java",
+      "Go",
+      "C#",
+      "JavaScript",
+      "C++",
+      "Ruby",
+      "TypeScript",
+      "Swift",
+      {
+        "d": -7168,
+        "W": 5735,
+        "g": -9822,
+        "T": -6757,
+        "E": 7434,
+        "N": 4035,
+        "e": -8587,
+        "R": -6416,
+        "o": 7469,
+        "u": 193,
+        "z": 3805,
+        "l": -3096,
+        "Q": 2733,
+        "b": 7655,
+        "A": 6401,
+        "i": -3506,
+        "c": 1271,
+        "j": -4676,
+        "V": -7632,
+        "r": -4035,
+        "Z": -8545,
+        "S": -4273,
+        "q": 8819,
+        "X": 3478,
+        "f": -301,
+        "O": 5172,
+        "C": -6200,
+        "F": 5369,
+        "G": 357
+      }
+    ]
+  },
+  "post_projects": {
+    "allow_merge_on_skipped_pipeline|query": [],
+    "auto_cancel_pending_pipelines|query": [],
+    "auto_devops_deploy_strategy|query": [
+      "continuous",
+      "manual",
+      "timed_incremental"
+    ],
+    "auto_devops_enabled|query": [
+      false
+    ],
+    "autoclose_referenced_issues|query": [],
+    "avatar|query": [],
+    "build_coverage_regex|query": [],
+    "build_git_strategy|query": [],
+    "build_timeout|query": [],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [],
+    "container_registry_enabled|query": [],
+    "default_branch|query": [],
+    "description|query": [
+      "Project to develop new APIs.",
+      {
+        "h": 3233,
+        "S": 8875,
+        "I": -8277,
+        "n": 112,
+        "K": -9273,
+        "d": -3601,
+        "N": -1491,
+        "u": 2575
+      }
+    ],
+    "emails_disabled|query": [],
+    "forking_access_level|query": [],
+    "import_url|query": [],
+    "initialize_with_readme|query": [],
+    "issues_access_level|query": [],
+    "issues_enabled|query": [],
+    "jobs_enabled|query": [],
+    "lfs_enabled|query": [],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [],
+    "name|query": [
+      "Internal-Tool-Dev",
+      "E-commerce-App",
+      " "
+    ],
+    "namespace_id|query": [],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [],
+    "path|query": [
+      "data-analysis-project",
+      "user-testing-app",
+      "e-commerce-app",
+      "project-management-app",
+      "ci-cd-project",
+      "api-feature-testing",
+      "documentation-repo",
+      "web-app-development",
+      18,
+      "ml-training-project",
+      {
+        "m": 8748,
+        "T": -4064,
+        "p": -5760,
+        "c": 4554,
+        "V": -9636,
+        "B": -1433,
+        "b": 3809,
+        "n": 5541,
+        "l": -5601
+      }
+    ],
+    "printing_merge_request_link_enabled|query": [],
+    "public_builds|query": [],
+    "remove_source_branch_after_merge|query": [],
+    "repository_access_level|query": [],
+    "repository_storage|query": [],
+    "request_access_enabled|query": [],
+    "resolve_outdated_diff_discussions|query": [],
+    "shared_runners_enabled|query": [],
+    "show_default_award_emojis|query": [],
+    "snippets_access_level|query": [],
+    "snippets_enabled|query": [],
+    "tag_list|query": [
+      [
+        "ecommerce",
+        "app"
+      ],
+      [
+        "project",
+        "management"
+      ],
+      [
+        "data",
+        "analysis"
+      ],
+      [
+        "ci",
+        "cd"
+      ],
+      [
+        "documentation"
+      ]
+    ],
+    "template_name|query": [],
+    "visibility|query": [
+      "private"
+    ],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": []
+  },
+  "get_projects_id_repository_tree": {
+    "PRIVATE_TOKEN|header": [],
+    "id|path": [],
+    "path|query": [],
+    "ref|query": [],
+    "recursive|query": [],
+    "per_page|query": []
+  },
+  "get_projects_id_repository_blobs_sha": {
+    "id|path": [],
+    "sha|path": []
+  },
+  "get_projects_id_repository_blobs_sha_raw": {
+    "id|path": [],
+    "sha|path": []
+  },
+  "get_projects_id_repository_archive": {
+    "id|path": [],
+    "sha|query": []
+  },
+  "get_projects_id_repository_compare": {
+    "id|path": [],
+    "from|query": [],
+    "to|query": [],
+    "from_project_id|query": [],
+    "straight|query": []
+  },
+  "get_projects_id_repository_contributors": {
+    "id|path": [
+      3,
+      5,
+      9,
+      1,
+      4,
+      6,
+      8,
+      10,
+      14,
+      29,
+      11,
+      7,
+      26,
+      2,
+      23,
+      35,
+      27,
+      36,
+      34,
+      18,
+      65,
+      48,
+      42,
+      58,
+      75,
+      21,
+      71,
+      60,
+      81,
+      96,
+      12,
+      121,
+      105,
+      124,
+      30,
+      20,
+      90,
+      88,
+      61,
+      51,
+      153,
+      97,
+      91,
+      50,
+      142,
+      170,
+      155,
+      118,
+      25,
+      59,
+      175,
+      132,
+      184,
+      161,
+      151,
+      166,
+      41,
+      178,
+      72,
+      147,
+      13,
+      228,
+      171,
+      144,
+      22,
+      140,
+      263,
+      129,
+      223,
+      156,
+      267,
+      188,
+      185,
+      28,
+      56,
+      149,
+      189,
+      49,
+      138,
+      17,
+      114,
+      64,
+      277,
+      191,
+      31,
+      33,
+      216,
+      271,
+      186
+    ],
+    "order_by|query": [
+      "name",
+      "email",
+      "commits"
+    ],
+    "sort|query": [
+      "asc",
+      "desc"
+    ]
+  },
+  "get_projects_id_repository_merge_base": {
+    "id|path": [],
+    "refs|query": []
+  },
+  "get_projects_id_repository_changelog": {
+    "id|path": [],
+    "version|query": [],
+    "from|query": [],
+    "to|query": [],
+    "date|query": [],
+    "branch|query": [],
+    "trailer|query": [],
+    "file|query": [],
+    "message|query": []
+  }
+}

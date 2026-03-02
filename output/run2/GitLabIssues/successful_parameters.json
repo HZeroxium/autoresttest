@@ -1,0 +1,2053 @@
+{
+  "get_projects": {
+    "archived|query": [
+      true,
+      false
+    ],
+    "id_after|query": [
+      2000,
+      1
+    ],
+    "id_before|query": [
+      2100,
+      800,
+      1600,
+      1,
+      421
+    ],
+    "last_activity_after|query": [
+      "2026-02-27T13:30:00Z",
+      "2026-02-27T00:00:00Z",
+      "2026-02-15T14:45:00Z"
+    ],
+    "last_activity_before|query": [
+      "2026-03-05T08:00:00Z",
+      "2026-03-15T14:00:00Z",
+      "2026-03-25T20:00:00Z",
+      "2026-03-10T12:30:00Z",
+      "2026-04-10T09:00:00Z",
+      "2026-04-05T06:00:00Z",
+      "2026-03-01T00:00:00Z",
+      "2026-03-30T23:00:00Z",
+      "2026-03-20T18:00:00Z",
+      "2026-04-01T00:00:00Z"
+    ],
+    "membership|query": [
+      false,
+      true
+    ],
+    "min_access_level|query": [
+      20,
+      40,
+      50,
+      10,
+      30
+    ],
+    "order_by|query": [
+      "name",
+      "last_activity_at",
+      "updated_at",
+      "path",
+      "packages_size",
+      "created_at",
+      "repository_size",
+      "storage_size",
+      "wiki_size",
+      "id"
+    ],
+    "owned|query": [
+      false,
+      true
+    ],
+    "repository_storage|query": [
+      "slow_storage",
+      "cloud_storage",
+      "backup_storage",
+      "fast_storage",
+      "external_storage",
+      "default",
+      "local_storage",
+      "archive_storage"
+    ],
+    "search_namespaces|query": [
+      true,
+      false
+    ],
+    "search|query": [
+      "integration",
+      "WNs5EMK",
+      "pipeline",
+      "spiBBk6",
+      "repository",
+      "default"
+    ],
+    "simple|query": [
+      true,
+      false
+    ],
+    "sort|query": [
+      "desc"
+    ],
+    "starred|query": [
+      true,
+      false
+    ],
+    "statistics|query": [
+      true,
+      false
+    ],
+    "visibility|query": [
+      "public",
+      "internal",
+      "private"
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ],
+    "with_issues_enabled|query": [
+      true,
+      false
+    ],
+    "with_merge_requests_enabled|query": [
+      true,
+      false
+    ],
+    "with_programming_language|query": [
+      "C++",
+      "Ruby",
+      "Python",
+      "YyiwJESWCVmO19",
+      "Java",
+      "JavaScript",
+      "default",
+      "Swift",
+      "Go",
+      "PHP",
+      "Kotlin",
+      "TypeScript"
+    ]
+  },
+  "post_projects": {
+    "allow_merge_on_skipped_pipeline|query": [],
+    "auto_cancel_pending_pipelines|query": [],
+    "auto_devops_deploy_strategy|query": [
+      "continuous",
+      "timed_incremental",
+      "manual"
+    ],
+    "auto_devops_enabled|query": [],
+    "autoclose_referenced_issues|query": [],
+    "avatar|query": [],
+    "build_coverage_regex|query": [],
+    "build_git_strategy|query": [],
+    "build_timeout|query": [
+      3600
+    ],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [],
+    "container_registry_enabled|query": [
+      true,
+      false
+    ],
+    "default_branch|query": [],
+    "description|query": [],
+    "emails_disabled|query": [
+      false
+    ],
+    "forking_access_level|query": [
+      "disabled"
+    ],
+    "import_url|query": [],
+    "initialize_with_readme|query": [
+      true,
+      false
+    ],
+    "issues_access_level|query": [
+      "private",
+      "disabled"
+    ],
+    "issues_enabled|query": [],
+    "jobs_enabled|query": [
+      false,
+      true
+    ],
+    "lfs_enabled|query": [],
+    "merge_method|query": [
+      "merge"
+    ],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [],
+    "name|query": [
+      "DeltaService",
+      "ThetaModule",
+      "GammaApp",
+      "EpsilonTool",
+      "EtaSystem",
+      "ZetaPlatform",
+      "KappaEngine",
+      {
+        "R": -7420,
+        "v": 1971,
+        "N": -6332,
+        "m": -3486,
+        "G": -3516,
+        "j": -9563,
+        "k": -138
+      }
+    ],
+    "namespace_id|query": [
+      101
+    ],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [
+      false,
+      true
+    ],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [
+      "disabled"
+    ],
+    "path|query": [
+      "project-alpha"
+    ],
+    "printing_merge_request_link_enabled|query": [],
+    "public_builds|query": [],
+    "remove_source_branch_after_merge|query": [
+      true,
+      false
+    ],
+    "repository_access_level|query": [],
+    "repository_storage|query": [],
+    "request_access_enabled|query": [],
+    "resolve_outdated_diff_discussions|query": [
+      true
+    ],
+    "shared_runners_enabled|query": [],
+    "show_default_award_emojis|query": [
+      false,
+      true
+    ],
+    "snippets_access_level|query": [
+      "disabled"
+    ],
+    "snippets_enabled|query": [],
+    "tag_list|query": [
+      [
+        "frontend",
+        "ui"
+      ]
+    ],
+    "template_name|query": [],
+    "visibility|query": [],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": []
+  },
+  "get_issues": {
+    "page|query": [
+      1,
+      3,
+      10,
+      75,
+      100,
+      4,
+      20,
+      5,
+      2,
+      7,
+      50,
+      15
+    ],
+    "per_page|query": [
+      20,
+      30,
+      930,
+      10,
+      25,
+      1,
+      100,
+      5
+    ],
+    "assignee_id|query": [
+      300,
+      400,
+      [
+        -6,
+        -4574,
+        3541,
+        4452,
+        -5172,
+        3518,
+        -3985,
+        -1582,
+        -8731,
+        -1684,
+        -6460,
+        -4474,
+        7873,
+        -3789,
+        7219
+      ],
+      1,
+      294,
+      2,
+      417,
+      99
+    ],
+    "assignee_username|query": [
+      [
+        "grace"
+      ],
+      [
+        "bob"
+      ],
+      [
+        "eve"
+      ],
+      [
+        "david"
+      ],
+      [
+        "ivan"
+      ],
+      [
+        "johndoe"
+      ],
+      [
+        "charlie"
+      ],
+      [
+        "alice"
+      ],
+      [
+        "root"
+      ],
+      [
+        "delta"
+      ],
+      "root",
+      [
+        "frank"
+      ],
+      [
+        "heidi"
+      ],
+      [
+        "default"
+      ],
+      "cleanup_crew",
+      "dev_queen",
+      [
+        105,
+        106
+      ]
+    ],
+    "author_id|query": [
+      2147483647,
+      100,
+      400,
+      1006
+    ],
+    "author_username|query": [
+      "eve",
+      "alice",
+      "david",
+      "heidi",
+      "emartin",
+      "charlie",
+      "frank",
+      "lwillis",
+      "ivan",
+      "bob",
+      "grace",
+      "dave",
+      "johndoe",
+      "root",
+      "irichards",
+      "sec_guy",
+      "hwwXyuO",
+      "default"
+    ],
+    "confidential|query": [
+      true,
+      false
+    ],
+    "created_after|query": [
+      "2023-11-01T00:00:00Z",
+      "2024-01-01T00:00:00Z",
+      "2024-07-01T00:00:00Z",
+      "2024-06-20T08:00:00Z",
+      "2024-03-15T08:00:00Z",
+      "2024-02-28T14:00:00Z",
+      "2023-12-31T23:59:59Z",
+      "2024-04-01T10:00:00Z",
+      "2025-01-15T12:30:00Z",
+      "2024-05-10T09:15:00Z",
+      "2023-04-01T16:00:00Z",
+      "2023-06-01T00:00:00Z",
+      "2026-02-27T14:27:40.595Z",
+      "2026-02-27T00:00:00Z",
+      "2023-03-08T10:00:00Z",
+      "2023-04-15T08:00:00Z",
+      "2022-12-31T23:59:59Z",
+      "2026-02-27T13:25:42.968Z",
+      "2023-01-10T14:15:00Z",
+      "2026-02-27T14:38:35.979Z",
+      "2026-02-27T13:33:40.861Z",
+      "2023-02-11T23:59:59Z",
+      "2026-02-27T13:23:43.660Z",
+      "2026-02-15T14:45:00Z",
+      "2026-02-27T14:12:53.341Z",
+      "2023-03-20T18:45:00Z",
+      "2026-02-27T13:30:00Z",
+      "2023-05-25T09:30:00Z",
+      "2026-02-27T13:29:38.691Z"
+    ],
+    "created_before|query": [
+      "2024-04-01T00:00:00Z",
+      "2024-12-31T23:59:59Z",
+      "2024-01-31T23:59:59Z",
+      "2024-08-01T00:00:00Z"
+    ],
+    "due_date|query": [
+      "next_month_and_previous_two_weeks",
+      "month",
+      "week",
+      "overdue"
+    ],
+    "iids[]|query": [
+      [
+        50,
+        60
+      ],
+      [
+        28
+      ],
+      [
+        7,
+        14
+      ],
+      [
+        "default"
+      ]
+    ],
+    "in|query": [
+      "title",
+      "2026-02-27T13:30:00Z",
+      "nSfOIh",
+      "title,description"
+    ],
+    "milestone|query": [
+      "Any",
+      "default",
+      "None"
+    ],
+    "labels|query": [
+      "None",
+      "Any",
+      [
+        "M"
+      ],
+      "No+Label",
+      "MTmFML"
+    ],
+    "my_reaction_emoji|query": [
+      "Any",
+      "None",
+      "desc",
+      "default",
+      "group",
+      "user",
+      "hotfix-stable.*",
+      "prod-stable-.*",
+      "eyes",
+      "Txl"
+    ],
+    "non_archived|query": [
+      true,
+      false
+    ],
+    "order_by|query": [
+      "created_at",
+      "popularity",
+      "updated_at"
+    ],
+    "scope|query": [
+      "created_by_me",
+      "assigned_to_me"
+    ],
+    "search|query": [
+      "ebyM",
+      "memory leak",
+      "performance",
+      "database",
+      "API",
+      "WNs5EMK",
+      "login",
+      "documentation",
+      "UI",
+      "integration",
+      "bug fix",
+      "crash",
+      "spiBBk6",
+      "security",
+      "security patch",
+      "feature request",
+      "raM0b",
+      "API integration",
+      "database migration"
+    ],
+    "sort|query": [
+      "asc",
+      "desc"
+    ],
+    "state|query": [
+      "closed",
+      "opened",
+      "all"
+    ],
+    "updated_after|query": [
+      "2024-03-15T08:00:00Z",
+      "2024-04-01T10:00:00Z",
+      "2024-02-28T14:00:00Z",
+      "2024-07-01T00:00:00Z",
+      "2024-01-01T00:00:00Z",
+      "2025-01-15T12:30:00Z",
+      "2026-04-10T09:00:00Z",
+      "2023-11-01T00:00:00Z",
+      "2024-05-10T09:15:00Z",
+      "2026-03-25T20:00:00Z",
+      "2026-03-05T08:00:00Z",
+      "2026-03-10T12:30:00Z",
+      "2024-06-20",
+      "2024-06-20T08:00:00Z",
+      "2023-11-11",
+      "2026-02-27T14:20:51.535Z",
+      "2026-02-27T14:07:30.895Z",
+      "2026-02-27T14:26:17.185Z",
+      "2026-02-27T14:16:47.588Z",
+      "2026-02-27T13:15:48.069Z",
+      "2026-02-27T14:13:08.874Z",
+      20,
+      "2023-11-01",
+      "2023-10-30",
+      "2023-12-31T23:59:59Z"
+    ],
+    "updated_before|query": [
+      "2024-03-30T23:59:59Z",
+      "2024-06-21T00:00:00Z",
+      "2024-04-01T00:00:00Z",
+      "2024-05-15T23:59:59Z",
+      "2026-02-27T13:38:47.847Z",
+      "2024-01-31T23:59:59Z"
+    ],
+    "with_labels_details|query": [
+      false,
+      true
+    ]
+  },
+  "get_issues_id": {
+    "id|path": [
+      100,
+      20,
+      500,
+      200,
+      599,
+      2,
+      2.869189755178745,
+      101,
+      162,
+      123,
+      699,
+      109,
+      105,
+      117,
+      32,
+      807,
+      490.3765201874111,
+      784,
+      106,
+      17.05424448664707,
+      149,
+      108,
+      678,
+      409,
+      454,
+      107,
+      14,
+      564,
+      102,
+      199,
+      45,
+      164
+    ]
+  },
+  "get_groups": {
+    "page|query": [
+      1,
+      10,
+      20,
+      100,
+      3,
+      2,
+      50,
+      15,
+      7,
+      5,
+      4
+    ],
+    "per_page|query": [
+      1,
+      30,
+      80,
+      25,
+      50,
+      75,
+      10,
+      20,
+      8,
+      42
+    ],
+    "skip_groups|query": [
+      [],
+      [
+        5
+      ],
+      [
+        50,
+        60
+      ],
+      [
+        22,
+        44
+      ],
+      [
+        10,
+        15
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        42
+      ],
+      [
+        "default"
+      ],
+      [
+        1756,
+        -8094,
+        1367,
+        -8304,
+        -2507,
+        4536,
+        9299,
+        4266,
+        1358,
+        1055,
+        1818,
+        -2661,
+        5658,
+        1988,
+        -3031,
+        -8654,
+        5629,
+        -9092,
+        4012,
+        -473,
+        4293,
+        -2119,
+        -9531,
+        1010,
+        -6695,
+        2523,
+        -7893,
+        2114,
+        7884,
+        -5286,
+        4769,
+        -2759,
+        -4836,
+        5438,
+        4404,
+        -7443,
+        2234,
+        -3022,
+        -5685,
+        4768,
+        -2292,
+        -7291,
+        -6309,
+        -6186,
+        -2224,
+        1832,
+        -4346,
+        1020,
+        -5044,
+        -2997
+      ],
+      [
+        1959,
+        6853,
+        -2068,
+        -3899,
+        1292,
+        -7474,
+        -1801,
+        -3368,
+        582
+      ],
+      [
+        -1061,
+        -4208,
+        -6709,
+        -3468,
+        3560,
+        2686
+      ]
+    ],
+    "all_available|query": [
+      true,
+      false
+    ],
+    "search|query": [
+      "default",
+      "maintenance",
+      "test",
+      "support",
+      "release",
+      "finance",
+      "marketing",
+      "hBkApYFTyNpGA6Y",
+      "project",
+      "development",
+      "design",
+      "spiBBk6",
+      "admin"
+    ],
+    "order_by|query": [
+      "path",
+      "name",
+      "id"
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "statistics|query": [
+      true,
+      false
+    ],
+    "with_custom_attributes|query": [
+      false,
+      true
+    ],
+    "owned|query": [
+      true,
+      false
+    ],
+    "min_access_level|query": [
+      40,
+      50,
+      30,
+      10,
+      20
+    ],
+    "top_level_only|query": [
+      false,
+      true
+    ]
+  },
+  "post_groups": {
+    "visibility|query": [
+      "private"
+    ],
+    "share_with_group_lock|query": [
+      true
+    ],
+    "require_two_factor_authentication|query": [
+      false,
+      true
+    ],
+    "two_factor_grace_period|query": [
+      48,
+      24,
+      36
+    ],
+    "project_creation_level|query": [
+      "maintainer",
+      "noone"
+    ],
+    "auto_devops_enabled|query": [
+      true
+    ],
+    "subgroup_creation_level|query": [
+      "maintainer",
+      "owner"
+    ],
+    "emails_disabled|query": [
+      true,
+      false
+    ],
+    "mentions_disabled|query": [
+      true,
+      false
+    ],
+    "lfs_enabled|query": [
+      true,
+      false
+    ],
+    "request_access_enabled|query": [
+      true,
+      false
+    ],
+    "parent_id|query": [
+      500,
+      303,
+      669
+    ],
+    "default_branch_protection|query": [
+      1
+    ],
+    "shared_runners_setting|query": [
+      "disabled_with_override",
+      "disabled_and_unoverridable",
+      "enabled"
+    ]
+  },
+  "get_groups_id_issues": {
+    "page|query": [],
+    "per_page|query": [
+      5,
+      60,
+      40,
+      20,
+      75,
+      10,
+      930,
+      30,
+      50,
+      100,
+      1
+    ],
+    "assignee_id|query": [
+      99
+    ],
+    "assignee_username|query": [
+      [
+        "heidi"
+      ]
+    ],
+    "author_id|query": [
+      3,
+      100,
+      1,
+      2
+    ],
+    "author_username|query": [
+      "bob",
+      "dave",
+      "johndoe",
+      "ivan",
+      "eve",
+      "frank",
+      "heidi",
+      "alice",
+      "charlie",
+      "emartin"
+    ],
+    "confidential|query": [
+      true,
+      false
+    ],
+    "created_after|query": [
+      "2023-04-01T00:00:00Z",
+      "2023-01-01T00:00:00Z",
+      "2023-05-05T14:20:00Z",
+      "2023-03-01T06:00:00Z",
+      "2023-06-01T12:30:00Z",
+      "2023-07-15T10:00:00Z",
+      "2023-05-20T23:59:59Z",
+      "2022-11-10T18:45:00Z",
+      "month"
+    ],
+    "created_before|query": [
+      "2023-05-10T11:30:00Z"
+    ],
+    "due_date|query": [
+      "0",
+      "next_month_and_previous_two_weeks"
+    ],
+    "id|path": [
+      99,
+      105,
+      101,
+      505
+    ],
+    "iids[]|query": [
+      [
+        5
+      ]
+    ],
+    "labels|query": [
+      "None"
+    ],
+    "milestone|query": [
+      "None",
+      "Any",
+      "v1.1"
+    ],
+    "my_reaction_emoji|query": [
+      "None",
+      "Any"
+    ],
+    "non_archived|query": [
+      false,
+      true
+    ],
+    "order_by|query": [
+      "due_date",
+      "milestone_due",
+      "popularity",
+      "label_priority",
+      "created_at",
+      "updated_at"
+    ],
+    "scope|query": [
+      "created_by_me"
+    ],
+    "search|query": [
+      "security",
+      "documentation"
+    ],
+    "sort|query": [
+      "asc"
+    ],
+    "state|query": [
+      "opened"
+    ],
+    "updated_after|query": [
+      "2023-01-01T00:00:00Z"
+    ],
+    "updated_before|query": [
+      "2023-04-30T23:59:59Z",
+      "2023-07-20T18:00:00Z",
+      "2023-08-01T00:00:00Z",
+      "2023-09-10T12:00:00Z",
+      "2023-06-15T16:00:00Z",
+      "2023-07-01T00:00:00Z",
+      "2024-06-20",
+      "2023-06-05T05:00:00Z",
+      "2023-05-10T11:30:00Z",
+      "2023-11-11",
+      "2024-07-20"
+    ],
+    "with_labels_details|query": [
+      true
+    ]
+  },
+  "get_projects_id_issues": {
+    "page|query": [
+      1,
+      20,
+      5,
+      75,
+      10
+    ],
+    "per_page|query": [
+      20,
+      5,
+      100,
+      50,
+      930,
+      42
+    ],
+    "assignee_id|query": [
+      404,
+      505,
+      202,
+      707,
+      409,
+      1,
+      909
+    ],
+    "assignee_username|query": [
+      [
+        "grace"
+      ],
+      [
+        "johndoe"
+      ],
+      [
+        "delta"
+      ],
+      [
+        "alpha"
+      ]
+    ],
+    "author_id|query": [
+      55,
+      99,
+      33,
+      1,
+      77,
+      110,
+      22,
+      66,
+      88,
+      11,
+      44,
+      707,
+      303,
+      1102,
+      1006,
+      2147483647
+    ],
+    "author_username|query": [
+      "alice",
+      "jack",
+      "heidi",
+      "dave",
+      "david",
+      "iris"
+    ],
+    "confidential|query": [
+      false,
+      true
+    ],
+    "created_after|query": [
+      "2022-06-15T08:00:00Z",
+      "2021-11-11T23:59:59Z",
+      "2023-03-25T09:30:00Z",
+      "2023-04-10T14:15:00Z",
+      "2022-08-08T10:00:00Z",
+      "2020-01-01T00:00:00Z",
+      "2026-02-27T00:00:00Z",
+      "2023-05-20T18:45:00Z",
+      "2023-01-01T00:00:00Z",
+      "2023-02-01T16:00:00Z",
+      "next_month_and_previous_two_weeks",
+      "2022-12-01T12:30:00Z"
+    ],
+    "created_before|query": [
+      "2023-01-10T14:15:00Z",
+      "2022-12-31T23:59:59Z",
+      "2026-02-27T13:30:00Z",
+      "2023-05-25T09:30:00Z",
+      "2026-02-27T00:00:00Z",
+      "2023-02-11T23:59:59Z",
+      "2023-04-15T08:00:00Z",
+      "2023-03-08T10:00:00Z",
+      "2023-03-20T18:45:00Z",
+      "2023-04-01T16:00:00Z",
+      "2023-06-01T00:00:00Z",
+      "2026-02-27T14:27:40.595Z",
+      "2026-02-27T13:29:38.691Z",
+      "2026-02-27T13:23:43.660Z",
+      "2026-02-27T14:38:35.979Z",
+      "2026-02-27T13:25:42.968Z",
+      "2026-02-27T14:12:53.341Z",
+      "2026-02-27T13:33:40.861Z"
+    ],
+    "due_date|query": [
+      "0"
+    ],
+    "id|path": [
+      75,
+      1,
+      3,
+      4,
+      398,
+      10,
+      2,
+      100,
+      67,
+      20,
+      294,
+      417,
+      11,
+      5,
+      50,
+      369,
+      303,
+      500,
+      101,
+      180
+    ],
+    "iids[]|query": [
+      [
+        "default"
+      ],
+      [
+        10
+      ],
+      [
+        20
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        5
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        25,
+        26
+      ],
+      [
+        1
+      ],
+      [
+        15,
+        16
+      ]
+    ],
+    "labels|query": [
+      "No+Label",
+      "Any",
+      "None"
+    ],
+    "milestone|query": [
+      "None",
+      "Any"
+    ],
+    "my_reaction_emoji|query": [
+      "desc",
+      "None",
+      "Any",
+      "eyes",
+      "smile",
+      "default"
+    ],
+    "order_by|query": [
+      "created_at",
+      "milestone_due",
+      "popularity"
+    ],
+    "scope|query": [
+      "created_by_me",
+      "all",
+      "assigned_to_me"
+    ],
+    "search|query": [
+      "raM0b",
+      "API integration",
+      "documentation",
+      "UI improvement",
+      "integration",
+      "security patch",
+      "performance issue",
+      "bug fix",
+      "spiBBk6",
+      "access denied",
+      "feature request",
+      "database migration",
+      "login error",
+      "performance",
+      "API",
+      "WNs5EMK"
+    ],
+    "sort|query": [
+      "asc",
+      "desc"
+    ],
+    "state|query": [
+      "opened",
+      "closed",
+      "all"
+    ],
+    "updated_after|query": [
+      "2022-06-15T08:00:00Z",
+      "2023-02-01T16:00:00Z",
+      "2023-01-01T00:00:00Z",
+      "2026-02-27T14:07:30.895Z"
+    ],
+    "updated_before|query": [
+      "2023-03-08T10:00:00Z",
+      "2026-03-15T14:00:00Z",
+      "2023-01-10T14:15:00Z",
+      "2023-04-01T16:00:00Z",
+      "2023-05-25T09:30:00Z",
+      "2026-03-05T08:00:00Z",
+      "2023-03-20T18:45:00Z",
+      "2026-03-25T20:00:00Z",
+      "2023-05-01T12:30:00Z",
+      "2022-12-31T23:59:59Z",
+      "2023-02-11T23:59:59Z",
+      "2023-06-01T00:00:00Z",
+      "2026-02-27",
+      "2023-04-15T08:00:00Z",
+      "2026-02-25"
+    ],
+    "with_labels_details|query": [
+      true,
+      false
+    ]
+  },
+  "post_projects_id_issues": {
+    "assignee_ids|query": [
+      [
+        114,
+        115
+      ],
+      [
+        104
+      ],
+      [
+        113
+      ],
+      [
+        101
+      ],
+      [
+        111,
+        112
+      ],
+      [
+        105,
+        106
+      ],
+      [
+        108,
+        109
+      ],
+      "mnelson",
+      "fwhite",
+      [
+        107
+      ],
+      202,
+      1809,
+      [
+        102,
+        103
+      ],
+      808,
+      404,
+      99,
+      1001,
+      "vtoq1",
+      2001,
+      1203,
+      [
+        110
+      ],
+      1607
+    ],
+    "confidential|query": [
+      true,
+      false
+    ],
+    "created_at|query": [
+      "2023-05-11T03:45:40Z",
+      "2024-01-15T08:45:00Z",
+      "2024-04-20T16:00:00Z",
+      "2023-07-19T01:05:15Z",
+      "2023-08-25T18:40:35Z",
+      "2023-11-22T14:30:00Z",
+      "1h 30m",
+      "2024-03-10T12:20:50Z",
+      "2026-02-27T14:07:30.895Z",
+      "2023-12-01T10:15:30Z",
+      "2024-02-28T09:00:10Z",
+      "2024-06-05T23:59:59Z"
+    ],
+    "description|query": [
+      "Describe the environment where the error was encountered.",
+      "Report on security audit findings for the authentication system.",
+      "Code review feedback implementation for caching logic.",
+      "Documentation update required for installation procedure.",
+      "Add screenshots and logs for the error 500 on checkout flow.",
+      "Customer complaint about slow response times in the new release.",
+      "<p data-sourcepos=\"1:1-1:28\" dir=\"auto\">CI/CD pipeline configuration</p>",
+      "Implement new feature as planned.",
+      "Initial report of a UI glitch on the settings page.",
+      "Enhancement: Improve loading time of the dashboard.",
+      "Need to enhance the search algorithm for better accuracy.",
+      "Prepare release notes for upcoming version.",
+      "Add more unit tests for the notification service.",
+      963.2709596214967,
+      "Fix issue causing the app to crash on login.",
+      "Add details about the API timeout errors observed during peak traffic.",
+      "Steps to reproduce intermittent data loss in the sync feature.",
+      "Issue description regarding a bug in the login module.",
+      "Managers overseeing project timelines and deliverables.",
+      "<p data-sourcepos=\"1:1-1:5\" dir=\"auto\">-5081</p>",
+      "Group for backend software architects to discuss design and scaling.",
+      "Focused on engaging with the community.",
+      "Customer support team handling user inquiries and issues.",
+      "A collective for all marketing initiatives.",
+      "A team of engineers dedicated to developing and maintaining software products.",
+      "Engineers specializing in infrastructure automation and deployment.",
+      "Group handling recruitment, benefits, and employee relations.",
+      "Overseeing all project activities.",
+      "A group dedicated to testing and quality control.",
+      "Human resources management group",
+      "Group for UX/UI designers and creative team members.",
+      "Operations and logistics team",
+      "Experts analyzing and interpreting complex data.",
+      "Group focusing on artificial intelligence research and development."
+    ],
+    "discussion_to_resolve|query": [
+      "dsc9202",
+      "dsc1234",
+      "dsc1121",
+      "dsc5678",
+      "dsc1222",
+      "dsc3141",
+      "dsc9101",
+      "dsc3242",
+      "dsc5161",
+      "dsc7181",
+      true,
+      "default"
+    ],
+    "due_date|query": [
+      "2025-04-25",
+      "2024-07-15",
+      "2024-08-01",
+      "2024-11-20",
+      "2025-02-28",
+      "2025-03-30",
+      "2024-09-10",
+      "2024-10-05",
+      [
+        -7244,
+        74,
+        -415,
+        -8991,
+        -8031
+      ],
+      "2026-02-27",
+      "2026-02-25",
+      "2023-10-30",
+      "2023-11-01"
+    ],
+    "id|path": [
+      110,
+      105,
+      106,
+      102,
+      109,
+      108,
+      404,
+      202,
+      11,
+      409,
+      107,
+      101,
+      505,
+      243,
+      12,
+      100
+    ],
+    "iid|query": [
+      4,
+      7,
+      10,
+      9,
+      2,
+      73,
+      28,
+      76,
+      72,
+      12,
+      3,
+      5,
+      8,
+      88,
+      11,
+      40,
+      13,
+      33,
+      1,
+      19,
+      6,
+      27,
+      39,
+      83,
+      48,
+      53,
+      84,
+      52,
+      44,
+      45,
+      63,
+      74,
+      49,
+      77,
+      18,
+      51,
+      37,
+      25,
+      46,
+      85,
+      60,
+      26,
+      80,
+      67,
+      58,
+      56
+    ],
+    "labels|query": [
+      "enhancement,frontend",
+      "question",
+      "in progress",
+      "help wanted",
+      "review needed",
+      "bug,urgent",
+      "duplicate",
+      [
+        "M"
+      ],
+      [
+        "default"
+      ],
+      "documentation",
+      [
+        "w39"
+      ],
+      "feature,backend",
+      "wontfix",
+      "0axV5ImdXPtCgDWWNxen0rHxqFEbsDpZOP9g",
+      [
+        "question"
+      ],
+      "http://localhost:30000/api/v4/projects/489/labels",
+      "enhancement,UI",
+      [
+        "in progress"
+      ],
+      "http://localhost:30000/api/v4/projects/477/labels",
+      "performance,security",
+      "bug",
+      "None",
+      "http://localhost:30000/root/AutomationSuite",
+      [
+        "duplicate"
+      ]
+    ],
+    "merge_request_to_resolve_discussions_of|query": [
+      1003,
+      1006,
+      1010,
+      1002,
+      1001,
+      1007,
+      1008,
+      1005,
+      1,
+      1009,
+      1004
+    ],
+    "milestone_id|query": [
+      203,
+      202,
+      204,
+      208,
+      101,
+      209,
+      210,
+      100,
+      201,
+      207,
+      206,
+      13,
+      2,
+      300,
+      123,
+      105,
+      109,
+      205,
+      106,
+      404,
+      369,
+      5,
+      20,
+      3,
+      1,
+      398
+    ],
+    "title|query": [
+      "Add feature to export reports",
+      "Document installation steps",
+      "Test new notification system",
+      "Refactor database schema",
+      "Resolve caching bug",
+      "Investigate memory leak issue",
+      "Prepare release notes for v2.0",
+      "Documentation update needed",
+      "Performance issue on the dashboard",
+      "Update user dashboard UI",
+      "Fix login authentication error",
+      false,
+      "Release notes preparation",
+      "Improve API response time",
+      "default",
+      "Improve dashboard responsiveness",
+      "JYkLWm1S0"
+    ]
+  },
+  "get_projects_id_issues_issue_iid": {
+    "id|path": [
+      2,
+      101,
+      11,
+      340,
+      404,
+      102,
+      43
+    ],
+    "issue_iid|path": [
+      1,
+      5,
+      50,
+      30,
+      2,
+      56,
+      6,
+      10,
+      13,
+      81
+    ]
+  },
+  "put_projects_id_issues_issue_iid": {
+    "add_labels|query": [
+      "default",
+      "bug",
+      false
+    ],
+    "assignee_ids|query": [
+      "tina_tester",
+      "victor_tester",
+      "root"
+    ],
+    "confidential|query": [
+      true
+    ],
+    "description|query": [
+      "Security vulnerability found in the password reset workflow.",
+      "Request to add multi-language support for the application.",
+      "Investigate performance degradation reported on the dashboard.",
+      "Prepare release notes for upcoming version.",
+      "Documentation update required for installation procedure.",
+      "Add screenshots and logs for the error 500 on checkout flow.",
+      "Code review feedback implementation for caching logic.",
+      963.2709596214967,
+      "Report on security audit findings for the authentication system.",
+      "Fix issue causing the app to crash on login.",
+      "<p data-sourcepos=\"1:1-1:28\" dir=\"auto\">CI/CD pipeline configuration</p>",
+      "Add more unit tests for the notification service.",
+      "Need to enhance the search algorithm for better accuracy.",
+      "Implement new feature as planned.",
+      "Issue description regarding a bug in the login module.",
+      "Describe the environment where the error was encountered.",
+      "Enhancement: Improve loading time of the dashboard.",
+      "Initial report of a UI glitch on the settings page.",
+      "<p data-sourcepos=\"1:1-1:5\" dir=\"auto\">-5081</p>"
+    ],
+    "discussion_locked|query": [
+      true,
+      false
+    ],
+    "due_date|query": [
+      "month",
+      "week",
+      "next_month_and_previous_two_weeks",
+      "2023-01-01T00:00:00Z"
+    ],
+    "id|path": [
+      13,
+      109,
+      110,
+      11,
+      106,
+      105,
+      108,
+      404,
+      102,
+      100,
+      107,
+      202,
+      409,
+      101,
+      243
+    ],
+    "issue_iid|path": [
+      1,
+      4,
+      5,
+      10,
+      25,
+      2,
+      7
+    ],
+    "labels|query": [
+      [
+        5999,
+        -3999,
+        5323,
+        707,
+        5,
+        8957
+      ],
+      "None"
+    ],
+    "milestone_id|query": [
+      649,
+      653
+    ],
+    "remove_labels|query": [
+      "invalid",
+      "bug, urgent",
+      "feature request",
+      false,
+      "http://localhost:30000/api/v4/projects/401/labels",
+      "bug",
+      "in progress",
+      "question",
+      "performance",
+      "http://localhost:30000/api/v4/projects/490/labels"
+    ],
+    "state_event|query": [
+      "close",
+      "reopen"
+    ],
+    "title|query": [
+      "Documentation update needed",
+      "Performance issue on the dashboard",
+      "Legacy Code Refactoring",
+      "JYkLWm1S0",
+      "Improve dashboard responsiveness",
+      "Document installation steps",
+      "Prepare release notes for v2.0",
+      "Update user dashboard UI"
+    ],
+    "updated_at|query": [
+      "2026-02-27T14:07:18.498Z",
+      "2026-02-27T14:15:18.607Z",
+      "2026-02-27T14:13:40.564Z",
+      "2026-02-27T14:12:59.525Z",
+      "2026-02-27T14:07:30.895Z",
+      "2026-02-27T13:15:48.069Z",
+      "2026-02-27T14:09:22.819Z",
+      "2026-02-27T14:27:40.657Z",
+      "2026-02-27T14:26:17.185Z",
+      "2026-02-27T14:52:00.325Z"
+    ]
+  },
+  "delete_projects_id_issues_issue_iid": {
+    "id|path": [
+      100,
+      13,
+      2,
+      101,
+      123,
+      109,
+      105,
+      106,
+      202,
+      107,
+      108,
+      404,
+      110,
+      409,
+      102
+    ],
+    "issue_iid|path": [
+      30,
+      1,
+      25,
+      5,
+      4,
+      20,
+      50,
+      10,
+      3,
+      2
+    ]
+  },
+  "put_projects_id_issues_issue_iid_reorder": {
+    "id|path": [
+      101
+    ],
+    "issue_iid|path": [
+      7
+    ],
+    "move_after_id|query": [
+      20
+    ],
+    "move_before_id|query": [
+      14
+    ]
+  },
+  "post_projects_id_issues_issue_iid_move": {
+    "id|path": [
+      101,
+      1,
+      100,
+      109,
+      314,
+      110,
+      202
+    ],
+    "issue_iid|path": [
+      20,
+      15,
+      17,
+      2,
+      13,
+      4,
+      50,
+      62,
+      6,
+      56,
+      19,
+      81,
+      1,
+      7
+    ],
+    "to_project_id|query": [
+      43,
+      1,
+      2,
+      315
+    ]
+  },
+  "post_projects_id_issues_issue_iid_subscribe": {
+    "id|path": [
+      101,
+      11,
+      404,
+      43,
+      100,
+      202,
+      505
+    ],
+    "issue_iid|path": [
+      50,
+      5,
+      25,
+      1,
+      30,
+      2,
+      40,
+      3
+    ]
+  },
+  "post_projects_id_issues_issue_iid_unsubscribe": {
+    "id|path": [
+      101,
+      11,
+      340,
+      102,
+      43,
+      117
+    ],
+    "issue_iid|path": [
+      5,
+      30,
+      25,
+      1,
+      7,
+      17,
+      3,
+      2,
+      6
+    ]
+  },
+  "post_projects_id_issues_issue_iid_todo": {
+    "id|path": [
+      101,
+      404,
+      11,
+      338,
+      117,
+      108,
+      105,
+      106,
+      202,
+      233
+    ],
+    "issue_iid|path": [
+      5,
+      25,
+      1,
+      4,
+      10,
+      2,
+      7
+    ]
+  },
+  "post_projects_id_issues_issue_iid_time_estimate": {
+    "id|path": [
+      123,
+      101,
+      100,
+      108,
+      102,
+      106,
+      105,
+      109,
+      107,
+      404,
+      243
+    ],
+    "issue_iid|path": [
+      1,
+      5,
+      10,
+      2,
+      4,
+      30,
+      3,
+      25,
+      40,
+      7,
+      81
+    ],
+    "duration|query": [
+      "10m",
+      "7h30m",
+      "1h",
+      17.27738497509869,
+      "4h"
+    ]
+  },
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {
+    "id|path": [
+      100,
+      101,
+      11,
+      404,
+      233
+    ],
+    "issue_iid|path": [
+      4,
+      5,
+      50,
+      1,
+      30,
+      2,
+      56
+    ]
+  },
+  "post_projects_id_issues_issue_iid_add_spent_time": {
+    "id|path": [
+      100,
+      109,
+      105,
+      106,
+      102,
+      108,
+      202,
+      101,
+      110,
+      107
+    ],
+    "issue_iid|path": [
+      25,
+      10,
+      2,
+      4,
+      5,
+      6,
+      17,
+      15,
+      56,
+      13,
+      62,
+      19,
+      20,
+      81,
+      7
+    ],
+    "duration|query": [
+      "10m",
+      "7h30m",
+      "4h",
+      "1h",
+      17.27738497509869
+    ]
+  },
+  "post_projects_id_issues_issue_iid_reset_spent_time": {
+    "id|path": [
+      101,
+      100,
+      404,
+      233,
+      11,
+      43,
+      202,
+      117,
+      102
+    ],
+    "issue_iid|path": [
+      5,
+      10,
+      25,
+      30,
+      50,
+      1,
+      2,
+      4,
+      3,
+      40
+    ]
+  },
+  "get_projects_id_issues_issue_iid_time_stats": {
+    "id|path": [
+      106,
+      105,
+      11,
+      108,
+      109,
+      100,
+      110,
+      102,
+      202,
+      "#28",
+      107,
+      404,
+      101,
+      505,
+      233,
+      409,
+      "#5"
+    ],
+    "issue_iid|path": [
+      4,
+      5,
+      1,
+      10,
+      25,
+      50,
+      2,
+      {
+        "self": "http://localhost:30000/api/v4/projects/453",
+        "issues": "http://localhost:30000/api/v4/projects/453/issues",
+        "repo_branches": "http://localhost:30000/api/v4/projects/453/repository/branches",
+        "labels": "http://localhost:30000/api/v4/projects/453/labels",
+        "events": "http://localhost:30000/api/v4/projects/453/events",
+        "members": "http://localhost:30000/api/v4/projects/453/members",
+        "cluster_agents": "http://localhost:30000/api/v4/projects/453/cluster_agents"
+      },
+      7,
+      "http://localhost:30000/api/v4/projects/455/members"
+    ]
+  },
+  "get_projects_id_issues_issue_iid_related_merge_requests": {
+    "id|path": [
+      100,
+      300,
+      105,
+      109,
+      11,
+      404,
+      340,
+      101,
+      409,
+      106,
+      43
+    ],
+    "issue_iid|path": [
+      30,
+      25,
+      4,
+      5,
+      10,
+      1,
+      2,
+      7,
+      56,
+      13,
+      6
+    ]
+  },
+  "get_projects_id_issues_issue_iid_closed_by": {
+    "id|path": [
+      13,
+      100,
+      101,
+      233,
+      300,
+      109,
+      404,
+      108,
+      106,
+      105,
+      102,
+      107,
+      110,
+      202
+    ],
+    "issue_iid|path": [
+      1,
+      25,
+      30,
+      10,
+      20,
+      3,
+      5,
+      4,
+      6,
+      15,
+      2,
+      17,
+      13,
+      56,
+      62,
+      19,
+      7
+    ]
+  },
+  "get_projects_id_issues_issue_iid_participants": {
+    "id|path": [
+      100,
+      101,
+      110,
+      233,
+      108,
+      202,
+      404,
+      43
+    ],
+    "issue_iid|path": [
+      25,
+      30,
+      5,
+      50,
+      10,
+      1,
+      2,
+      56,
+      6,
+      13,
+      81,
+      7
+    ]
+  },
+  "get_projects_id_issues_issue_iid_metric_images": {
+    "id|path": [],
+    "issue_iid|path": []
+  },
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "id|path": [],
+    "issue_iid|path": [],
+    "url|query": []
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "get_projects": [],
+  "get_issues": [],
+  "get_groups": [],
+  "get_projects_id_issues_issue_iid_closed_by": [],
+  "get_projects_id_issues_issue_iid_related_merge_requests": [],
+  "get_projects_id_issues": [],
+  "get_groups_id_issues": []
+}

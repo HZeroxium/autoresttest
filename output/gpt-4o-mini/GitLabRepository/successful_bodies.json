@@ -1,0 +1,49 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "monthly",
+      "hourly",
+      "weekly",
+      "daily"
+    ],
+    "enabled": [
+      true,
+      false
+    ],
+    "keep_n": [
+      "6",
+      "7"
+    ],
+    "older_than": [
+      "120d",
+      "2w",
+      "90d"
+    ],
+    "name_regex": [
+      "^archive-.*$"
+    ],
+    "name_regex_delete": [
+      "^delete-temp-.*$",
+      "^delete-me-.*$",
+      "^trash-.*$",
+      "^old-.*$"
+    ],
+    "name_regex_keep": [
+      "^new-keep-.*$",
+      "^preserve-me-.*$"
+    ],
+    "next_run_at": [
+      "2023-11-20T15:45:00Z",
+      "2023-11-16T14:30:00Z"
+    ]
+  },
+  "get_projects_id_repository_tree": {},
+  "get_projects_id_repository_blobs_sha": {},
+  "get_projects_id_repository_blobs_sha_raw": {},
+  "get_projects_id_repository_archive": {},
+  "get_projects_id_repository_compare": {},
+  "get_projects_id_repository_contributors": {},
+  "get_projects_id_repository_merge_base": {},
+  "get_projects_id_repository_changelog": {}
+}

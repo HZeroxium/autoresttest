@@ -1,0 +1,667 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "http://localhost:30000/api/v4/projects/1/issues/4",
+      "http://localhost:30000/api/v4/projects/1/issues/14",
+      "http://localhost:30000/api/v4/projects/1/issues/2",
+      "http://localhost:30000/api/v4/projects/1/issues/34",
+      "http://localhost:30000/api/v4/projects/1/issues/79"
+    ],
+    "enabled": [
+      [
+        "frontend"
+      ],
+      [
+        "mobile"
+      ],
+      [
+        "analysis"
+      ],
+      [
+        "documentation"
+      ],
+      [
+        "app"
+      ],
+      [
+        "cd"
+      ],
+      [
+        "management"
+      ],
+      false
+    ],
+    "keep_n": [
+      6,
+      "Any",
+      "None"
+    ],
+    "older_than": [
+      "90d",
+      "30d",
+      "5d",
+      "2d",
+      null,
+      "10d",
+      true,
+      "1m",
+      false,
+      "9",
+      117,
+      101,
+      4,
+      6
+    ],
+    "name_regex": [
+      "Administrator"
+    ],
+    "name_regex_delete": [
+      "^project-delete.*",
+      88,
+      67
+    ],
+    "name_regex_keep": [
+      "^retain.*",
+      false,
+      "^project-keep.*",
+      "^images-keep.*",
+      "^keep-data.*",
+      "Administrator",
+      138,
+      "^keep-new.*",
+      null,
+      "QA Collective",
+      "http://localhost:30000/api/v4/projects/14/issues/1/notes"
+    ],
+    "next_run_at": [
+      true,
+      "bNupXkV",
+      null,
+      false,
+      "default"
+    ]
+  },
+  "get_issues": {
+    "labels": [
+      "enhancement",
+      "feature, high-priority",
+      "bug, medium-priority",
+      "task, review",
+      [
+        "SJO19a"
+      ],
+      "bug, low-priority",
+      [
+        "VzLsogpmW8qiRjZ"
+      ],
+      [],
+      "http://localhost:30000/api/v4/projects/17/labels",
+      "bug, critical",
+      "bug, urgent",
+      [
+        "default"
+      ],
+      [
+        "M"
+      ],
+      [
+        "WPAI1KcaWs9y"
+      ],
+      [
+        "pDMeW5"
+      ],
+      [
+        "fm4e"
+      ],
+      [
+        "project",
+        "task"
+      ],
+      "default",
+      "enhancement, urgent",
+      [
+        "4"
+      ],
+      [
+        "Frf5"
+      ],
+      [
+        "True"
+      ],
+      [
+        "i1qT"
+      ],
+      [
+        "zIh"
+      ],
+      [
+        "B"
+      ],
+      [
+        "3smRf"
+      ],
+      [
+        "g7vH5NxAE43"
+      ],
+      [
+        "null"
+      ],
+      [
+        "http://localhost:30000/api/v4/projects/49/labels"
+      ],
+      [
+        "iSmJumGq"
+      ],
+      [
+        "qI7gAZN1w"
+      ],
+      [
+        "WH3Zxa"
+      ],
+      "http://localhost:30000/api/v4/projects/214/labels",
+      [
+        "WHH5Fk"
+      ],
+      [
+        "Egc3fEe0"
+      ],
+      "question, info",
+      [
+        "enhancement",
+        "feature"
+      ],
+      [
+        "9pCZsQPunB1pNlCtC"
+      ],
+      [
+        "Vs"
+      ],
+      [
+        "7crz2O"
+      ],
+      [
+        "-3974"
+      ],
+      [
+        "qWa71lPcOndxCFY"
+      ],
+      [
+        "2XixcVFvo7"
+      ]
+    ],
+    "milestone": [
+      "v1.5",
+      "v3.1",
+      null,
+      "v1.0",
+      "v1.4",
+      "v2.1",
+      "v2.0",
+      "Any",
+      "v3.0",
+      "v2.2"
+    ],
+    "author_id": [
+      3132,
+      2728,
+      112,
+      1,
+      18,
+      1920
+    ],
+    "author_username": [
+      "peter_gray",
+      "nina_pink",
+      "charlie_white",
+      "author_one",
+      "grace_red"
+    ],
+    "assignee_id": [
+      3738,
+      3334,
+      2526,
+      75,
+      84,
+      118,
+      303
+    ],
+    "assignee_username": [
+      "root",
+      "mike_black",
+      [
+        "default"
+      ],
+      "daisy_green",
+      "jack_cyan",
+      "oscar_brown",
+      "sam_golden",
+      [
+        4690,
+        1520,
+        8411,
+        6982,
+        1970,
+        7418,
+        8107,
+        -6357,
+        9878,
+        -5425,
+        -6767,
+        4462,
+        -1037,
+        -1615,
+        3059,
+        5305,
+        -7359,
+        -6676,
+        3779,
+        7308,
+        -9184,
+        -210,
+        -6533,
+        4489
+      ],
+      "frank_blue",
+      "jane_smith",
+      [
+        7394,
+        2848,
+        -607
+      ],
+      [
+        6675,
+        -4437,
+        -6372,
+        2668,
+        4988,
+        -851
+      ],
+      [
+        9479,
+        -2237,
+        2230,
+        3445,
+        -3350,
+        5720,
+        2831,
+        5726,
+        -9630,
+        2397,
+        4046,
+        -3930,
+        -5335,
+        2084
+      ],
+      {
+        "B": -8078,
+        "d": -7091,
+        "V": 6840,
+        "T": 4200,
+        "u": 6014,
+        "v": 877,
+        "j": -9629,
+        "r": 6723
+      },
+      [
+        9714,
+        -6710,
+        -3568,
+        -5583,
+        -4060,
+        660,
+        -3215,
+        4128,
+        -7646
+      ],
+      [
+        9859,
+        -4049,
+        -6186,
+        8603,
+        -6874,
+        9545
+      ],
+      [
+        -9483,
+        9391,
+        2644,
+        2345,
+        5553,
+        1609,
+        -656,
+        6560,
+        4807,
+        -5990
+      ],
+      [
+        5281,
+        -8944,
+        3556
+      ],
+      [
+        -8308,
+        7413,
+        1450,
+        -9191,
+        1414,
+        -2392,
+        -3454,
+        84,
+        -9065,
+        -1242,
+        3674,
+        -3813,
+        6380,
+        -6652,
+        2338,
+        7748
+      ],
+      [
+        -5644,
+        -3336,
+        -63
+      ],
+      13.93244285814011,
+      [
+        4047,
+        -743,
+        -5362
+      ],
+      [
+        6246,
+        -2013,
+        -2767,
+        -9516,
+        -9751,
+        6636,
+        4291,
+        2273,
+        7726,
+        -412,
+        -6239,
+        -8876,
+        2877,
+        4494,
+        -6649,
+        6649,
+        -6921,
+        -6817,
+        -4793
+      ],
+      "henry_yellow",
+      [
+        -6596
+      ],
+      [
+        7
+      ],
+      [
+        -6904,
+        4049,
+        -9534,
+        -303,
+        -3055,
+        619,
+        4839,
+        601
+      ],
+      [
+        -3157,
+        5334
+      ],
+      [
+        8,
+        9
+      ],
+      19,
+      [
+        2927,
+        -2940,
+        -2073,
+        3661
+      ]
+    ],
+    "my_reaction_emoji": [
+      "\ud83d\ude0a",
+      "\ud83d\ude0d",
+      "\ud83d\ude10",
+      "asc",
+      "desc",
+      "\ud83e\udd14"
+    ]
+  },
+  "get_issues_id": {},
+  "get_groups": {},
+  "post_groups": {
+    "name": [
+      "Administrator",
+      "Cybersecurity Group",
+      "QA Collective",
+      "Customer Support Team",
+      138,
+      "HR Community",
+      "DevOps Club",
+      "Developers Alliance"
+    ],
+    "path": [
+      "P0",
+      "cybersecurity-group",
+      "qa-collective",
+      "customer-support-team",
+      "project-management",
+      "hr-community",
+      "devops-club",
+      "developers-alliance"
+    ],
+    "description": [
+      "A group for cybersecurity experts to assess threats and safety practices.",
+      "A gathering place for Quality Assurance professionals.",
+      "A team for customer support representatives to share solutions.",
+      "Redesign the user interface for better experience.",
+      "A community for HR professionals to discuss policies and practices.",
+      "An alliance for developers to collaborate on projects and share tools."
+    ],
+    "avatar": []
+  },
+  "get_groups_id_issues": {
+    "labels": [
+      [
+        "http://localhost:30000/api/v4/projects/49/labels"
+      ],
+      [
+        "pDMeW5"
+      ],
+      [
+        "w39"
+      ]
+    ],
+    "milestone": [
+      "v1.5",
+      "v1.0",
+      "v2.0",
+      "v3.1",
+      null,
+      "v1.4",
+      "v2.1",
+      "v3.0",
+      "v2.2",
+      "Any"
+    ],
+    "author_id": [
+      1
+    ],
+    "author_username": [
+      "author_one",
+      "charlie_white",
+      "nina_pink"
+    ],
+    "assignee_id": [
+      52,
+      48,
+      1,
+      56,
+      49,
+      57,
+      62,
+      67,
+      60,
+      73,
+      61,
+      66,
+      58,
+      85,
+      3,
+      80,
+      63,
+      50,
+      70,
+      59,
+      69,
+      84,
+      72,
+      97,
+      54,
+      83,
+      87,
+      76,
+      93,
+      102,
+      106,
+      64,
+      154,
+      104,
+      71,
+      175,
+      113,
+      127,
+      131,
+      192,
+      115,
+      235,
+      137,
+      193,
+      206,
+      78,
+      187,
+      103,
+      241,
+      228,
+      268,
+      216,
+      99,
+      134,
+      261,
+      278,
+      140,
+      269
+    ],
+    "assignee_username": [
+      "root"
+    ],
+    "my_reaction_emoji": [
+      "user"
+    ],
+    "search": [
+      "project G",
+      "education",
+      "project E"
+    ],
+    "in": [
+      "2026-02-25T14:35:53.737Z",
+      "2026-02-25T14:49:41.805Z",
+      "2026-02-25T14:52:00.658Z",
+      "2026-02-25T14:57:59.352Z",
+      "2026-02-25T14:32:26.998Z",
+      "2026-02-25T14:29:14.449Z"
+    ]
+  },
+  "get_projects_id_issues": {
+    "labels": [
+      "http://localhost:30000/api/v4/projects/25/labels",
+      "http://localhost:30000/api/v4/projects/54/labels",
+      "http://localhost:30000/api/v4/projects/39/labels"
+    ],
+    "milestone": [
+      "None",
+      null,
+      "Any",
+      "v2.0"
+    ],
+    "author_id": [
+      1
+    ],
+    "author_username": [
+      "author_one",
+      "nina_pink",
+      "charlie_white"
+    ],
+    "assignee_id": [
+      26,
+      44,
+      51,
+      24,
+      93
+    ],
+    "assignee_username": [
+      "root",
+      [
+        "henry_cyan"
+      ]
+    ],
+    "my_reaction_emoji": [
+      "asc",
+      "desc",
+      null
+    ],
+    "search": [
+      "project E",
+      "project G",
+      "education",
+      "project J",
+      "finance"
+    ],
+    "in": [
+      "default",
+      "2023-02-01T00:00:00Z",
+      "wLcFJWbZ9h0ln",
+      18300,
+      "sCh27",
+      "dkCnRn",
+      "0mX0O6",
+      "2023-07-01T00:00:00Z",
+      "3TnG6hCbEbGBuHTwbPG8KXG4X979VVXK",
+      "Py3dJjI",
+      "i43",
+      "gE",
+      null,
+      "sTrzwW0",
+      "8GrD0Bg",
+      "lGdmLTwdkoT1n",
+      "rTHZ",
+      "Ov3XwRHUinbTR8",
+      "cNDEyXZ6"
+    ]
+  },
+  "post_projects_id_issues": {},
+  "get_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid": {},
+  "delete_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid_reorder": {},
+  "post_projects_id_issues_issue_iid_move": {},
+  "post_projects_id_issues_issue_iid_subscribe": {},
+  "post_projects_id_issues_issue_iid_unsubscribe": {},
+  "post_projects_id_issues_issue_iid_todo": {},
+  "post_projects_id_issues_issue_iid_time_estimate": {},
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {},
+  "post_projects_id_issues_issue_iid_add_spent_time": {},
+  "post_projects_id_issues_issue_iid_reset_spent_time": {},
+  "get_projects_id_issues_issue_iid_time_stats": {},
+  "get_projects_id_issues_issue_iid_related_merge_requests": {},
+  "get_projects_id_issues_issue_iid_closed_by": {},
+  "get_projects_id_issues_issue_iid_participants": {},
+  "get_projects_id_issues_issue_iid_metric_images": {},
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "file": []
+  }
+}

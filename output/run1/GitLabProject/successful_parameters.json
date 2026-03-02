@@ -1,0 +1,1997 @@
+{
+  "get_projects": {
+    "archived|query": [
+      true,
+      false
+    ],
+    "id_after|query": [
+      100,
+      50,
+      120,
+      150,
+      300,
+      [],
+      250,
+      400,
+      0,
+      450,
+      200
+    ],
+    "id_before|query": [
+      500,
+      450,
+      350,
+      800
+    ],
+    "last_activity_after|query": [
+      "2025-01-01T00:00:00Z",
+      "2026-02-25T15:02:32.058Z",
+      "2024-11-11T11:11:11Z",
+      "2026-02-20T15:30:00Z",
+      "2025-05-01T17:00:00Z",
+      "2025-11-30T21:15:00Z",
+      [],
+      "2026-02-25T23:37:22.421Z",
+      "2026-02-26T14:26:29.830Z",
+      "2026-02-26T15:08:36.076Z",
+      "2026-02-28T12:50:42.884Z",
+      "2026-02-26T14:40:30.456Z",
+      "2026-02-26T14:32:07.965Z",
+      "2026-02-25T23:42:56.556Z",
+      "2026-02-26T14:42:17.254Z",
+      "2026-02-26T15:02:32.163Z",
+      "2026-02-24T00:00:00Z",
+      "2026-01-01T12:00:00Z",
+      "2026-02-26T14:54:31.838Z",
+      "2026-02-28T12:54:54.265Z",
+      "2026-02-28T12:51:56.714Z",
+      "2026-02-26T14:39:26.387Z",
+      "2026-02-26T15:23:25.871Z",
+      "2026-02-26T14:43:33.957Z",
+      "2026-02-26T14:33:03.290Z",
+      "2025-10-10T10:10:10Z",
+      "2026-02-26T14:45:00.793Z",
+      "2026-02-26T14:48:13.868Z",
+      "2026-02-28T12:47:40.774Z",
+      "2026-02-28T12:49:45.750Z",
+      "2026-02-26T14:28:55.550Z",
+      "2026-02-25T23:43:05.726Z",
+      "2026-02-25T23:44:59.333Z",
+      "2026-02-28T13:09:02.637Z",
+      "2026-02-25T23:40:37.172Z",
+      "2026-02-28T12:53:03.804Z",
+      "2026-02-26T15:02:43.832Z",
+      "2024-12-31T23:59:59Z",
+      "2026-02-28T12:49:55.284Z",
+      "2025-06-15T08:30:00Z",
+      "2026-02-26T14:51:04.519Z",
+      []
+    ],
+    "last_activity_before|query": [
+      "2027-01-01T00:00:00Z",
+      "2027-04-10T20:20:20Z",
+      "2026-06-01T09:00:00Z",
+      "2026-02-25T14:45:00.780Z"
+    ],
+    "membership|query": [
+      true,
+      false,
+      [],
+      [],
+      [
+        {}
+      ]
+    ],
+    "min_access_level|query": [
+      10,
+      30,
+      20
+    ],
+    "order_by|query": [
+      "wiki_size",
+      "storage_size"
+    ],
+    "owned|query": [
+      true,
+      false
+    ],
+    "repository_storage|query": [
+      "default",
+      "hdd_storage"
+    ],
+    "search_namespaces|query": [
+      true,
+      false,
+      []
+    ],
+    "search|query": [
+      "2HT",
+      "default",
+      "alpha",
+      "beta",
+      "projectX",
+      "demo",
+      [],
+      "frontend",
+      "project",
+      "main",
+      "release",
+      "Administrator",
+      "root",
+      "sample",
+      "analytics",
+      "test",
+      "migration",
+      [
+        {}
+      ]
+    ],
+    "simple|query": [
+      true,
+      false,
+      [],
+      []
+    ],
+    "sort|query": [
+      "desc"
+    ],
+    "starred|query": [
+      true,
+      false,
+      [],
+      []
+    ],
+    "statistics|query": [
+      true,
+      false,
+      []
+    ],
+    "visibility|query": [
+      "private",
+      "public",
+      "internal",
+      []
+    ],
+    "with_custom_attributes|query": [
+      true
+    ],
+    "with_issues_enabled|query": [
+      false,
+      true
+    ],
+    "with_merge_requests_enabled|query": [
+      true,
+      false
+    ],
+    "with_programming_language|query": [
+      "Python",
+      "TypeScript",
+      "Java",
+      "default",
+      "PHP",
+      [],
+      "Swift",
+      "C++",
+      true,
+      [],
+      "Go",
+      "C#",
+      "JavaScript"
+    ]
+  },
+  "post_projects": {
+    "allow_merge_on_skipped_pipeline|query": [],
+    "auto_cancel_pending_pipelines|query": [],
+    "auto_devops_deploy_strategy|query": [],
+    "auto_devops_enabled|query": [],
+    "autoclose_referenced_issues|query": [],
+    "avatar|query": [],
+    "build_coverage_regex|query": [
+      "coverage: (\\d+\\.\\d+)%",
+      50,
+      true,
+      "default",
+      "enabled",
+      "test coverage is (\\d+\\.\\d+) percent",
+      "gIYbXVULhpoua5aH2Qr",
+      "private"
+    ],
+    "build_git_strategy|query": [],
+    "build_timeout|query": [],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [],
+    "container_registry_enabled|query": [],
+    "default_branch|query": [],
+    "description|query": [],
+    "emails_disabled|query": [
+      281
+    ],
+    "forking_access_level|query": [],
+    "import_url|query": [],
+    "initialize_with_readme|query": [],
+    "issues_access_level|query": [
+      {
+        "access_level": 50,
+        "notification_level": 3
+      }
+    ],
+    "issues_enabled|query": [],
+    "jobs_enabled|query": [],
+    "lfs_enabled|query": [],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [],
+    "name|query": [
+      "project-api",
+      "user-management",
+      "SMyl",
+      "Finance Team-deletion_scheduled-400",
+      10,
+      "tLoc",
+      "Om",
+      "DevelopmentFork",
+      "Project Management-deletion_scheduled-253",
+      "2w2SMO-deletion_scheduled-202",
+      "BgVFi7R4DZp0c",
+      "devops-pipeline",
+      "L8f0ViP8H17WjKZieEbT",
+      "4N6amkFdqNz7H7RQkCW",
+      {
+        "f": -7649,
+        "z": -6791,
+        "I": 9216,
+        "v": -2821,
+        "E": -9098,
+        "a": 8423,
+        "p": 445,
+        "D": -7656,
+        "C": 7989,
+        "y": 7546,
+        "s": -1557,
+        "n": -2494,
+        "B": -835,
+        "r": 770,
+        "T": -6129,
+        "x": 4014,
+        "c": -9775,
+        "P": 5774,
+        "G": 9269,
+        "e": 4521,
+        "m": 7599,
+        "u": -7098,
+        "t": 575,
+        "o": -9146
+      }
+    ],
+    "namespace_id|query": [
+      "C"
+    ],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [],
+    "path|query": [],
+    "printing_merge_request_link_enabled|query": [],
+    "public_builds|query": [
+      true
+    ],
+    "remove_source_branch_after_merge|query": [],
+    "repository_access_level|query": [],
+    "repository_storage|query": [],
+    "request_access_enabled|query": [],
+    "resolve_outdated_diff_discussions|query": [],
+    "shared_runners_enabled|query": [],
+    "show_default_award_emojis|query": [],
+    "snippets_access_level|query": [],
+    "snippets_enabled|query": [],
+    "tag_list|query": [],
+    "template_name|query": [],
+    "visibility|query": [],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": []
+  },
+  "post_projects_user_user_id": {
+    "allow_merge_on_skipped_pipeline|query": [],
+    "auto_cancel_pending_pipelines|query": [],
+    "auto_devops_deploy_strategy|query": [],
+    "auto_devops_enabled|query": [],
+    "autoclose_referenced_issues|query": [],
+    "avatar|query": [],
+    "build_coverage_regex|query": [],
+    "build_git_strategy|query": [],
+    "build_timeout|query": [],
+    "builds_access_level|query": [],
+    "ci_config_path|query": [],
+    "container_registry_enabled|query": [],
+    "description|query": [],
+    "emails_disabled|query": [],
+    "forking_access_level|query": [],
+    "import_url|query": [],
+    "initialize_with_readme|query": [],
+    "issues_access_level|query": [],
+    "issues_enabled|query": [],
+    "jobs_enabled|query": [],
+    "lfs_enabled|query": [],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [],
+    "merge_requests_enabled|query": [],
+    "name|query": [],
+    "namespace_id|query": [],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [],
+    "only_allow_merge_if_pipeline_succeeds|query": [],
+    "packages_enabled|query": [],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [],
+    "path|query": [],
+    "printing_merge_request_link_enabled|query": [],
+    "public_builds|query": [],
+    "remove_source_branch_after_merge|query": [],
+    "repository_access_level|query": [],
+    "repository_storage|query": [],
+    "request_access_enabled|query": [],
+    "resolve_outdated_diff_discussions|query": [],
+    "shared_runners_enabled|query": [],
+    "show_default_award_emojis|query": [],
+    "snippets_access_level|query": [],
+    "snippets_enabled|query": [],
+    "suggestion_commit_message|query": [],
+    "tag_list|query": [],
+    "template_name|query": [],
+    "user_id|path": [],
+    "visibility|query": [],
+    "wiki_access_level|query": [],
+    "wiki_enabled|query": []
+  },
+  "get_projects_id": {
+    "id|path": [
+      1,
+      27,
+      200,
+      42,
+      315,
+      100,
+      2,
+      19,
+      302,
+      17,
+      250,
+      14,
+      38,
+      65,
+      77,
+      314,
+      157,
+      88,
+      124,
+      195,
+      5,
+      293,
+      60,
+      320,
+      331,
+      300,
+      256,
+      324,
+      309,
+      308,
+      123,
+      3,
+      184,
+      20,
+      144,
+      203,
+      15,
+      275,
+      306,
+      101,
+      292,
+      351,
+      329,
+      31,
+      297,
+      7,
+      289,
+      222,
+      13,
+      321,
+      40,
+      304,
+      291,
+      86,
+      12,
+      104,
+      105,
+      343,
+      310,
+      8,
+      375,
+      4,
+      16,
+      312,
+      167
+    ],
+    "license|query": [
+      true
+    ],
+    "statistics|query": [],
+    "with_custom_attributes|query": [
+      true
+    ]
+  },
+  "put_projects_id": {
+    "allow_merge_on_skipped_pipeline|query": [
+      true
+    ],
+    "auto_cancel_pending_pipelines|query": [
+      "disabled",
+      "enabled"
+    ],
+    "auto_devops_deploy_strategy|query": [
+      "continuous",
+      "timed_incremental",
+      "manual"
+    ],
+    "auto_devops_enabled|query": [
+      true
+    ],
+    "autoclose_referenced_issues|query": [
+      true,
+      false
+    ],
+    "avatar|query": [],
+    "build_coverage_regex|query": [
+      "Code coverage: (\\d+\\.\\d+)%",
+      "TOTAL COVERAGE\\s*:\\s*(\\d*\\.?\\d+)\\s*%",
+      "coverage: (\\d+\\.\\d+)%",
+      "Coverage:\\s*(\\d+\\.?\\d*)%",
+      "coverage=(\\d+\\.\\d+)% lines",
+      "coverage=(\\d+\\.\\d+)%",
+      true,
+      "test coverage=(\\d+\\.\\d+)%",
+      "Coverage result: (\\d+\\.\\d+)%"
+    ],
+    "build_git_strategy|query": [
+      "fetch"
+    ],
+    "build_timeout|query": [
+      1800,
+      3600,
+      4500,
+      900,
+      3000,
+      7200,
+      600,
+      4800
+    ],
+    "builds_access_level|query": [
+      "disabled"
+    ],
+    "ci_config_path|query": [
+      ".gitlab-ci.yml"
+    ],
+    "ci_default_git_depth|query": [
+      50
+    ],
+    "ci_forward_deployment_enabled|query": [
+      true,
+      false
+    ],
+    "container_registry_enabled|query": [
+      true
+    ],
+    "default_branch|query": [],
+    "description|query": [
+      "Project to demonstrate CI/CD pipelines.",
+      "Repository for automation scripts."
+    ],
+    "emails_disabled|query": [
+      true
+    ],
+    "forking_access_level|query": [
+      "private",
+      "enabled",
+      "disabled"
+    ],
+    "import_url|query": [
+      "https://github.com/example/repo1.git"
+    ],
+    "issues_access_level|query": [
+      "enabled"
+    ],
+    "issues_enabled|query": [
+      true,
+      false
+    ],
+    "jobs_enabled|query": [
+      true
+    ],
+    "lfs_enabled|query": [
+      true,
+      false
+    ],
+    "merge_method|query": [],
+    "merge_requests_access_level|query": [
+      "private",
+      "disabled"
+    ],
+    "merge_requests_enabled|query": [
+      true
+    ],
+    "name|query": [
+      "project-alpha",
+      "gamma-tool",
+      "kQl4aSkVeJVp40bzpq"
+    ],
+    "only_allow_merge_if_all_discussions_are_resolved|query": [
+      true
+    ],
+    "only_allow_merge_if_pipeline_succeeds|query": [
+      true
+    ],
+    "packages_enabled|query": [
+      false
+    ],
+    "pages_access_level|query": [],
+    "requirements_access_level|query": [
+      10
+    ],
+    "path|query": [
+      "project-alpha"
+    ],
+    "public_builds|query": [
+      true
+    ],
+    "remove_source_branch_after_merge|query": [
+      true
+    ],
+    "repository_access_level|query": [],
+    "repository_storage|query": [
+      "default"
+    ],
+    "request_access_enabled|query": [
+      false,
+      true
+    ],
+    "resolve_outdated_diff_discussions|query": [
+      true,
+      false
+    ],
+    "service_desk_enabled|query": [
+      true
+    ],
+    "shared_runners_enabled|query": [
+      false
+    ],
+    "show_default_award_emojis|query": [
+      true
+    ],
+    "snippets_access_level|query": [
+      "enabled"
+    ],
+    "snippets_enabled|query": [
+      true
+    ],
+    "suggestion_commit_message|query": [
+      "Commit suggestion changes"
+    ],
+    "tag_list|query": [
+      [
+        "backend",
+        "api"
+      ]
+    ],
+    "id|path": [
+      6,
+      4,
+      3,
+      250,
+      1,
+      5,
+      8,
+      7,
+      10,
+      14,
+      303,
+      390
+    ],
+    "visibility|query": [
+      "private"
+    ],
+    "wiki_access_level|query": [
+      "enabled"
+    ],
+    "wiki_enabled|query": [
+      true,
+      false
+    ]
+  },
+  "delete_projects_id": {
+    "id|path": [
+      1,
+      3,
+      200,
+      100,
+      315,
+      19,
+      17,
+      27,
+      2,
+      42,
+      302,
+      38,
+      65,
+      77,
+      88,
+      202,
+      60,
+      256,
+      250,
+      293,
+      157,
+      300,
+      123,
+      20,
+      331,
+      117,
+      150,
+      308,
+      306,
+      324,
+      15,
+      195,
+      203,
+      351,
+      275,
+      314,
+      7,
+      144,
+      24,
+      310,
+      40,
+      297,
+      241,
+      317,
+      289,
+      299,
+      166,
+      303,
+      34,
+      294,
+      102,
+      322,
+      4,
+      321,
+      86,
+      295,
+      291,
+      298,
+      325,
+      296,
+      312,
+      13,
+      118,
+      339,
+      333,
+      304,
+      348,
+      374,
+      31,
+      5,
+      9,
+      8,
+      6,
+      44,
+      362,
+      337,
+      305,
+      341,
+      370,
+      12,
+      133,
+      129,
+      350
+    ]
+  },
+  "get_projects_id_users": {
+    "id|path": [
+      4,
+      32,
+      27,
+      250,
+      3,
+      1,
+      123,
+      8,
+      5,
+      6,
+      12,
+      7,
+      20,
+      10,
+      314,
+      77,
+      306,
+      320,
+      2,
+      295,
+      14,
+      301,
+      390,
+      303,
+      13,
+      86
+    ],
+    "search|query": [
+      "default",
+      "projectX",
+      "frontend",
+      "demo",
+      "Administrator",
+      true,
+      "alpha",
+      "migration"
+    ],
+    "skip_users|query": [
+      [
+        10
+      ],
+      [
+        20,
+        30
+      ],
+      [
+        99
+      ],
+      {
+        "F": 2269,
+        "h": -7832,
+        "u": 3838,
+        "p": 2004,
+        "S": -6066,
+        "v": 598,
+        "w": -5234,
+        "c": -9454
+      },
+      [
+        100,
+        200
+      ],
+      {
+        "w": 1764,
+        "f": 5594,
+        "z": 3804,
+        "L": -6365,
+        "Z": -1196,
+        "y": 8266,
+        "K": 5311,
+        "G": 5726,
+        "D": 6971
+      },
+      {
+        "T": -5867,
+        "e": -7548,
+        "j": 6496,
+        "t": 9936,
+        "d": 5799,
+        "W": 3208,
+        "K": 4427,
+        "b": -7891
+      },
+      [
+        7
+      ],
+      [
+        5,
+        15
+      ],
+      {
+        "d": -9049,
+        "O": 7383,
+        "n": -3925
+      }
+    ]
+  },
+  "post_projects_id_fork": {
+    "id|path": [
+      202,
+      101,
+      34,
+      33,
+      5,
+      278,
+      116,
+      200,
+      4,
+      40,
+      302,
+      60,
+      65,
+      11,
+      297,
+      123,
+      195,
+      310,
+      304,
+      86,
+      314
+    ],
+    "name|query": [
+      "DevelopmentFork",
+      "DataScienceTool",
+      "New Project A",
+      "Administrator",
+      "4N6amkFdqNz7H7RQkCW",
+      "root",
+      "Content Creation-deletion_scheduled-101",
+      "SampleForkedRepo",
+      "DataScienceTool-deletion_scheduled-2",
+      "Project Collaborators-deletion_scheduled-60",
+      "Cloud Engineers",
+      "sample-project"
+    ],
+    "namespace_id|query": [
+      101,
+      253,
+      88,
+      195,
+      167,
+      123,
+      67,
+      60,
+      1
+    ],
+    "namespace_path|query": [
+      "root/finance-team-deletion_scheduled-400",
+      "root/10",
+      "root/devops-pipeline",
+      "root/4N6amkFdqNz7H7RQkCW",
+      "root/user-management",
+      "root/BgVFi7R4DZp0c"
+    ],
+    "namespace|query": [
+      60,
+      {
+        "id": 1,
+        "name": "Administrator",
+        "path": "root",
+        "kind": "user",
+        "full_path": "root",
+        "avatar_url": "https://www.gravatar.com/avatar/b58501bd72ec6997bb59a0cdca3947a8a14d1dd0eae72b868ffc13cf177cc549?s=80&d=identicon",
+        "web_url": "http://localhost:30000/root"
+      },
+      {
+        "id": 195,
+        "name": "Community Engagement-deletion_scheduled-195",
+        "path": "community-engagement-deletion_scheduled-195",
+        "kind": "group",
+        "full_path": "community-engagement-deletion_scheduled-195",
+        "web_url": "http://localhost:30000/groups/community-engagement-deletion_scheduled-195"
+      },
+      {
+        "id": 101,
+        "name": "Content Creation-deletion_scheduled-101",
+        "path": "content-creation-deletion_scheduled-101",
+        "kind": "group",
+        "full_path": "content-creation-deletion_scheduled-101",
+        "web_url": "http://localhost:30000/groups/content-creation-deletion_scheduled-101"
+      },
+      {
+        "id": 303,
+        "name": "Data Scientists",
+        "path": "development-team-deletion_scheduled-303",
+        "kind": "group",
+        "full_path": "development-team-deletion_scheduled-303",
+        "web_url": "http://localhost:30000/groups/development-team-deletion_scheduled-303"
+      }
+    ],
+    "path|query": [
+      "community-engagement-deletion_scheduled-195",
+      "cu3EVLfjb",
+      "project-collaborators-deletion_scheduled-60",
+      "hr-department-deletion_scheduled-438",
+      "root",
+      "community-engagement-deletion_scheduled-65",
+      "2AmD5SXl",
+      "9rqx7SXu",
+      "development-team-deletion_scheduled-303",
+      "quality-assurance-deletion_scheduled-104",
+      "l",
+      "EcommercePlatform",
+      "content-creation-deletion_scheduled-101",
+      "forked-path-1",
+      "WxZ-deletion_scheduled-20",
+      "znGG",
+      "P0",
+      "ZiBgkl52QBVu1jOMFvnhak0SWuVw"
+    ]
+  },
+  "delete_projects_id_fork": {
+    "id|path": [
+      1,
+      200,
+      100,
+      250,
+      7,
+      5,
+      14,
+      157,
+      301,
+      3,
+      10,
+      101,
+      9,
+      4
+    ]
+  },
+  "get_projects_id_forks": {
+    "archived|query": [
+      true,
+      false
+    ],
+    "id|path": [
+      2,
+      101,
+      100,
+      6,
+      7,
+      1
+    ],
+    "membership|query": [
+      false,
+      true,
+      [
+        {}
+      ]
+    ],
+    "min_access_level|query": [
+      50,
+      20,
+      30,
+      10,
+      40
+    ],
+    "order_by|query": [
+      "created_at",
+      "name",
+      "path",
+      "id"
+    ],
+    "owned|query": [
+      true,
+      false
+    ],
+    "search|query": [
+      "frontend",
+      "release",
+      "project",
+      "default",
+      "analytics",
+      "migration",
+      [
+        {}
+      ],
+      "documentation",
+      "2HT",
+      "test",
+      "backend"
+    ],
+    "simple|query": [
+      false,
+      true
+    ],
+    "sort|query": [
+      "desc",
+      "asc",
+      []
+    ],
+    "starred|query": [
+      true,
+      false
+    ],
+    "statistics|query": [
+      true,
+      false
+    ],
+    "visibility|query": [
+      "private",
+      "public",
+      "internal"
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false,
+      []
+    ],
+    "with_issues_enabled|query": [
+      false,
+      true,
+      []
+    ],
+    "with_merge_requests_enabled|query": [
+      false,
+      true,
+      []
+    ]
+  },
+  "post_projects_id_star": {
+    "id|path": [
+      200,
+      1,
+      250,
+      302,
+      315,
+      314,
+      124,
+      157,
+      309,
+      293,
+      300,
+      303,
+      320,
+      324,
+      306,
+      275,
+      100,
+      184,
+      328,
+      297,
+      304,
+      310,
+      15,
+      331,
+      313,
+      144,
+      253,
+      234,
+      308,
+      329,
+      40,
+      5,
+      180,
+      327,
+      123,
+      292,
+      290,
+      4,
+      291,
+      299,
+      31,
+      322,
+      3,
+      104,
+      346,
+      344,
+      351,
+      185,
+      60,
+      278,
+      191,
+      343,
+      312,
+      289,
+      222,
+      74,
+      352,
+      342,
+      341,
+      129,
+      335,
+      305,
+      348,
+      164,
+      11,
+      86,
+      296,
+      361,
+      381,
+      105,
+      363,
+      321,
+      294,
+      116,
+      326,
+      316,
+      12,
+      345,
+      353,
+      136,
+      197,
+      374,
+      371,
+      330,
+      365,
+      202,
+      325,
+      7,
+      333,
+      368,
+      34,
+      402,
+      350,
+      14,
+      2,
+      409,
+      372,
+      33
+    ]
+  },
+  "post_projects_id_unstar": {
+    "id|path": [
+      200,
+      1,
+      250,
+      253,
+      292,
+      314,
+      302,
+      315,
+      13,
+      203,
+      300,
+      293,
+      324,
+      309,
+      306,
+      320,
+      19,
+      3,
+      310,
+      331,
+      327,
+      100,
+      308,
+      34,
+      184,
+      313,
+      180,
+      5,
+      40,
+      350,
+      9,
+      351,
+      304,
+      297,
+      303,
+      299,
+      290,
+      4,
+      7,
+      278,
+      289,
+      222,
+      144,
+      346,
+      104,
+      11,
+      341,
+      31,
+      343,
+      296,
+      86,
+      305,
+      116,
+      256,
+      60,
+      101,
+      2,
+      129,
+      321,
+      18,
+      352,
+      70,
+      202,
+      16,
+      74,
+      333
+    ]
+  },
+  "get_projects_id_starrers": {
+    "id|path": [
+      1,
+      42,
+      305,
+      250,
+      200,
+      100,
+      7,
+      13,
+      5,
+      19,
+      4,
+      16,
+      11,
+      14,
+      77,
+      321,
+      101,
+      300,
+      6,
+      157,
+      87,
+      294,
+      15,
+      20,
+      3,
+      17,
+      8,
+      33,
+      9,
+      18,
+      44,
+      12,
+      400
+    ],
+    "search|query": [
+      "default",
+      "john",
+      "main",
+      "alpha",
+      8,
+      "test",
+      "project"
+    ]
+  },
+  "get_projects_id_languages": {
+    "id|path": [
+      250,
+      1,
+      200,
+      3,
+      27,
+      24,
+      11,
+      42,
+      20,
+      50,
+      6,
+      34,
+      101,
+      15,
+      4,
+      9,
+      5,
+      8,
+      14,
+      16,
+      12,
+      116,
+      265,
+      100,
+      19,
+      192,
+      10,
+      2,
+      202,
+      110,
+      31,
+      13,
+      314,
+      350,
+      206,
+      203,
+      17,
+      362,
+      324,
+      23,
+      339,
+      329,
+      302,
+      305,
+      123,
+      294,
+      337,
+      18,
+      304,
+      151,
+      332,
+      315,
+      133,
+      137
+    ]
+  },
+  "post_projects_id_archive": {
+    "id|path": [
+      3,
+      118,
+      316,
+      200,
+      7,
+      18,
+      241,
+      166,
+      6,
+      317,
+      318,
+      291,
+      325,
+      301,
+      297,
+      298,
+      294,
+      102,
+      13,
+      321,
+      4,
+      335,
+      324,
+      328,
+      302,
+      306,
+      40,
+      315,
+      332,
+      304,
+      86,
+      326,
+      342,
+      339,
+      299,
+      303,
+      314,
+      312,
+      336,
+      295,
+      310,
+      356,
+      289,
+      322,
+      330,
+      349,
+      305,
+      347,
+      296,
+      333,
+      337,
+      365,
+      372,
+      374,
+      348,
+      369,
+      311,
+      5,
+      378,
+      371,
+      362,
+      309,
+      357,
+      300,
+      89,
+      385,
+      341,
+      292,
+      67,
+      406,
+      331,
+      340
+    ]
+  },
+  "post_projects_id_unarchive": {
+    "id|path": [
+      5,
+      1,
+      200,
+      203,
+      6,
+      250,
+      13,
+      7,
+      116,
+      9,
+      282,
+      34,
+      10,
+      43,
+      11,
+      373
+    ]
+  },
+  "post_projects_id_restore": {
+    "id|path": [
+      10,
+      7,
+      17,
+      13,
+      12,
+      200,
+      100,
+      19,
+      315,
+      302,
+      331,
+      9,
+      306,
+      324,
+      308,
+      314,
+      15,
+      300,
+      144,
+      351,
+      4,
+      86,
+      40,
+      256,
+      304,
+      293,
+      31,
+      289,
+      297,
+      5,
+      195,
+      34,
+      296,
+      2,
+      60,
+      299
+    ]
+  },
+  "post_projects_id_uploads": {
+    "id|path": []
+  },
+  "post_projects_id_share": {
+    "id|path": [
+      195,
+      101,
+      5,
+      10,
+      4,
+      7,
+      8,
+      1,
+      6,
+      14,
+      3,
+      390,
+      303
+    ],
+    "expires_at|query": [
+      "2024-12-31",
+      "2024-11-15"
+    ],
+    "group_access|query": [
+      50,
+      40,
+      10,
+      20,
+      30
+    ],
+    "group_id|query": [
+      105,
+      71,
+      91,
+      81
+    ]
+  },
+  "delete_projects_id_share_group_id": {
+    "id|path": [
+      7,
+      5,
+      10,
+      1
+    ],
+    "group_id|path": [
+      105,
+      71
+    ]
+  },
+  "get_projects_id_hooks": {
+    "id|path": [
+      1,
+      9,
+      315,
+      8,
+      7,
+      320,
+      6,
+      310,
+      180,
+      318,
+      102,
+      314,
+      302,
+      294,
+      3,
+      14,
+      144,
+      305,
+      328,
+      306,
+      278,
+      333,
+      332,
+      316,
+      327,
+      275,
+      339,
+      18,
+      337,
+      308,
+      311,
+      100,
+      19,
+      4,
+      343,
+      312,
+      299,
+      15,
+      129,
+      49,
+      2,
+      297,
+      12,
+      23,
+      329,
+      353,
+      362,
+      303,
+      370,
+      357,
+      185,
+      296,
+      304,
+      378,
+      368,
+      371,
+      200,
+      322,
+      298,
+      151,
+      346,
+      324,
+      341,
+      373,
+      369,
+      293,
+      167,
+      383,
+      338,
+      301,
+      372,
+      374,
+      395,
+      10,
+      334,
+      33,
+      340,
+      365,
+      292,
+      157,
+      405,
+      382,
+      202,
+      386,
+      350,
+      325,
+      347,
+      65,
+      375,
+      398,
+      392
+    ]
+  },
+  "post_projects_id_hooks": {
+    "confidential_issues_events|query": [
+      true,
+      false
+    ],
+    "confidential_note_events|query": [
+      false,
+      true
+    ],
+    "deployment_events|query": [
+      true,
+      false
+    ],
+    "enable_ssl_verification|query": [
+      true,
+      false
+    ],
+    "id|path": [
+      1,
+      189,
+      101,
+      167,
+      145,
+      67,
+      89,
+      23,
+      123
+    ],
+    "issues_events|query": [
+      false,
+      true
+    ],
+    "job_events|query": [
+      false,
+      true
+    ],
+    "merge_requests_events|query": [
+      true,
+      false
+    ],
+    "note_events|query": [
+      false,
+      true
+    ],
+    "pipeline_events|query": [
+      true,
+      false
+    ],
+    "push_events_branch_filter|query": [
+      "main",
+      "release",
+      "staging",
+      "feature/*",
+      "hotfix/*",
+      "test",
+      "qa",
+      "integration",
+      "production"
+    ],
+    "push_events|query": [
+      false,
+      true
+    ],
+    "tag_push_events|query": [
+      false,
+      true
+    ],
+    "token|query": [
+      "token123",
+      "s3crett0ken",
+      "securetoken1",
+      "mysecret",
+      "ghijk789",
+      "token98765",
+      "abc123token",
+      "token-456",
+      "def456",
+      "hooktoken"
+    ],
+    "url|query": [
+      "https://api.example.org/webhook",
+      "https://example.com/hook1",
+      "https://subdomain.example.com/hook",
+      "https://example.org/hook",
+      "https://hooks.example.net/receiver",
+      "https://example.net/hook/api",
+      "https://hooks.company.com/endpoint",
+      "https://hooks.io/project/hook",
+      "http://localhost:30000/root/project-collaborators-deletion_scheduled-60",
+      "https://webhook.site/uniqueid",
+      "https://webhooks.io/endpoint",
+      "http://localhost:30000/root/ProjectAlpha"
+    ],
+    "wiki_page_events|query": [
+      true,
+      false
+    ]
+  },
+  "get_projects_id_hooks_hook_id": {
+    "id|path": [
+      1,
+      101
+    ],
+    "hook_id|path": [
+      101,
+      202,
+      164
+    ]
+  },
+  "put_projects_id_hooks_hook_id": {
+    "confidential_issues_events|query": [
+      true
+    ],
+    "confidential_note_events|query": [],
+    "deployment_events|query": [],
+    "enable_ssl_verification|query": [],
+    "hook_id|path": [
+      5
+    ],
+    "id|path": [
+      5
+    ],
+    "issues_events|query": [],
+    "job_events|query": [],
+    "merge_requests_events|query": [
+      true
+    ],
+    "note_events|query": [],
+    "pipeline_events|query": [
+      false
+    ],
+    "push_events_branch_filter|query": [],
+    "push_events|query": [],
+    "tag_push_events|query": [],
+    "token|query": [],
+    "url|query": [
+      "http://localhost:30000/project-collaborators-deletion_scheduled-60/customer-support-team-deletion_scheduled-138",
+      "http://localhost:30000/root/cu3EVLfjb",
+      "http://localhost:30000/groups/project-managers-deletion_scheduled-437",
+      "http://localhost:30000/root/root"
+    ],
+    "wiki_events|query": [],
+    "releases_events|query": []
+  },
+  "delete_projects_id_hooks_hook_id": {
+    "hook_id|path": [
+      101,
+      3,
+      100,
+      5,
+      32
+    ],
+    "id|path": [
+      1,
+      20,
+      5
+    ]
+  },
+  "post_projects_id_housekeeping": {
+    "id|path": [
+      250,
+      200,
+      1,
+      27,
+      6,
+      9,
+      15,
+      5,
+      8,
+      100,
+      2,
+      31,
+      202,
+      314,
+      203,
+      17,
+      362,
+      337,
+      370,
+      324,
+      315,
+      339,
+      23,
+      327,
+      341,
+      305,
+      312,
+      12,
+      302,
+      275,
+      329,
+      133,
+      294,
+      304,
+      332,
+      33,
+      151,
+      129,
+      383,
+      303,
+      369,
+      157,
+      10,
+      353,
+      19,
+      350,
+      296,
+      333,
+      65,
+      293,
+      172
+    ]
+  },
+  "put_projects_id_transfer": {
+    "id|path": [
+      250,
+      100,
+      150,
+      1,
+      101,
+      338,
+      200,
+      350,
+      5,
+      354,
+      167,
+      25,
+      322,
+      312,
+      374,
+      118,
+      303,
+      325,
+      6,
+      317,
+      291
+    ],
+    "namespace|query": [
+      105,
+      60,
+      1
+    ]
+  },
+  "post_projects_id_fork_forked_from_id": {
+    "forked_from_id|path": [
+      1,
+      20,
+      5,
+      100,
+      2,
+      10,
+      9,
+      184,
+      15,
+      18,
+      252,
+      326,
+      142,
+      12
+    ],
+    "id|path": [
+      101,
+      110,
+      200,
+      102,
+      300,
+      250,
+      105,
+      1
+    ]
+  },
+  "get_projects_id_snapshot": {
+    "id|path": [
+      1,
+      17,
+      200,
+      38,
+      42,
+      203,
+      315,
+      250,
+      65,
+      302,
+      314,
+      77,
+      293,
+      124,
+      88,
+      324,
+      157,
+      300,
+      60,
+      309,
+      320,
+      123,
+      20,
+      331,
+      184,
+      275,
+      256,
+      144,
+      3,
+      308,
+      329,
+      306,
+      304,
+      15,
+      5,
+      297,
+      31,
+      292,
+      351,
+      40,
+      7,
+      18,
+      195,
+      289,
+      105,
+      222,
+      16,
+      13,
+      86,
+      100,
+      104,
+      291,
+      11,
+      342,
+      310,
+      8,
+      4,
+      101,
+      343,
+      10,
+      303,
+      348,
+      312,
+      341,
+      365,
+      164,
+      335,
+      321,
+      374,
+      9
+    ],
+    "wiki|query": [
+      true,
+      false
+    ]
+  },
+  "get_users_user_id_projects": {
+    "archived|query": [
+      false,
+      true
+    ],
+    "id_after|query": [
+      500
+    ],
+    "id_before|query": [
+      450,
+      350
+    ],
+    "membership|query": [
+      []
+    ],
+    "min_access_level|query": [],
+    "order_by|query": [
+      "updated_at"
+    ],
+    "owned|query": [
+      "false",
+      true
+    ],
+    "search|query": [],
+    "simple|query": [],
+    "sort|query": [
+      "desc"
+    ],
+    "starred|query": [
+      true
+    ],
+    "statistics|query": [],
+    "user_id|path": [
+      1
+    ],
+    "visibility|query": [],
+    "with_custom_attributes|query": [
+      true
+    ],
+    "with_issues_enabled|query": [
+      true
+    ],
+    "with_merge_requests_enabled|query": [],
+    "with_programming_language|query": [
+      true
+    ]
+  },
+  "get_users_user_id_starred_projects": {
+    "archived|query": [],
+    "membership|query": [
+      [],
+      true,
+      "true",
+      false
+    ],
+    "min_access_level|query": [],
+    "order_by|query": [],
+    "owned|query": [
+      true,
+      "false",
+      false
+    ],
+    "search|query": [],
+    "simple|query": [],
+    "sort|query": [],
+    "starred|query": [],
+    "statistics|query": [],
+    "user_id|path": [
+      1
+    ],
+    "visibility|query": [],
+    "with_custom_attributes|query": [],
+    "with_issues_enabled|query": [],
+    "with_merge_requests_enabled|query": []
+  }
+}

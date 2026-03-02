@@ -1,0 +1,295 @@
+{
+  "fetchVariantAnnotationPOST": {},
+  "fetchVariantAnnotationByIdPOST": {},
+  "fetchVariantAnnotationByIdGET": {},
+  "fetchVariantAnnotationByGenomicLocationPOST": {
+    "chromosome": [
+      "1",
+      "Y",
+      "2",
+      "6",
+      "4",
+      "X",
+      "10",
+      "9",
+      "17",
+      "7"
+    ],
+    "start": [
+      123456,
+      63800729,
+      105259059,
+      178866391,
+      400000,
+      1385015,
+      200000,
+      41242963,
+      777777,
+      500000,
+      75016209,
+      66937331,
+      38064315,
+      999999,
+      25362365,
+      250000,
+      265023,
+      319781,
+      81205147,
+      110754,
+      89622870,
+      222222,
+      7565097
+    ],
+    "end": [
+      123456,
+      63800729,
+      75016209,
+      141312879,
+      400002,
+      41242963,
+      200000,
+      777780,
+      500000,
+      7523401,
+      66937331,
+      81205147,
+      1000000,
+      250003,
+      178866007,
+      265023,
+      178866391,
+      1385015,
+      110754,
+      319781,
+      178865902,
+      222225,
+      110753
+    ],
+    "referenceAllele": [
+      "A",
+      "-",
+      "G",
+      "C",
+      "T",
+      "GA"
+    ],
+    "variantAllele": [
+      "bThzRq2",
+      "6:g.34859001C>T",
+      "rs543216789",
+      "A",
+      "T",
+      "17:g.41242962_41242963insGA",
+      "1:g.182712A>C",
+      "G",
+      "C",
+      "1:g.1385015_1387562del",
+      "{variant}",
+      "default",
+      "19:g.110753dup",
+      "X:g.66937331T>A",
+      "Ej2Ce",
+      "2:g.265023C>T",
+      "3:g.319781del",
+      "GA",
+      "-"
+    ]
+  },
+  "fetchVariantAnnotationByGenomicLocationGET": {},
+  "fetchVariantAnnotationGET": {},
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {},
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {},
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {},
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {},
+  "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {},
+  "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {},
+  "fetchEnsemblTranscriptsGET": {},
+  "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+    "geneIds": [
+      [],
+      [
+        "ENSG00000198695"
+      ],
+      [
+        "ENSG00000136999",
+        "ENSG00000272398"
+      ],
+      [
+        "ENSG00000272398"
+      ],
+      [
+        "ENSG00000136999"
+      ]
+    ],
+    "hugoSymbols": [
+      [
+        "PIK3CA"
+      ],
+      [
+        "PIK3CA",
+        "BRCA1"
+      ]
+    ],
+    "proteinIds": [
+      [
+        "ENSP00000478460"
+      ],
+      [],
+      [
+        "ENSP00000439985"
+      ],
+      [
+        "ENSP00000478460",
+        "ENSP00000346196"
+      ],
+      [
+        "ENSP00000346196"
+      ]
+    ],
+    "transcriptIds": [
+      [
+        "ENST00000361390",
+        "ENST00000361624"
+      ],
+      [],
+      [
+        "ENST00000361453"
+      ],
+      [
+        "ENST00000361624"
+      ],
+      [
+        "ENST00000361453",
+        "ENST00000361390"
+      ],
+      [
+        "default"
+      ],
+      [
+        "ENST00000361390"
+      ],
+      [
+        9146,
+        3912,
+        -7916,
+        4423,
+        -1733,
+        3334
+      ],
+      [
+        -338,
+        8275
+      ]
+    ]
+  },
+  "fetchEnsemblTranscriptByTranscriptIdGET": {},
+  "fetchGeneXrefsGET": {},
+  "fetchPdbHeaderPOST": {},
+  "fetchPdbHeaderGET": {},
+  "fetchPfamDomainsByPfamAccessionPOST": {},
+  "fetchPfamDomainsByAccessionGET": {},
+  "fetchPostTranslationalModificationsGET": {},
+  "fetchPostTranslationalModificationsByPtmFilterPOST": {
+    "transcriptIds": [
+      [
+        "ENST00000420316",
+        "ENST00000371953"
+      ],
+      [
+        3894,
+        9360,
+        5869,
+        -9651,
+        3677,
+        108,
+        9970,
+        1255
+      ],
+      [
+        "NM_007294.3"
+      ],
+      [
+        "default"
+      ],
+      [
+        "ENST00000371953",
+        "ENST00000646891"
+      ],
+      [
+        "ENST00000361624",
+        "ENST00000420316"
+      ],
+      [
+        "ENST00000646891",
+        "ENST00000361390"
+      ],
+      [
+        "ENST00000371953",
+        "ENST00000361390"
+      ],
+      [
+        "NM_007297.3"
+      ],
+      [
+        "ENST00000361453",
+        "ENST00000361624"
+      ],
+      [
+        122,
+        7259,
+        6586,
+        8,
+        -2073,
+        -2912,
+        5201,
+        3573,
+        9992,
+        -3642,
+        9337,
+        -1652,
+        -705,
+        -123,
+        -7936,
+        5374,
+        1311,
+        -7838,
+        -9065,
+        -339
+      ],
+      [
+        "NM_001005240.1"
+      ],
+      [
+        7520,
+        5877,
+        -300,
+        9574,
+        4422,
+        4368,
+        2173
+      ],
+      [
+        "ENST00000361390",
+        "ENST00000361453"
+      ],
+      [
+        -5155,
+        7795,
+        -327,
+        1451,
+        -3741,
+        910,
+        -7928
+      ],
+      [
+        -3411,
+        -8480,
+        5526,
+        3761,
+        -4423,
+        -3971
+      ]
+    ]
+  },
+  "fetchVersionGET": {}
+}

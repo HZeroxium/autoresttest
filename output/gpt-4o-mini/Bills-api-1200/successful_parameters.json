@@ -1,0 +1,416 @@
+{
+  "GetAmendments": {
+    "billId|path": [],
+    "billStageId|path": [],
+    "SearchTerm|query": [],
+    "Decision|query": [],
+    "MemberId|query": [],
+    "Skip|query": [],
+    "Take|query": []
+  },
+  "GetAmendment": {
+    "billId|path": [],
+    "billStageId|path": [],
+    "amendmentId|path": []
+  },
+  "GetNewsArticles": {
+    "billId|path": [
+      3734,
+      26,
+      809,
+      1790,
+      3884,
+      3910,
+      195,
+      200,
+      2215,
+      3766,
+      3897,
+      2556,
+      1404,
+      1597,
+      2743,
+      1187,
+      3762,
+      3754,
+      2818,
+      1819,
+      2043
+    ],
+    "Skip|query": [
+      0,
+      1
+    ],
+    "Take|query": [
+      1
+    ]
+  },
+  "get_api_v1_BillTypes": {
+    "Category|query": [],
+    "Skip|query": [
+      0
+    ],
+    "Take|query": [
+      1
+    ]
+  },
+  "GetBills": {
+    "SearchTerm|query": [
+      "infrastructure"
+    ],
+    "Session|query": [
+      37,
+      42,
+      39,
+      35,
+      33
+    ],
+    "CurrentHouse|query": [
+      "Commons",
+      "Lords"
+    ],
+    "OriginatingHouse|query": [
+      "All",
+      "Lords",
+      "Commons"
+    ],
+    "MemberId|query": [
+      456,
+      666,
+      111,
+      789,
+      53,
+      42,
+      43,
+      7,
+      47,
+      3,
+      61660,
+      25,
+      30,
+      44
+    ],
+    "DepartmentId|query": [
+      3,
+      5,
+      7,
+      10,
+      9,
+      58117,
+      22,
+      65237,
+      19511,
+      62812,
+      6276,
+      62557,
+      5086,
+      68632
+    ],
+    "BillStage|query": [
+      [
+        6
+      ]
+    ],
+    "BillStagesExcluded|query": [
+      [
+        10
+      ],
+      [
+        4
+      ],
+      [
+        3
+      ]
+    ],
+    "IsDefeated|query": [
+      false,
+      true
+    ],
+    "IsWithdrawn|query": [
+      false,
+      true,
+      "false"
+    ],
+    "BillType|query": [
+      [
+        4
+      ],
+      [
+        6
+      ]
+    ],
+    "SortOrder|query": [
+      "DateUpdatedAscending",
+      "DateUpdatedDescending",
+      "TitleDescending"
+    ],
+    "BillIds|query": [
+      [
+        3999
+      ],
+      [
+        3940
+      ],
+      [
+        3960
+      ],
+      [
+        3973
+      ],
+      [
+        3930
+      ],
+      [
+        4000
+      ]
+    ],
+    "IsInAmendableStage|query": [
+      false,
+      true
+    ],
+    "Skip|query": [
+      70,
+      0,
+      20
+    ],
+    "Take|query": [
+      50,
+      35,
+      40,
+      15,
+      5,
+      30
+    ]
+  },
+  "GetBill": {
+    "billId|path": [
+      93,
+      3734,
+      588,
+      37,
+      26,
+      1790,
+      3897,
+      809,
+      3766,
+      3910,
+      1404,
+      2215,
+      460,
+      200,
+      2743,
+      1187,
+      472,
+      3884
+    ]
+  },
+  "GetBillStageDetails": {
+    "billId|path": [],
+    "billStageId|path": []
+  },
+  "get_api_v1_Bills_billId_Stages": {
+    "billId|path": [
+      4038,
+      3759,
+      809,
+      200,
+      3884,
+      37,
+      26,
+      3734,
+      3554,
+      1130,
+      3762,
+      1583,
+      1159,
+      3763,
+      2295,
+      556,
+      1790,
+      2572,
+      2043,
+      2028,
+      3973,
+      195,
+      3381,
+      1187
+    ],
+    "Skip|query": [
+      0
+    ],
+    "Take|query": [
+      2
+    ]
+  },
+  "get_api_v1_Publications_publicationId_Documents_documentId": {
+    "publicationId|path": [],
+    "documentId|path": []
+  },
+  "get_api_v1_Publications_publicationId_Documents_documentId_Download": {
+    "publicationId|path": [],
+    "documentId|path": []
+  },
+  "SearchPingPongItems": {
+    "billId|path": [],
+    "billStageId|path": [],
+    "SearchTerm|query": [],
+    "Decision|query": [],
+    "MemberId|query": [],
+    "Skip|query": [],
+    "Take|query": []
+  },
+  "GetPingPongItem": {
+    "billId|path": [],
+    "billStageId|path": [],
+    "pingPongItemId|path": []
+  },
+  "get_api_v1_PublicationTypes": {
+    "Skip|query": [
+      1,
+      9,
+      14,
+      88
+    ],
+    "Take|query": [
+      1,
+      15
+    ]
+  },
+  "GetBillPublication": {
+    "billId|path": [
+      3734,
+      4075,
+      809,
+      1790,
+      1583,
+      1187,
+      41,
+      3910,
+      3884,
+      3766,
+      945,
+      26,
+      3897,
+      2743,
+      685,
+      1597,
+      3754,
+      2556
+    ]
+  },
+  "get_api_v1_Bills_billId_Stages_stageId_Publications": {
+    "billId|path": [],
+    "stageId|path": []
+  },
+  "get_api_v1_Rss_allbills_rss": {},
+  "get_api_v1_Rss_publicbills_rss": {},
+  "get_api_v1_Rss_privatebills_rss": {},
+  "get_api_v1_Rss_Bills_id_rss": {
+    "id|path": [
+      408,
+      1331,
+      3225,
+      43,
+      1144
+    ]
+  },
+  "GetSittings": {
+    "House|query": [
+      "Unassigned",
+      "Commons",
+      "Lords",
+      "All",
+      []
+    ],
+    "DateFrom|query": [
+      "2026-05-01T00:00:00",
+      "2026-06-01T00:00:00",
+      "2026-07-01T00:00:00",
+      "2026-06-15T00:00:00",
+      [],
+      "2026-05-29T00:00:00"
+    ],
+    "DateTo|query": [
+      "2026-06-05T00:00:00",
+      "2026-07-05T00:00:00"
+    ],
+    "Skip|query": [
+      8,
+      4,
+      10,
+      1,
+      [],
+      3
+    ],
+    "Take|query": [
+      3,
+      10,
+      5
+    ]
+  },
+  "get_api_v1_Stages": {
+    "Skip|query": [
+      273,
+      10,
+      4,
+      1,
+      20
+    ],
+    "Take|query": [
+      4,
+      1,
+      2,
+      6,
+      232,
+      56962,
+      56679,
+      293,
+      67677,
+      62204,
+      [
+        -864,
+        -975,
+        8134,
+        -2362,
+        2354,
+        1454,
+        -2950,
+        2485,
+        8559,
+        264,
+        -406,
+        -9187,
+        9174,
+        -788,
+        -8128,
+        -5549,
+        -414,
+        8402,
+        -1125
+      ],
+      6756,
+      602,
+      61282,
+      62130,
+      7,
+      188,
+      927,
+      909,
+      20,
+      [],
+      67592,
+      [
+        -7769,
+        5426,
+        6615,
+        1478,
+        9847
+      ],
+      60289,
+      58553,
+      67603,
+      229420,
+      67253
+    ]
+  }
+}

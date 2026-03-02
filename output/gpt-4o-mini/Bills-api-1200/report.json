@@ -1,0 +1,17 @@
+{
+  "Title": "AutoRestTest Report for 'Bills API' (Bills-api)",
+  "Duration": "1200 seconds",
+  "Total Requests Sent": 2595,
+  "Status Code Distribution": {
+    "404": 1456,
+    "400": 376,
+    "200": 753,
+    "405": 6,
+    "403": 4
+  },
+  "Number of Total Operations": 21,
+  "Number of Successfully Processed Operations": 13,
+  "Percentage of Successfully Processed Operations": "61.9%",
+  "Number of Unique Server Errors": 0,
+  "Operations with Server Errors": {}
+}

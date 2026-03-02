@@ -1,0 +1,15 @@
+{
+  "Title": "AutoRestTest Report for 'Canada Holidays API' (CanadaHoliday)",
+  "Duration": "600 seconds",
+  "Total Requests Sent": 1638,
+  "Status Code Distribution": {
+    "400": 434,
+    "200": 1203,
+    "405": 1
+  },
+  "Number of Total Operations": 4,
+  "Number of Successfully Processed Operations": 4,
+  "Percentage of Successfully Processed Operations": "100.0%",
+  "Number of Unique Server Errors": 0,
+  "Operations with Server Errors": {}
+}

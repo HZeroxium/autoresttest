@@ -1,0 +1,15 @@
+{
+  "logoutUser": [
+    null
+  ],
+  "loginUser": [
+    null
+  ],
+  "deletePet": [
+    null
+  ],
+  "findPetsByStatus": [],
+  "updatePetWithForm": [
+    null
+  ]
+}

@@ -1,0 +1,535 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "daily",
+      "hourly",
+      "monthly"
+    ],
+    "enabled": [
+      true
+    ],
+    "keep_n": [
+      8,
+      20,
+      7,
+      5,
+      15,
+      3,
+      4,
+      12
+    ],
+    "older_than": [
+      "90d",
+      "60d"
+    ],
+    "name_regex": [
+      "^dev-.*",
+      "build-.*",
+      "^snapshot-.*",
+      "Administrator",
+      ".*-test$",
+      "release-.*",
+      ".*"
+    ],
+    "name_regex_delete": [
+      "release-old-.*"
+    ],
+    "name_regex_keep": [
+      "^dev-prod$",
+      "build-release",
+      "^snapshot-final$",
+      null,
+      ".*-stable$",
+      "release-current",
+      "^prod-current$"
+    ],
+    "next_run_at": [
+      "2024-06-10T23:59:59Z",
+      "2024-08-01T23:59:59Z"
+    ]
+  },
+  "get_issues": {
+    "labels": [
+      "security",
+      "performance",
+      "question",
+      [
+        "backend",
+        "feature",
+        "project",
+        "task"
+      ],
+      "feature,discussion",
+      "help wanted",
+      [
+        "needs review"
+      ],
+      "enhancement,documentation",
+      [
+        "backend",
+        "performance"
+      ],
+      [
+        "M",
+        "enhancement"
+      ],
+      "bug,urgent",
+      [
+        "task"
+      ],
+      "http://localhost:30000/api/v4/projects/614/cluster_agents",
+      "refactor",
+      [
+        "http://localhost:30000/api/v4/projects/308/labels"
+      ],
+      [
+        "True",
+        "task"
+      ],
+      [
+        "documentation"
+      ],
+      "http://localhost:30000/api/v4/projects/639/labels",
+      [
+        "backend"
+      ],
+      [
+        "backend",
+        "enhancement",
+        "feature"
+      ],
+      [
+        "backend",
+        "bug",
+        "frontend"
+      ],
+      [
+        "needs review",
+        "task"
+      ],
+      [
+        "True",
+        "discussion"
+      ],
+      [],
+      [
+        "performance",
+        "refactor",
+        "testing"
+      ],
+      [
+        "backend",
+        "feature",
+        "needs review",
+        "task"
+      ],
+      [
+        "backend",
+        "enhancement",
+        "feature",
+        "performance"
+      ],
+      "wontfix",
+      "duplicate",
+      67,
+      "needs review",
+      true
+    ],
+    "milestone": [
+      null,
+      "release-candidate",
+      "legacy",
+      "alpha",
+      "hotfix",
+      "v1.0",
+      "v3.5"
+    ],
+    "author_id": [
+      5,
+      17,
+      61,
+      678,
+      34,
+      42,
+      25,
+      76,
+      101,
+      1,
+      234,
+      100,
+      789,
+      99,
+      88,
+      202,
+      21,
+      "1h",
+      456
+    ],
+    "author_username": [
+      "kaiser",
+      "quentin_support",
+      "ian_user",
+      "alicew",
+      "quentin",
+      "user1",
+      "ivy_ops",
+      "steve_tester",
+      "johndoe",
+      "mia_ux"
+    ],
+    "assignee_id": [
+      16,
+      8,
+      400,
+      3,
+      42,
+      11,
+      108,
+      7,
+      2,
+      101,
+      "Customer Support Team",
+      13,
+      636,
+      404,
+      303,
+      25,
+      1,
+      123,
+      19,
+      202,
+      40,
+      623
+    ],
+    "assignee_username": [
+      "lizzy",
+      "root",
+      "juliaq",
+      "bobsmith",
+      "dave77",
+      "rita_z",
+      "frankdev",
+      "janedoe"
+    ],
+    "my_reaction_emoji": [
+      "bug",
+      "None",
+      "tada",
+      "desc",
+      "rocket",
+      "eUZWbJSI",
+      "default",
+      "asc",
+      "thumbsup",
+      "http://localhost:30000/customer-support-team-deletion_scheduled-203/research-development-deletion_scheduled-63/-/issues/9",
+      "smile",
+      "eyes",
+      "RogIBh",
+      "OBNnRQ",
+      "confused",
+      "GCcwVc0g9t",
+      "1VUZj",
+      "z93g",
+      "J",
+      "RRbQ",
+      "rwG",
+      "ruXDpt",
+      "Y0hrfoGV",
+      "hL9qrxgFzzEZKr27p",
+      "Rcfs4KWh",
+      "thumbsdown",
+      "OaxjMxW9iSWsjB6w",
+      "pxE3",
+      "clap",
+      [
+        {
+          "group_id": 91,
+          "group_name": "Content Creation-deletion_scheduled-101",
+          "group_full_path": "marketing-squad-deletion_scheduled-91",
+          "group_access_level": 40,
+          "expires_at": null
+        }
+      ],
+      "^snapshot-final$",
+      null,
+      "build-release"
+    ]
+  },
+  "get_issues_id": {},
+  "get_groups": {},
+  "post_groups": {
+    "name": [
+      "Research and Development",
+      "Any",
+      "Product Design",
+      "Quality Assurance",
+      "Legal Team",
+      "Content Writers",
+      "Finance Department",
+      "Content Creators"
+    ],
+    "path": [
+      "research-development",
+      false,
+      "product-design",
+      "quality-assurance",
+      "legal-team",
+      "content-writers",
+      "finance-department",
+      "CIPipeline"
+    ],
+    "description": [
+      "Group focused on testing and QA procedures for products.",
+      "Legal department handling compliance and contracts.",
+      "Group that manages financial operations and budgeting.",
+      "Enhancement: Improve loading time of the dashboard.",
+      "Team responsible for the design of all product interfaces."
+    ],
+    "avatar": []
+  },
+  "get_groups_id_issues": {
+    "labels": [
+      [
+        "backend"
+      ],
+      [
+        "backend",
+        "bug",
+        "frontend"
+      ],
+      "bug",
+      [
+        "needs review"
+      ]
+    ],
+    "milestone": [
+      null,
+      "v1.0"
+    ],
+    "author_id": [
+      678,
+      101,
+      234,
+      789,
+      17,
+      202,
+      107,
+      123,
+      456,
+      1,
+      567,
+      103
+    ],
+    "author_username": [
+      "contributor",
+      "alice_dev",
+      "user1",
+      "owner",
+      "manager",
+      "dev_guy",
+      "{{",
+      "nina",
+      "cuXMjAPZ",
+      "2026-02-27T14:33:09.277Z",
+      "john_doe",
+      "kate_dev",
+      "root",
+      "default",
+      "4",
+      "mia_ux",
+      "2026-02-27T14:51:52.457Z",
+      {
+        "D": -9517,
+        "H": 45,
+        "M": 4192,
+        "d": 7110,
+        "f": 9326,
+        "T": -7112,
+        "s": 9841,
+        "m": 3691
+      },
+      "carol",
+      "d5",
+      "charlieQA",
+      "BTxT9eu6ZNJoKidk"
+    ],
+    "assignee_id": [
+      505,
+      3,
+      [
+        101
+      ],
+      202
+    ],
+    "assignee_username": [
+      "rachel_dev",
+      [
+        "judy"
+      ],
+      "root",
+      "bob_tester",
+      [
+        7232,
+        7777,
+        -5551,
+        -3672,
+        -2777,
+        -6869,
+        -839,
+        5326,
+        6110,
+        -6032,
+        -1242,
+        1229,
+        -1733,
+        1784,
+        287,
+        32,
+        -4835,
+        -3107,
+        -8618,
+        9073,
+        -5350,
+        -5391,
+        7336,
+        -3510,
+        -3718,
+        5755,
+        -1108,
+        6802,
+        -1638
+      ]
+    ],
+    "my_reaction_emoji": [
+      "asc",
+      "thumbsup"
+    ],
+    "search": [
+      "title,description",
+      "default",
+      "title",
+      "support-team",
+      "customer-deletion"
+    ],
+    "in": [
+      "2026-02-27T13:20:49.039Z",
+      "body",
+      "default",
+      "comments",
+      null,
+      "details",
+      "excerpt",
+      "title",
+      "description",
+      "search",
+      "logs",
+      "2026-03-01T17:09:22.980Z",
+      239400,
+      "assignee"
+    ]
+  },
+  "get_projects_id_issues": {
+    "labels": [
+      "help wanted",
+      "performance",
+      "question",
+      "documentation"
+    ],
+    "milestone": [
+      "support_v1",
+      "Any",
+      "sprint_9",
+      "alpha",
+      "design_review",
+      "hotfix_1",
+      "v2.3",
+      "release_candidate",
+      null,
+      "cleanup"
+    ],
+    "author_id": [
+      678,
+      17,
+      789,
+      234,
+      303,
+      456,
+      123,
+      101,
+      202,
+      1,
+      567
+    ],
+    "author_username": [
+      "quentin_support",
+      "ivy_ops",
+      "user1",
+      "steve_tester",
+      "eve_writer",
+      "mia_ux",
+      "grace_dev",
+      "alice_dev",
+      "charlieQA",
+      "userone",
+      "m",
+      "oliver_dev"
+    ],
+    "assignee_id": [
+      201,
+      901,
+      567,
+      345,
+      404
+    ],
+    "assignee_username": [
+      "rachel_dev",
+      "tina_qa",
+      "frank_editor"
+    ],
+    "my_reaction_emoji": [
+      "thumbsup",
+      "raised_hands",
+      "rocket",
+      "thinking"
+    ],
+    "search": [
+      "title,description",
+      "title",
+      "description"
+    ],
+    "in": [
+      "body",
+      "excerpt",
+      null,
+      "details",
+      "title",
+      "comments",
+      "description",
+      "notes",
+      239400,
+      "logs"
+    ]
+  },
+  "post_projects_id_issues": {},
+  "get_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid": {},
+  "delete_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid_reorder": {},
+  "post_projects_id_issues_issue_iid_move": {},
+  "post_projects_id_issues_issue_iid_subscribe": {},
+  "post_projects_id_issues_issue_iid_unsubscribe": {},
+  "post_projects_id_issues_issue_iid_todo": {},
+  "post_projects_id_issues_issue_iid_time_estimate": {},
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {},
+  "post_projects_id_issues_issue_iid_add_spent_time": {},
+  "post_projects_id_issues_issue_iid_reset_spent_time": {},
+  "get_projects_id_issues_issue_iid_time_stats": {},
+  "get_projects_id_issues_issue_iid_related_merge_requests": {},
+  "get_projects_id_issues_issue_iid_closed_by": {},
+  "get_projects_id_issues_issue_iid_participants": {},
+  "get_projects_id_issues_issue_iid_metric_images": {},
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "file": []
+  }
+}

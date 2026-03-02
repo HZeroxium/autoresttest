@@ -1,0 +1,26 @@
+{
+  "Title": "AutoRestTest Report for 'GitLab Groups API' (GitLabGroups)",
+  "Duration": "3600 seconds",
+  "Total Requests Sent": 90375,
+  "Status Code Distribution": {
+    "404": 60647,
+    "200": 6163,
+    "400": 19525,
+    "414": 211,
+    "401": 977,
+    "201": 1671,
+    "202": 84,
+    "415": 9,
+    "204": 543,
+    "409": 542,
+    "500": 3
+  },
+  "Number of Total Operations": 17,
+  "Number of Successfully Processed Operations": 12,
+  "Percentage of Successfully Processed Operations": "70.59%",
+  "Number of Unique Server Errors": 3,
+  "Operations with Server Errors": {
+    "get_groups_id_subgroups": 1,
+    "get_groups": 2
+  }
+}

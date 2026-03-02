@@ -1,0 +1,796 @@
+{
+  "fetchVariantAnnotationPOST": {
+    "isoformOverrideSource|query": [
+      "genbank",
+      "cosmic"
+    ],
+    "token|query": [
+      "{\"uniprot\":\"put-your-token1-here\",\"clinvar\":\"put-your-token2-here\"}",
+      "default",
+      "{\"genbank\":\"put-your-token7-here\",\"hgmd\":\"put-your-token8-here\"}"
+    ],
+    "fields|query": [
+      [
+        "clinvar"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByIdPOST": {
+    "isoformOverrideSource|query": [
+      "qfaWC7r1E5Zz4Nj6XF",
+      "default",
+      "ensembl",
+      "keepsource",
+      "genbank",
+      "pubmed",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "uniprot",
+      "stringdb",
+      "KJoN3sXE",
+      0,
+      "LmfoJ",
+      [
+        4029,
+        4595
+      ],
+      "p7tKXApaXFTEmTx8k8xybCzfdKNtd14iNQtH47El9Sl8px",
+      "h8KsFoyy7BfX",
+      "yeLB53NnVjZ",
+      true,
+      "refseq"
+    ],
+    "token|query": [
+      "{\"source1\":\"ABC123\",\"source2\":\"XYZ789\"}",
+      "{\"source1\":\"myToken1\",\"source2\":\"myToken2\"}",
+      "{\"source1\":\"token1\",\"source2\":\"token2\"}",
+      "{\"source1\":\"sourceX\",\"source2\":\"sourceY\"}",
+      "{\"source1\":\"tokenABC\",\"source2\":\"tokenXYZ\"}",
+      "{\"source1\":\"token1Value\",\"source2\":\"token2Value\"}",
+      "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+      "{\"source1\":\"sourceA\",\"source2\":\"sourceB\"}"
+    ],
+    "fields|query": [
+      [
+        "ptms"
+      ],
+      [
+        "clinvar"
+      ],
+      [
+        "hotspots"
+      ],
+      [
+        "mutation_assessor"
+      ],
+      [
+        "hotspots",
+        "mutation_assessor"
+      ],
+      [
+        "clinvar",
+        "mutation_assessor"
+      ],
+      [
+        "signal"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByIdGET": {
+    "variantId|path": [
+      "bThzRq2",
+      "6693",
+      "Y:g.63800729delins6:g.34859001C>T",
+      "rs555555555",
+      "2:g.105259059_105259060insrs543216789",
+      "rs1123581321",
+      15.19398007945542,
+      291,
+      "6715",
+      "rs000000001",
+      "ENSG00000074755",
+      "HKNHYKIYNLCAERHYDTAKF",
+      "default",
+      "ENSG00000035115",
+      444,
+      "rs987654321",
+      131862245,
+      "ENSG00000104044",
+      "rs116035550",
+      "673",
+      "ENSG00000198363",
+      "2174",
+      "rs123456789",
+      "11.572424248124143",
+      "Sj",
+      "29550",
+      "14931",
+      [
+        201,
+        6639,
+        1241,
+        9823,
+        7747,
+        8423,
+        8328,
+        -3723,
+        -3230,
+        7923,
+        -5648,
+        -9774,
+        -4156,
+        -4294,
+        9122,
+        -6149,
+        -6862,
+        4686
+      ],
+      "",
+      "mDEYW7W",
+      "rs184174151"
+    ],
+    "isoformOverrideSource|query": [
+      "qfaWC7r1E5Zz4Nj6XF",
+      "h8KsFoyy7BfX",
+      "similarity",
+      [
+        9515,
+        8090,
+        836,
+        -1939,
+        -6437,
+        -4787
+      ],
+      "uniprot",
+      "default",
+      "hgnc",
+      "P60484",
+      "refseq",
+      {
+        "t": -4992,
+        "n": -7445,
+        "N": -2756,
+        "R": -1056,
+        "C": 8559,
+        "q": -6204,
+        "J": 6668,
+        "S": -677,
+        "A": 922,
+        "T": 3005
+      },
+      "genbank",
+      "blast",
+      "OwJAJCIY",
+      66937331,
+      "swissprot",
+      "pubmed",
+      "gencode",
+      false,
+      "ENSE00001652975"
+    ],
+    "token|query": [
+      "{\"source1\":\"token1\",\"source2\":\"token2\"}",
+      "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+      "{\"source1\":\"ABC123\",\"source2\":\"XYZ789\"}",
+      "{\"source1\":\"token7\",\"source2\":\"token8\"}",
+      "{\"source1\":\"token15\",\"source2\":\"token16\"}",
+      "default",
+      "dbA7Wc",
+      "{\"source1\":\"tokenL\",\"source2\":\"tokenM\"}",
+      "{\"source1\":\"token13\",\"source2\":\"token14\"}",
+      380,
+      "{\"source1\":\"token3\",\"source2\":\"token4\"}",
+      "{\"source1\":\"token123\",\"source2\":\"token456\"}",
+      "{\"uniprot\":\"put-your-token1-here\",\"clinvar\":\"put-your-token2-here\"}",
+      315,
+      "{\"source1\":\"token9\",\"source2\":\"token10\"}",
+      "ENSP00000256078",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      0.3998839590328429,
+      "{\"source1\":\"token999\",\"source2\":\"token888\"}",
+      "{\"source1\":\"token19\",\"source2\":\"token20\"}",
+      8.646009765803889,
+      "{\"source1\":\"tokenAA\",\"source2\":\"tokenBB\"}"
+    ],
+    "fields|query": [
+      [
+        "my_variant_info",
+        "oncokb"
+      ],
+      [
+        "clinvar",
+        "mutation_assessor"
+      ],
+      [
+        "ptms",
+        "signal"
+      ],
+      [
+        "hotspots",
+        "mutation_assessor"
+      ],
+      [
+        "mutation_assessor",
+        "nucleotide_context"
+      ],
+      [
+        "oncokb",
+        "ptms"
+      ],
+      [
+        "clinvar"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByGenomicLocationPOST": {
+    "isoformOverrideSource|query": [
+      "hgmd",
+      "similarity",
+      "refseq"
+    ],
+    "token|query": [
+      "{\"source1\":\"tokenQ\",\"source2\":\"tokenR\"}",
+      "{\"source1\":\"ABC123\",\"source2\":\"XYZ789\"}",
+      "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+      [
+        4620,
+        -8480
+      ],
+      "{\"my_source\":\"your-custom-token\"}",
+      "{\"source1\":\"myToken1\",\"source2\":\"myToken2\"}",
+      "6BMyAHg8Ig6Nv",
+      "{\"genbank\":\"your-genbank-token\",\"uniprot\":\"your-uniprot-token\"}",
+      "{\"source1\":\"tokenX\",\"source2\":\"tokenY\"}"
+    ],
+    "fields|query": [
+      [
+        "clinvar",
+        "mutation_assessor"
+      ],
+      [
+        "hotspots",
+        "mutation_assessor"
+      ],
+      [
+        "clinvar"
+      ],
+      [
+        "my_variant_info",
+        "oncokb"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByGenomicLocationGET": {
+    "genomicLocation|path": [
+      "6,34859001,34859001,C,T",
+      "1,10510001,10510001,T,A",
+      "10,8817876,8817876,T,A",
+      "9,81205147,81205147,A,G",
+      "5,65783035,65783035,A,C",
+      "2,54321756,54321756,G,C",
+      "8,36235092,36235092,C,G",
+      "7,140453136,140453136,A,T"
+    ],
+    "isoformOverrideSource|query": [
+      "similarity",
+      "vep",
+      "swissprot",
+      "refseq",
+      "genbank",
+      "hgnc",
+      "blast"
+    ],
+    "token|query": [
+      "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+      "{\"source1\":\"tokenL\",\"source2\":\"tokenM\"}",
+      "{\"source1\":\"token123\",\"source2\":\"token456\"}",
+      "{\"source1\":\"token1\",\"source2\":\"token2\"}",
+      "{\"source1\":\"tokenAA\",\"source2\":\"tokenBB\"}",
+      "{\"source1\":\"tokenQ\",\"source2\":\"tokenR\"}",
+      "{\"source1\":\"token999\",\"source2\":\"token888\"}",
+      "{\"source1\":\"tokenX\",\"source2\":\"tokenY\"}"
+    ],
+    "fields|query": [
+      [
+        "hotspots",
+        "mutation_assessor"
+      ],
+      [
+        "clinvar",
+        "hotspots"
+      ],
+      [
+        "my_variant_info",
+        "nucleotide_context"
+      ],
+      [
+        "annotation_summary",
+        "clinvar"
+      ],
+      [
+        "annotation_summary"
+      ],
+      [
+        "ptms",
+        "signal"
+      ],
+      [
+        "nucleotide_context",
+        "oncokb"
+      ],
+      [
+        "oncokb"
+      ],
+      [
+        "mutation_assessor"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationGET": {
+    "variant|path": [
+      "1:g.1234567C>T",
+      "bThzRq2",
+      "9:g.3332221C>T",
+      "17:g.41242962_41242963delG",
+      "8:g.3314239C>TA",
+      "SVgfFXYiOqIZNKcgaeO824kmuQEG5AHr67",
+      "6:g.34859001C>T",
+      "undefined",
+      "default",
+      "GA",
+      "3:g.2345678T>C",
+      "12:g.7523401dupC",
+      "2:g.7654321A>G",
+      "Ej2Ce",
+      "22:g.1112222G>CA",
+      "5:g.9876543A>CT",
+      11.572424248124143,
+      "C",
+      {
+        "x": -4266,
+        "s": -3280,
+        "G": 8056,
+        "t": 3923,
+        "U": -7097,
+        "Q": 2131,
+        "H": -6310,
+        "T": 5281,
+        "k": 6056,
+        "l": -1161
+      },
+      21,
+      "17:g.41242962_41242963insGA",
+      "vLFe0V5c6Q1o0U1L38gWRIrVxsnAHEIlIr1ibO7",
+      "A",
+      "T",
+      "-",
+      true
+    ],
+    "isoformOverrideSource|query": [
+      "qfaWC7r1E5Zz4Nj6XF",
+      "h8KsFoyy7BfX",
+      "kegg",
+      "default",
+      "refseq",
+      "swissprot",
+      "KJoN3sXE",
+      "uniprot",
+      "genbank",
+      "ensembl",
+      "blast",
+      [
+        212,
+        -724,
+        4807,
+        -1678
+      ],
+      "similarity",
+      "ENSE00001652975",
+      "hgmd",
+      "p7tKXApaXFTEmTx8k8xybCzfdKNtd14iNQtH47El9Sl8px",
+      {
+        "h": 9978,
+        "R": -7690,
+        "f": 9208,
+        "D": -7304,
+        "C": 1900,
+        "o": -8759,
+        "V": 4003,
+        "Y": -7208,
+        "N": -2524,
+        "W": -3580,
+        "J": -5999,
+        "a": 5651,
+        "F": 1068,
+        "t": -7104,
+        "e": 6195,
+        "A": 6711,
+        "E": -4517,
+        "L": 3856
+      },
+      "WtQuvPjO",
+      "keepsource",
+      7,
+      "yeLB53NnVjZ"
+    ],
+    "token|query": [
+      "{\"source1\":\"tokenQ\",\"source2\":\"tokenR\"}",
+      "{\"source1\":\"key1\",\"source2\":\"key2\"}",
+      "{\"source1\":\"123-token\",\"source2\":\"456-token\"}",
+      "{\"source1\":\"sampleToken1\",\"source2\":\"sampleToken2\"}",
+      "default",
+      "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+      199.5860720000443,
+      "6BMyAHg8Ig6Nv",
+      "{\"source1\":\"token123\",\"source2\":\"token456\"}",
+      "{\"source1\":\"source-token1\",\"source2\":\"source-token2\"}",
+      "{\"source1\":\"token999\",\"source2\":\"token888\"}",
+      {
+        "C": -1034,
+        "i": -2385,
+        "o": -3436,
+        "x": -9007,
+        "X": -469,
+        "A": 6223,
+        "M": -6453
+      }
+    ],
+    "fields|query": [
+      [
+        "clinvar",
+        "mutation_assessor"
+      ],
+      [
+        "my_variant_info",
+        "oncokb"
+      ],
+      [
+        "annotation_summary",
+        "clinvar"
+      ],
+      [
+        "clinvar"
+      ],
+      [
+        "my_variant_info",
+        "nucleotide_context"
+      ],
+      [
+        "ptms",
+        "signal"
+      ]
+    ]
+  },
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {},
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+    "entrezGeneId|path": [
+      "23140",
+      11,
+      "673",
+      "207",
+      "7157",
+      1,
+      "5728",
+      291,
+      "4217",
+      "3455",
+      "672",
+      444,
+      "1017",
+      "238",
+      "1384",
+      "3550",
+      460,
+      "7018",
+      "26009",
+      "4948",
+      "3845",
+      "5290",
+      "563",
+      "4609",
+      "2064"
+    ]
+  },
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {},
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+    "hugoSymbol|path": [
+      "BRAF",
+      "TP53",
+      "PTEN",
+      "ALK",
+      "BRCA1",
+      "TF",
+      "CRAT",
+      "EGFR",
+      "HER2",
+      "ASPH",
+      "MYC",
+      "KRAS",
+      [
+        "PTEN"
+      ],
+      "PIK3CA",
+      [
+        "PIK3CA"
+      ],
+      "ZZEF1",
+      [
+        "TP53"
+      ],
+      [
+        "APC"
+      ]
+    ]
+  },
+  "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+    "isoformOverrideSource|query": [
+      "qfaWC7r1E5Zz4Nj6XF",
+      "vep",
+      "default",
+      "similarity",
+      "genbank",
+      "u3",
+      "uniprot",
+      "IUSzRBEEWxpTO1CNLpM",
+      {
+        "h": 9978,
+        "R": -7690,
+        "f": 9208,
+        "D": -7304,
+        "C": 1900,
+        "o": -8759,
+        "V": 4003,
+        "Y": -7208,
+        "N": -2524,
+        "W": -3580,
+        "J": -5999,
+        "a": 5651,
+        "F": 1068,
+        "t": -7104,
+        "e": 6195,
+        "A": 6711,
+        "E": -4517,
+        "L": 3856
+      },
+      "refseq",
+      "hgnc",
+      "swissprot",
+      55224525,
+      "ENST00000453390.1:c.43+16C>T",
+      "iluPYwpjIwZS2GseQz",
+      "cosmic",
+      "Error from VEP for: 786",
+      "Fy98VWvv",
+      "Error from VEP for: 53"
+    ]
+  },
+  "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+    "hugoSymbol|path": [
+      "TP53",
+      "AKT1",
+      "BRAF",
+      "PTEN",
+      "KRAS",
+      "CRAT",
+      "MYC",
+      "EGFR",
+      [
+        "PIK3CA"
+      ],
+      "RB1",
+      "BRCA1",
+      "ASTN1",
+      "IK",
+      "ASPH",
+      "Y",
+      "CDK2"
+    ],
+    "isoformOverrideSource|query": [
+      "uniprot",
+      "similarity",
+      "h8KsFoyy7BfX",
+      "ensembl",
+      "refseq",
+      "genbank",
+      "hgnc",
+      "GU"
+    ]
+  },
+  "fetchEnsemblTranscriptsGET": {
+    "geneId|query": [
+      "default",
+      "ENSG00000171827",
+      "ENSG00000074755",
+      "8WaGP",
+      "ENSG00000133703",
+      "ENSG00000270627",
+      "ENSG00000129514",
+      "3",
+      739.8804894122491,
+      "ALK",
+      "ENSP00000380628",
+      "Me69BXJ4"
+    ],
+    "proteinId|query": [
+      "default",
+      "ENSG00000157764",
+      "ENSP00000435143",
+      "ENSG00000121879",
+      "1384",
+      "ENSG00000171862",
+      {
+        "m": 591,
+        "S": 4672,
+        "z": -5910,
+        "n": -3312,
+        "D": 4032,
+        "C": 9919,
+        "v": 3517,
+        "A": 7150,
+        "a": -2815,
+        "x": -6326,
+        "i": -2894,
+        "P": -3115,
+        "l": -2844,
+        "w": -3487,
+        "s": -9488
+      },
+      [
+        "19563760",
+        "18669648"
+      ],
+      "ENSG00000074755",
+      "ENSG00000133703",
+      {
+        "k": 5149,
+        "c": 5861,
+        "T": -3868,
+        "f": 2360,
+        "n": -8099,
+        "j": 434,
+        "N": 9953,
+        "Y": 2697,
+        "X": -2174,
+        "O": 148,
+        "z": 3902,
+        "V": -4039,
+        "g": 152,
+        "b": -3717,
+        "q": 8646,
+        "v": 5664,
+        "Q": -7992,
+        "a": -323,
+        "r": 3955,
+        "S": 179
+      },
+      "ENSG00000012048"
+    ],
+    "hugoSymbol|query": [
+      "default",
+      "Noy",
+      "PTEN",
+      "TP53",
+      "BRAF",
+      140476712,
+      "unp residues 77-152",
+      "APOE",
+      "CRAT",
+      "BRCA1",
+      "PIK3CA"
+    ]
+  },
+  "fetchEnsemblTranscriptsByEnsemblFilterPOST": {},
+  "fetchEnsemblTranscriptByTranscriptIdGET": {
+    "transcriptId|path": [
+      "default",
+      "ENST00000361390",
+      "2ry",
+      "kKi4zv9DfS5unM",
+      "6715",
+      "8hKCYi",
+      "L2QwACroH2l",
+      "7lMtK9e",
+      "XUJlrXQNK3",
+      "ENST00000245678",
+      "p6",
+      426,
+      "29550",
+      "kyBtKVH",
+      "4iUEj8uyuSxuPYN6MG",
+      [
+        "NM_007297.3"
+      ],
+      "9",
+      false,
+      "u",
+      10,
+      "6693",
+      {
+        "j": 8621,
+        "f": -4491,
+        "S": -1082,
+        "H": -7690,
+        "Z": -2827,
+        "T": -2062,
+        "a": -2903
+      },
+      "gKEu",
+      "THNFVRKTFFTLAFCDFCRKL",
+      "ENST00000557418",
+      "lWnTB",
+      13,
+      "o",
+      true,
+      "cf7CguO",
+      "RGytLWKvUwhwBja",
+      "14931",
+      "5cHf",
+      "ENST00000891234"
+    ]
+  },
+  "fetchGeneXrefsGET": {
+    "accession|query": [
+      "ENSG00000169083",
+      "ENSG00000234567",
+      "ENSG00000212345",
+      "ENSG00000198765",
+      "ENSG00000267890"
+    ]
+  },
+  "fetchPdbHeaderPOST": {},
+  "fetchPdbHeaderGET": {
+    "pdbId|path": [
+      "4def",
+      "4xyz",
+      "5ghi",
+      "1a37",
+      "2q3r",
+      "2xyz",
+      "6jkl",
+      "7d8e",
+      "3f9t",
+      "5b6c",
+      "6v7w"
+    ]
+  },
+  "fetchPfamDomainsByPfamAccessionPOST": {},
+  "fetchPfamDomainsByAccessionGET": {
+    "pfamAccession|path": [
+      "PF02827",
+      "PF15276",
+      "PF12345",
+      "PF00093"
+    ]
+  },
+  "fetchPostTranslationalModificationsGET": {
+    "ensemblTranscriptId|query": [
+      "ENST00000556359",
+      "ENST00000678954",
+      "P03886",
+      634,
+      "ENST00000389484",
+      "ENST00000255789",
+      "wzPZ1vUu",
+      "ENST00000646891",
+      "oj05RjVMYmyAf",
+      "default",
+      "ENST00000082822",
+      "IFbGO4P",
+      19,
+      "ENST00000325579",
+      "ENST00000382743",
+      "ENST00000269305",
+      "ENST00000530149",
+      "2",
+      7,
+      "ENST00000261978",
+      "ENST00000553939",
+      "ENST00000530889",
+      "ENST00000524854",
+      "ENST00000554552",
+      "ENST00000573580",
+      ""
+    ]
+  },
+  "fetchPostTranslationalModificationsByPtmFilterPOST": {},
+  "fetchVersionGET": {}
+}

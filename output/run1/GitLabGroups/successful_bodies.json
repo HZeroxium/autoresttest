@@ -1,0 +1,66 @@
+{
+  "get_groups": {},
+  "post_groups": {
+    "name": [
+      "Data Scientists",
+      "Quality Assurance",
+      "Open Source Contributors",
+      "DevOps Engineers",
+      "Project Managers",
+      "HR Department",
+      "Research and Development",
+      "gamma-tool",
+      "Marketing Squad",
+      "Customer Support",
+      "Open Source Contributors-deletion_scheduled-434",
+      "Creative Minds"
+    ],
+    "path": [
+      "data-scientists",
+      "qa-team",
+      "open-source-contributors",
+      "devops-engineers",
+      "project-managers",
+      "hr-department",
+      "rnd-team",
+      "finance-team-deletion_scheduled-400",
+      "marketing-squad",
+      "customer-support",
+      "45vq2s-deletion_scheduled-10",
+      "creative-minds"
+    ],
+    "description": [
+      "Experts analyzing and interpreting complex data.",
+      "Collaborators contributing to open source projects.",
+      "Team responsible for software testing and quality assurance.",
+      "Engineers specializing in infrastructure automation and deployment.",
+      "Managers overseeing project timelines and deliverables.",
+      "Dedicated to innovation and new product research.",
+      "Handling recruitment and employee relations.",
+      "A group for cybersecurity experts to assess threats and safety practices.",
+      "Group focused on marketing strategies and campaigns."
+    ],
+    "avatar": [
+      null
+    ]
+  },
+  "get_groups_id": {},
+  "put_groups_id": {
+    "avatar": [
+      null
+    ]
+  },
+  "delete_groups_id": {},
+  "post_groups_id_share": {},
+  "delete_groups_id_share_group_id": {},
+  "get_groups_id_subgroups": {},
+  "get_groups_id_hooks": {},
+  "post_groups_id_hooks": {},
+  "get_groups_id_hooks_hook_id": {},
+  "put_groups_id_hooks_hook_id": {},
+  "delete_groups_id_hooks_hook_id": {},
+  "get_groups_id_descendant_groups": {},
+  "get_groups_id_projects": {},
+  "post_groups_id_projects_project_id": {},
+  "get_groups_id_projects_shared": {}
+}

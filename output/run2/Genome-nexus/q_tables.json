@@ -1,0 +1,6653 @@
+{
+  "OPERATION AGENT": {
+    "fetchVariantAnnotationPOST": 0.3923069013374638,
+    "fetchVariantAnnotationByIdPOST": 0.20844072117443493,
+    "fetchVariantAnnotationByIdGET": -0.25252266326055095,
+    "fetchVariantAnnotationByGenomicLocationPOST": 0.3765664769250307,
+    "fetchVariantAnnotationByGenomicLocationGET": 0.3544249216818432,
+    "fetchVariantAnnotationGET": -0.2700721574241279,
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": 0.35302044945694616,
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": 0.14700924352994876,
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": -0.08129492715341605,
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": 0.3570679903554741,
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": -0.13437548813238642,
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": -0.1030870618058709,
+    "fetchEnsemblTranscriptsGET": -0.21455696865895377,
+    "fetchEnsemblTranscriptsByEnsemblFilterPOST": 0.2829465153890601,
+    "fetchEnsemblTranscriptByTranscriptIdGET": -0.2832150607674604,
+    "fetchGeneXrefsGET": 0.3801383250734852,
+    "fetchPdbHeaderPOST": 0.40284036470766726,
+    "fetchPdbHeaderGET": 0.21315160142715864,
+    "fetchPfamDomainsByPfamAccessionPOST": -0.08099433656933744,
+    "fetchPfamDomainsByAccessionGET": 0.3002313892868041,
+    "fetchPostTranslationalModificationsGET": -0.26583540842072295,
+    "fetchPostTranslationalModificationsByPtmFilterPOST": -0.14911067450119142,
+    "fetchVersionGET": -0.18576199289987158
+  },
+  "HEADER AGENT": "Disabled",
+  "PARAMETER AGENT": {
+    "fetchVariantAnnotationPOST": {
+      "params": {
+        "()": 1.413040712281881,
+        "(('fields', 'query'),)": 1.340853425625126,
+        "(('isoformOverrideSource', 'query'),)": 0.8531189588368637,
+        "(('token', 'query'),)": 2.9028674408408386,
+        "(('isoformOverrideSource', 'query'), ('fields', 'query'))": 4.376556675802766,
+        "(('isoformOverrideSource', 'query'), ('token', 'query'))": 3.3714177162365484,
+        "(('token', 'query'), ('fields', 'query'))": -0.04456,
+        "(('isoformOverrideSource', 'query'), ('token', 'query'), ('fields', 'query'))": 1.8984135457193738,
+        "None": 3.1099678876536334
+      },
+      "body": {
+        "application/json": 12.513560495596932,
+        "None": 6.708115867400091
+      }
+    },
+    "fetchVariantAnnotationByIdPOST": {
+      "params": {
+        "()": 2.641051512735646,
+        "(('fields', 'query'),)": 1.2852875925831768,
+        "(('isoformOverrideSource', 'query'),)": 1.3809279313505907,
+        "(('token', 'query'),)": 2.2718309086336004,
+        "(('isoformOverrideSource', 'query'), ('fields', 'query'))": 0.5024767256411793,
+        "(('isoformOverrideSource', 'query'), ('token', 'query'))": 6.62823759797743,
+        "(('token', 'query'), ('fields', 'query'))": 1.4290910299386794,
+        "(('isoformOverrideSource', 'query'), ('token', 'query'), ('fields', 'query'))": 1.0587988638360142,
+        "None": 2.022255203122762
+      },
+      "body": {
+        "application/json": 11.245204666895022,
+        "None": 7.974752698924052
+      }
+    },
+    "fetchVariantAnnotationByIdGET": {
+      "params": {
+        "(('variantId', 'path'),)": 1.0830933197242043,
+        "(('variantId', 'path'), ('fields', 'query'))": 1.8268162952117981,
+        "(('variantId', 'path'), ('isoformOverrideSource', 'query'))": 4.909771198647908,
+        "(('variantId', 'path'), ('token', 'query'))": 0.317330991212745,
+        "(('variantId', 'path'), ('isoformOverrideSource', 'query'), ('fields', 'query'))": 0.6158867444155147,
+        "(('variantId', 'path'), ('isoformOverrideSource', 'query'), ('token', 'query'))": 0.5480972820604059,
+        "(('variantId', 'path'), ('token', 'query'), ('fields', 'query'))": 0.6645871545379772,
+        "(('variantId', 'path'), ('isoformOverrideSource', 'query'), ('token', 'query'), ('fields', 'query'))": 2.3847441603107953,
+        "None": 1.8539551327712553
+      },
+      "body": {
+        "None": 14.204282278892599
+      }
+    },
+    "fetchVariantAnnotationByGenomicLocationPOST": {
+      "params": {
+        "()": 1.2715053410117811,
+        "(('fields', 'query'),)": 1.133119108795331,
+        "(('isoformOverrideSource', 'query'),)": 2.452793752245825,
+        "(('token', 'query'),)": 0.16646884323971303,
+        "(('isoformOverrideSource', 'query'), ('fields', 'query'))": 1.284102065493917,
+        "(('isoformOverrideSource', 'query'), ('token', 'query'))": 0.8139509890016334,
+        "(('token', 'query'), ('fields', 'query'))": 0.9816318732217277,
+        "(('isoformOverrideSource', 'query'), ('token', 'query'), ('fields', 'query'))": 10.059824782968285,
+        "None": 1.3906781257749254
+      },
+      "body": {
+        "application/json": 14.301804159552132,
+        "None": 5.252270722201009
+      }
+    },
+    "fetchVariantAnnotationByGenomicLocationGET": {
+      "params": {
+        "(('genomicLocation', 'path'),)": 3.149226323299814,
+        "(('genomicLocation', 'path'), ('fields', 'query'))": 5.233015847861129,
+        "(('genomicLocation', 'path'), ('isoformOverrideSource', 'query'))": 1.0478360372315754,
+        "(('genomicLocation', 'path'), ('token', 'query'))": 8.728287836224634,
+        "(('genomicLocation', 'path'), ('isoformOverrideSource', 'query'), ('fields', 'query'))": 3.732580641692225,
+        "(('genomicLocation', 'path'), ('isoformOverrideSource', 'query'), ('token', 'query'))": 1.8603298998795639,
+        "(('genomicLocation', 'path'), ('token', 'query'), ('fields', 'query'))": 3.9787305874669427,
+        "(('genomicLocation', 'path'), ('isoformOverrideSource', 'query'), ('token', 'query'), ('fields', 'query'))": 2.5838193319963425,
+        "None": 3.1083536204766027
+      },
+      "body": {
+        "None": 33.422180126128815
+      }
+    },
+    "fetchVariantAnnotationGET": {
+      "params": {
+        "(('variant', 'path'),)": 3.711359193848881,
+        "(('variant', 'path'), ('fields', 'query'))": 1.065997419609122,
+        "(('variant', 'path'), ('isoformOverrideSource', 'query'))": 2.178454314463657,
+        "(('variant', 'path'), ('token', 'query'))": 1.0803350717241873,
+        "(('variant', 'path'), ('isoformOverrideSource', 'query'), ('fields', 'query'))": 0.5039774051146904,
+        "(('variant', 'path'), ('isoformOverrideSource', 'query'), ('token', 'query'))": 1.0705558158175847,
+        "(('variant', 'path'), ('token', 'query'), ('fields', 'query'))": 0.1532237384305465,
+        "(('variant', 'path'), ('isoformOverrideSource', 'query'), ('token', 'query'), ('fields', 'query'))": 1.0278352263479251,
+        "None": 1.597692119999458
+      },
+      "body": {
+        "None": 12.389430305356056
+      }
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+      "params": {
+        "()": 5.826136989386813,
+        "None": 6.2156962672165275
+      },
+      "body": {
+        "application/json": 6.444517498367047,
+        "None": 5.597315758236294
+      }
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+      "params": {
+        "(('entrezGeneId', 'path'),)": 6.345582496081563,
+        "None": 3.467794612669152
+      },
+      "body": {
+        "None": 9.813377108750716
+      }
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+      "params": {
+        "()": 7.889020636765217,
+        "None": 4.710261138570173
+      },
+      "body": {
+        "application/json": 8.867068034472068,
+        "None": 3.7322137408633216
+      }
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+      "params": {
+        "(('hugoSymbol', 'path'),)": 6.684354964807449,
+        "None": 2.0823621078376493
+      },
+      "body": {
+        "None": 8.766717072645092
+      }
+    },
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+      "params": {
+        "()": 3.9740712341276136,
+        "(('isoformOverrideSource', 'query'),)": 7.737078678270552,
+        "None": 2.459439145710727
+      },
+      "body": {
+        "application/json": 10.890771778731306,
+        "None": 3.2798172793775855
+      }
+    },
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+      "params": {
+        "(('hugoSymbol', 'path'),)": 5.910112837413904,
+        "(('hugoSymbol', 'path'), ('isoformOverrideSource', 'query'))": 2.896021293592138,
+        "None": 1.2519971135056767
+      },
+      "body": {
+        "None": 10.058131244511719
+      }
+    },
+    "fetchEnsemblTranscriptsGET": {
+      "params": {
+        "()": 1.177133997789558,
+        "(('geneId', 'query'),)": 4.9582818106201145,
+        "(('hugoSymbol', 'query'),)": 0.0,
+        "(('proteinId', 'query'),)": 1.3089108792520805,
+        "(('geneId', 'query'), ('hugoSymbol', 'query'))": 0.464301387486434,
+        "(('geneId', 'query'), ('proteinId', 'query'))": 1.8667075827397808,
+        "(('proteinId', 'query'), ('hugoSymbol', 'query'))": 1.1786190094212357,
+        "(('geneId', 'query'), ('proteinId', 'query'), ('hugoSymbol', 'query'))": 1.8830070588094183,
+        "None": 0.5732915331638679
+      },
+      "body": {
+        "None": 13.410253259282483
+      }
+    },
+    "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+      "params": {
+        "()": 5.024320677725933,
+        "None": 6.92553444138196
+      },
+      "body": {
+        "application/json": 7.698804355291446,
+        "None": 4.251050763816447
+      }
+    },
+    "fetchEnsemblTranscriptByTranscriptIdGET": {
+      "params": {
+        "(('transcriptId', 'path'),)": 7.869986916601423,
+        "None": 4.019207329906397
+      },
+      "body": {
+        "None": 11.88919424650782
+      }
+    },
+    "fetchGeneXrefsGET": {
+      "params": {
+        "(('accession', 'query'),)": 7.081730114045981,
+        "None": 2.6220355031938976
+      },
+      "body": {
+        "None": 9.703765617239872
+      }
+    },
+    "fetchPdbHeaderPOST": {
+      "params": {
+        "()": 7.859904181839191,
+        "None": 4.375941879113753
+      },
+      "body": {
+        "application/json": 9.30180800821019,
+        "None": 2.934038052742761
+      }
+    },
+    "fetchPdbHeaderGET": {
+      "params": {
+        "(('pdbId', 'path'),)": 6.705221278486967,
+        "None": 1.8169599279207256
+      },
+      "body": {
+        "None": 8.522181206407696
+      }
+    },
+    "fetchPfamDomainsByPfamAccessionPOST": {
+      "params": {
+        "()": 4.948631923742951,
+        "None": 8.76577061369238
+      },
+      "body": {
+        "application/json": 8.939047776081683,
+        "None": 4.775354761353643
+      }
+    },
+    "fetchPfamDomainsByAccessionGET": {
+      "params": {
+        "(('pfamAccession', 'path'),)": 5.729153470880233,
+        "None": 3.5689404693254643
+      },
+      "body": {
+        "None": 9.298093940205696
+      }
+    },
+    "fetchPostTranslationalModificationsGET": {
+      "params": {
+        "()": 3.717955602739105,
+        "(('ensemblTranscriptId', 'query'),)": 3.3990471033845338,
+        "None": 5.782153291047788
+      },
+      "body": {
+        "None": 12.89915599717142
+      }
+    },
+    "fetchPostTranslationalModificationsByPtmFilterPOST": {
+      "params": {
+        "()": 5.76486897370599,
+        "None": 5.755404864451943
+      },
+      "body": {
+        "application/json": 6.5089484940485836,
+        "None": 5.011325344109353
+      }
+    },
+    "fetchVersionGET": {
+      "params": {
+        "()": 3.6971093151877104,
+        "None": 6.67733953761753
+      },
+      "body": {
+        "None": 10.374448852805239
+      }
+    }
+  },
+  "VALUE AGENT": {
+    "fetchVariantAnnotationPOST": {
+      "params": {
+        "fields|query": [
+          [
+            [
+              "annotation_summary"
+            ],
+            0.32936713956489716
+          ],
+          [
+            [
+              "clinvar"
+            ],
+            0.5279301277930498
+          ],
+          [
+            [
+              "hotspots"
+            ],
+            0.13944891318479122
+          ],
+          [
+            [
+              "mutation_assessor"
+            ],
+            0
+          ],
+          [
+            [
+              "my_variant_info"
+            ],
+            0.8485673941251983
+          ],
+          [
+            [
+              "nucleotide_context"
+            ],
+            0.35294779658334263
+          ],
+          [
+            [
+              "oncokb"
+            ],
+            0.5035717895575773
+          ],
+          [
+            [
+              "ptms"
+            ],
+            0.34848242705046106
+          ],
+          [
+            [
+              "signal"
+            ],
+            0.3373442457037971
+          ],
+          [
+            [
+              "annotation_summary",
+              "clinvar"
+            ],
+            0
+          ]
+        ],
+        "token|query": [
+          [
+            "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+            0
+          ],
+          [
+            "{\"uniprot\":\"token123abc\",\"refseq\":\"token456def\"}",
+            0
+          ],
+          [
+            "{\"clinvar\":\"abc123token\",\"gnomad\":\"xyz789token\"}",
+            0
+          ],
+          [
+            "{\"cosmic\":\"cosmic-token-01\",\"dbsnp\":\"dbsnp-token-22\"}",
+            0
+          ],
+          [
+            "{\"ensembl\":\"ensembl-token-777\",\"ucsc\":\"ucsc-token-888\"}",
+            4.370950392415351
+          ],
+          [
+            "{\"ptms\":\"ptms-token-456\",\"oncokb\":\"oncokb-token-123\"}",
+            0.5407611240033573
+          ],
+          [
+            "{\"my_variant_info\":\"mvi-token-333\",\"signal\":\"signal-token-999\"}",
+            0
+          ],
+          [
+            "{\"hotspots\":\"hotspots-token-101\",\"mutation_assessor\":\"mutation-token-202\"}",
+            0.46088937827944765
+          ],
+          [
+            "{\"sourceA\":\"tokenAAA\",\"sourceB\":\"tokenBBB\"}",
+            0
+          ],
+          [
+            "{\"overrideSource\":\"override-token-XYZ\",\"extraSource\":\"extra-token-123\"}",
+            0.22974247265669123
+          ]
+        ],
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0.4105874045151533
+          ],
+          [
+            "ensembl",
+            0.40555365299477786
+          ],
+          [
+            "refseq",
+            0.2685762602937832
+          ],
+          [
+            "genecards",
+            0.6815704390237853
+          ],
+          [
+            "hgnc",
+            1.2005633164020886
+          ],
+          [
+            "cosmic",
+            0.6715955118387977
+          ],
+          [
+            "clinvar",
+            0.4058550145929944
+          ],
+          [
+            "dbsnp",
+            0.389214737260129
+          ],
+          [
+            "gnomad",
+            0
+          ],
+          [
+            "ucsc",
+            0.23356560000000004
+          ]
+        ]
+      },
+      "body": {
+        "application/json": [
+          [
+            [
+              "X:g.66937331T>A",
+              "17:g.41242962_41242963insGA"
+            ],
+            3.042534434453303
+          ],
+          [
+            [
+              "1:g.182712A>C",
+              "2:g.265023C>T"
+            ],
+            0.7691797822036244
+          ],
+          [
+            [
+              "3:g.319781del",
+              "19:g.110753dup"
+            ],
+            0.815520164150288
+          ],
+          [
+            [
+              "1:g.1385015_1387562del",
+              "X:g.1532367G>T"
+            ],
+            0.958672195993494
+          ],
+          [
+            [
+              "MT:g.3243A>G"
+            ],
+            0.5210493098764438
+          ],
+          [
+            [
+              "7:g.55181379C>T",
+              "12:g.25398285_25398286insTT"
+            ],
+            1.0012255550049134
+          ],
+          [
+            [
+              "11:g.5226984dup",
+              "22:g.29539341_29539342del"
+            ],
+            0.5384286508591078
+          ],
+          [
+            [
+              "6:g.26091112A>G"
+            ],
+            0.9760967251009527
+          ],
+          [
+            [
+              "9:g.133256013del",
+              "14:g.105927680dup"
+            ],
+            0.287834212341755
+          ],
+          [
+            [
+              "X:g.10000000_10000010del",
+              "5:g.112345C>A"
+            ],
+            0.46088937827944765
+          ]
+        ]
+      }
+    },
+    "fetchVariantAnnotationByIdPOST": {
+      "params": {
+        "fields|query": [
+          [
+            [
+              "annotation_summary"
+            ],
+            0
+          ],
+          [
+            [
+              "clinvar"
+            ],
+            0
+          ],
+          [
+            [
+              "hotspots"
+            ],
+            0
+          ],
+          [
+            [
+              "mutation_assessor"
+            ],
+            0
+          ],
+          [
+            [
+              "my_variant_info"
+            ],
+            0
+          ],
+          [
+            [
+              "nucleotide_context"
+            ],
+            0
+          ],
+          [
+            [
+              "oncokb"
+            ],
+            0.20894191198618808
+          ],
+          [
+            [
+              "ptms"
+            ],
+            0.6519360949355844
+          ],
+          [
+            [
+              "signal"
+            ],
+            0
+          ],
+          [
+            [
+              "annotation_summary",
+              "clinvar"
+            ],
+            0.025827120000000016
+          ]
+        ],
+        "token|query": [
+          [
+            "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+            0.47447416755563165
+          ],
+          [
+            "{\"dbsnp\":\"token-dbsnp-12345\",\"ensembl\":\"token-ensembl-67890\"}",
+            1.9627447242319724
+          ],
+          [
+            "{\"uniprot\":\"token-uniprot-abcde\",\"refseq\":\"token-refseq-fghij\"}",
+            0.48473196753419007
+          ],
+          [
+            "{\"myvariantinfo\":\"token-mvi-11111\",\"clinvar\":\"token-clinvar-22222\"}",
+            0.31641169645094974
+          ],
+          [
+            "{\"oncokb\":\"token-oncokb-33333\",\"ptms\":\"token-ptms-44444\"}",
+            0
+          ],
+          [
+            "{\"signal\":\"token-signal-55555\",\"hotspots\":\"token-hotspots-66666\"}",
+            0
+          ],
+          [
+            "{\"customsource1\":\"customtoken1\",\"customsource2\":\"customtoken2\"}",
+            0
+          ],
+          [
+            "{\"apiuser\":\"user-token-abc123\",\"apipass\":\"pass-token-xyz789\"}",
+            0
+          ],
+          [
+            "{\"sourceA\":\"token-A1B2C3\",\"sourceB\":\"token-D4E5F6\"}",
+            0.5832339710070672
+          ],
+          [
+            "{\"sourceX\":\"token-123xyz\",\"sourceY\":\"token-789abc\"}",
+            0.19970023478969345
+          ]
+        ],
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0
+          ],
+          [
+            "ensembl",
+            0
+          ],
+          [
+            "refseq",
+            0.21275514168484824
+          ],
+          [
+            "genbank",
+            0.2
+          ],
+          [
+            "pdb",
+            0.7069776541492427
+          ],
+          [
+            "swissprot",
+            0.5805096354037522
+          ],
+          [
+            "trnas",
+            0.31641169645094974
+          ],
+          [
+            "embl",
+            0.35202123917966405
+          ],
+          [
+            "ncbi",
+            0.19970023478969345
+          ],
+          [
+            "ucsc",
+            0.5159446993615933
+          ]
+        ]
+      },
+      "body": {
+        "application/json": [
+          [
+            [
+              "rs116035550"
+            ],
+            0.31641169645094974
+          ],
+          [
+            [
+              "rs28934578"
+            ],
+            0.20554632261002834
+          ],
+          [
+            [
+              "rs7412"
+            ],
+            0.6795491983137771
+          ],
+          [
+            [
+              "rs116035550",
+              "rs28934578"
+            ],
+            0.29543950588549184
+          ],
+          [
+            [
+              "rs7412",
+              "rs116035550"
+            ],
+            1.8196452368663136
+          ],
+          [
+            [
+              "rs28934578",
+              "rs7412"
+            ],
+            0.28473196753419006
+          ],
+          [
+            [
+              "rs116035550",
+              "rs28934578",
+              "rs7412"
+            ],
+            1.3030523278808053
+          ],
+          [
+            [
+              "rs28934578",
+              "rs116035550",
+              "rs7412"
+            ],
+            0.7438607405907276
+          ],
+          [
+            [
+              "rs7412",
+              "rs28934578",
+              "rs116035550"
+            ],
+            0.6117731756850111
+          ],
+          [
+            [
+              "rs7412"
+            ],
+            0.6795491983137771
+          ]
+        ]
+      }
+    },
+    "fetchVariantAnnotationByIdGET": {
+      "params": {
+        "fields|query": [
+          [
+            [
+              "annotation_summary"
+            ],
+            0.2970276884621641
+          ],
+          [
+            [
+              "clinvar"
+            ],
+            0
+          ],
+          [
+            [
+              "hotspots"
+            ],
+            0.25285620000000003
+          ],
+          [
+            [
+              "mutation_assessor"
+            ],
+            0
+          ],
+          [
+            [
+              "my_variant_info"
+            ],
+            0
+          ],
+          [
+            [
+              "nucleotide_context"
+            ],
+            0
+          ],
+          [
+            [
+              "oncokb"
+            ],
+            1.2134813508132742
+          ],
+          [
+            [
+              "ptms"
+            ],
+            0.3537796044275844
+          ],
+          [
+            [
+              "signal"
+            ],
+            0
+          ],
+          [
+            [
+              "annotation_summary",
+              "clinvar"
+            ],
+            0
+          ]
+        ],
+        "token|query": [
+          [
+            "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+            1.0311786498982158
+          ],
+          [
+            "{\"source1\":\"tokenAlpha123\",\"source2\":\"tokenBeta456\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"alphaToken\",\"source2\":\"betaToken\"}",
+            0.3537796044275844
+          ],
+          [
+            "{\"source1\":\"tokenX\",\"source2\":\"tokenY\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"123token\",\"source2\":\"456token\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"tokenA1\",\"source2\":\"tokenB2\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"keyOne\",\"source2\":\"keyTwo\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"access1\",\"source2\":\"access2\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"auth1\",\"source2\":\"auth2\"}",
+            0
+          ],
+          [
+            "{\"source1\":\"apiKey1\",\"source2\":\"apiKey2\"}",
+            0
+          ]
+        ],
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0
+          ],
+          [
+            "ensembl",
+            0.2797442721291092
+          ],
+          [
+            "refseq",
+            0.2881259779649542
+          ],
+          [
+            "ccds",
+            0.1841745776756948
+          ],
+          [
+            "gencode",
+            0.10601668451379923
+          ],
+          [
+            "uniprotkb",
+            0.269226084095984
+          ],
+          [
+            "genecode",
+            0.16191999490094755
+          ],
+          [
+            "hgnc",
+            0.19769731168565985
+          ],
+          [
+            "ebi",
+            0
+          ],
+          [
+            "ucsc",
+            0.27970038270851505
+          ]
+        ],
+        "variantId|path": [
+          [
+            "rs116035550",
+            0.5619403215476326
+          ],
+          [
+            "rs123456789",
+            0.42760561812219644
+          ],
+          [
+            "rs987654321",
+            0.5652955254718167
+          ],
+          [
+            "rs135792468",
+            0.5671561441865848
+          ],
+          [
+            "rs246813579",
+            0.5545832662344329
+          ],
+          [
+            "rs112233445",
+            0.08875955156340894
+          ],
+          [
+            "rs556677889",
+            0.5655608593237218
+          ],
+          [
+            "rs998877665",
+            0.5646647091882601
+          ],
+          [
+            "rs102938475",
+            0.317330991212745
+          ],
+          [
+            "rs564738291",
+            0.19769731168565985
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchVariantAnnotationByGenomicLocationPOST": {
+      "params": {
+        "fields|query": [
+          [
+            [
+              "annotation_summary"
+            ],
+            1.0088807398465833
+          ],
+          [
+            [
+              "clinvar"
+            ],
+            0
+          ],
+          [
+            [
+              "hotspots"
+            ],
+            0.9679865897926472
+          ],
+          [
+            [
+              "mutation_assessor"
+            ],
+            0.19408977567965718
+          ],
+          [
+            [
+              "my_variant_info"
+            ],
+            0.33564119414103644
+          ],
+          [
+            [
+              "nucleotide_context"
+            ],
+            0.3168005419967832
+          ],
+          [
+            [
+              "oncokb"
+            ],
+            0.9060537921379268
+          ],
+          [
+            [
+              "ptms"
+            ],
+            0
+          ],
+          [
+            [
+              "signal"
+            ],
+            0.5974731116270946
+          ],
+          [
+            [
+              "annotation_summary",
+              "clinvar"
+            ],
+            0.7017998164977446
+          ]
+        ],
+        "token|query": [
+          [
+            "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+            0.528190705880174
+          ],
+          [
+            "{\"uniprot\":\"token123abc\",\"ensembl\":\"token456xyz\"}",
+            0.4260810785458895
+          ],
+          [
+            "{\"clinvar\":\"token789def\",\"hotspots\":\"token321ghi\"}",
+            0.4286517036809544
+          ],
+          [
+            "{\"oncokb\":\"token654mno\",\"ptms\":\"token987pqr\"}",
+            0.4713786402642482
+          ],
+          [
+            "{\"my_variant_info\":\"token111aaa\",\"signal\":\"token222bbb\"}",
+            0
+          ],
+          [
+            "{\"sourceA\":\"tokenX\",\"sourceB\":\"tokenY\"}",
+            0
+          ],
+          [
+            "{\"database1\":\"tokenAlpha\",\"database2\":\"tokenBeta\"}",
+            0.5182493088546007
+          ],
+          [
+            "{\"provider1\":\"tokenOne\",\"provider2\":\"tokenTwo\"}",
+            0.5010988709999896
+          ],
+          [
+            "{\"exampleSource\":\"tokenExample1\",\"exampleSource2\":\"tokenExample2\"}",
+            0.36896212294261094
+          ],
+          [
+            "{\"uniprot\":\"tokenUP123\",\"clinvar\":\"tokenCV456\"}",
+            0.5356084063975178
+          ]
+        ],
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0.3067838547139061
+          ],
+          [
+            "ensembl",
+            0.18313294430127502
+          ],
+          [
+            "refseq",
+            0
+          ],
+          [
+            "gnomad",
+            1.4580259392984283
+          ],
+          [
+            "cosmic",
+            0.32312636266950107
+          ],
+          [
+            "clinvar",
+            0
+          ],
+          [
+            "hgnc",
+            1.5265073751565177
+          ],
+          [
+            "genbank",
+            0.7576506986376681
+          ],
+          [
+            "swissprot",
+            0.8453100669119764
+          ],
+          [
+            "pdb",
+            0.4260810785458895
+          ]
+        ]
+      },
+      "body": {
+        "application/json": [
+          [
+            [
+              {
+                "chromosome": "1",
+                "start": 1000000,
+                "end": 1000000,
+                "referenceAllele": "A",
+                "variantAllele": "G"
+              }
+            ],
+            0.7656468118162019
+          ],
+          [
+            [
+              {
+                "chromosome": "2",
+                "start": 23456789,
+                "end": 23456789,
+                "referenceAllele": "C",
+                "variantAllele": "T"
+              },
+              {
+                "chromosome": "2",
+                "start": 23456790,
+                "end": 23456790,
+                "referenceAllele": "G",
+                "variantAllele": "A"
+              }
+            ],
+            0.11269407903424895
+          ],
+          [
+            [
+              {
+                "chromosome": "X",
+                "start": 15000000,
+                "end": 15000000,
+                "referenceAllele": "T",
+                "variantAllele": "C"
+              }
+            ],
+            0.19408977567965718
+          ],
+          [
+            [
+              {
+                "chromosome": "7",
+                "start": 55019000,
+                "end": 55019005,
+                "referenceAllele": "G",
+                "variantAllele": "A"
+              }
+            ],
+            0.3260810785458895
+          ],
+          [
+            [
+              {
+                "chromosome": "12",
+                "start": 25398200,
+                "end": 25398200,
+                "referenceAllele": "C",
+                "variantAllele": "T"
+              }
+            ],
+            1.2280907926492466
+          ],
+          [
+            [
+              {
+                "chromosome": "3",
+                "start": 32000000,
+                "end": 32000000,
+                "referenceAllele": "T",
+                "variantAllele": "G"
+              },
+              {
+                "chromosome": "3",
+                "start": 32000001,
+                "end": 32000001,
+                "referenceAllele": "A",
+                "variantAllele": "C"
+              }
+            ],
+            0.60966887277094
+          ],
+          [
+            [
+              {
+                "chromosome": "15",
+                "start": 69000000,
+                "end": 69000000,
+                "referenceAllele": "G",
+                "variantAllele": "C"
+              }
+            ],
+            1.4472520621754823
+          ],
+          [
+            [
+              {
+                "chromosome": "X",
+                "start": 5000000,
+                "end": 5000000,
+                "referenceAllele": "C",
+                "variantAllele": "T"
+              }
+            ],
+            3.2352989551778455
+          ],
+          [
+            [
+              {
+                "chromosome": "4",
+                "start": 1234567,
+                "end": 1234567,
+                "referenceAllele": "A",
+                "variantAllele": "T"
+              }
+            ],
+            0
+          ],
+          [
+            [
+              {
+                "chromosome": "11",
+                "start": 11223344,
+                "end": 11223344,
+                "referenceAllele": "T",
+                "variantAllele": "C"
+              },
+              {
+                "chromosome": "11",
+                "start": 11223345,
+                "end": 11223345,
+                "referenceAllele": "G",
+                "variantAllele": "A"
+              }
+            ],
+            0.9060537921379268
+          ]
+        ]
+      }
+    },
+    "fetchVariantAnnotationByGenomicLocationGET": {
+      "params": {
+        "fields|query": [
+          [
+            [
+              "annotation_summary"
+            ],
+            0.38119227071349526
+          ],
+          [
+            [
+              "clinvar",
+              "hotspots"
+            ],
+            0.8598230081103001
+          ],
+          [
+            [
+              "mutation_assessor",
+              "my_variant_info"
+            ],
+            0
+          ],
+          [
+            [
+              "nucleotide_context"
+            ],
+            0
+          ],
+          [
+            [
+              "oncokb",
+              "ptms"
+            ],
+            2.5818357704595103
+          ],
+          [
+            [
+              "signal"
+            ],
+            8.521949242117485
+          ],
+          [
+            [
+              "clinvar"
+            ],
+            0
+          ],
+          [
+            [
+              "hotspots",
+              "my_variant_info"
+            ],
+            0
+          ],
+          [
+            [
+              "ptms",
+              "signal"
+            ],
+            0.4461548060886858
+          ],
+          [
+            [
+              "annotation_summary",
+              "mutation_assessor"
+            ],
+            0
+          ]
+        ],
+        "token|query": [
+          [
+            "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+            0.7505893937635207
+          ],
+          [
+            "{\"source1\":\"token12345\",\"source2\":\"token67890\"}",
+            0.6146296804205372
+          ],
+          [
+            "{\"source1\":\"abcde123\",\"source2\":\"fghij456\"}",
+            0.703967447186066
+          ],
+          [
+            "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+            0.6441438339088436
+          ],
+          [
+            "{\"source1\":\"key1\",\"source2\":\"key2\"}",
+            0.7125782164414
+          ],
+          [
+            "{\"source1\":\"token_xyz\",\"source2\":\"token_abc\"}",
+            0.23399999999999999
+          ],
+          [
+            "{\"source1\":\"alpha\",\"source2\":\"beta\"}",
+            0.3259684951002278
+          ],
+          [
+            "{\"source1\":\"sourceOne\",\"source2\":\"sourceTwo\"}",
+            0.6821728414127144
+          ],
+          [
+            "{\"source1\":\"tokenOne\",\"source2\":\"tokenTwo\"}",
+            0.5015869839835759
+          ],
+          [
+            "{\"source1\":\"token_1\",\"source2\":\"token_2\"}",
+            0.6572801098520771
+          ]
+        ],
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0
+          ],
+          [
+            "refseq",
+            5.4536645342056005
+          ],
+          [
+            "ensembl",
+            0.9688831175568036
+          ],
+          [
+            "uniprot",
+            0
+          ],
+          [
+            "refseq",
+            5.4536645342056005
+          ],
+          [
+            "ensembl",
+            0.9688831175568036
+          ],
+          [
+            "uniprot",
+            0
+          ],
+          [
+            "refseq",
+            5.4536645342056005
+          ],
+          [
+            "ensembl",
+            0.9688831175568036
+          ],
+          [
+            "uniprot",
+            0
+          ]
+        ],
+        "genomicLocation|path": [
+          [
+            "7,140453136,140453136,A,T",
+            3.625152324569166
+          ],
+          [
+            "12,25398284,25398284,G,C",
+            0.6878029551712579
+          ],
+          [
+            "1,55516888,55516888,C,G",
+            0
+          ],
+          [
+            "X,154143344,154143344,T,A",
+            1.622045031920622
+          ],
+          [
+            "3,178916068,178916068,G,T",
+            2.395337289767345
+          ],
+          [
+            "9,35026252,35026252,T,C",
+            0
+          ],
+          [
+            "17,41276045,41276045,A,G",
+            0.4788360264241778
+          ],
+          [
+            "22,29091800,29091800,C,T",
+            0.2964367740672126
+          ],
+          [
+            "5,67596789,67596789,G,A",
+            3.5604143441105003
+          ],
+          [
+            "2,23456789,23456789,T,G",
+            1.2390889107648217
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchVariantAnnotationGET": {
+      "params": {
+        "fields|query": [
+          [
+            [
+              "annotation_summary"
+            ],
+            0
+          ],
+          [
+            [
+              "clinvar"
+            ],
+            0
+          ],
+          [
+            [
+              "hotspots"
+            ],
+            0
+          ],
+          [
+            [
+              "mutation_assessor"
+            ],
+            0
+          ],
+          [
+            [
+              "my_variant_info"
+            ],
+            0.22698000000000007
+          ],
+          [
+            [
+              "nucleotide_context"
+            ],
+            0.8019711640123972
+          ],
+          [
+            [
+              "oncokb"
+            ],
+            0
+          ],
+          [
+            [
+              "ptms"
+            ],
+            0
+          ],
+          [
+            [
+              "signal"
+            ],
+            0
+          ],
+          [
+            [
+              "annotation_summary",
+              "clinvar"
+            ],
+            0
+          ]
+        ],
+        "token|query": [
+          [
+            "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+            0.4470647820417199
+          ],
+          [
+            "{\"uniprot\":\"token123\",\"ensembl\":\"token456\"}",
+            0
+          ],
+          [
+            "{\"clinvar\":\"abc-token\",\"myvariant\":\"def-token\"}",
+            0.9460456536948645
+          ],
+          [
+            "{\"sourceA\":\"tokenA\",\"sourceB\":\"tokenB\"}",
+            0
+          ],
+          [
+            "{\"oncokb\":\"key1\",\"ptms\":\"key2\"}",
+            0
+          ],
+          [
+            "{\"hotspots\":\"tokenHotspot\",\"signal\":\"tokenSignal\"}",
+            0
+          ],
+          [
+            "{\"mutation_assessor\":\"muttoken\",\"nucleotide_context\":\"nutoken\"}",
+            0
+          ],
+          [
+            "{\"customSource1\":\"customToken1\",\"customSource2\":\"customToken2\"}",
+            0
+          ],
+          [
+            "{\"api1\":\"tokenAPI1\",\"api2\":\"tokenAPI2\"}",
+            0
+          ],
+          [
+            "{\"tokenX\":\"valueX\",\"tokenY\":\"valueY\"}",
+            0
+          ]
+        ],
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0.6019711640123973
+          ],
+          [
+            "ensembl",
+            0
+          ],
+          [
+            "refseq",
+            0
+          ],
+          [
+            "genbank",
+            0
+          ],
+          [
+            "swissprot",
+            0.28786500000000004
+          ],
+          [
+            "hgnc",
+            0
+          ],
+          [
+            "ucsc",
+            0
+          ],
+          [
+            "cosmic",
+            0
+          ],
+          [
+            "clinvar",
+            0
+          ],
+          [
+            "gencode",
+            0
+          ]
+        ],
+        "variant|path": [
+          [
+            "17:g.41242962_41242963insGA",
+            0.22698000000000007
+          ],
+          [
+            "13:g.32906774G>A",
+            2.3170201653144744
+          ],
+          [
+            "7:g.140453136T>C",
+            0
+          ],
+          [
+            "2:g.47641578_47641579del",
+            0.28046269467898916
+          ],
+          [
+            "X:g.15329613_15329615dup",
+            0.2
+          ],
+          [
+            "5:g.112175544C>T",
+            0
+          ],
+          [
+            "22:g.42522614_42522615delinsTT",
+            0
+          ],
+          [
+            "9:g.133472836A>G",
+            0
+          ],
+          [
+            "1:g.15023412_15023413insT",
+            0
+          ],
+          [
+            "12:g.25398285del",
+            0
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+      "params": {},
+      "body": {
+        "application/json": [
+          [
+            [
+              "23140",
+              "26009",
+              "100131879"
+            ],
+            0.5520830185676331
+          ],
+          [
+            [
+              "26009",
+              "23140"
+            ],
+            0.6038017548206568
+          ],
+          [
+            [
+              "100131879"
+            ],
+            0.6297562089972167
+          ],
+          [
+            [
+              "23140"
+            ],
+            0.68764197395609
+          ],
+          [
+            [
+              "26009",
+              "100131879"
+            ],
+            0.16744475954026258
+          ],
+          [
+            [
+              "100131879",
+              "26009"
+            ],
+            0.7708709368174681
+          ],
+          [
+            [
+              "23140",
+              "23140"
+            ],
+            0.5885512243313444
+          ],
+          [
+            [
+              "26009"
+            ],
+            0.6371987084714474
+          ],
+          [
+            [
+              "23140",
+              "100131879"
+            ],
+            0.6166565267747872
+          ],
+          [
+            [
+              "100131879",
+              "23140",
+              "26009"
+            ],
+            0.5862532314874848
+          ]
+        ]
+      }
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+      "params": {
+        "entrezGeneId|path": [
+          [
+            "23140",
+            0.17959882197251284
+          ],
+          [
+            "7157",
+            0.7045105319541846
+          ],
+          [
+            "1956",
+            0.3383266504888137
+          ],
+          [
+            "7422",
+            1.0283496247506032
+          ],
+          [
+            "672",
+            0.20018427895797863
+          ],
+          [
+            "5290",
+            0.38331378242594005
+          ],
+          [
+            "22059",
+            -0.36163066768613344
+          ],
+          [
+            "3082",
+            0.6596472636306545
+          ],
+          [
+            "1017",
+            0.44038661054161193
+          ],
+          [
+            "5928",
+            0.22993063357016796
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+      "params": {},
+      "body": {
+        "application/json": [
+          [
+            [
+              "TP53",
+              "PIK3CA",
+              "BRCA1"
+            ],
+            0.2990609270658546
+          ],
+          [
+            [
+              "BRCA1",
+              "EGFR"
+            ],
+            0.4551883651265904
+          ],
+          [
+            [
+              "MYC"
+            ],
+            0.21000000000000002
+          ],
+          [
+            [
+              "KRAS",
+              "PTEN"
+            ],
+            0.42211642750067857
+          ],
+          [
+            [
+              "ALK",
+              "BRAF"
+            ],
+            0
+          ],
+          [
+            [
+              "CDKN2A"
+            ],
+            0
+          ],
+          [
+            [
+              "ERBB2",
+              "MTOR"
+            ],
+            2.3676819177707964
+          ],
+          [
+            [
+              "NRAS",
+              "APC"
+            ],
+            0
+          ],
+          [
+            [
+              "VHL"
+            ],
+            0
+          ],
+          [
+            [
+              "RET",
+              "KIT"
+            ],
+            0.26793770841425274
+          ]
+        ]
+      }
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+      "params": {
+        "hugoSymbol|path": [
+          [
+            "TP53",
+            0.5776726250617612
+          ],
+          [
+            "BRCA1",
+            1.460636462825376
+          ],
+          [
+            "EGFR",
+            0.1918533064195656
+          ],
+          [
+            "MYC",
+            0.15576520372209013
+          ],
+          [
+            "PTEN",
+            0
+          ],
+          [
+            "KRAS",
+            0.3785143815626206
+          ],
+          [
+            "CDKN2A",
+            0.5329772102328607
+          ],
+          [
+            "BRAF",
+            0
+          ],
+          [
+            "APC",
+            0.38578758146212266
+          ],
+          [
+            "PIK3CA",
+            0.3723818305859705
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+      "params": {
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            0.27894276
+          ],
+          [
+            "Ensembl",
+            0
+          ],
+          [
+            "RefSeq",
+            0
+          ],
+          [
+            "Gencode",
+            1.62991627822801
+          ],
+          [
+            "NCBI",
+            0.7565737326185521
+          ],
+          [
+            "UCSC",
+            0
+          ],
+          [
+            "Vega",
+            0.5122489135307322
+          ],
+          [
+            "HGNC",
+            0
+          ],
+          [
+            "GENCODE",
+            0
+          ],
+          [
+            "UniProtKB",
+            0
+          ]
+        ]
+      },
+      "body": {
+        "application/json": [
+          [
+            [
+              "TP53"
+            ],
+            2.491177607941055
+          ],
+          [
+            [
+              "PIK3CA"
+            ],
+            0
+          ],
+          [
+            [
+              "BRCA1"
+            ],
+            0.3409978003307321
+          ],
+          [
+            [
+              "TP53",
+              "PIK3CA"
+            ],
+            0.07125111320000004
+          ],
+          [
+            [
+              "BRCA1",
+              "TP53"
+            ],
+            0
+          ],
+          [
+            [
+              "PIK3CA",
+              "BRCA1"
+            ],
+            0
+          ],
+          [
+            [
+              "TP53",
+              "BRCA1"
+            ],
+            0.29799277663673535
+          ],
+          [
+            [
+              "BRCA1",
+              "PIK3CA"
+            ],
+            0.3007451521251375
+          ],
+          [
+            [
+              "PIK3CA",
+              "TP53"
+            ],
+            0.3996549027840738
+          ],
+          [
+            [
+              "TP53",
+              "PIK3CA",
+              "BRCA1"
+            ],
+            0.1591437946067105
+          ]
+        ]
+      }
+    },
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+      "params": {
+        "isoformOverrideSource|query": [
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ],
+          [
+            "uniprot",
+            1.6749870132452203
+          ]
+        ],
+        "hugoSymbol|path": [
+          [
+            "TP53",
+            2.310726382137187
+          ],
+          [
+            "BRCA1",
+            0.32562750630513815
+          ],
+          [
+            "EGFR",
+            0.2899961972745004
+          ],
+          [
+            "MYC",
+            0
+          ],
+          [
+            "PTEN",
+            0.5154560918483599
+          ],
+          [
+            "KRAS",
+            0.3005335238527378
+          ],
+          [
+            "ALK",
+            0
+          ],
+          [
+            "APC",
+            0.25038627677683606
+          ],
+          [
+            "CDKN2A",
+            0.22196925552765576
+          ],
+          [
+            "BRAF",
+            0
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchEnsemblTranscriptsGET": {
+      "params": {
+        "hugoSymbol|query": [
+          [
+            "ARF5",
+            0.20307707137305586
+          ],
+          [
+            "BRCA1",
+            0
+          ],
+          [
+            "TP53",
+            0
+          ],
+          [
+            "EGFR",
+            0
+          ],
+          [
+            "MYC",
+            0.38101845797438116
+          ],
+          [
+            "KRAS",
+            0
+          ],
+          [
+            "PTEN",
+            0
+          ],
+          [
+            "APOE",
+            0.19450941952000003
+          ],
+          [
+            "VEGFA",
+            0
+          ],
+          [
+            "CDK2",
+            0
+          ]
+        ],
+        "proteinId|query": [
+          [
+            "ENSP00000439985",
+            0
+          ],
+          [
+            "ENSP00000369497",
+            0.38101845797438116
+          ],
+          [
+            "ENSP00000415095",
+            0.20307707137305586
+          ],
+          [
+            "ENSP00000269305",
+            0.3627838184088118
+          ],
+          [
+            "ENSP00000361445",
+            0
+          ],
+          [
+            "ENSP00000269312",
+            0
+          ],
+          [
+            "ENSP00000369492",
+            0.19450941952000003
+          ],
+          [
+            "ENSP00000263056",
+            0
+          ],
+          [
+            "ENSP00000449192",
+            0
+          ],
+          [
+            "ENSP00000374678",
+            0
+          ]
+        ],
+        "geneId|query": [
+          [
+            "ENSG00000136999",
+            0
+          ],
+          [
+            "ENSG00000248378",
+            0.2087480440720164
+          ],
+          [
+            "ENSG00000157764",
+            0
+          ],
+          [
+            "ENSG00000198786",
+            1.5239937552070795
+          ],
+          [
+            "ENSG00000155657",
+            0.38101845797438116
+          ],
+          [
+            "ENSG00000227232",
+            0.25022630129766216
+          ],
+          [
+            "ENSG00000141510",
+            0.48960051065018395
+          ],
+          [
+            "ENSG00000198727",
+            0.3627838184088118
+          ],
+          [
+            "ENSG00000163599",
+            0.21400000000000002
+          ],
+          [
+            "ENSG00000239618",
+            0
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+      "params": {},
+      "body": {
+        "application/json": [
+          [
+            {
+              "geneIds": [
+                "ENSG00000136999",
+                "ENSG00000272398",
+                "ENSG00000198695"
+              ],
+              "hugoSymbols": [
+                "TP53",
+                "PIK3CA",
+                "BRCA1"
+              ],
+              "proteinIds": [
+                "ENSP00000439985",
+                "ENSP00000478460",
+                "ENSP00000346196"
+              ],
+              "transcriptIds": [
+                "ENST00000361390",
+                "ENST00000361453",
+                "ENST00000361624"
+              ]
+            },
+            0.2186598852629646
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000136999"
+              ],
+              "hugoSymbols": [
+                "TP53"
+              ],
+              "proteinIds": [
+                "ENSP00000439985"
+              ],
+              "transcriptIds": [
+                "ENST00000361390"
+              ]
+            },
+            -0.043843199999999985
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000198695",
+                "ENSG00000272398"
+              ],
+              "hugoSymbols": [
+                "BRCA1",
+                "PIK3CA"
+              ],
+              "proteinIds": [
+                "ENSP00000346196",
+                "ENSP00000478460"
+              ],
+              "transcriptIds": [
+                "ENST00000361624",
+                "ENST00000361453"
+              ]
+            },
+            0.7202057513014338
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000136999",
+                "ENSG00000198695"
+              ],
+              "hugoSymbols": [
+                "TP53",
+                "BRCA1"
+              ],
+              "proteinIds": [
+                "ENSP00000439985",
+                "ENSP00000346196"
+              ],
+              "transcriptIds": [
+                "ENST00000361390",
+                "ENST00000361624"
+              ]
+            },
+            2.8722945492653955
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000272398"
+              ],
+              "hugoSymbols": [
+                "PIK3CA"
+              ],
+              "proteinIds": [
+                "ENSP00000478460"
+              ],
+              "transcriptIds": [
+                "ENST00000361453"
+              ]
+            },
+            0.058422395183487956
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000198695"
+              ],
+              "hugoSymbols": [
+                "BRCA1"
+              ],
+              "proteinIds": [
+                "ENSP00000346196"
+              ],
+              "transcriptIds": [
+                "ENST00000361624"
+              ]
+            },
+            0.6726446419173882
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000272398",
+                "ENSG00000136999"
+              ],
+              "hugoSymbols": [
+                "PIK3CA",
+                "TP53"
+              ],
+              "proteinIds": [
+                "ENSP00000478460",
+                "ENSP00000439985"
+              ],
+              "transcriptIds": [
+                "ENST00000361453",
+                "ENST00000361390"
+              ]
+            },
+            0.2
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000198695",
+                "ENSG00000272398"
+              ],
+              "hugoSymbols": [
+                "BRCA1",
+                "PIK3CA"
+              ],
+              "proteinIds": [
+                "ENSP00000346196",
+                "ENSP00000478460"
+              ],
+              "transcriptIds": [
+                "ENST00000361624",
+                "ENST00000361453"
+              ]
+            },
+            0.7202057513014338
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000136999"
+              ],
+              "hugoSymbols": [
+                "TP53"
+              ],
+              "proteinIds": [
+                "ENSP00000439985"
+              ],
+              "transcriptIds": [
+                "ENST00000361390"
+              ]
+            },
+            -0.043843199999999985
+          ],
+          [
+            {
+              "geneIds": [
+                "ENSG00000272398",
+                "ENSG00000198695"
+              ],
+              "hugoSymbols": [
+                "PIK3CA",
+                "BRCA1"
+              ],
+              "proteinIds": [
+                "ENSP00000478460",
+                "ENSP00000346196"
+              ],
+              "transcriptIds": [
+                "ENST00000361453",
+                "ENST00000361624"
+              ]
+            },
+            0.24195377639061422
+          ]
+        ]
+      }
+    },
+    "fetchEnsemblTranscriptByTranscriptIdGET": {
+      "params": {
+        "transcriptId|path": [
+          [
+            "ENST00000361390",
+            0
+          ],
+          [
+            "ENST00000448914",
+            0
+          ],
+          [
+            "ENST00000515242",
+            0.22653564023901007
+          ],
+          [
+            "ENST00000607605",
+            0.2507793567787607
+          ],
+          [
+            "ENST00000544455",
+            2.198441053522779
+          ],
+          [
+            "ENST00000471270",
+            0
+          ],
+          [
+            "ENST00000367770",
+            0
+          ],
+          [
+            "ENST00000538044",
+            0
+          ],
+          [
+            "ENST00000618588",
+            0
+          ],
+          [
+            "ENST00000592756",
+            0
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchGeneXrefsGET": {
+      "params": {
+        "accession|query": [
+          [
+            "ENSG00000169083",
+            0.9209916898208805
+          ],
+          [
+            "ENSG00000227232",
+            0.40906241140031446
+          ],
+          [
+            "ENSG00000139618",
+            0
+          ],
+          [
+            "ENSG00000157764",
+            0.6676017131925973
+          ],
+          [
+            "ENSG00000198727",
+            0.20121133772632158
+          ],
+          [
+            "ENSG00000155657",
+            0.21942895025840004
+          ],
+          [
+            "ENSG00000141510",
+            0.27911097289578796
+          ],
+          [
+            "ENSG00000136997",
+            0
+          ],
+          [
+            "ENSG00000182185",
+            0.1314419291131273
+          ],
+          [
+            "ENSG00000223972",
+            0.21592920852875386
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchPdbHeaderPOST": {
+      "params": {},
+      "body": {
+        "application/json": [
+          [
+            [
+              "1a37",
+              "1a4o"
+            ],
+            1.5548284507009975
+          ],
+          [
+            [
+              "1a4o"
+            ],
+            0.6998086594093094
+          ],
+          [
+            [
+              "1a37"
+            ],
+            0.4314602871152738
+          ],
+          [
+            [
+              "2bev",
+              "1bna"
+            ],
+            0.2362605146529637
+          ],
+          [
+            [
+              "3tij",
+              "2ajj"
+            ],
+            0.7197657280734089
+          ],
+          [
+            [
+              "4hhb",
+              "1cbs"
+            ],
+            0.16750496233415008
+          ],
+          [
+            [
+              "1fsl",
+              "2ptc"
+            ],
+            0.2821614711971748
+          ],
+          [
+            [
+              "3kzn",
+              "1ycr"
+            ],
+            0.5624756253780978
+          ],
+          [
+            [
+              "2z1b"
+            ],
+            0.12599091467265597
+          ],
+          [
+            [
+              "1hho",
+              "3nyq"
+            ],
+            0.3650905380563302
+          ]
+        ]
+      }
+    },
+    "fetchPdbHeaderGET": {
+      "params": {
+        "pdbId|path": [
+          [
+            "1a37",
+            0.2
+          ],
+          [
+            "2hbb",
+            1.3755678266775873
+          ],
+          [
+            "3plv",
+            0.22171750130165543
+          ],
+          [
+            "4hhb",
+            0.47473657485286597
+          ],
+          [
+            "5xnl",
+            0.6770981138253067
+          ],
+          [
+            "6dsb",
+            -0.33518570348883125
+          ],
+          [
+            "7cau",
+            -0.05712704240499527
+          ],
+          [
+            "8fab",
+            0
+          ],
+          [
+            "9gst",
+            0.25156668936110477
+          ],
+          [
+            "1d66",
+            0.6871453462037287
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchPfamDomainsByPfamAccessionPOST": {
+      "params": {},
+      "body": {
+        "application/json": [
+          [
+            [
+              "PF02827"
+            ],
+            0.0656042776162432
+          ],
+          [
+            [
+              "PF00093"
+            ],
+            -0.01794380719999999
+          ],
+          [
+            [
+              "PF15276"
+            ],
+            0.3740190832887166
+          ],
+          [
+            [
+              "PF02827",
+              "PF00093"
+            ],
+            2.699319996577849
+          ],
+          [
+            [
+              "PF00093",
+              "PF15276"
+            ],
+            -0.022713679999999986
+          ],
+          [
+            [
+              "PF02827",
+              "PF15276"
+            ],
+            0
+          ],
+          [
+            [
+              "PF02827",
+              "PF00093",
+              "PF15276"
+            ],
+            -0.09000000000000001
+          ],
+          [
+            [
+              "PF00093",
+              "PF15276",
+              "PF02827"
+            ],
+            0.3117713464534667
+          ],
+          [
+            [
+              "PF15276",
+              "PF02827"
+            ],
+            0.6091912939272588
+          ],
+          [
+            [
+              "PF00093",
+              "PF02827"
+            ],
+            0.099447446208316
+          ]
+        ]
+      }
+    },
+    "fetchPfamDomainsByAccessionGET": {
+      "params": {
+        "pfamAccession|path": [
+          [
+            "PF00001",
+            0.85124087846817
+          ],
+          [
+            "PF00002",
+            1.0576039247010878
+          ],
+          [
+            "PF00003",
+            0.27593629049221247
+          ],
+          [
+            "PF00004",
+            0.3967919542915527
+          ],
+          [
+            "PF00005",
+            0.4728454727099582
+          ],
+          [
+            "PF00006",
+            0.6324078086927111
+          ],
+          [
+            "PF00007",
+            0.6366591033428849
+          ],
+          [
+            "PF00008",
+            0
+          ],
+          [
+            "PF00009",
+            0
+          ],
+          [
+            "PF00010",
+            0.4065157129654915
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchPostTranslationalModificationsGET": {
+      "params": {
+        "ensemblTranscriptId|query": [
+          [
+            "ENST00000646891",
+            0
+          ],
+          [
+            "ENST00000361390",
+            0
+          ],
+          [
+            "ENST00000448914",
+            0
+          ],
+          [
+            "ENST00000255620",
+            0
+          ],
+          [
+            "ENST00000528762",
+            0
+          ],
+          [
+            "ENST00000379252",
+            0
+          ],
+          [
+            "ENST00000442933",
+            0.2583560150173458
+          ],
+          [
+            "ENST00000544455",
+            1.0972928750433522
+          ],
+          [
+            "ENST00000335137",
+            0.2935863807015295
+          ],
+          [
+            "ENST00000619216",
+            0.23374112252393556
+          ]
+        ]
+      },
+      "body": {}
+    },
+    "fetchPostTranslationalModificationsByPtmFilterPOST": {
+      "params": {},
+      "body": {
+        "application/json": [
+          [
+            {
+              "transcriptIds": [
+                "ENST00000420316",
+                "ENST00000646891",
+                "ENST00000371953"
+              ]
+            },
+            0.2953359462071995
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000361390",
+                "ENST00000361453",
+                "ENST00000361624"
+              ]
+            },
+            0.3333117627682736
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000371953",
+                "ENST00000420316"
+              ]
+            },
+            0.2615597412719205
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000646891"
+              ]
+            },
+            0.43570572583882455
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000361453",
+                "ENST00000371953"
+              ]
+            },
+            0.4383074639216735
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000361390",
+                "ENST00000646891"
+              ]
+            },
+            0.4353767419164567
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000361624"
+              ]
+            },
+            0.4145337535377292
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000361390"
+              ]
+            },
+            0.43569949275294106
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000371953",
+                "ENST00000361624",
+                "ENST00000361453"
+              ]
+            },
+            0.3757105915369504
+          ],
+          [
+            {
+              "transcriptIds": [
+                "ENST00000420316"
+              ]
+            },
+            0.43463722587440673
+          ]
+        ]
+      }
+    },
+    "fetchVersionGET": {
+      "params": {},
+      "body": {}
+    }
+  },
+  "BODY OBJECT AGENT": {
+    "fetchVariantAnnotationPOST": {},
+    "fetchVariantAnnotationByIdPOST": {},
+    "fetchVariantAnnotationByIdGET": {},
+    "fetchVariantAnnotationByGenomicLocationPOST": {},
+    "fetchVariantAnnotationByGenomicLocationGET": {},
+    "fetchVariantAnnotationGET": {},
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {},
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {},
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {},
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {},
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {},
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {},
+    "fetchEnsemblTranscriptsGET": {},
+    "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+      "application/json": {
+        "()": 0.04534791111446079,
+        "('geneIds',)": 0.0,
+        "('hugoSymbols',)": 0.01766408501234089,
+        "('proteinIds',)": 0.540174533155601,
+        "('transcriptIds',)": 0.4308850845320934,
+        "('geneIds', 'hugoSymbols')": 0.4161352989741527,
+        "('geneIds', 'proteinIds')": 2.6355607005641684,
+        "('geneIds', 'transcriptIds')": 1.030696158217846,
+        "('hugoSymbols', 'proteinIds')": 0.2464244082066884,
+        "('hugoSymbols', 'transcriptIds')": 0.0,
+        "('proteinIds', 'transcriptIds')": 0.0,
+        "('geneIds', 'hugoSymbols', 'proteinIds')": 0.3771152875708069,
+        "('geneIds', 'hugoSymbols', 'transcriptIds')": 0.643480997546695,
+        "('geneIds', 'proteinIds', 'transcriptIds')": 0.3470402000538648,
+        "('hugoSymbols', 'proteinIds', 'transcriptIds')": 0.3513277889851216,
+        "('geneIds', 'hugoSymbols', 'proteinIds', 'transcriptIds')": 0.6858883858189481,
+        "None": -0.06893648446133624
+      }
+    },
+    "fetchEnsemblTranscriptByTranscriptIdGET": {},
+    "fetchGeneXrefsGET": {},
+    "fetchPdbHeaderPOST": {},
+    "fetchPdbHeaderGET": {},
+    "fetchPfamDomainsByPfamAccessionPOST": {},
+    "fetchPfamDomainsByAccessionGET": {},
+    "fetchPostTranslationalModificationsGET": {},
+    "fetchPostTranslationalModificationsByPtmFilterPOST": {
+      "application/json": {
+        "()": 1.2083468414944984,
+        "('transcriptIds',)": 3.8889534735026103,
+        "None": 1.4116481790514732
+      }
+    },
+    "fetchVersionGET": {}
+  },
+  "DATA SOURCE AGENT": {
+    "fetchVariantAnnotationPOST": {
+      "LLM": 9.371430408263324,
+      "DEPENDENCY": 4.447812455981938,
+      "DEFAULT": 5.402433498751762
+    },
+    "fetchVariantAnnotationByIdPOST": {
+      "LLM": 6.260010171817294,
+      "DEPENDENCY": 7.519523878382082,
+      "DEFAULT": 5.440423315619703
+    },
+    "fetchVariantAnnotationByIdGET": {
+      "LLM": 4.940592678820882,
+      "DEPENDENCY": 4.649267850183796,
+      "DEFAULT": 4.614421749887926
+    },
+    "fetchVariantAnnotationByGenomicLocationPOST": {
+      "LLM": 8.824876219987443,
+      "DEPENDENCY": 6.759421043102462,
+      "DEFAULT": 3.969777618663234
+    },
+    "fetchVariantAnnotationByGenomicLocationGET": {
+      "LLM": 14.591795773055647,
+      "DEPENDENCY": 9.291178752015716,
+      "DEFAULT": 9.539205601057468
+    },
+    "fetchVariantAnnotationGET": {
+      "LLM": 3.943420152125892,
+      "DEPENDENCY": 4.216873553484264,
+      "DEFAULT": 4.229136599745893
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+      "LLM": 5.840258343764392,
+      "DEPENDENCY": 3.089021419628067,
+      "DEFAULT": 3.112553493210877
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+      "LLM": 4.254677924203462,
+      "DEPENDENCY": 3.871952188186111,
+      "DEFAULT": 1.6867469963611414
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+      "LLM": 4.021985345878173,
+      "DEPENDENCY": 4.000103802303405,
+      "DEFAULT": 4.577192627153813
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+      "LLM": 4.404827284162004,
+      "DEPENDENCY": 2.87106238071863,
+      "DEFAULT": 1.490827407764462
+    },
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+      "LLM": 4.060963147624444,
+      "DEPENDENCY": 4.446694206443109,
+      "DEFAULT": 5.662931704041342
+    },
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+      "LLM": 4.629232023936708,
+      "DEPENDENCY": 3.946593308753709,
+      "DEFAULT": 1.4823059118213064
+    },
+    "fetchEnsemblTranscriptsGET": {
+      "LLM": 4.428958275150336,
+      "DEPENDENCY": 4.096680323112855,
+      "DEFAULT": 4.884614661019296
+    },
+    "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+      "LLM": 4.940337799321283,
+      "DEPENDENCY": 2.2783776216599803,
+      "DEFAULT": 4.73113969812663
+    },
+    "fetchEnsemblTranscriptByTranscriptIdGET": {
+      "LLM": 3.313663104732406,
+      "DEPENDENCY": 5.172157768901567,
+      "DEFAULT": 3.4033733728738453
+    },
+    "fetchGeneXrefsGET": {
+      "LLM": 4.27445796846012,
+      "DEPENDENCY": 3.7062268905828946,
+      "DEFAULT": 1.7230807581968648
+    },
+    "fetchPdbHeaderPOST": {
+      "LLM": 5.145347151590363,
+      "DEPENDENCY": 1.9618006498925873,
+      "DEFAULT": 5.128698259469997
+    },
+    "fetchPdbHeaderGET": {
+      "LLM": 3.8470090664735803,
+      "DEPENDENCY": 3.5608003115552593,
+      "DEFAULT": 1.1143718283788513
+    },
+    "fetchPfamDomainsByPfamAccessionPOST": {
+      "LLM": 4.02869595687185,
+      "DEPENDENCY": 4.784102127088034,
+      "DEFAULT": 4.901604453475441
+    },
+    "fetchPfamDomainsByAccessionGET": {
+      "LLM": 4.844441884427073,
+      "DEPENDENCY": 2.4620490148759333,
+      "DEFAULT": 1.9916030409026895
+    },
+    "fetchPostTranslationalModificationsGET": {
+      "LLM": 4.442862669410771,
+      "DEPENDENCY": 4.045548562775231,
+      "DEFAULT": 4.410744764985424
+    },
+    "fetchPostTranslationalModificationsByPtmFilterPOST": {
+      "LLM": 3.860178445626377,
+      "DEPENDENCY": 3.7828965982853964,
+      "DEFAULT": 3.8771987942461608
+    },
+    "fetchVersionGET": {
+      "LLM": 3.3040377714609175,
+      "DEPENDENCY": 3.62316717582483,
+      "DEFAULT": 3.4472439055194926
+    }
+  },
+  "DEPENDENCY AGENT": {
+    "fetchVariantAnnotationPOST": {
+      "params": {
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.08849741913856005
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 2.006464524155893
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "token|query": {
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "token|query": 0.6447359470925939
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "fields|query": {
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "fields|query": 0.13912190634981222
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "fields|query": 0.08849741913856005
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "fields|query": 1.6146953304610063
+            },
+            "body": {},
+            "response": {}
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchVariantAnnotationByIdPOST": {
+      "params": {
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.19583648722760164
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.9465335150397383
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0.128657044042372
+            },
+            "body": {},
+            "response": {
+              "originalVariantQuery": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.3059974535551401
+            },
+            "body": {},
+            "response": {
+              "exons": 0.1443892356396475
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 0.2764474804372631
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "token|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "token|query": 0.1443892356396475
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "token|query": 0.7865851553744609
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "token|query": 0.4532820598940327
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "token|query": 0.2265596289684634
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamDomainEnd": 1.511006513431544
+            }
+          },
+          "fetchPdbHeaderGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "synonym": 0
+            }
+          }
+        },
+        "fields|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "fields|query": 2.143799912656564
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {
+              "pubmedIds": 0.7865851553744609
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "fields|query": 0.07943782458667664
+            },
+            "body": {},
+            "response": {
+              "originalVariantQuery": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchVariantAnnotationByIdGET": {
+      "params": {
+        "variantId|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "variant": 0.6739447858469017,
+              "variantType": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "alleleId": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "hgnc_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "variant": 0,
+              "variantType": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "alleleId": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "hgnc_id": 0,
+              "errorMessage": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "variant": 0,
+              "variantType": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "alleleId": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "hgnc_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "variant": 0,
+              "variantType": 0.16655352410328278,
+              "clinvarId": 0,
+              "id": 0,
+              "alleleId": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "hgnc_id": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "variant|path": 1.426985518869015
+            },
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "variant": 0,
+              "variantType": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "alleleId": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "hgnc_id": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {
+              "entrezGeneId|path": 0
+            },
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0.5033859819346436
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "geneId|query": 0.2331327207250624
+            },
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "transcriptIdVersion": 0.5117211026814023
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "transcriptIdVersion": 0.14240047401262076
+            }
+          },
+          "fetchVersionGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "id": 0
+            }
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "position": 0
+            }
+          }
+        },
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.2331327207250624
+            },
+            "body": {},
+            "response": {
+              "variant": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.559063193839403
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.16655352410328278
+            },
+            "body": {},
+            "response": {
+              "transcriptConsequences": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0.0867232621078614
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.33239522653511494
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 1.768535078180802
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "token|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "token|query": 0.3447466449229623,
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "token|query": 0.5480972820604059
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "token|query": 1.0945655251035007,
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "fields|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "fields|query": 0.5117211026814023
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "fields|query": 1.439312170026463
+            },
+            "body": {},
+            "response": {
+              "position": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "exonId": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchVariantAnnotationByGenomicLocationPOST": {
+      "params": {
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.5384974640011284
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 4.172153272879251
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": -0.1348698360664416
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.26387587942760093
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 0.193943841171928
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "token|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "token|query": 4.069656022910758
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "token|query": 0.6044070198441052
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "token|query": -0.379135265058479
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "token|query": 0.24443634750462412
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "fields|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "fields|query": 0.242024037682814
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "fields|query": -0.25602265456433815
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "fields|query": 4.014935135911354
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "fields|query": 0.3159129582412912
+            },
+            "body": {},
+            "response": {}
+          }
+        }
+      },
+      "body": {
+        "chromosome": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "chromosome": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "chromosome": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "chromosome": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "chromosome": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "chromosome": 0
+            }
+          }
+        },
+        "start": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        "end": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0,
+              "endPosition": 0,
+              "startPosition": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "start": 0,
+              "end": 0
+            }
+          }
+        },
+        "referenceAllele": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleId": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleId": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleId": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleId": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleId": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          }
+        },
+        "variantAllele": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "variant": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "variant": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "variant": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "variant": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "variant|path": 0
+            },
+            "body": {},
+            "response": {
+              "referenceAllele": 0,
+              "variantAllele": 0,
+              "variant": 0,
+              "alternateAllele": 0,
+              "gnomad_nfe_allele": 0,
+              "alleleOrigin": 0,
+              "allele": 0,
+              "alleleFrequency": 0,
+              "alleleNumber": 0,
+              "alleleExist": 0,
+              "variant_allele": 0
+            }
+          }
+        }
+      }
+    },
+    "fetchVariantAnnotationByGenomicLocationGET": {
+      "params": {
+        "genomicLocation|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "genomicLocation": 0.1390779182555816,
+              "genomicLocationDescription": 0,
+              "genomicLocationExplanation": 0,
+              "genomic": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "genomicLocation": 0,
+              "genomicLocationDescription": 0,
+              "genomicLocationExplanation": 0,
+              "genomic": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "genomicLocation": 0.3892908554560426,
+              "genomicLocationDescription": 0,
+              "genomicLocationExplanation": 0,
+              "genomic": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "genomicLocation": 1.0450201877655012,
+              "genomicLocationDescription": 0,
+              "genomicLocationExplanation": 5.572867889620643,
+              "genomic": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "genomicLocation": 0,
+              "genomicLocationDescription": 0,
+              "genomicLocationExplanation": 0,
+              "genomic": 0
+            }
+          }
+        },
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.09438891350822419
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 1.663021317976975
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "token|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "token|query": 1.162435675255442
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "token|query": 0.3221909128321677
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "token|query": 2.565679304765767
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "fields|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "fields|query": 1.5895937916336464
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "fields|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchVariantAnnotationGET": {
+      "params": {
+        "variant|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "variantAllele": 0.3739206333137511,
+              "variantClassification": 0,
+              "variant": 0,
+              "variantType": 0,
+              "revisedVariantClassification": 0,
+              "variantId": 0,
+              "variantExist": 0,
+              "originalVariantQuery": 0.38000926003196067,
+              "variant_allele": 1.7097929104731073
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "variantAllele": 0,
+              "variantClassification": 0,
+              "variant": 0,
+              "variantType": 0,
+              "revisedVariantClassification": 0,
+              "variantId": 0,
+              "variantExist": 0,
+              "originalVariantQuery": 0.027305734587767107,
+              "variant_allele": 0.21418693114619833
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "variantId|path": 0.08690596877250556
+            },
+            "body": {},
+            "response": {
+              "variantAllele": 0,
+              "variantClassification": 0,
+              "variant": 0,
+              "variantType": 0,
+              "revisedVariantClassification": 0,
+              "variantId": 0,
+              "variantExist": 0,
+              "originalVariantQuery": 0.25952426200000006,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {
+              "variantAllele": 0.01903003266812249
+            },
+            "response": {
+              "variantAllele": 0.01903003266812249,
+              "variantClassification": 0,
+              "variant": 0,
+              "variantType": 0,
+              "revisedVariantClassification": 0,
+              "variantId": 0,
+              "variantExist": 0,
+              "originalVariantQuery": 0,
+              "variant_allele": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "genomicLocation|path": 0.38541983469472757
+            },
+            "body": {},
+            "response": {
+              "variantAllele": 0.24292543881180395,
+              "variantClassification": 0,
+              "variant": 0,
+              "variantType": 0,
+              "revisedVariantClassification": 0,
+              "variantId": 0,
+              "variantExist": 0,
+              "originalVariantQuery": 0.25043859671320007,
+              "variant_allele": 0
+            }
+          },
+          "fetchPdbHeaderPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "expression_system": -0.0005060939965439104
+            }
+          }
+        },
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.28252690039537776
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 1.4954547337537465
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "exonId": 0.1809973470768929
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "sequence": 0
+            }
+          }
+        },
+        "token|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "token|query": 1.149342380158858
+            },
+            "body": {},
+            "response": {
+              "proteinPosition": 0,
+              "protein_start": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "token|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        },
+        "fields|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "fields|query": 0.21400000000000002
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "fields|query": 0.21647497076000005
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "fields|query": 0,
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "fields|query": 0.23102780679300255
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "fields|query": 0.6839938583656928
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "sequence": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+      "params": {},
+      "body": {}
+    },
+    "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+      "params": {
+        "entrezGeneId|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 3.139305909286048,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": -0.059773817689565384,
+              "protein_id": 0,
+              "originalVariantQuery": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "variantId|path": -0.12416211717952913
+            },
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": -0.07101148498732113
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0.23867852935954326
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": -0.055287602758805045,
+              "entrezGeneId": 0.21082818898322797
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": -0.11173009041129245,
+              "proteinId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "geneId|query": 0,
+              "proteinId|query": -0.08234501164
+            },
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "geneIds": 0
+            },
+            "response": {
+              "geneId": 0,
+              "proteinId": -0.16380930679610517
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchGeneXrefsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "ensemblGeneId": 0
+            }
+          },
+          "fetchPdbHeaderPOST": {
+            "response": {
+              "gene": 0
+            }
+          },
+          "fetchPdbHeaderGET": {
+            "response": {
+              "gene": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+      "params": {},
+      "body": {}
+    },
+    "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+      "params": {
+        "hugoSymbol|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0.25747687664456465
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0.18640158536788898
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "hugoSymbol|path": 0
+            },
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "hugoSymbol|query": -0.07342034855278315
+            },
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "hugoSymbols": 0.149692690285493
+            },
+            "response": {
+              "hugoSymbols": 0.149692690285493
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 1.7115627659441939
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+      "params": {
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.027156400000000025
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.18317361336521573
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 2.359717396590159
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "isoformOverrideSource|query": 0.19823203419497074
+            },
+            "body": {},
+            "response": {}
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+      "params": {
+        "hugoSymbol|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0.18680206762369225
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0.43844982009264477
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {
+              "hugoSymbol|path": 0.1406307900045361
+            },
+            "body": {},
+            "response": {
+              "hugoSymbol": 0.13558484893414233
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0.1684788836836779
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "hugoSymbol|query": 0.296167829012601
+            },
+            "body": {},
+            "response": {
+              "hugoSymbols": 1.236669279845403
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "hugoSymbols": 0.4354031776499917
+            },
+            "response": {
+              "hugoSymbols": 0.4354031776499917
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0.14278557579203835
+            }
+          }
+        },
+        "isoformOverrideSource|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.23441001402451028
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0.6673636098001058
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {}
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchEnsemblTranscriptsGET": {
+      "params": {
+        "geneId|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 2.2373505618948335,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {
+              "variantId|path": 0
+            },
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0.05257038236525631
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "alleleId": 0,
+              "gene": 0,
+              "geneId": 0,
+              "variantId": 0,
+              "gene_id": 0,
+              "protein_id": 0,
+              "protein_start": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {
+              "entrezGeneId|path": 0
+            },
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0.3374287827757268
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "geneIds": 0
+            },
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0.25803049043658177,
+              "proteinId": 0
+            }
+          },
+          "fetchGeneXrefsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "ensemblGeneId": 0
+            }
+          },
+          "fetchPdbHeaderPOST": {
+            "response": {
+              "gene": 0.22310083272178574
+            }
+          },
+          "fetchVersionGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "name": 0
+            }
+          },
+          "fetchPdbHeaderGET": {
+            "response": {
+              "gene": 0
+            }
+          }
+        },
+        "proteinId|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "protein": 0,
+              "gene_id": 1.1218049852397611,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "protein": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "protein": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "protein": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "protein": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "protein": 0,
+              "gene_id": 0,
+              "protein_id": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {
+              "entrezGeneId|path": 0
+            },
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0,
+              "transcriptId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "proteinIds": 0
+            },
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "proteinId": 0
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "sequence": 0
+            }
+          }
+        },
+        "hugoSymbol|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoGeneSymbol": 0,
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0.2893837796549314
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {
+              "hugoSymbol|path": 0
+            },
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "hugoSymbol|path": 0
+            },
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "hugoSymbols": 0
+            },
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "position": 0,
+              "sequence": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+      "params": {},
+      "body": {
+        "geneIds": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": -0.04509094754877774,
+              "geneId": 0,
+              "gene_id": -0.06584751810365362
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "gene_id": -0.021186484808090003
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": -0.10393576424714482,
+              "geneId": 0,
+              "gene_id": -0.07318469840712538
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "gene_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "gene_id": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "entrezGeneId": 0,
+              "geneId": 0,
+              "gene_id": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {
+              "entrezGeneId|path": 0
+            },
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": -0.05604968986200301,
+              "entrezGeneId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": -0.05673521188196062
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "geneId|query": 0
+            },
+            "body": {},
+            "response": {
+              "geneId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "geneId": 0
+            }
+          },
+          "fetchGeneXrefsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "ensemblGeneId": 0
+            }
+          }
+        },
+        "hugoSymbols": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0.3199503551252444
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+            "params": {
+              "hugoSymbol|path": 0
+            },
+            "body": {},
+            "response": {
+              "hugoSymbol": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {
+              "hugoSymbol|path": 0
+            },
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "hugoSymbol|query": 0
+            },
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "hugoSymbols": 0
+            }
+          }
+        },
+        "proteinIds": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "protein": 0,
+              "protein_id": -0.012185422595399772
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "protein": 0,
+              "protein_id": -0.08319361080635232
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "protein": 0,
+              "protein_id": -0.143834959207555
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "protein": 0,
+              "protein_id": -0.171935297437787
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "protein": 0,
+              "protein_id": -0.11386019903731288
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "protein": 0,
+              "protein_id": -0.09387725862185975
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "proteinId": -0.124828095656677
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "proteinId": -0.07318469840712538
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {
+              "proteinId|query": 0
+            },
+            "body": {},
+            "response": {
+              "proteinId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "proteinId": 0
+            }
+          }
+        },
+        "transcriptIds": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0.7562628720651889,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": -0.05604968986200301
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {
+              "transcriptId|path": 0
+            },
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {
+              "ensemblTranscriptId|query": 0
+            },
+            "body": {},
+            "response": {
+              "ensemblTranscriptIds": 0
+            }
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {
+              "transcriptIds": 0
+            },
+            "response": {
+              "ensemblTranscriptIds": 0
+            }
+          }
+        }
+      }
+    },
+    "fetchEnsemblTranscriptByTranscriptIdGET": {
+      "params": {
+        "transcriptId|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "clinvarId": 0,
+              "id": 1.02811873152689,
+              "ensemblTranscriptIds": 0,
+              "hgnc_id": 0,
+              "transcript_id": 0.10894623700317646,
+              "alphaMissense": 0,
+              "protein_id": 0.17313537594051331,
+              "an_oth": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "ensemblTranscriptIds": 0,
+              "hgnc_id": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "ensemblTranscriptIds": 0,
+              "hgnc_id": 0.0880291290592405,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "ensemblTranscriptIds": 0,
+              "hgnc_id": 0,
+              "transcript_id": 0.08316379646414768
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": -0.030555102639007004,
+              "clinvarId": 0,
+              "id": 0,
+              "ensemblTranscriptIds": 0,
+              "hgnc_id": 0,
+              "transcript_id": 0,
+              "pubmedIds": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "clinvarId": 0,
+              "id": 0,
+              "ensemblTranscriptIds": 0,
+              "hgnc_id": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0,
+              "transcriptIdVersion": 0,
+              "exonEnd": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "transcriptIds": 0
+            },
+            "response": {
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {
+              "ensemblTranscriptId|query": 0
+            },
+            "body": {},
+            "response": {
+              "ensemblTranscriptIds": 0
+            }
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {
+              "transcriptIds": 0
+            },
+            "response": {
+              "ensemblTranscriptIds": 0
+            }
+          },
+          "fetchVersionGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "id": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "response": {
+              "transcriptIdVersion": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchGeneXrefsGET": {
+      "params": {
+        "accession|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "accession": 0,
+              "uniprotAccession": 0.06690644179574932,
+              "protein_id": 3.0950353834526463
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "accession": 0,
+              "uniprotAccession": -0.2222656757201747
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "accession": 0,
+              "uniprotAccession": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "accession": 0,
+              "uniprotAccession": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "accession": 0,
+              "uniprotAccession": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "accession": 0,
+              "uniprotAccession": 0
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0
+            }
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": -0.2673080069717713
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchPdbHeaderPOST": {
+      "params": {},
+      "body": {}
+    },
+    "fetchPdbHeaderGET": {
+      "params": {
+        "pdbId|path": {
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamDomainId": -0.1563000920425164
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamDomainId": -0.06760200379473676
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamDomainId": -0.19663287417455494
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamDomainId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamDomainId": 0
+            }
+          },
+          "fetchPdbHeaderPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pdbId": 3.2727506054863573
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchPfamDomainsByPfamAccessionPOST": {
+      "params": {},
+      "body": {}
+    },
+    "fetchPfamDomainsByAccessionGET": {
+      "params": {
+        "pfamAccession|path": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0.054791729232582756
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0.015053157752099859
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0.023180790669250495
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0.28464227259717334
+            }
+          },
+          "fetchPfamDomainsByPfamAccessionPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "pfamAccession": 0.2771256959620672
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0.07380672298977818
+            }
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotAccession": 0.07886176619392433
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchPostTranslationalModificationsGET": {
+      "params": {
+        "ensemblTranscriptId|query": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "uniprotId": 0,
+              "ensemblTranscriptIds": 0,
+              "transcript_id": 0,
+              "hgvsc": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "uniprotId": 0,
+              "ensemblTranscriptIds": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "uniprotId": 0,
+              "ensemblTranscriptIds": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "uniprotId": 0,
+              "ensemblTranscriptIds": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "uniprotId": 0,
+              "ensemblTranscriptIds": 0,
+              "transcript_id": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "uniprotId": 0,
+              "ensemblTranscriptIds": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {
+              "isoformOverrideSource|query": 0
+            },
+            "body": {},
+            "response": {
+              "uniprotId": 0,
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotId": 0,
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "uniprotId": 0,
+              "transcriptId": 0,
+              "transcriptIdVersion": 0.3430488476735578
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "transcriptIds": 0
+            },
+            "response": {
+              "uniprotId": 0,
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {
+              "transcriptId|path": 0
+            },
+            "body": {},
+            "response": {
+              "uniprotId": 0,
+              "transcriptId": 0,
+              "transcriptIdVersion": 0
+            }
+          },
+          "fetchGeneXrefsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "ensemblGeneId": 0
+            }
+          },
+          "fetchPostTranslationalModificationsByPtmFilterPOST": {
+            "params": {},
+            "body": {
+              "transcriptIds": 0
+            },
+            "response": {
+              "ensemblTranscriptIds": 0
+            }
+          }
+        }
+      },
+      "body": {}
+    },
+    "fetchPostTranslationalModificationsByPtmFilterPOST": {
+      "params": {},
+      "body": {
+        "transcriptIds": {
+          "fetchVariantAnnotationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0.16919333181019133,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByIdGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0
+            }
+          },
+          "fetchVariantAnnotationByGenomicLocationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0,
+              "transcript_id": 0,
+              "pubmedIds": 0
+            }
+          },
+          "fetchVariantAnnotationGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "canonicalTranscriptId": 0,
+              "transcriptId": 0,
+              "ensemblTranscriptIds": 0,
+              "refseq_transcript_ids": 0.9734383654221258,
+              "transcript_id": -0.017392770060072848
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": -0.30084223740621
+            }
+          },
+          "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsGET": {
+            "params": {},
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchEnsemblTranscriptsByEnsemblFilterPOST": {
+            "params": {},
+            "body": {
+              "transcriptIds": 0
+            },
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchEnsemblTranscriptByTranscriptIdGET": {
+            "params": {
+              "transcriptId|path": -0.0901117010540828
+            },
+            "body": {},
+            "response": {
+              "transcriptId": 0
+            }
+          },
+          "fetchPostTranslationalModificationsGET": {
+            "params": {
+              "ensemblTranscriptId|query": 0
+            },
+            "body": {},
+            "response": {
+              "ensemblTranscriptIds": 0.230401638029214
+            }
+          }
+        }
+      }
+    },
+    "fetchVersionGET": {
+      "params": {},
+      "body": {}
+    }
+  }
+}

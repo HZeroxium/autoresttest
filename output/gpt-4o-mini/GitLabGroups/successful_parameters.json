@@ -1,0 +1,1780 @@
+{
+  "get_groups": {
+    "page|query": [
+      4,
+      5,
+      8,
+      2,
+      7,
+      9,
+      6,
+      3,
+      10,
+      1,
+      -426,
+      0,
+      186,
+      986,
+      26,
+      633,
+      -1,
+      682,
+      13,
+      63,
+      966,
+      14,
+      246,
+      17,
+      647,
+      18,
+      12
+    ],
+    "per_page|query": [
+      50,
+      60,
+      40,
+      30,
+      20,
+      80,
+      70,
+      10,
+      90,
+      100,
+      856,
+      -160,
+      9223372036854775807,
+      1,
+      168,
+      19,
+      233,
+      477,
+      7,
+      6,
+      204,
+      2147483647,
+      735,
+      896,
+      [
+        8990,
+        9702
+      ]
+    ],
+    "skip_groups|query": [
+      [
+        7,
+        8
+      ],
+      [
+        19,
+        20
+      ],
+      [
+        17,
+        18
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3663,
+        -6455,
+        9382
+      ],
+      [
+        "default"
+      ],
+      [
+        9737,
+        -148,
+        4836,
+        9515,
+        5762,
+        -5269,
+        -3163
+      ],
+      [
+        592,
+        -5046,
+        2619,
+        -9275,
+        7222
+      ],
+      [
+        5086,
+        299,
+        -2067,
+        3047,
+        -4030,
+        8970,
+        7993,
+        -5782,
+        -4271,
+        -5973,
+        -8634,
+        -8629,
+        -6490,
+        -4419,
+        8704,
+        -5819,
+        -3624,
+        -1674,
+        -7635,
+        -673,
+        -6260,
+        1793,
+        -3198,
+        -6019,
+        9225,
+        7501,
+        -7778,
+        -9569,
+        5536,
+        -7244,
+        7739,
+        -7258,
+        3636,
+        1710,
+        -755,
+        -2687,
+        6075,
+        5286,
+        804,
+        5019,
+        8800,
+        4579,
+        -1995,
+        -657
+      ],
+      [
+        9386,
+        8450
+      ],
+      [
+        -9928,
+        -2625,
+        5226,
+        3999
+      ],
+      [
+        6672,
+        -8013,
+        -1302,
+        7336,
+        -272,
+        8818
+      ],
+      [
+        -4623,
+        -2113,
+        7508,
+        3160,
+        3816,
+        -6186,
+        7670,
+        1239,
+        3326,
+        4834,
+        5369,
+        397,
+        -8975,
+        -1241,
+        2719,
+        9488,
+        -8675,
+        4347
+      ],
+      [
+        3886,
+        -9621,
+        -1735,
+        4840,
+        -8388,
+        8748,
+        -2848,
+        1411,
+        3353,
+        9595,
+        5410,
+        -132,
+        2129,
+        -3785,
+        -5167,
+        2090
+      ],
+      [
+        2636,
+        -9524,
+        -484,
+        -4783,
+        1638,
+        -4041,
+        9641,
+        5666,
+        -136,
+        1075,
+        -2774,
+        4378,
+        -6925,
+        7377,
+        2147
+      ],
+      {
+        "t": 4538,
+        "p": -5347,
+        "c": -3095,
+        "s": 2158
+      },
+      [
+        -1964,
+        1786,
+        -8793,
+        -9517,
+        -1320,
+        9505,
+        -3973,
+        -3357
+      ],
+      [
+        -2358,
+        -637,
+        -292,
+        -6722,
+        9487,
+        7418,
+        7322,
+        -9317
+      ],
+      "http://localhost:30000/api/v4/projects/207/members",
+      [
+        7651,
+        -5713,
+        -2560,
+        -4041,
+        -667,
+        6100
+      ],
+      [
+        8337,
+        -2779,
+        -7112,
+        -8346,
+        7851,
+        5723
+      ],
+      [
+        -2975
+      ],
+      [
+        9530
+      ],
+      [
+        -6346,
+        -5016,
+        292,
+        133
+      ],
+      [
+        3478,
+        8004,
+        -2964,
+        -5003,
+        9774,
+        -7849,
+        -9241
+      ],
+      [
+        849,
+        -8366,
+        5448
+      ],
+      [
+        4684,
+        9708,
+        -6907,
+        2457,
+        -4486,
+        -1068,
+        -7865
+      ],
+      [
+        -2615,
+        5435
+      ]
+    ],
+    "all_available|query": [
+      true,
+      false,
+      {
+        "N": 2557,
+        "I": 3576,
+        "o": 5070,
+        "f": 3821
+      },
+      "false",
+      "true"
+    ],
+    "search|query": [
+      "group A",
+      "project",
+      "user",
+      "group D",
+      "group E",
+      "access",
+      "group C",
+      "something",
+      "admin",
+      "group B",
+      "default",
+      "xwF",
+      "e",
+      "LkShh2s",
+      "ncX7o",
+      "bcs",
+      "A0jiFXuoT19C4ISIKjZ",
+      "IlZYMLX4H8p",
+      "LrT",
+      "iaBtym2tQb2YGlEAifh7KMkdRSqYC2tsBbozGpxXgCj",
+      "Wfv9ASKDLb4RTq2oXmLq",
+      "ZjqMCK",
+      "k",
+      true,
+      [
+        2341,
+        450,
+        8432,
+        824,
+        -6055,
+        -5790
+      ],
+      "8o6zU",
+      10,
+      " ",
+      119.68414656276227,
+      "http://localhost:30000/developers-group/P0",
+      "{{",
+      "TLMeJYdMsso",
+      "i",
+      "IymN1Z3srvZtyeCgWtElnqFm4CwOJDS",
+      "lzpK",
+      "NyYNL",
+      "http://localhost:30000/groups/community-engagement",
+      "jY9PsZ",
+      "http://localhost:30000/groups/content-creation-deletion_scheduled-101",
+      14,
+      "3l3LM8Um",
+      "http://localhost:30000/groups/project-collaborators-deletion_scheduled-60",
+      "http://localhost:30000/root/ZiBgkl52QBVu1jOMFvnhak0SWuVw-deletion_scheduled-18",
+      "NDcX4",
+      "csRRM55",
+      "o",
+      "http://localhost:30000/my-awesome-group-deletion_scheduled-59/P0",
+      "51FCzsTe",
+      "3vwRguHM9y6ll07WMJ5",
+      19.12406864815246,
+      "http://localhost:30000/groups/development-team-deletion_scheduled-81"
+    ],
+    "order_by|query": [
+      "name",
+      "path",
+      "id"
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "statistics|query": [
+      false,
+      true
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false,
+      "",
+      {
+        "N": 2557,
+        "I": 3576,
+        "o": 5070,
+        "f": 3821
+      },
+      "true"
+    ],
+    "owned|query": [
+      false,
+      true,
+      {
+        "w": -3946,
+        "p": 4226,
+        "n": 1973,
+        "F": 7474
+      },
+      {
+        "E": -7529,
+        "k": -9847,
+        "c": -3079,
+        "T": -4343
+      }
+    ],
+    "min_access_level|query": [
+      40,
+      10,
+      50,
+      30,
+      20,
+      15
+    ],
+    "top_level_only|query": [
+      false,
+      true,
+      {
+        "x": 2158,
+        "P": 8669,
+        "k": -4289,
+        "e": 609,
+        "U": -974,
+        "F": -7478
+      },
+      "false",
+      ""
+    ]
+  },
+  "post_groups": {
+    "visibility|query": [
+      "private"
+    ],
+    "share_with_group_lock|query": [
+      true,
+      false
+    ],
+    "require_two_factor_authentication|query": [
+      true,
+      false
+    ],
+    "two_factor_grace_period|query": [
+      12,
+      48,
+      24,
+      36,
+      60,
+      72
+    ],
+    "project_creation_level|query": [
+      "developer",
+      "maintainer",
+      "noone"
+    ],
+    "auto_devops_enabled|query": [
+      false,
+      true
+    ],
+    "subgroup_creation_level|query": [
+      "owner",
+      "maintainer"
+    ],
+    "emails_disabled|query": [
+      true,
+      false
+    ],
+    "mentions_disabled|query": [
+      true,
+      false,
+      [
+        -9264,
+        -3041,
+        -2730,
+        7477,
+        -8055,
+        -448,
+        -9013
+      ]
+    ],
+    "lfs_enabled|query": [
+      true,
+      false
+    ],
+    "request_access_enabled|query": [
+      false,
+      true
+    ],
+    "parent_id|query": [],
+    "default_branch_protection|query": [
+      2,
+      0,
+      1
+    ],
+    "shared_runners_setting|query": [
+      "disabled_and_unoverridable",
+      "disabled_with_override",
+      346
+    ]
+  },
+  "get_groups_id": {
+    "id|path": [
+      60,
+      62,
+      64,
+      63,
+      65,
+      67,
+      68,
+      69,
+      70,
+      71,
+      73,
+      59,
+      72,
+      75,
+      76,
+      77,
+      82,
+      81,
+      84,
+      80,
+      86,
+      88,
+      91,
+      94,
+      93,
+      95,
+      98,
+      101,
+      97,
+      104,
+      111,
+      112,
+      99,
+      "marketing-squad-deletion_scheduled-76",
+      110,
+      118,
+      121,
+      123,
+      "development-team-deletion_scheduled-98",
+      120,
+      "content-creation-deletion_scheduled-101",
+      "P0-deletion_scheduled-114",
+      129,
+      115,
+      134,
+      105,
+      127,
+      130,
+      171,
+      172,
+      186,
+      114,
+      176,
+      195,
+      167,
+      184,
+      218,
+      217,
+      210,
+      211,
+      "community-engagement-deletion_scheduled-80",
+      220,
+      224,
+      232,
+      264,
+      253,
+      259,
+      270,
+      271,
+      277,
+      249,
+      185,
+      285,
+      254,
+      303,
+      "project-management",
+      325,
+      335,
+      347,
+      "developers-group-deletion_scheduled-68",
+      338,
+      "development-team",
+      "community-engagement-deletion_scheduled-97",
+      368,
+      369,
+      "development-team-deletion_scheduled-81",
+      "research-development",
+      400,
+      418,
+      414,
+      401
+    ],
+    "with_custom_attributes|query": [
+      true,
+      0,
+      "false",
+      {
+        "u": -9814,
+        "v": -9766,
+        "Y": -8019,
+        "y": 756
+      }
+    ],
+    "with_projects|query": [
+      true,
+      {
+        "N": 2557,
+        "I": 3576,
+        "o": 5070,
+        "f": 3821
+      },
+      "false",
+      "true"
+    ]
+  },
+  "put_groups_id": {
+    "id|path": [
+      65,
+      68,
+      64,
+      59,
+      62,
+      70,
+      69,
+      63,
+      67,
+      76,
+      77,
+      73,
+      80,
+      72,
+      60,
+      71,
+      95,
+      84,
+      93,
+      82,
+      94,
+      97,
+      99,
+      105,
+      91,
+      88,
+      81,
+      111,
+      101,
+      104
+    ],
+    "name|query": [
+      "Customer Support",
+      "Finance Team",
+      "Project Management",
+      "Marketing Squad",
+      "Development Team",
+      "Research and Development",
+      "Community Engagement",
+      "Marketing Squad-deletion_scheduled-91",
+      "Community Engagement-deletion_scheduled-70",
+      "Content Creation-deletion_scheduled-101"
+    ],
+    "path|query": [
+      "customer-support",
+      "marketing-squad-deletion_scheduled-91"
+    ],
+    "description|query": [
+      "This group covers all design-related projects.",
+      "Group for financial operations",
+      "A group for collaborating on various projects.",
+      "Focused on engaging with the community.",
+      "A support group for assisting customers.",
+      "A collective for all marketing initiatives.",
+      "Group for product management",
+      "A group responsible for financial planning.",
+      "Overseeing all project activities.",
+      "A group focused on development projects.",
+      "Group for market research and analysis",
+      7,
+      "Group for development activities",
+      "A group dedicated to content creation and marketing.",
+      "A group dedicated to testing and quality control.",
+      8
+    ],
+    "share_with_group_lock|query": [
+      true,
+      false,
+      ""
+    ],
+    "visibility|query": [
+      "private"
+    ],
+    "require_two_factor_authentication|query": [
+      false,
+      true
+    ],
+    "two_factor_grace_period|query": [
+      12,
+      60,
+      72,
+      48,
+      36,
+      24,
+      1,
+      7,
+      6
+    ],
+    "project_creation_level|query": [
+      "maintainer",
+      "owner"
+    ],
+    "auto_devops_enabled|query": [
+      true
+    ],
+    "subgroup_creation_level|query": [
+      "maintainer"
+    ],
+    "emails_disabled|query": [
+      true,
+      false
+    ],
+    "mentions_disabled|query": [
+      false,
+      true
+    ],
+    "lfs_enabled|query": [
+      true,
+      false
+    ],
+    "request_access_enabled|query": [
+      false,
+      true
+    ],
+    "default_branch_protection|query": []
+  },
+  "delete_groups_id": {
+    "id|path": [
+      59,
+      62,
+      60,
+      65,
+      67,
+      64,
+      63,
+      70,
+      68,
+      69,
+      75,
+      73,
+      72,
+      71,
+      77,
+      82,
+      80,
+      76,
+      84,
+      86,
+      88,
+      81,
+      93,
+      95,
+      94,
+      91,
+      97,
+      101,
+      99,
+      98,
+      105,
+      110,
+      114,
+      111,
+      116,
+      112,
+      104,
+      123,
+      120,
+      121,
+      118,
+      134,
+      129,
+      115,
+      130,
+      138,
+      117,
+      176,
+      172,
+      167,
+      177,
+      186,
+      127,
+      184,
+      203,
+      171,
+      185,
+      195,
+      232,
+      210,
+      224,
+      218,
+      220,
+      217,
+      259,
+      264,
+      254,
+      249,
+      211,
+      271,
+      253,
+      270,
+      338,
+      277,
+      368,
+      303,
+      335,
+      369,
+      325,
+      380,
+      347,
+      285,
+      399,
+      365
+    ]
+  },
+  "post_groups_id_share": {
+    "id|path": [
+      64,
+      65,
+      "P0-deletion_scheduled-114",
+      86,
+      369
+    ],
+    "group_id|query": [
+      104,
+      110
+    ],
+    "group_access|query": [
+      40,
+      30
+    ],
+    "expires_at|query": [
+      "2023-10-25",
+      "2023-10-15",
+      "2023-10-10",
+      "2023-11-01",
+      "2023-11-10",
+      "2023-10-30",
+      "2023-11-20",
+      "2023-11-15",
+      "community-engagement-deletion_scheduled-123"
+    ]
+  },
+  "delete_groups_id_share_group_id": {
+    "id|path": [
+      64,
+      65,
+      "P0-deletion_scheduled-114",
+      86,
+      369
+    ],
+    "group_id|path": [
+      104,
+      110
+    ]
+  },
+  "get_groups_id_subgroups": {
+    "page|query": [
+      4,
+      5,
+      9,
+      2,
+      8,
+      6,
+      7,
+      3,
+      10,
+      1,
+      -426,
+      186,
+      986,
+      26,
+      13,
+      -1,
+      633,
+      682,
+      63
+    ],
+    "per_page|query": [
+      40,
+      60,
+      30,
+      20,
+      50,
+      70,
+      80,
+      10,
+      90,
+      100,
+      856,
+      9223372036854775807,
+      -160,
+      1
+    ],
+    "id|path": [
+      60,
+      62,
+      64,
+      65,
+      59,
+      70,
+      67,
+      63,
+      69,
+      73,
+      71,
+      72,
+      68,
+      76,
+      77,
+      82,
+      80,
+      84,
+      93,
+      95,
+      81,
+      97,
+      94,
+      91,
+      88,
+      105,
+      101,
+      111,
+      99,
+      86,
+      110,
+      104,
+      114,
+      75,
+      123,
+      218,
+      115,
+      271,
+      264,
+      249
+    ],
+    "skip_groups|query": [
+      [
+        19,
+        20
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        11,
+        12
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        17,
+        18
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        9737,
+        -148,
+        4836,
+        9515,
+        5762,
+        -5269,
+        -3163
+      ],
+      [
+        "default"
+      ],
+      [
+        3663,
+        -6455,
+        9382
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5086,
+        299,
+        -2067,
+        3047,
+        -4030,
+        8970,
+        7993,
+        -5782,
+        -4271,
+        -5973,
+        -8634,
+        -8629,
+        -6490,
+        -4419,
+        8704,
+        -5819,
+        -3624,
+        -1674,
+        -7635,
+        -673,
+        -6260,
+        1793,
+        -3198,
+        -6019,
+        9225,
+        7501,
+        -7778,
+        -9569,
+        5536,
+        -7244,
+        7739,
+        -7258,
+        3636,
+        1710,
+        -755,
+        -2687,
+        6075,
+        5286,
+        804,
+        5019,
+        8800,
+        4579,
+        -1995,
+        -657
+      ],
+      [
+        592,
+        -5046,
+        2619,
+        -9275,
+        7222
+      ],
+      [
+        -9928,
+        -2625,
+        5226,
+        3999
+      ],
+      "http://localhost:30000/api/v4/projects/1/members",
+      [
+        9386,
+        8450
+      ],
+      [
+        6672,
+        -8013,
+        -1302,
+        7336,
+        -272,
+        8818
+      ],
+      [
+        -4623,
+        -2113,
+        7508,
+        3160,
+        3816,
+        -6186,
+        7670,
+        1239,
+        3326,
+        4834,
+        5369,
+        397,
+        -8975,
+        -1241,
+        2719,
+        9488,
+        -8675,
+        4347
+      ],
+      {
+        "t": 4538,
+        "p": -5347,
+        "c": -3095,
+        "s": 2158
+      },
+      [
+        2636,
+        -9524,
+        -484,
+        -4783,
+        1638,
+        -4041,
+        9641,
+        5666,
+        -136,
+        1075,
+        -2774,
+        4378,
+        -6925,
+        7377,
+        2147
+      ],
+      [
+        3886,
+        -9621,
+        -1735,
+        4840,
+        -8388,
+        8748,
+        -2848,
+        1411,
+        3353,
+        9595,
+        5410,
+        -132,
+        2129,
+        -3785,
+        -5167,
+        2090
+      ],
+      633,
+      1,
+      [
+        6,
+        8
+      ],
+      "http://localhost:30000/api/v4/projects/5/members"
+    ],
+    "all_available|query": [
+      true,
+      false,
+      {
+        "N": 2557,
+        "I": 3576,
+        "o": 5070,
+        "f": 3821
+      }
+    ],
+    "search|query": [
+      "project",
+      "group A",
+      "group D",
+      "group C",
+      "something",
+      "admin",
+      "group B",
+      "user",
+      "access",
+      "group E",
+      "xwF",
+      "LkShh2s",
+      "iaBtym2tQb2YGlEAifh7KMkdRSqYC2tsBbozGpxXgCj",
+      "Wfv9ASKDLb4RTq2oXmLq",
+      "IlZYMLX4H8p",
+      "k",
+      "ZjqMCK",
+      "8o6zU",
+      "LrT",
+      "ncX7o",
+      [
+        2341,
+        450,
+        8432,
+        824,
+        -6055,
+        -5790
+      ],
+      "e",
+      true,
+      "A0jiFXuoT19C4ISIKjZ",
+      "default",
+      "bcs",
+      "{{",
+      10,
+      "http://localhost:30000/groups/project-collaborators-deletion_scheduled-60",
+      "http://localhost:30000/developers-group/P0",
+      "http://localhost:30000/groups/community-engagement",
+      "http://localhost:30000/groups/content-creation-deletion_scheduled-101",
+      "http://localhost:30000/root/ZiBgkl52QBVu1jOMFvnhak0SWuVw",
+      "http://localhost:30000/root/ZiBgkl52QBVu1jOMFvnhak0SWuVw-deletion_scheduled-18",
+      "http://localhost:30000/groups/community-engagement-deletion_scheduled-72",
+      "http://localhost:30000/groups/developers-group",
+      "http://localhost:30000/my-awesome-group-deletion_scheduled-59/P0",
+      "http://localhost:30000/groups/development-team-deletion_scheduled-81"
+    ],
+    "order_by|query": [
+      "name",
+      "path",
+      "id"
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "statistics|query": [
+      true,
+      false
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false,
+      {
+        "N": 2557,
+        "I": 3576,
+        "o": 5070,
+        "f": 3821
+      }
+    ],
+    "owned|query": [
+      false,
+      true,
+      {
+        "w": -3946,
+        "p": 4226,
+        "n": 1973,
+        "F": 7474
+      },
+      {
+        "E": -7529,
+        "k": -9847,
+        "c": -3079,
+        "T": -4343
+      }
+    ],
+    "min_access_level|query": [
+      40,
+      10,
+      50,
+      30,
+      20,
+      15
+    ]
+  },
+  "get_groups_id_hooks": {
+    "id|path": []
+  },
+  "post_groups_id_hooks": {
+    "id|path": [],
+    "url|query": [],
+    "push_events|query": [],
+    "issues_events|query": [],
+    "confidential_issues_events|query": [],
+    "merge_requests_events|query": [],
+    "tag_push_events|query": [],
+    "note_events|query": [],
+    "confidential_note_events|query": [],
+    "job_events|query": [],
+    "pipeline_events|query": [],
+    "wiki_page_events|query": [],
+    "deployment_events|query": [],
+    "releases_events|query": [],
+    "enable_ssl_verification|query": [],
+    "token|query": []
+  },
+  "get_groups_id_hooks_hook_id": {
+    "hook_id|path": [],
+    "id|path": []
+  },
+  "put_groups_id_hooks_hook_id": {
+    "id|path": [],
+    "hook_id|path": [],
+    "url|query": [],
+    "push_events|query": [],
+    "issues_events|query": [],
+    "confidential_issues_events|query": [],
+    "merge_requests_events|query": [],
+    "tag_push_events|query": [],
+    "note_events|query": [],
+    "confidential_note_events|query": [],
+    "job_events|query": [],
+    "pipeline_events|query": [],
+    "wiki_events|query": [],
+    "deployment_events|query": [],
+    "releases_events|query": [],
+    "enable_ssl_verification|query": [],
+    "token|query": []
+  },
+  "delete_groups_id_hooks_hook_id": {
+    "id|path": [],
+    "hook_id|path": []
+  },
+  "get_groups_id_descendant_groups": {
+    "page|query": [
+      4,
+      5,
+      8,
+      9,
+      7,
+      2,
+      10,
+      6,
+      -426,
+      186,
+      1,
+      3,
+      13,
+      986,
+      -1,
+      682,
+      633,
+      26,
+      63
+    ],
+    "per_page|query": [
+      40,
+      90,
+      30,
+      100,
+      856
+    ],
+    "id|path": [
+      62,
+      64,
+      65,
+      60,
+      63,
+      59,
+      70,
+      67,
+      71,
+      69,
+      73,
+      72,
+      76,
+      77,
+      82,
+      80,
+      95,
+      81,
+      93,
+      68,
+      86
+    ],
+    "skip_groups|query": [
+      [
+        5,
+        6
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        9,
+        2
+      ],
+      [
+        5086,
+        299,
+        -2067,
+        3047,
+        -4030,
+        8970,
+        7993,
+        -5782,
+        -4271,
+        -5973,
+        -8634,
+        -8629,
+        -6490,
+        -4419,
+        8704,
+        -5819,
+        -3624,
+        -1674,
+        -7635,
+        -673,
+        -6260,
+        1793,
+        -3198,
+        -6019,
+        9225,
+        7501,
+        -7778,
+        -9569,
+        5536,
+        -7244,
+        7739,
+        -7258,
+        3636,
+        1710,
+        -755,
+        -2687,
+        6075,
+        5286,
+        804,
+        5019,
+        8800,
+        4579,
+        -1995,
+        -657
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        9,
+        10
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    "all_available|query": [
+      false,
+      true,
+      {
+        "N": 2557,
+        "I": 3576,
+        "o": 5070,
+        "f": 3821
+      },
+      "false",
+      "true"
+    ],
+    "search|query": [
+      "group D",
+      "group C",
+      "group E",
+      "group A",
+      "project",
+      "something",
+      "user",
+      "admin",
+      "access",
+      "group B",
+      "xwF",
+      "Wfv9ASKDLb4RTq2oXmLq",
+      "bcs",
+      "k",
+      "iaBtym2tQb2YGlEAifh7KMkdRSqYC2tsBbozGpxXgCj",
+      "A0jiFXuoT19C4ISIKjZ",
+      "IlZYMLX4H8p",
+      "LkShh2s",
+      "e",
+      "default",
+      "LrT",
+      true,
+      [
+        2341,
+        450,
+        8432,
+        824,
+        -6055,
+        -5790
+      ],
+      "ZjqMCK",
+      "ncX7o",
+      "8o6zU",
+      "{{",
+      10,
+      " ",
+      "http://localhost:30000/developers-group/P0",
+      119.68414656276227,
+      "IymN1Z3srvZtyeCgWtElnqFm4CwOJDS"
+    ],
+    "order_by|query": [
+      "name",
+      "id",
+      "path"
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "statistics|query": [
+      true,
+      false
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ],
+    "owned|query": [
+      true,
+      false,
+      {
+        "w": -3946,
+        "p": 4226,
+        "n": 1973,
+        "F": 7474
+      },
+      {
+        "E": -7529,
+        "k": -9847,
+        "c": -3079,
+        "T": -4343
+      }
+    ],
+    "min_access_level|query": [
+      40,
+      10,
+      50,
+      20,
+      30,
+      15
+    ]
+  },
+  "get_groups_id_projects": {
+    "page|query": [
+      4,
+      5,
+      9
+    ],
+    "per_page|query": [
+      40
+    ],
+    "id|path": [
+      62,
+      65,
+      60,
+      64,
+      63,
+      59,
+      70,
+      67,
+      71,
+      69,
+      73,
+      76,
+      72,
+      77,
+      82,
+      80,
+      95,
+      93,
+      68,
+      81
+    ],
+    "archived|query": [
+      false,
+      true
+    ],
+    "visibility|query": [
+      "private"
+    ],
+    "order_by|query": [
+      "created_at",
+      "id"
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "search|query": [
+      "group A",
+      "group C",
+      "project",
+      "group E"
+    ],
+    "simple|query": [
+      true,
+      false
+    ],
+    "owned|query": [
+      true
+    ],
+    "starred|query": [
+      true
+    ],
+    "with_issues_enabled|query": [
+      true
+    ],
+    "with_merge_requests_enabled|query": [
+      true
+    ],
+    "with_shared|query": [
+      true,
+      false
+    ],
+    "include_subgroups|query": [
+      true
+    ],
+    "min_access_level|query": [
+      10,
+      40
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ]
+  },
+  "post_groups_id_projects_project_id": {
+    "id|path": [
+      60,
+      62,
+      59,
+      63,
+      65,
+      68,
+      64,
+      67,
+      70,
+      69,
+      72,
+      73,
+      71,
+      76,
+      77,
+      80,
+      84,
+      82,
+      81,
+      95,
+      93,
+      94,
+      97,
+      101,
+      88,
+      91,
+      99,
+      105,
+      104,
+      111,
+      110,
+      123,
+      218,
+      115,
+      271,
+      210,
+      264,
+      130,
+      184
+    ],
+    "project_id|path": [
+      1,
+      72,
+      201,
+      209,
+      204,
+      203,
+      207,
+      208,
+      205,
+      285,
+      202
+    ]
+  },
+  "get_groups_id_projects_shared": {
+    "page|query": [
+      4,
+      8,
+      5,
+      7
+    ],
+    "per_page|query": [
+      50,
+      60,
+      40,
+      30
+    ],
+    "id|path": [
+      60,
+      62,
+      63,
+      64,
+      59,
+      65,
+      69,
+      68,
+      99,
+      75
+    ],
+    "archived|query": [
+      false,
+      true,
+      "true"
+    ],
+    "visibility|query": [
+      "private"
+    ],
+    "order_by|query": [
+      "updated_at",
+      "name",
+      "id",
+      "path"
+    ],
+    "sort|query": [
+      "desc",
+      "asc"
+    ],
+    "search|query": [
+      "group A",
+      "project",
+      "group E",
+      "group C"
+    ],
+    "simple|query": [
+      true,
+      "false"
+    ],
+    "starred|query": [
+      true,
+      false
+    ],
+    "with_issues_enabled|query": [
+      true,
+      false
+    ],
+    "with_merge_requests_enabled|query": [
+      true,
+      false
+    ],
+    "min_access_level|query": [
+      40,
+      20
+    ],
+    "with_custom_attributes|query": [
+      true,
+      false
+    ]
+  }
+}

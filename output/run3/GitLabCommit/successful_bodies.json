@@ -1,0 +1,79 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "monthly",
+      "hourly",
+      "daily",
+      "weekly"
+    ],
+    "enabled": [
+      true
+    ],
+    "keep_n": [
+      1
+    ],
+    "older_than": [
+      "120d",
+      "3d",
+      "14d",
+      "45d",
+      "1d",
+      "30d"
+    ],
+    "name_regex": [
+      "^prod-.*"
+    ],
+    "name_regex_delete": [
+      "^test-.*",
+      "^temp-.*"
+    ],
+    "name_regex_keep": [
+      ".*production.*"
+    ],
+    "next_run_at": [
+      "2024-08-01T06:00:00Z",
+      "2024-06-28T02:15:00Z",
+      "2024-07-01T03:00:00Z"
+    ]
+  },
+  "get_projects_id_repository_commits": {},
+  "post_projects_id_repository_commits": {
+    "action": [],
+    "file_path": [],
+    "previous_path": [],
+    "content": [],
+    "encoding": [],
+    "last_commit_id": [],
+    "execute_filemode": []
+  },
+  "get_projects_id_repository_commits_sha": {},
+  "get_projects_id_repository_commits_sha_refs": {},
+  "post_projects_id_repository_commits_sha_cherry_pick": {
+    "branch": []
+  },
+  "post_projects_id_repository_commits_sha_revert": {
+    "branch": []
+  },
+  "get_projects_id_repository_commits_sha_diff": {},
+  "get_projects_id_repository_commits_sha_comments": {
+    "note": [],
+    "path": [],
+    "line": [],
+    "line_type": []
+  },
+  "get_projects_id_repository_commits_sha_discussions": {},
+  "get_projects_id_repository_commits_sha_statuses": {},
+  "post_projects_id_statuses_sha": {
+    "state": [],
+    "ref": [],
+    "target_url": [],
+    "description": [],
+    "name": [],
+    "context": [],
+    "coverage": [],
+    "pipeline_id": []
+  },
+  "get_projects_id_repository_commits_sha_merge_requests": {},
+  "get_projects_id_repository_commits_sha_signature": {}
+}

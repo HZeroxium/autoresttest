@@ -1,0 +1,24 @@
+{
+  "Title": "AutoRestTest Report for 'GitLab Commit API' (GitLabCommit)",
+  "Duration": "3600 seconds",
+  "Total Requests Sent": 15800,
+  "Status Code Distribution": {
+    "404": 12343,
+    "200": 685,
+    "400": 2301,
+    "401": 112,
+    "414": 75,
+    "403": 259,
+    "201": 11,
+    "500": 8,
+    "415": 5,
+    "422": 1
+  },
+  "Number of Total Operations": 15,
+  "Number of Successfully Processed Operations": 3,
+  "Percentage of Successfully Processed Operations": "20.0%",
+  "Number of Unique Server Errors": 8,
+  "Operations with Server Errors": {
+    "get_projects_id_repository_commits": 8
+  }
+}

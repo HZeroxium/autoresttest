@@ -1,0 +1,634 @@
+{
+  "GetAmendments": {
+    "billId|path": [
+      3931
+    ],
+    "billStageId|path": [
+      19511
+    ],
+    "SearchTerm|query": [
+      "Immigration"
+    ],
+    "Decision|query": [],
+    "MemberId|query": [
+      16243,
+      19157,
+      13571,
+      1932,
+      17728,
+      17726,
+      17730,
+      17727,
+      17724,
+      13149,
+      19161,
+      16239,
+      17422
+    ],
+    "Skip|query": [
+      10,
+      50
+    ],
+    "Take|query": [
+      25
+    ]
+  },
+  "GetAmendment": {
+    "billId|path": [],
+    "billStageId|path": [],
+    "amendmentId|path": []
+  },
+  "GetNewsArticles": {
+    "billId|path": [
+      1234,
+      100,
+      101,
+      486,
+      3872,
+      488,
+      300,
+      150,
+      3897,
+      727,
+      745,
+      200,
+      3951,
+      3838,
+      3836,
+      3956,
+      4024,
+      3938,
+      4058,
+      3931,
+      250,
+      3908,
+      3977
+    ],
+    "Skip|query": [
+      0,
+      1
+    ],
+    "Take|query": [
+      100
+    ]
+  },
+  "get_api_v1_BillTypes": {
+    "Category|query": [
+      "Public",
+      "Private",
+      "Hybrid"
+    ],
+    "Skip|query": [
+      1,
+      10,
+      17,
+      30,
+      0,
+      100,
+      25,
+      50,
+      15,
+      6
+    ],
+    "Take|query": [
+      1,
+      100,
+      50
+    ]
+  },
+  "GetBills": {
+    "SearchTerm|query": [
+      "Digital Innovation",
+      "Immigration",
+      "default"
+    ],
+    "Session|query": [
+      10,
+      20,
+      35
+    ],
+    "CurrentHouse|query": [
+      "All",
+      "Commons",
+      "Lords"
+    ],
+    "OriginatingHouse|query": [
+      "Lords",
+      "Commons"
+    ],
+    "MemberId|query": [
+      205,
+      1234,
+      745,
+      3332
+    ],
+    "DepartmentId|query": [
+      10,
+      100,
+      50,
+      40,
+      801,
+      129,
+      1,
+      20,
+      3330
+    ],
+    "BillStage|query": [
+      [
+        6
+      ],
+      [
+        3
+      ],
+      [
+        -2358,
+        -1774
+      ],
+      [
+        7
+      ],
+      [
+        1
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        7,
+        8
+      ],
+      [
+        -5283,
+        6935,
+        7005,
+        6774,
+        -7210,
+        -5529,
+        -5182,
+        -9576,
+        3949,
+        5996
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1469,
+        -9251
+      ],
+      [
+        5,
+        6
+      ],
+      []
+    ],
+    "BillStagesExcluded|query": [
+      [
+        1,
+        7
+      ],
+      [
+        8477,
+        -5233,
+        -7693
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        3
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        6
+      ],
+      403,
+      [
+        8
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        2
+      ],
+      []
+    ],
+    "IsDefeated|query": [
+      true,
+      false
+    ],
+    "IsWithdrawn|query": [
+      false
+    ],
+    "BillType|query": [
+      [
+        3,
+        5
+      ],
+      [
+        5,
+        7
+      ]
+    ],
+    "SortOrder|query": [
+      "DateUpdatedDescending",
+      "TitleAscending",
+      "DateUpdatedAscending"
+    ],
+    "BillIds|query": [
+      [
+        3973
+      ],
+      [
+        500
+      ],
+      [
+        4000,
+        4100
+      ]
+    ],
+    "IsInAmendableStage|query": [
+      true,
+      false,
+      []
+    ],
+    "Skip|query": [
+      40,
+      90,
+      20
+    ],
+    "Take|query": [
+      60,
+      70
+    ]
+  },
+  "GetBill": {
+    "billId|path": [
+      100,
+      101,
+      745,
+      300,
+      3763,
+      150,
+      4064,
+      3931,
+      587,
+      3872,
+      200,
+      250,
+      49,
+      3836,
+      3897,
+      3838,
+      4024,
+      4048,
+      140,
+      1234,
+      3951,
+      3908,
+      3956,
+      4058
+    ]
+  },
+  "GetBillStageDetails": {
+    "billId|path": [
+      3931,
+      4064,
+      3956
+    ],
+    "billStageId|path": [
+      19512,
+      20423,
+      19827
+    ]
+  },
+  "get_api_v1_Bills_billId_Stages": {
+    "billId|path": [
+      100,
+      1234,
+      300,
+      101,
+      3931,
+      250,
+      3872,
+      150,
+      4048,
+      3897,
+      745,
+      200,
+      3951,
+      4024,
+      3836,
+      3838,
+      3956,
+      4058,
+      3937,
+      3763,
+      3938,
+      3977,
+      3908,
+      3982,
+      3923
+    ],
+    "Skip|query": [
+      0,
+      50,
+      15,
+      5
+    ],
+    "Take|query": [
+      20,
+      30,
+      1,
+      100,
+      5,
+      200
+    ]
+  },
+  "get_api_v1_Publications_publicationId_Documents_documentId": {
+    "publicationId|path": [],
+    "documentId|path": []
+  },
+  "get_api_v1_Publications_publicationId_Documents_documentId_Download": {
+    "publicationId|path": [],
+    "documentId|path": []
+  },
+  "SearchPingPongItems": {
+    "billId|path": [
+      3931
+    ],
+    "billStageId|path": [
+      19511
+    ],
+    "SearchTerm|query": [],
+    "Decision|query": [
+      "WithdrawnBeforeDebate"
+    ],
+    "MemberId|query": [
+      7825,
+      718,
+      746,
+      710,
+      6238,
+      714,
+      64842,
+      729,
+      791,
+      5077,
+      64848,
+      63767,
+      56402,
+      5716,
+      7842
+    ],
+    "Skip|query": [
+      10
+    ],
+    "Take|query": [
+      20
+    ]
+  },
+  "GetPingPongItem": {
+    "billId|path": [],
+    "billStageId|path": [],
+    "pingPongItemId|path": []
+  },
+  "get_api_v1_PublicationTypes": {
+    "Skip|query": [
+      485,
+      344,
+      1,
+      0,
+      6092,
+      740,
+      15,
+      18,
+      16857,
+      12,
+      17728,
+      345
+    ],
+    "Take|query": [
+      [
+        25
+      ],
+      5,
+      1,
+      25,
+      0,
+      -1,
+      998,
+      3,
+      15,
+      [
+        29
+      ],
+      [
+        28
+      ],
+      [
+        26
+      ],
+      35,
+      [],
+      [
+        27
+      ],
+      10,
+      50,
+      13,
+      16,
+      200,
+      [
+        24
+      ],
+      334,
+      6,
+      [
+        23
+      ],
+      [
+        36
+      ],
+      [
+        21
+      ],
+      14,
+      [
+        -1710,
+        -6590,
+        -9243,
+        -9045,
+        -8064,
+        -815,
+        -7341,
+        9049,
+        9114,
+        8617,
+        9778,
+        -7255,
+        -3391,
+        -8836,
+        4764,
+        -7648,
+        -8143,
+        -9938,
+        -4369
+      ],
+      20,
+      [
+        37,
+        38
+      ],
+      [
+        30
+      ],
+      [
+        38
+      ],
+      [
+        39
+      ]
+    ]
+  },
+  "GetBillPublication": {
+    "billId|path": [
+      100,
+      250,
+      2528,
+      49,
+      150,
+      3897,
+      3763,
+      4048,
+      300,
+      3836,
+      3951,
+      745,
+      101,
+      3872,
+      200,
+      3931,
+      3838,
+      3956,
+      4024,
+      4058,
+      1234,
+      3937,
+      3908
+    ]
+  },
+  "get_api_v1_Bills_billId_Stages_stageId_Publications": {
+    "billId|path": [
+      3931
+    ],
+    "stageId|path": [
+      19511
+    ]
+  },
+  "get_api_v1_Rss_allbills_rss": {},
+  "get_api_v1_Rss_publicbills_rss": {},
+  "get_api_v1_Rss_privatebills_rss": {},
+  "get_api_v1_Rss_Bills_id_rss": {
+    "id|path": [
+      801,
+      40,
+      30,
+      127,
+      785,
+      1287,
+      277,
+      100,
+      129,
+      149,
+      3406,
+      345,
+      3366,
+      3446,
+      905,
+      3523,
+      3426,
+      3330,
+      3556,
+      3332,
+      3451
+    ]
+  },
+  "GetSittings": {
+    "House|query": [
+      "All",
+      "Commons",
+      "Lords"
+    ],
+    "DateFrom|query": [
+      "2026-02-28T00:00:00",
+      "2026-05-15T12:00:00",
+      "2026-06-01T00:00:00",
+      "2026-05-29T00:00:00",
+      "2026-03-15T14:45:00",
+      "2026-04-01T00:00:00",
+      "2025-12-31T00:00:00",
+      "2026-01-01T10:30:00",
+      []
+    ],
+    "DateTo|query": [
+      "2026-06-01T00:00:00",
+      "2027-01-01T00:00:00",
+      "2026-07-15T10:00:00",
+      "2026-06-30T23:59:59"
+    ],
+    "Skip|query": [
+      25,
+      100,
+      10,
+      20,
+      [
+        39,
+        -7674
+      ],
+      30,
+      []
+    ],
+    "Take|query": [
+      5,
+      2,
+      30,
+      10,
+      1,
+      [
+        -5751,
+        822,
+        -1400
+      ],
+      25
+    ]
+  },
+  "get_api_v1_Stages": {
+    "Skip|query": [
+      0,
+      1,
+      4020,
+      3798,
+      19,
+      11,
+      15,
+      40,
+      3836,
+      3914,
+      -743
+    ],
+    "Take|query": [
+      1,
+      30,
+      40
+    ]
+  }
+}

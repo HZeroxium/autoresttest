@@ -1,0 +1,101 @@
+{
+  "get_api_v1_Rss_publicbills_rss": {
+    "200": 240
+  },
+  "GetAmendments": {
+    "404": 470,
+    "400": 61,
+    "200": 31,
+    "403": 1
+  },
+  "get_api_v1_Stages": {
+    "200": 220,
+    "400": 8,
+    "405": 1
+  },
+  "GetSittings": {
+    "200": 207,
+    "400": 31
+  },
+  "GetAmendment": {
+    "404": 377,
+    "405": 1
+  },
+  "get_api_v1_Publications_publicationId_Documents_documentId": {
+    "400": 237,
+    "404": 602,
+    "403": 1
+  },
+  "get_api_v1_Rss_privatebills_rss": {
+    "200": 238
+  },
+  "GetBillPublication": {
+    "404": 109,
+    "200": 125
+  },
+  "get_api_v1_Bills_billId_Stages": {
+    "200": 122,
+    "404": 122,
+    "403": 1,
+    "400": 4,
+    "405": 1
+  },
+  "GetPingPongItem": {
+    "404": 926,
+    "500": 30,
+    "403": 1,
+    "405": 2
+  },
+  "GetBills": {
+    "200": 155,
+    "400": 68,
+    "405": 1,
+    "404": 3
+  },
+  "GetBill": {
+    "404": 111,
+    "200": 120
+  },
+  "get_api_v1_PublicationTypes": {
+    "200": 242,
+    "400": 12,
+    "404": 3,
+    "405": 1
+  },
+  "get_api_v1_Bills_billId_Stages_stageId_Publications": {
+    "404": 345,
+    "200": 67,
+    "400": 9
+  },
+  "get_api_v1_Publications_publicationId_Documents_documentId_Download": {
+    "404": 243,
+    "400": 105
+  },
+  "get_api_v1_BillTypes": {
+    "400": 11,
+    "200": 232
+  },
+  "get_api_v1_Rss_allbills_rss": {
+    "200": 224,
+    "405": 1
+  },
+  "GetBillStageDetails": {
+    "404": 218,
+    "200": 22
+  },
+  "GetNewsArticles": {
+    "404": 108,
+    "400": 48,
+    "200": 100
+  },
+  "SearchPingPongItems": {
+    "404": 129,
+    "400": 38,
+    "200": 64,
+    "403": 1
+  },
+  "get_api_v1_Rss_Bills_id_rss": {
+    "200": 104,
+    "404": 126
+  }
+}

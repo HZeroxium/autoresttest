@@ -1,0 +1,183 @@
+{
+  "get_projects": {
+    "200": 807,
+    "400": 396,
+    "414": 11,
+    "404": 1
+  },
+  "post_projects": {
+    "400": 2210,
+    "201": 16,
+    "422": 9,
+    "401": 65,
+    "414": 21,
+    "404": 2,
+    "415": 1
+  },
+  "delete_projects_id_issues_issue_iid": {
+    "404": 837,
+    "401": 46,
+    "400": 229,
+    "204": 55,
+    "403": 35
+  },
+  "get_projects_id_issues_issue_iid_related_merge_requests": {
+    "400": 228,
+    "404": 739,
+    "200": 186
+  },
+  "post_projects_id_issues_issue_iid_add_spent_time": {
+    "404": 570,
+    "400": 227,
+    "401": 39,
+    "414": 4,
+    "201": 361,
+    "403": 6
+  },
+  "post_groups": {
+    "201": 32,
+    "400": 926,
+    "404": 215,
+    "401": 51,
+    "414": 9,
+    "415": 1
+  },
+  "get_groups": {
+    "400": 400,
+    "200": 785,
+    "414": 10,
+    "404": 2
+  },
+  "get_issues_id": {
+    "404": 539,
+    "200": 619,
+    "401": 55
+  },
+  "get_projects_id_issues_issue_iid_closed_by": {
+    "400": 231,
+    "404": 818,
+    "200": 157
+  },
+  "put_projects_id_issues_issue_iid_reorder": {
+    "400": 950,
+    "404": 2097,
+    "403": 54,
+    "401": 140,
+    "422": 45,
+    "200": 12
+  },
+  "get_projects_id_issues_issue_iid_participants": {
+    "400": 239,
+    "404": 687,
+    "200": 250
+  },
+  "post_projects_id_issues_issue_iid_move": {
+    "401": 50,
+    "400": 380,
+    "404": 800,
+    "201": 52
+  },
+  "put_projects_id_issues_issue_iid": {
+    "400": 361,
+    "404": 649,
+    "403": 22,
+    "200": 125,
+    "401": 42,
+    "414": 10
+  },
+  "post_projects_id_issues_issue_iid_unsubscribe": {
+    "404": 1130,
+    "201": 17,
+    "304": 10,
+    "401": 44,
+    "400": 48
+  },
+  "get_groups_id_issues": {
+    "404": 431,
+    "400": 2089,
+    "200": 23,
+    "414": 59,
+    "415": 1
+  },
+  "post_projects_id_issues_issue_iid_time_estimate": {
+    "404": 862,
+    "400": 228,
+    "401": 41,
+    "200": 114,
+    "403": 15,
+    "414": 3
+  },
+  "post_projects_id_issues_issue_iid_subscribe": {
+    "401": 33,
+    "404": 1078,
+    "304": 9,
+    "201": 3,
+    "400": 98
+  },
+  "get_projects_id_issues_issue_iid_time_stats": {
+    "404": 874,
+    "400": 222,
+    "200": 100
+  },
+  "get_projects_id_issues": {
+    "400": 935,
+    "200": 134,
+    "404": 142,
+    "414": 17,
+    "415": 1
+  },
+  "post_projects_id_issues_issue_iid_todo": {
+    "400": 205,
+    "404": 987,
+    "201": 22,
+    "304": 9,
+    "401": 43
+  },
+  "get_issues": {
+    "400": 489,
+    "200": 630,
+    "401": 30,
+    "414": 19,
+    "415": 1,
+    "404": 1
+  },
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {
+    "404": 756,
+    "400": 193,
+    "401": 59,
+    "200": 192,
+    "403": 11
+  },
+  "get_projects_id_issues_issue_iid_metric_images": {
+    "404": 1193,
+    "200": 224
+  },
+  "post_projects_id_issues_issue_iid_reset_spent_time": {
+    "401": 53,
+    "400": 208,
+    "404": 781,
+    "200": 159,
+    "403": 2
+  },
+  "get_projects_id_issues_issue_iid": {
+    "400": 236,
+    "404": 558,
+    "200": 461
+  },
+  "post_projects_id_issues": {
+    "404": 344,
+    "400": 409,
+    "403": 93,
+    "201": 170,
+    "401": 43,
+    "414": 18,
+    "409": 182
+  },
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "404": 9981,
+    "415": 7,
+    "400": 626,
+    "414": 20,
+    "401": 3
+  }
+}

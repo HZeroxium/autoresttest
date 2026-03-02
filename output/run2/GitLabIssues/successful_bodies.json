@@ -1,0 +1,540 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "0 22 * * 2",
+      "0 18 * * 3",
+      "0 4 * * *",
+      "30 1 * * *"
+    ],
+    "enabled": [],
+    "keep_n": [
+      8
+    ],
+    "older_than": [],
+    "name_regex": [],
+    "name_regex_delete": [
+      "build-temp.*"
+    ],
+    "name_regex_keep": [
+      "build-release.*",
+      "qa-final.*",
+      "hotfix-stable.*",
+      "deploy-release-.*",
+      "prod-stable-.*"
+    ],
+    "next_run_at": [
+      "2024-07-08T05:15:00Z"
+    ]
+  },
+  "get_issues": {
+    "labels": [
+      "urgent",
+      "documentation",
+      "documentation,help wanted",
+      "feature",
+      "enhancement,UI",
+      [
+        "bug",
+        "urgent"
+      ],
+      "UI,bug",
+      "http://localhost:30000/root/AutomationSuite",
+      [
+        "question"
+      ],
+      "performance,security",
+      "bug",
+      [
+        "in progress"
+      ],
+      [
+        "help wanted"
+      ],
+      [
+        "review needed"
+      ],
+      [
+        "duplicate"
+      ],
+      "question,urgent",
+      [
+        "enhancement",
+        "frontend"
+      ],
+      [
+        "default"
+      ],
+      "help wanted",
+      [
+        "w39"
+      ],
+      "http://localhost:30000/api/v4/projects/477/labels",
+      [
+        "documentation"
+      ],
+      "http://localhost:30000/api/v4/projects/485/labels",
+      "http://localhost:30000/api/v4/projects/479/labels",
+      [
+        "automation",
+        "design",
+        "issue-tracking",
+        "project",
+        "task",
+        "ui"
+      ],
+      "http://localhost:30000/api/v4/projects/454/labels",
+      "performance",
+      [],
+      [
+        "http://localhost:30000/api/v4/projects/362/labels"
+      ],
+      [
+        "WPAI1KcaWs9y"
+      ],
+      "None",
+      [
+        "project",
+        "task"
+      ],
+      [
+        "M"
+      ],
+      "Any",
+      "No+Label",
+      "http://localhost:30000/api/v4/projects/489/labels",
+      false,
+      [
+        "http://localhost:30000/api/v4/projects/49/labels"
+      ]
+    ],
+    "milestone": [
+      "hotfix",
+      "release",
+      "v1.0",
+      "release-candidate",
+      "beta",
+      "Any",
+      "v5.0",
+      "development-team-deletion_scheduled-98",
+      "v2.5",
+      "v3.1",
+      "None",
+      "alpha",
+      "docs",
+      "v4.0",
+      "planned",
+      null,
+      "release-2",
+      "backlog",
+      "urgent-fix",
+      "next-release",
+      "archived",
+      "v1.1",
+      "future"
+    ],
+    "author_id": [
+      1708,
+      303,
+      707,
+      1,
+      1506,
+      1006,
+      1102,
+      101,
+      1005,
+      106,
+      505,
+      1004,
+      1010,
+      1900,
+      1007
+    ],
+    "author_username": [
+      "steve_lead",
+      "quinn_dev",
+      "charlie_dev",
+      "eve_admin",
+      "irene_developer",
+      "bob",
+      "uma_dev",
+      "future",
+      "heidi",
+      "mike_dev",
+      "karen_lead",
+      "dave",
+      "frank",
+      "alice",
+      "eve",
+      "ivan",
+      "grace_dev",
+      "lwillis",
+      "emartin",
+      "oliver_admin",
+      "perf_expert",
+      "johndoe",
+      "charlie",
+      "david",
+      "dev_king",
+      "user_one",
+      "new_contributor",
+      "coder_girl",
+      "alice_dev",
+      "doc_writer",
+      "irichards",
+      "nscott"
+    ],
+    "assignee_id": [
+      1809,
+      202,
+      404,
+      808,
+      99,
+      2001,
+      "vtoq1",
+      1203,
+      1001,
+      1607,
+      606,
+      1405,
+      105,
+      109,
+      340,
+      409,
+      101,
+      11,
+      1,
+      96,
+      117,
+      102,
+      43
+    ],
+    "assignee_username": [
+      "tina_tester",
+      "rachel_reviewer",
+      "dana_tester",
+      "frank_reviewer",
+      "jack_qc",
+      "root",
+      "victor_tester",
+      400,
+      "nina_reviewer",
+      "leo_tester",
+      "harry_tester",
+      [
+        "grace"
+      ],
+      "paula_tester",
+      [
+        "johndoe"
+      ],
+      [
+        "delta"
+      ],
+      [
+        "alpha"
+      ]
+    ],
+    "my_reaction_emoji": [
+      "thumbsdown",
+      "default",
+      "tada",
+      "heart",
+      "thumbsup",
+      "rocket",
+      "desc",
+      "heart_eyes",
+      0,
+      "eO5f1SIbPZaHdmxN0DZojhvleNMQL2Kxqa",
+      "clap",
+      "eyes",
+      "confused",
+      "asc",
+      "None",
+      "laughing",
+      "Any",
+      "prod-stable-.*",
+      "hotfix-stable.*",
+      "W3s6GlIm6VSdgsoeah",
+      "smile",
+      "9dxm8u1mPoi",
+      "deploy-release-.*",
+      "build-release.*",
+      "qa-final.*",
+      "k35xuNpVu3PBiT"
+    ]
+  },
+  "get_issues_id": {},
+  "get_groups": {},
+  "post_groups": {
+    "name": [
+      "Research Team",
+      "Marketing Team",
+      "Data Analysts",
+      "Community Engagement-deletion_scheduled-97",
+      "Support Squad",
+      "Designers Hub",
+      "Customer Support Team-deletion_scheduled-138",
+      "HR Department",
+      "Designers-deletion_scheduled-644",
+      "Open Source Contributors-deletion_scheduled-591",
+      "Content Creation-deletion_scheduled-220",
+      "Open Source Contributors-deletion_scheduled-572",
+      "DevOps Group",
+      "Content Creators",
+      "Administrator-deletion_scheduled-114",
+      "Product Managers"
+    ],
+    "path": [
+      "research-team",
+      "marketing-team",
+      "data-analysts",
+      "4N6amkFdqNz7H7RQkCW",
+      "support-squad",
+      "designers-hub",
+      "web-portal-deletion_scheduled-315",
+      "hr-department",
+      "2w2SMO-deletion_scheduled-202",
+      "oZVTtwL6-deletion_scheduled-117",
+      "devops-group",
+      "content-creators",
+      "2w2SMO",
+      "product-managers"
+    ],
+    "description": [
+      "A group dedicated to marketing strategies and campaigns.",
+      "Customer support team handling user inquiries and issues.",
+      "Creative designers collaborating on UI/UX projects.",
+      "Human resources managing employee related activities.",
+      "Team maintaining infrastructure and deployment pipelines."
+    ],
+    "avatar": [
+      null
+    ]
+  },
+  "get_groups_id_issues": {
+    "labels": [
+      "feature",
+      "enhancement",
+      "bug,enhancement",
+      "documentation",
+      "bug,critical",
+      "bug",
+      "http://localhost:30000/api/v4/projects/512/labels",
+      "http://localhost:30000/api/v4/projects/318/labels",
+      "http://localhost:30000/api/v4/projects/445/labels",
+      "enhancement,refactor",
+      "http://localhost:30000/api/v4/projects/417/labels",
+      "http://localhost:30000/api/v4/projects/410/labels",
+      "http://localhost:30000/api/v4/projects/432/labels"
+    ],
+    "milestone": [
+      "planned",
+      "release",
+      "docs",
+      "v1.0",
+      "sprint2",
+      "urgent",
+      "hotfix",
+      null,
+      "next release",
+      "release-candidate",
+      "v2.0",
+      "release-2",
+      "discuss"
+    ],
+    "author_id": [
+      107,
+      109,
+      106,
+      108,
+      1
+    ],
+    "author_username": [
+      "lwillis",
+      "emartin",
+      "irichards",
+      "nscott",
+      "heidi"
+    ],
+    "assignee_id": [
+      207,
+      204,
+      206,
+      208,
+      652
+    ],
+    "assignee_username": [
+      "mnelson",
+      "fwhite",
+      "klane",
+      "operez",
+      "root"
+    ],
+    "my_reaction_emoji": [
+      "eyes",
+      "smile",
+      "heart",
+      "build-release.*"
+    ],
+    "search": [
+      "title",
+      "title,description"
+    ],
+    "in": [
+      "description",
+      "comments",
+      "title",
+      "2026-02-27T14:24:15.742Z"
+    ]
+  },
+  "get_projects_id_issues": {
+    "labels": [
+      "bug, urgent",
+      "feature request",
+      "bug",
+      "invalid",
+      "http://localhost:30000/api/v4/projects/401/labels",
+      "question",
+      "performance",
+      "documentation",
+      "http://localhost:30000/api/v4/projects/490/labels",
+      "help wanted",
+      "enhancement"
+    ],
+    "milestone": [
+      "urgent-fix",
+      "hotfix",
+      "future",
+      "v1.0",
+      "archived",
+      "backlog",
+      "Any",
+      "release-2",
+      "next-release",
+      "v2.0",
+      "release-candidate",
+      null,
+      "v1.1"
+    ],
+    "author_id": [
+      1010,
+      1005,
+      1001,
+      1006,
+      1008,
+      1002,
+      106,
+      1004,
+      1007,
+      1003,
+      1009
+    ],
+    "author_username": [
+      "sec_guy",
+      "dev_king",
+      "new_contributor",
+      "user_one",
+      "archiver",
+      "alice_dev",
+      "david",
+      "doc_writer",
+      "coder_girl",
+      "alice",
+      "perf_expert",
+      "heidi",
+      "eve",
+      "frank",
+      "bob",
+      "johndoe",
+      "charlie",
+      "helper_bot"
+    ],
+    "assignee_id": [
+      2010,
+      2008,
+      2003,
+      411,
+      2001,
+      251,
+      67,
+      2006,
+      2005,
+      2004,
+      2002,
+      97,
+      2009,
+      300,
+      109,
+      2007
+    ],
+    "assignee_username": [
+      "dev_queen",
+      "lead_dev",
+      [
+        "eve"
+      ],
+      "cleanup_crew",
+      "dev_alpha",
+      "sec_team",
+      "dev_beta",
+      "dev_ops",
+      "qa_tester",
+      "bob_builder"
+    ],
+    "my_reaction_emoji": [
+      "confused",
+      "thumbsup",
+      "eyes",
+      "heart",
+      "asc",
+      "rocket"
+    ],
+    "search": [
+      "title",
+      "description",
+      "title,description",
+      "performance",
+      "ebyM",
+      "memory leak",
+      "test",
+      "WNs5EMK",
+      "default",
+      "repository"
+    ],
+    "in": [
+      "alerts",
+      "intro",
+      "title,comments",
+      "title",
+      "all",
+      "description",
+      "body",
+      "2026-02-27T14:39:27.647Z",
+      "summary",
+      "comments",
+      "details"
+    ]
+  },
+  "post_projects_id_issues": {},
+  "get_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid": {},
+  "delete_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid_reorder": {},
+  "post_projects_id_issues_issue_iid_move": {},
+  "post_projects_id_issues_issue_iid_subscribe": {},
+  "post_projects_id_issues_issue_iid_unsubscribe": {},
+  "post_projects_id_issues_issue_iid_todo": {},
+  "post_projects_id_issues_issue_iid_time_estimate": {},
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {},
+  "post_projects_id_issues_issue_iid_add_spent_time": {},
+  "post_projects_id_issues_issue_iid_reset_spent_time": {},
+  "get_projects_id_issues_issue_iid_time_stats": {},
+  "get_projects_id_issues_issue_iid_related_merge_requests": {},
+  "get_projects_id_issues_issue_iid_closed_by": {},
+  "get_projects_id_issues_issue_iid_participants": {},
+  "get_projects_id_issues_issue_iid_metric_images": {},
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "file": []
+  }
+}

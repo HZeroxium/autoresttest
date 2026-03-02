@@ -1,0 +1,134 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "weekly",
+      "1d",
+      "http://localhost:30000/root/WxZ.git",
+      "monthly"
+    ],
+    "enabled": [
+      false,
+      true,
+      "http://localhost:30000/api/v4/projects/179/issues"
+    ],
+    "keep_n": [
+      10,
+      "http://localhost:30000/api/v4/projects/67/repository/branches",
+      1,
+      "http://localhost:30000/api/v4/projects/59/repository/branches"
+    ],
+    "older_than": [
+      "60 days",
+      "90d",
+      "root/cu3EVLfjb",
+      "75 days"
+    ],
+    "name_regex": [
+      null,
+      {
+        "y": 2083,
+        "v": -8592,
+        "z": -4475,
+        "p": -8601,
+        "B": -6649,
+        "t": 418,
+        "M": -9115,
+        "I": 1550,
+        "i": -3641
+      },
+      "^legacy-.*$",
+      "Quality Assurance-deletion_scheduled-104"
+    ],
+    "name_regex_delete": [
+      "^clear-.*$",
+      "http://localhost:30000/api/v4/projects/15/members",
+      "^discard-.*$",
+      "http://localhost:30000/api/v4/projects/8/members"
+    ],
+    "name_regex_keep": [
+      "^keep-.*$",
+      "Content Creation-deletion_scheduled-105",
+      "http://localhost:30000/api/v4/projects/111/labels",
+      "^preserve-.*$",
+      false
+    ],
+    "next_run_at": [
+      "2023-11-15T13:45:00Z",
+      "default"
+    ]
+  },
+  "post_projects_user_user_id": {},
+  "get_projects_id": {},
+  "put_projects_id": {
+    "cadence": [
+      "monthly",
+      "weekly",
+      "daily"
+    ],
+    "enabled": [
+      false,
+      true
+    ],
+    "keep_n": [],
+    "older_than": [
+      "1d",
+      "70d",
+      "20d",
+      "10d"
+    ],
+    "name_regex": [
+      "^version-.*$",
+      "^data-archive-.*$",
+      "^user-.*$",
+      "^data-.*$"
+    ],
+    "name_regex_delete": [
+      "^remove-all-.*$",
+      "^obsolete-.*$",
+      "^remove-old-.*$",
+      "^clear-.*$"
+    ],
+    "name_regex_keep": [
+      "^keep-.*$",
+      "^important-dataset-.*$",
+      "^active-.*$",
+      "^preserved-.*$",
+      "^save-.*$"
+    ],
+    "next_run_at": [
+      "2023-10-12T17:45:00Z",
+      "2023-10-10T08:00:00Z",
+      "2023-10-19T15:15:00Z",
+      "2023-11-05T11:00:00Z"
+    ]
+  },
+  "delete_projects_id": {},
+  "get_projects_id_users": {},
+  "post_projects_id_fork": {},
+  "delete_projects_id_fork": {},
+  "get_projects_id_forks": {},
+  "post_projects_id_star": {},
+  "post_projects_id_unstar": {},
+  "get_projects_id_starrers": {},
+  "get_projects_id_languages": {},
+  "post_projects_id_archive": {},
+  "post_projects_id_unarchive": {},
+  "post_projects_id_restore": {},
+  "post_projects_id_uploads": {
+    "file": []
+  },
+  "post_projects_id_share": {},
+  "delete_projects_id_share_group_id": {},
+  "get_projects_id_hooks": {},
+  "post_projects_id_hooks": {},
+  "get_projects_id_hooks_hook_id": {},
+  "put_projects_id_hooks_hook_id": {},
+  "delete_projects_id_hooks_hook_id": {},
+  "post_projects_id_housekeeping": {},
+  "put_projects_id_transfer": {},
+  "post_projects_id_fork_forked_from_id": {},
+  "get_projects_id_snapshot": {},
+  "get_users_user_id_projects": {},
+  "get_users_user_id_starred_projects": {}
+}

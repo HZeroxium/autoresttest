@@ -1,0 +1,30 @@
+{
+  "Title": "AutoRestTest Report for 'GitLab Issues API' (GitLabIssues)",
+  "Duration": "3600 seconds",
+  "Total Requests Sent": 21246,
+  "Status Code Distribution": {
+    "404": 14108,
+    "200": 2271,
+    "400": 3673,
+    "401": 379,
+    "201": 529,
+    "500": 4,
+    "422": 22,
+    "409": 9,
+    "304": 29,
+    "414": 22,
+    "204": 29,
+    "403": 162,
+    "415": 9
+  },
+  "Number of Total Operations": 27,
+  "Number of Successfully Processed Operations": 25,
+  "Percentage of Successfully Processed Operations": "92.59%",
+  "Number of Unique Server Errors": 4,
+  "Operations with Server Errors": {
+    "put_projects_id_issues_issue_iid_reorder": 1,
+    "post_projects_id_issues_issue_iid_reset_spent_time": 1,
+    "post_projects_id_issues": 1,
+    "post_projects_id_issues_issue_iid_add_spent_time": 1
+  }
+}

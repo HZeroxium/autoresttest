@@ -1,0 +1,53 @@
+{
+  "get_projects_id_repository_archive": {
+    "404": 3262,
+    "414": 4,
+    "400": 5
+  },
+  "post_projects": {
+    "401": 26,
+    "400": 574,
+    "201": 12,
+    "414": 4,
+    "404": 1
+  },
+  "get_projects_id_repository_changelog": {
+    "404": 184,
+    "400": 148,
+    "422": 295,
+    "414": 5
+  },
+  "get_projects_id_repository_merge_base": {
+    "404": 300,
+    "400": 335,
+    "414": 3
+  },
+  "get_projects": {
+    "200": 324,
+    "400": 284,
+    "414": 5
+  },
+  "get_projects_id_repository_compare": {
+    "404": 355,
+    "400": 260,
+    "414": 3
+  },
+  "get_projects_id_repository_tree": {
+    "404": 305,
+    "414": 3,
+    "400": 3
+  },
+  "get_projects_id_repository_contributors": {
+    "400": 31,
+    "404": 149,
+    "200": 442
+  },
+  "get_projects_id_repository_blobs_sha": {
+    "404": 649
+  },
+  "get_projects_id_repository_blobs_sha_raw": {
+    "404": 611,
+    "400": 2,
+    "414": 1
+  }
+}

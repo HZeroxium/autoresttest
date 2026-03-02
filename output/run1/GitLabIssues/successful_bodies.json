@@ -1,0 +1,448 @@
+{
+  "get_projects": {},
+  "post_projects": {
+    "cadence": [
+      "2h"
+    ],
+    "enabled": [
+      false,
+      true
+    ],
+    "keep_n": [
+      7,
+      8,
+      5
+    ],
+    "older_than": [
+      "1d",
+      "20d",
+      "180d",
+      "14d"
+    ],
+    "name_regex": [
+      "^build-.*$",
+      "Cloud Engineers",
+      "^deploy-.*$",
+      "^release-.*$",
+      "^release_candidate-.*$",
+      "^test-.*$"
+    ],
+    "name_regex_delete": [
+      "^tmp-.*$",
+      "^obsolete-.*$",
+      "^candidate-.*$",
+      "^oldbuild-.*$"
+    ],
+    "name_regex_keep": [
+      [
+        {
+          "access_level": 40
+        }
+      ],
+      "^finaldeploy-.*$",
+      "^keep-.*$",
+      "^prod-.*$"
+    ],
+    "next_run_at": [
+      "2024-07-02T16:45:00Z",
+      "2024-07-03T22:15:00Z",
+      "default",
+      "2024-07-05T14:00:00Z"
+    ]
+  },
+  "get_issues": {
+    "labels": [
+      "question",
+      "documentation",
+      "performance",
+      "http://localhost:30000/api/v4/projects/17/labels",
+      "http://localhost:30000/api/v4/projects/1/labels",
+      "http://localhost:30000/api/v4/projects/12/labels",
+      "review",
+      "discussion",
+      "enhancement",
+      "security",
+      "http://localhost:30000/api/v4/projects/296/labels",
+      "http://localhost:30000/api/v4/projects/295/labels",
+      "http://localhost:30000/api/v4/projects/317/labels",
+      "http://localhost:30000/api/v4/projects/330/labels",
+      "http://localhost:30000/api/v4/projects/6/labels",
+      "http://localhost:30000/api/v4/projects/306/labels",
+      "http://localhost:30000/api/v4/projects/289/labels",
+      "http://localhost:30000/api/v4/projects/303/labels",
+      "http://localhost:30000/api/v4/projects/333/labels",
+      "http://localhost:30000/api/v4/projects/318/labels",
+      "http://localhost:30000/api/v4/projects/331/labels",
+      "http://localhost:30000/api/v4/projects/302/labels",
+      "http://localhost:30000/api/v4/projects/3/labels",
+      "http://localhost:30000/api/v4/projects/308/labels",
+      [
+        "False"
+      ],
+      "http://localhost:30000/api/v4/projects/9/labels",
+      "http://localhost:30000/api/v4/projects/337/labels",
+      "http://localhost:30000/api/v4/projects/313/labels",
+      "http://localhost:30000/api/v4/projects/291/labels",
+      "http://localhost:30000/api/v4/projects/338/labels",
+      "http://localhost:30000/api/v4/projects/329/labels",
+      "http://localhost:30000/api/v4/projects/326/labels",
+      "http://localhost:30000/api/v4/projects/292/labels",
+      "http://localhost:30000/api/v4/projects/2/labels",
+      "help wanted",
+      "http://localhost:30000/api/v4/projects/301/labels",
+      "http://localhost:30000/api/v4/projects/332/labels",
+      "http://localhost:30000/api/v4/projects/293/labels",
+      "http://localhost:30000/api/v4/projects/298/labels",
+      "http://localhost:30000/api/v4/projects/364/labels",
+      "http://localhost:30000/api/v4/projects/202/labels",
+      "http://localhost:30000/api/v4/projects/344/labels",
+      "http://localhost:30000/api/v4/projects/250/labels",
+      "http://localhost:30000/api/v4/projects/310/labels",
+      "http://localhost:30000/api/v4/projects/369/labels",
+      "http://localhost:30000/api/v4/projects/359/labels",
+      [
+        "automation",
+        "test"
+      ],
+      "http://localhost:30000/api/v4/projects/353/labels",
+      "http://localhost:30000/api/v4/projects/171/labels",
+      "http://localhost:30000/api/v4/projects/363/labels",
+      "http://localhost:30000/api/v4/projects/322/labels",
+      "http://localhost:30000/api/v4/projects/352/labels",
+      "http://localhost:30000/api/v4/projects/342/labels",
+      "http://localhost:30000/api/v4/projects/288/labels",
+      "http://localhost:30000/api/v4/projects/10/labels",
+      "http://localhost:30000/api/v4/projects/173/labels",
+      "http://localhost:30000/api/v4/projects/349/labels",
+      "http://localhost:30000/api/v4/projects/299/labels",
+      "http://localhost:30000/api/v4/projects/389/labels",
+      "http://localhost:30000/api/v4/projects/347/labels",
+      "http://localhost:30000/api/v4/projects/11/labels",
+      "http://localhost:30000/api/v4/projects/103/labels",
+      "http://localhost:30000/api/v4/projects/320/labels",
+      "http://localhost:30000/api/v4/projects/339/labels",
+      [
+        "No+Label"
+      ],
+      "http://localhost:30000/api/v4/projects/373/labels",
+      "http://localhost:30000/api/v4/projects/324/labels",
+      "http://localhost:30000/api/v4/projects/377/labels",
+      "http://localhost:30000/api/v4/projects/19/labels",
+      "http://localhost:30000/api/v4/projects/312/labels"
+    ],
+    "milestone": [
+      "Sprint 5",
+      "Docs Update",
+      "Security Patch",
+      null,
+      "v2.0",
+      "Code Review",
+      "Release Candidate",
+      "Q3 Release",
+      "Hotfix-1"
+    ],
+    "author_id": [
+      1703,
+      1301,
+      1600,
+      1,
+      1010,
+      1803,
+      1500,
+      1122,
+      1355,
+      1402
+    ],
+    "author_username": [
+      "john_smith",
+      "linda_m",
+      "eve",
+      "doc_writer",
+      "gamma_user",
+      "bob",
+      "alice",
+      "frank",
+      "alpha_dev",
+      "steve",
+      "kim",
+      "lead_dev",
+      "sarah_c",
+      "security_team",
+      "grace",
+      "new_dev",
+      "charlie",
+      "mona"
+    ],
+    "assignee_id": [
+      2020,
+      2105,
+      2300,
+      6,
+      2101,
+      116,
+      309,
+      338,
+      101,
+      328,
+      289,
+      2304,
+      306,
+      2,
+      300,
+      2250,
+      2205,
+      14,
+      2401,
+      1,
+      193,
+      2019,
+      146,
+      408,
+      85,
+      259,
+      198,
+      275,
+      [
+        "charlie"
+      ]
+    ],
+    "assignee_username": [
+      "maria_k",
+      "beta_tester",
+      "sec_qa",
+      "root",
+      "editor",
+      "delta_qa",
+      "frank_h",
+      "mentor"
+    ],
+    "my_reaction_emoji": [
+      "default",
+      "sparkles",
+      "thumbsup",
+      "lock",
+      "clap",
+      null,
+      "eyes",
+      "NSgL",
+      "confused",
+      "tada"
+    ]
+  },
+  "get_issues_id": {},
+  "get_groups": {},
+  "post_groups": {
+    "name": [
+      "Cloud Engineers",
+      "Database Managers",
+      "DevOps Specialists",
+      "Mobile Innovators",
+      "Open Source Enthusiasts",
+      "Backend Architects",
+      "Frontend Wizards",
+      "default",
+      "Security Analysts",
+      "GammaRepo",
+      "AI Research Collective",
+      "Administrator"
+    ],
+    "path": [
+      "cloud-engineers",
+      "database-managers",
+      "devops-specialists",
+      "mobile-innovators",
+      "open-source-enthusiasts",
+      "backend-architects",
+      "frontend-wizards",
+      "gamma-repo",
+      "security-analysts",
+      "DeltaApp",
+      "ai-research-collective",
+      "kappa-tool",
+      "default"
+    ],
+    "description": [
+      "Group dedicated to cloud infrastructure and automation solutions.",
+      "Team of DBAs and database developers collaborating on optimization.",
+      "Group for backend software architects to discuss design and scaling.",
+      "A collective working on cybersecurity threats and mitigation strategies.",
+      "Enhance performance for high load.",
+      "default",
+      "Mobile application developers experimenting with new frameworks.",
+      "Group focused on DevOps culture, CI/CD, and automation techniques.",
+      "Group focusing on artificial intelligence research and development.",
+      "Community of frontend developers sharing best practices and tools.",
+      "",
+      "<p data-sourcepos=\"1:1-1:5\" dir=\"auto\">-5081</p>",
+      null
+    ],
+    "avatar": []
+  },
+  "get_groups_id_issues": {
+    "labels": [
+      "http://localhost:30000/api/v4/projects/317/labels",
+      "Any"
+    ],
+    "milestone": [
+      "Any",
+      "default",
+      "Oh8Te5",
+      "None"
+    ],
+    "author_id": [],
+    "author_username": [
+      "frank",
+      "bob",
+      "eve",
+      "john_smith",
+      "charlie"
+    ],
+    "assignee_id": [
+      15,
+      186,
+      213,
+      185,
+      408
+    ],
+    "assignee_username": [
+      [
+        "alice"
+      ],
+      "root",
+      303
+    ],
+    "my_reaction_emoji": [
+      "^keep-.*$"
+    ],
+    "search": [
+      "improvement",
+      "admin",
+      "group",
+      "h8vh1Rf",
+      "51"
+    ],
+    "in": [
+      "2024-04-01T00:00:00Z",
+      null
+    ]
+  },
+  "get_projects_id_issues": {
+    "labels": [
+      "http://localhost:30000/api/v4/projects/9/labels",
+      "refactor",
+      [
+        "default"
+      ],
+      "http://localhost:30000/api/v4/projects/11/labels",
+      "bug,feature",
+      "question"
+    ],
+    "milestone": [
+      null,
+      "v1.2",
+      "Any",
+      "v1.0",
+      "None",
+      "v2.0",
+      "beta",
+      "release-2.1",
+      "milestone-3",
+      "rc-1"
+    ],
+    "author_id": [
+      1,
+      110,
+      101,
+      104
+    ],
+    "author_username": [
+      "eve",
+      "john_smith",
+      "steve",
+      "frank",
+      "alice",
+      "bob",
+      "grace",
+      "kim",
+      "charlie",
+      "mona"
+    ],
+    "assignee_id": [
+      296,
+      85,
+      293,
+      201,
+      101,
+      206,
+      300,
+      202,
+      207
+    ],
+    "assignee_username": [
+      "root",
+      "bob",
+      "leo",
+      "beta_tester",
+      "diana",
+      "frank",
+      "henry",
+      "nick"
+    ],
+    "my_reaction_emoji": [
+      "desc",
+      "group",
+      null,
+      "user",
+      "thumbsup",
+      [
+        {
+          "access_level": 40
+        }
+      ],
+      "confused"
+    ],
+    "search": [
+      "admin",
+      "alpha",
+      "group",
+      "title",
+      "test",
+      "improvement",
+      "user",
+      "devops",
+      "2a",
+      "default"
+    ],
+    "in": [
+      "2024-04-01T00:00:00Z",
+      null,
+      "default",
+      "comments",
+      "2026-02-25T15:08:49.811Z",
+      "body",
+      "2026-02-25T14:47:20.041Z",
+      "title"
+    ]
+  },
+  "post_projects_id_issues": {},
+  "get_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid": {},
+  "delete_projects_id_issues_issue_iid": {},
+  "put_projects_id_issues_issue_iid_reorder": {},
+  "post_projects_id_issues_issue_iid_move": {},
+  "post_projects_id_issues_issue_iid_subscribe": {},
+  "post_projects_id_issues_issue_iid_unsubscribe": {},
+  "post_projects_id_issues_issue_iid_todo": {},
+  "post_projects_id_issues_issue_iid_time_estimate": {},
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {},
+  "post_projects_id_issues_issue_iid_add_spent_time": {},
+  "post_projects_id_issues_issue_iid_reset_spent_time": {},
+  "get_projects_id_issues_issue_iid_time_stats": {},
+  "get_projects_id_issues_issue_iid_related_merge_requests": {},
+  "get_projects_id_issues_issue_iid_closed_by": {},
+  "get_projects_id_issues_issue_iid_participants": {},
+  "get_projects_id_issues_issue_iid_metric_images": {},
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "file": []
+  }
+}

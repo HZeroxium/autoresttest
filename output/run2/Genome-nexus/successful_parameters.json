@@ -1,0 +1,1665 @@
+{
+  "fetchVariantAnnotationPOST": {
+    "isoformOverrideSource|query": [
+      "ucsc",
+      "clinvar",
+      "hgnc",
+      "uniprot",
+      "refseq",
+      "genecards",
+      "cosmic",
+      "dbsnp",
+      "ensembl",
+      [
+        -6000,
+        339
+      ],
+      "",
+      [
+        9172,
+        4016
+      ],
+      847,
+      [
+        -5573,
+        3469,
+        1946
+      ]
+    ],
+    "token|query": [
+      "{\"overrideSource\":\"override-token-XYZ\",\"extraSource\":\"extra-token-123\"}",
+      "{\"ptms\":\"ptms-token-456\",\"oncokb\":\"oncokb-token-123\"}",
+      8,
+      "{\"ensembl\":\"ensembl-token-777\",\"ucsc\":\"ucsc-token-888\"}",
+      "{\"hotspots\":\"hotspots-token-101\",\"mutation_assessor\":\"mutation-token-202\"}",
+      14,
+      "default"
+    ],
+    "fields|query": [
+      [
+        "clinvar"
+      ],
+      [
+        "my_variant_info"
+      ],
+      [
+        "oncokb"
+      ],
+      [
+        "annotation_summary"
+      ],
+      [
+        "nucleotide_context"
+      ],
+      [
+        "hotspots"
+      ],
+      [
+        "ptms"
+      ],
+      [
+        "signal"
+      ],
+      []
+    ]
+  },
+  "fetchVariantAnnotationByIdPOST": {
+    "isoformOverrideSource|query": [
+      "genbank",
+      "13:g.32906774G>A",
+      "pdb",
+      "refseq",
+      "default",
+      "gnomad",
+      "trnas",
+      "ucsc",
+      "clinvar",
+      "cosmic",
+      "LtS8K1Q",
+      [
+        {
+          "exonId": "ENSE00001493081",
+          "exonStart": 178866311,
+          "exonEnd": 178866391,
+          "rank": 1,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001139995",
+          "exonStart": 178916538,
+          "exonEnd": 178916965,
+          "rank": 2,
+          "strand": 1,
+          "version": 2
+        },
+        {
+          "exonId": "ENSE00000997375",
+          "exonStart": 178917478,
+          "exonEnd": 178917687,
+          "rank": 3,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077693",
+          "exonStart": 178919078,
+          "exonEnd": 178919328,
+          "rank": 4,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077692",
+          "exonStart": 178921332,
+          "exonEnd": 178921577,
+          "rank": 5,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077694",
+          "exonStart": 178922291,
+          "exonEnd": 178922376,
+          "rank": 6,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077691",
+          "exonStart": 178927383,
+          "exonEnd": 178927488,
+          "rank": 7,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001128470",
+          "exonStart": 178927974,
+          "exonEnd": 178928126,
+          "rank": 8,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001128465",
+          "exonStart": 178928219,
+          "exonEnd": 178928353,
+          "rank": 9,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077674",
+          "exonStart": 178935998,
+          "exonEnd": 178936122,
+          "rank": 10,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826291",
+          "exonStart": 178936984,
+          "exonEnd": 178937065,
+          "rank": 11,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826292",
+          "exonStart": 178937359,
+          "exonEnd": 178937523,
+          "rank": 12,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003485038",
+          "exonStart": 178937737,
+          "exonEnd": 178937840,
+          "rank": 13,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003568097",
+          "exonStart": 178938774,
+          "exonEnd": 178938945,
+          "rank": 14,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003489671",
+          "exonStart": 178941869,
+          "exonEnd": 178941975,
+          "rank": 15,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003485539",
+          "exonStart": 178942488,
+          "exonEnd": 178942609,
+          "rank": 16,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826297",
+          "exonStart": 178943750,
+          "exonEnd": 178943828,
+          "rank": 17,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826298",
+          "exonStart": 178947060,
+          "exonEnd": 178947230,
+          "rank": 18,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826299",
+          "exonStart": 178947792,
+          "exonEnd": 178947909,
+          "rank": 19,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826300",
+          "exonStart": 178948013,
+          "exonEnd": 178948164,
+          "rank": 20,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001139987",
+          "exonStart": 178951882,
+          "exonEnd": 178957881,
+          "rank": 21,
+          "strand": 1,
+          "version": 3
+        }
+      ],
+      13,
+      "genecards",
+      "jz1J",
+      "97u1ZycTKRU1Y",
+      "ENSE00002264869",
+      "ncbi",
+      [
+        {
+          "exonId": "ENSE00001814242",
+          "exonStart": 41196312,
+          "exonEnd": 41197819,
+          "rank": 23,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003687053",
+          "exonStart": 41199660,
+          "exonEnd": 41199720,
+          "rank": 22,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003628864",
+          "exonStart": 41201138,
+          "exonEnd": 41201211,
+          "rank": 21,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003477922",
+          "exonStart": 41203080,
+          "exonEnd": 41203134,
+          "rank": 20,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003458468",
+          "exonStart": 41209069,
+          "exonEnd": 41209152,
+          "rank": 19,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003672792",
+          "exonStart": 41215350,
+          "exonEnd": 41215390,
+          "rank": 18,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003591784",
+          "exonStart": 41215891,
+          "exonEnd": 41215968,
+          "rank": 17,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003492626",
+          "exonStart": 41219625,
+          "exonEnd": 41219712,
+          "rank": 16,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003497952",
+          "exonStart": 41222945,
+          "exonEnd": 41223255,
+          "rank": 15,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003537850",
+          "exonStart": 41226348,
+          "exonEnd": 41226538,
+          "rank": 14,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003484886",
+          "exonStart": 41228505,
+          "exonEnd": 41228631,
+          "rank": 13,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003527960",
+          "exonStart": 41234421,
+          "exonEnd": 41234592,
+          "rank": 12,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003547126",
+          "exonStart": 41242961,
+          "exonEnd": 41243049,
+          "rank": 11,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003522602",
+          "exonStart": 41243452,
+          "exonEnd": 41246877,
+          "rank": 10,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003463944",
+          "exonStart": 41247863,
+          "exonEnd": 41247939,
+          "rank": 9,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003587679",
+          "exonStart": 41249261,
+          "exonEnd": 41249306,
+          "rank": 8,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003642045",
+          "exonStart": 41251792,
+          "exonEnd": 41251897,
+          "rank": 7,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003513709",
+          "exonStart": 41256139,
+          "exonEnd": 41256278,
+          "rank": 6,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003531836",
+          "exonStart": 41256885,
+          "exonEnd": 41256973,
+          "rank": 5,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003541068",
+          "exonStart": 41258473,
+          "exonEnd": 41258550,
+          "rank": 4,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003510592",
+          "exonStart": 41267743,
+          "exonEnd": 41267796,
+          "rank": 3,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003559512",
+          "exonStart": 41276034,
+          "exonEnd": 41276132,
+          "rank": 2,
+          "strand": -1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001871077",
+          "exonStart": 41277288,
+          "exonEnd": 41277387,
+          "rank": 1,
+          "strand": -1,
+          "version": 1
+        }
+      ],
+      "swissprot",
+      "vMrFxLSxiyNTdfW1fiX0v8gxD4c1B8YxUpf8kKyyardy",
+      "0D9pGb",
+      "DLv3IM1HBwjFaI",
+      "4TOhNB",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "uniprot",
+      "%s%s%s",
+      "embl",
+      "Ozh",
+      "C944Rv"
+    ],
+    "token|query": [
+      "{\"uniprot\":\"token-uniprot-abcde\",\"refseq\":\"token-refseq-fghij\"}",
+      29,
+      "{\"dbsnp\":\"token-dbsnp-12345\",\"ensembl\":\"token-ensembl-67890\"}",
+      219,
+      "default",
+      748,
+      "{\"myvariantinfo\":\"token-mvi-11111\",\"clinvar\":\"token-clinvar-22222\"}",
+      "n9o9N",
+      288,
+      978,
+      "oee1,33 kda subunit of oxygen evolving system of photosystem ii,33 kda thylakoid membrane protein,oec 33 kda subunit",
+      7,
+      "szuZ",
+      "{\"sourceA\":\"token-A1B2C3\",\"sourceB\":\"token-D4E5F6\"}",
+      "{\"source1\":\"alpha\",\"source2\":\"beta\"}",
+      164,
+      "{\"sourceX\":\"token-123xyz\",\"sourceY\":\"token-789abc\"}",
+      1394,
+      "{\"ensembl\":\"ensembl-token-777\",\"ucsc\":\"ucsc-token-888\"}",
+      "4VNnkLus3pTy15HQ",
+      42,
+      "RJPS",
+      1866,
+      1035,
+      "H35ZxES",
+      343,
+      1151,
+      221,
+      212,
+      64,
+      965,
+      208,
+      730,
+      552
+    ],
+    "fields|query": [
+      [
+        "ptms"
+      ],
+      [
+        "annotation_summary"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByIdGET": {
+    "variantId|path": [
+      "X:g.1532367G>T",
+      "rs135792468",
+      "rs998877665",
+      "rs987654321",
+      "X:g.66937331T>A",
+      "rs116035550",
+      "2:g.265023C>T",
+      "rs246813579",
+      "rs556677889",
+      "rs102938475",
+      "7157",
+      "rs123456789",
+      [
+        -8028,
+        -8627,
+        7071,
+        4529,
+        342,
+        2381
+      ],
+      "default",
+      "escherichia coli",
+      "5928",
+      "3",
+      "GA",
+      "rs564738291",
+      "7,140453136,140453136,A,T",
+      "SNP",
+      "2",
+      "TdAu2b9i",
+      "rs112233445",
+      "23140",
+      "5,67596789,67596789,G,A",
+      "2T8yF6",
+      "-",
+      "%s%s%s",
+      294,
+      "929",
+      "G",
+      "2:g.47641578_47641579del",
+      "",
+      "Error from VEP for: 827",
+      "SDVv9Try",
+      "S9R",
+      "OTOv7Sd"
+    ],
+    "isoformOverrideSource|query": [
+      "uniprot",
+      "refseq",
+      "ensembl",
+      "uniprotkb",
+      "ucsc",
+      "13:g.32906774G>A",
+      "ebi",
+      "GS0lk8Emc86FEBWUkiIP6e6",
+      "default",
+      "genecode",
+      10,
+      "ccds",
+      "gnomad",
+      "hgnc",
+      "C944Rv",
+      [
+        {
+          "exonId": "ENSE00001493081",
+          "exonStart": 178866311,
+          "exonEnd": 178866391,
+          "rank": 1,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001139995",
+          "exonStart": 178916538,
+          "exonEnd": 178916965,
+          "rank": 2,
+          "strand": 1,
+          "version": 2
+        },
+        {
+          "exonId": "ENSE00000997375",
+          "exonStart": 178917478,
+          "exonEnd": 178917687,
+          "rank": 3,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077693",
+          "exonStart": 178919078,
+          "exonEnd": 178919328,
+          "rank": 4,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077692",
+          "exonStart": 178921332,
+          "exonEnd": 178921577,
+          "rank": 5,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077694",
+          "exonStart": 178922291,
+          "exonEnd": 178922376,
+          "rank": 6,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077691",
+          "exonStart": 178927383,
+          "exonEnd": 178927488,
+          "rank": 7,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001128470",
+          "exonStart": 178927974,
+          "exonEnd": 178928126,
+          "rank": 8,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001128465",
+          "exonStart": 178928219,
+          "exonEnd": 178928353,
+          "rank": 9,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077674",
+          "exonStart": 178935998,
+          "exonEnd": 178936122,
+          "rank": 10,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826291",
+          "exonStart": 178936984,
+          "exonEnd": 178937065,
+          "rank": 11,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826292",
+          "exonStart": 178937359,
+          "exonEnd": 178937523,
+          "rank": 12,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003485038",
+          "exonStart": 178937737,
+          "exonEnd": 178937840,
+          "rank": 13,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003568097",
+          "exonStart": 178938774,
+          "exonEnd": 178938945,
+          "rank": 14,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003489671",
+          "exonStart": 178941869,
+          "exonEnd": 178941975,
+          "rank": 15,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003485539",
+          "exonStart": 178942488,
+          "exonEnd": 178942609,
+          "rank": 16,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826297",
+          "exonStart": 178943750,
+          "exonEnd": 178943828,
+          "rank": 17,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826298",
+          "exonStart": 178947060,
+          "exonEnd": 178947230,
+          "rank": 18,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826299",
+          "exonStart": 178947792,
+          "exonEnd": 178947909,
+          "rank": 19,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826300",
+          "exonStart": 178948013,
+          "exonEnd": 178948164,
+          "rank": 20,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001139987",
+          "exonStart": 178951882,
+          "exonEnd": 178957881,
+          "rank": 21,
+          "strand": 1,
+          "version": 3
+        }
+      ],
+      "uHsVNw",
+      "0D9pGb",
+      "gencode",
+      "Rh",
+      "genecards",
+      true,
+      "469",
+      [
+        {
+          "transcriptId": "ENST00000269080",
+          "entrezGeneId": "10351",
+          "consequenceTerms": "intron_variant",
+          "hugoGeneSymbol": "ABCA8",
+          "hgvspShort": "p.*33*",
+          "hgvsc": "ENST00000269080.2:c.97-228T>A",
+          "refSeq": "NM_007168.2",
+          "variantClassification": "Intron",
+          "uniprotId": "O94911-1"
+        }
+      ],
+      {
+        "N": 3762,
+        "P": -2782,
+        "Z": -7007,
+        "H": -8860,
+        "K": -5941,
+        "F": 1836,
+        "q": 9054,
+        "d": -1330
+      },
+      "CbtCosRr"
+    ],
+    "token|query": [
+      "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+      "{\"overrideSource\":\"override-token-XYZ\",\"extraSource\":\"extra-token-123\"}",
+      "{\"source1\":\"alphaToken\",\"source2\":\"betaToken\"}",
+      "{\"ensembl\":\"ensembl-token-777\",\"ucsc\":\"ucsc-token-888\"}",
+      7,
+      "{\"clinvar\":\"abc-token\",\"myvariant\":\"def-token\"}"
+    ],
+    "fields|query": [
+      [
+        "annotation_summary"
+      ],
+      [
+        "hotspots"
+      ],
+      [
+        "oncokb"
+      ],
+      [
+        "ptms"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByGenomicLocationPOST": {
+    "isoformOverrideSource|query": [
+      "refseq",
+      "uniprot",
+      "gnomad",
+      "cosmic",
+      "swissprot",
+      "pdb",
+      "default",
+      "hgnc",
+      "genbank",
+      "ensembl",
+      "ccds",
+      "clinvar",
+      "%s%s%s",
+      "GS0lk8Emc86FEBWUkiIP6e6",
+      "0D9pGb",
+      10,
+      [
+        {
+          "exonId": "ENSE00001493081",
+          "exonStart": 178866311,
+          "exonEnd": 178866391,
+          "rank": 1,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001139995",
+          "exonStart": 178916538,
+          "exonEnd": 178916965,
+          "rank": 2,
+          "strand": 1,
+          "version": 2
+        },
+        {
+          "exonId": "ENSE00000997375",
+          "exonStart": 178917478,
+          "exonEnd": 178917687,
+          "rank": 3,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077693",
+          "exonStart": 178919078,
+          "exonEnd": 178919328,
+          "rank": 4,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077692",
+          "exonStart": 178921332,
+          "exonEnd": 178921577,
+          "rank": 5,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077694",
+          "exonStart": 178922291,
+          "exonEnd": 178922376,
+          "rank": 6,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077691",
+          "exonStart": 178927383,
+          "exonEnd": 178927488,
+          "rank": 7,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001128470",
+          "exonStart": 178927974,
+          "exonEnd": 178928126,
+          "rank": 8,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001128465",
+          "exonStart": 178928219,
+          "exonEnd": 178928353,
+          "rank": 9,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001077674",
+          "exonStart": 178935998,
+          "exonEnd": 178936122,
+          "rank": 10,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826291",
+          "exonStart": 178936984,
+          "exonEnd": 178937065,
+          "rank": 11,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826292",
+          "exonStart": 178937359,
+          "exonEnd": 178937523,
+          "rank": 12,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003485038",
+          "exonStart": 178937737,
+          "exonEnd": 178937840,
+          "rank": 13,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003568097",
+          "exonStart": 178938774,
+          "exonEnd": 178938945,
+          "rank": 14,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003489671",
+          "exonStart": 178941869,
+          "exonEnd": 178941975,
+          "rank": 15,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00003485539",
+          "exonStart": 178942488,
+          "exonEnd": 178942609,
+          "rank": 16,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826297",
+          "exonStart": 178943750,
+          "exonEnd": 178943828,
+          "rank": 17,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826298",
+          "exonStart": 178947060,
+          "exonEnd": 178947230,
+          "rank": 18,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826299",
+          "exonStart": 178947792,
+          "exonEnd": 178947909,
+          "rank": 19,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00000826300",
+          "exonStart": 178948013,
+          "exonEnd": 178948164,
+          "rank": 20,
+          "strand": 1,
+          "version": 1
+        },
+        {
+          "exonId": "ENSE00001139987",
+          "exonStart": 178951882,
+          "exonEnd": 178957881,
+          "rank": 21,
+          "strand": 1,
+          "version": 3
+        }
+      ],
+      "gencode",
+      "13:g.32906774G>A",
+      "C944Rv"
+    ],
+    "token|query": [
+      "{\"uniprot\":\"token-uniprot-abcde\",\"refseq\":\"token-refseq-fghij\"}",
+      "{\"oncokb\":\"token654mno\",\"ptms\":\"token987pqr\"}",
+      "{\"database1\":\"tokenAlpha\",\"database2\":\"tokenBeta\"}",
+      "{\"provider1\":\"tokenOne\",\"provider2\":\"tokenTwo\"}",
+      "{\"uniprot\":\"token123abc\",\"ensembl\":\"token456xyz\"}",
+      748,
+      "default",
+      "{\"clinvar\":\"token789def\",\"hotspots\":\"token321ghi\"}",
+      29,
+      "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+      [
+        -3855,
+        -1395,
+        4781,
+        5181,
+        -6522,
+        2459
+      ],
+      "{\"uniprot\":\"tokenUP123\",\"clinvar\":\"tokenCV456\"}",
+      1394,
+      "{\"myvariantinfo\":\"token-mvi-11111\",\"clinvar\":\"token-clinvar-22222\"}",
+      7,
+      "RJPS",
+      219,
+      1866,
+      "H35ZxES",
+      "4VNnkLus3pTy15HQ",
+      "{\"source1\":\"alphaToken\",\"source2\":\"betaToken\"}",
+      "oee1,33 kda subunit of oxygen evolving system of photosystem ii,33 kda thylakoid membrane protein,oec 33 kda subunit",
+      "{\"ensembl\":\"ensembl-token-777\",\"ucsc\":\"ucsc-token-888\"}",
+      343
+    ],
+    "fields|query": [
+      [
+        "annotation_summary"
+      ],
+      [
+        "signal"
+      ],
+      [
+        "my_variant_info"
+      ],
+      [
+        "oncokb",
+        "ptms"
+      ],
+      [
+        "hotspots"
+      ],
+      [],
+      [
+        "oncokb"
+      ],
+      [
+        "ptms",
+        "signal"
+      ],
+      [
+        "clinvar",
+        "hotspots"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationByGenomicLocationGET": {
+    "genomicLocation|path": [
+      "7,140453136,140453136,A,T",
+      "X,154143344,154143344,T,A",
+      "2,23456789,23456789,T,G",
+      "12,25398284,25398284,G,C",
+      "5,67596789,67596789,G,A",
+      "22,29091800,29091800,C,T",
+      "3,178916068,178916068,G,T",
+      "17,41276045,41276045,A,G",
+      [
+        8707,
+        6511,
+        -4161,
+        4529,
+        5365,
+        7179,
+        3859,
+        7434,
+        -5100,
+        2314,
+        1965,
+        5397,
+        5586,
+        -5853
+      ],
+      [
+        -9694,
+        -405,
+        -2637,
+        1213,
+        6849,
+        -7359,
+        9522
+      ],
+      [
+        7706,
+        7442,
+        -3568,
+        -1164,
+        -4222,
+        4183
+      ],
+      [
+        525,
+        1562,
+        -5068,
+        -8442,
+        3859,
+        -2639
+      ]
+    ],
+    "isoformOverrideSource|query": [
+      "uniprot",
+      "refseq",
+      "ensembl"
+    ],
+    "token|query": [
+      "{\"source1\":\"token_xyz\",\"source2\":\"token_abc\"}",
+      "{\"uniprot\":\"token-uniprot-abcde\",\"refseq\":\"token-refseq-fghij\"}",
+      "{\"source1\":\"token_1\",\"source2\":\"token_2\"}",
+      "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+      "{\"source1\":\"tokenA\",\"source2\":\"tokenB\"}",
+      "{\"source1\":\"abcde123\",\"source2\":\"fghij456\"}",
+      "{\"source1\":\"key1\",\"source2\":\"key2\"}",
+      "{\"source1\":\"alpha\",\"source2\":\"beta\"}",
+      "{\"source1\":\"tokenOne\",\"source2\":\"tokenTwo\"}",
+      "EPk1To",
+      [
+        -8838,
+        -13,
+        -8251,
+        -5993,
+        -5407,
+        -8029,
+        7975,
+        -3855,
+        3081,
+        -2219,
+        -1414,
+        1408,
+        -5100,
+        1968,
+        -6901,
+        -833,
+        -4586
+      ],
+      true,
+      " ",
+      "{\"source1\":\"token12345\",\"source2\":\"token67890\"}",
+      "undefined",
+      "{\"source1\":\"sourceOne\",\"source2\":\"sourceTwo\"}",
+      9.106689799446652
+    ],
+    "fields|query": [
+      [
+        "signal"
+      ],
+      [
+        "oncokb",
+        "ptms"
+      ],
+      [
+        "ptms",
+        "signal"
+      ],
+      [
+        "annotation_summary"
+      ],
+      [
+        "clinvar",
+        "hotspots"
+      ]
+    ]
+  },
+  "fetchVariantAnnotationGET": {
+    "variant|path": [
+      "X:g.15329613_15329615dup",
+      "A",
+      "17:g.41242962_41242963insGA",
+      "13:g.32906774G>A",
+      "rs135792468",
+      "1:g.1385015_1387562del",
+      "2,23456789,23456789,T,G",
+      "G",
+      "TT",
+      "default",
+      "7,140453136,140453136,A,T",
+      "GA",
+      "escherichia coli",
+      "5,67596789,67596789,G,A",
+      "P",
+      "-",
+      "T",
+      "X:g.66937331T>A",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "C",
+      16,
+      {
+        "W": 435,
+        "h": -9686,
+        "J": 7425,
+        "D": -3917,
+        "g": -4838,
+        "H": -6397
+      },
+      "E",
+      "Rix8c",
+      "70",
+      "escherichia coli bl21(de3)",
+      16.085498831870826,
+      [
+        7077,
+        -8456,
+        5615,
+        1376,
+        9953
+      ],
+      "2:g.47641578_47641579del",
+      "O7LU6s",
+      "7pbKzV",
+      true,
+      "SDVv9Try",
+      [
+        -8512,
+        3070,
+        4813,
+        223,
+        890,
+        -4617
+      ],
+      "FCJArM"
+    ],
+    "isoformOverrideSource|query": [
+      "swissprot",
+      "uniprot",
+      "ensembl",
+      "genecards",
+      "default",
+      10,
+      "ENSE00002264869",
+      "ucsc",
+      "ccds"
+    ],
+    "token|query": [
+      "{\"overrideSource\":\"override-token-XYZ\",\"extraSource\":\"extra-token-123\"}",
+      "n9o9N",
+      "{\"source1\":\"put-your-token1-here\",\"source2\":\"put-your-token2-here\"}",
+      "{\"clinvar\":\"abc-token\",\"myvariant\":\"def-token\"}",
+      "{\"ptms\":\"ptms-token-456\",\"oncokb\":\"oncokb-token-123\"}",
+      8,
+      "{\"hotspots\":\"hotspots-token-101\",\"mutation_assessor\":\"mutation-token-202\"}"
+    ],
+    "fields|query": [
+      [
+        "nucleotide_context"
+      ],
+      [
+        "my_variant_info"
+      ],
+      [
+        "signal"
+      ],
+      [
+        "ptms"
+      ],
+      [
+        "annotation_summary"
+      ],
+      [
+        "oncokb",
+        "ptms"
+      ]
+    ]
+  },
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST": {},
+  "fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET": {
+    "entrezGeneId|path": [
+      "7157",
+      "7422",
+      "672",
+      "100131879",
+      "5928",
+      "5290",
+      "367",
+      "1956",
+      "3082",
+      "1017",
+      "5479",
+      "23140",
+      "972",
+      17
+    ]
+  },
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST": {},
+  "fetchCanonicalEnsemblGeneIdByHugoSymbolGET": {
+    "hugoSymbol|path": [
+      "TP53",
+      "CDKN2A",
+      "BRCA1",
+      "APC",
+      "MYC",
+      [
+        "PIK3CA",
+        "TP53"
+      ],
+      "EGFR",
+      [
+        "BRCA2"
+      ],
+      "PIK3CA",
+      "KRAS",
+      [
+        "CORO2B"
+      ],
+      [
+        "PIK3R1"
+      ],
+      [
+        "BRCA1"
+      ]
+    ]
+  },
+  "fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST": {
+    "isoformOverrideSource|query": [
+      "uniprot",
+      "default",
+      "Gencode",
+      "NCBI",
+      "VWuDD",
+      "Dya91",
+      "ensembl",
+      "NucyJcGRhwTlNyu55m",
+      "refseq",
+      [
+        4232,
+        1497,
+        4877,
+        8866,
+        5888,
+        -7154,
+        -4829,
+        8191
+      ],
+      "pdb",
+      "7s3ZNuX5O3du3NUcARtlTgnZCnSVTe",
+      "Pd4F",
+      "vEZj5Vj",
+      "Vega",
+      "\u0000",
+      "slUA",
+      "HRQWb",
+      "i3i70dkmlh7ZP",
+      "mY3CR",
+      "{{",
+      "YuzyReefFoHR6NaN4Kv",
+      "rzbBp54A0TdWoy",
+      "9koT7tLUpQBix"
+    ]
+  },
+  "fetchCanonicalEnsemblTranscriptByHugoSymbolGET": {
+    "hugoSymbol|path": [
+      "TP53",
+      [
+        "CTLA4"
+      ],
+      [
+        "PIK3CA",
+        "TP53"
+      ],
+      "ZZZ3",
+      [
+        "ZZZ3"
+      ],
+      [
+        "TP53"
+      ],
+      "ARF5",
+      [
+        "BRCA2"
+      ],
+      "BRCA1",
+      "APC",
+      "KRAS",
+      [
+        "MYC"
+      ],
+      "CDKN2A",
+      "PTEN",
+      "ERBB2",
+      "EGFR",
+      [
+        "BRCA1",
+        "PIK3CA"
+      ],
+      "RET",
+      [
+        "MT-TY"
+      ],
+      [
+        "WASH7P"
+      ],
+      [
+        "CHL1"
+      ],
+      [
+        "MT-TF"
+      ]
+    ],
+    "isoformOverrideSource|query": [
+      "uniprot",
+      "genecards",
+      "gnomad"
+    ]
+  },
+  "fetchEnsemblTranscriptsGET": {
+    "geneId|query": [
+      "ENSG00000163599",
+      "default",
+      "ENSG00000198786",
+      "ENSG00000210127",
+      "PFAM",
+      "8sDZ5E5OIRKWOOB",
+      "wh4zqoe",
+      "{{",
+      "ENSG00000169083",
+      "ENSG00000227232",
+      "ENSG00000198727",
+      "r",
+      "ENSG00000155657",
+      "7157",
+      "ENSG00000211459",
+      "ZMUzrbw7pZI6LqlSsdDKNzx8GHlnYT13DcY7hFdU",
+      "aO8GHGPQU8b",
+      [
+        8696,
+        4930,
+        -5322,
+        -8457,
+        4209,
+        -7159,
+        -6211,
+        -3061,
+        9508,
+        -2313,
+        5767,
+        -7612,
+        -9155,
+        8714,
+        7414,
+        -6679,
+        -8241
+      ],
+      {
+        "E": 8769,
+        "v": -6269,
+        "V": -6552,
+        "c": -6135,
+        "l": 9413
+      },
+      "ENSG00000223972",
+      [
+        "vc_2352"
+      ],
+      "ENSG00000225076",
+      "ENSG00000141510",
+      "ENSG00000248378",
+      "ENSG00000252017",
+      "ENSG00000198804",
+      "zdpp15Sd",
+      "gQ",
+      "ENSG00000134121",
+      "ENSP00000391269",
+      "PKE",
+      "ENSG00000210049",
+      "\u0000",
+      "ENSG00000148357",
+      "z0v5Rl",
+      "WazTgasRPXrrlYhM8Q0a",
+      "ENSG00000198763",
+      "ENSG00000210144",
+      "undefined",
+      16.398766080983982,
+      "SLxhqJAbYc4jywjGHV2NkaZiNgV",
+      "tC",
+      "ENSP00000337174"
+    ],
+    "proteinId|query": [
+      "default",
+      "ENSP00000369492",
+      "IKEPTLLGFHTASGKKVKIAK",
+      "ENSG00000035115",
+      "ENSP00000415095",
+      "ENST00000354638",
+      "IRxmLsE",
+      "ENSP00000269305",
+      "IImd3PrjFwzSCPAxe",
+      "YpSxy1w9XK",
+      "ENSP00000369497",
+      "ENSG00000210117",
+      "ENSG00000183762",
+      true,
+      "R",
+      [
+        -8197,
+        -8642,
+        -6678
+      ],
+      [
+        -1724,
+        1770,
+        -124,
+        -4380,
+        2170,
+        -9486,
+        -7167,
+        2471,
+        -9112
+      ]
+    ],
+    "hugoSymbol|query": [
+      "jYMq",
+      "default",
+      "APOE",
+      "ZZZ3",
+      "ARF5",
+      "IKEPTLLGFHTASGKKVKIAK",
+      "ilGltu",
+      [
+        -2365,
+        5353,
+        -5372,
+        -1818,
+        -1747,
+        9450
+      ],
+      "MYC",
+      "dZB",
+      "{{",
+      "CDKN2A",
+      0.9128521687370994
+    ]
+  },
+  "fetchEnsemblTranscriptsByEnsemblFilterPOST": {},
+  "fetchEnsemblTranscriptByTranscriptIdGET": {
+    "transcriptId|path": [
+      "default",
+      "1:g.1385015_1387562del",
+      {
+        "score": 0.8263,
+        "pathogenicity": "pathogenic"
+      },
+      "ENST00000544455",
+      "ENST00000515242",
+      [
+        "19060867",
+        "22135298"
+      ],
+      "11:g.5226984dup",
+      "17:g.41242962_41242963insGA",
+      "wxy3Ee",
+      "22:g.29539341_29539342del",
+      "3:g.319781del",
+      "MT:g.3243A>G",
+      "12:g.25398285_25398286insTT",
+      "14:g.105927680dup",
+      "14896",
+      78050728,
+      "ENST00000566799",
+      "X:g.10000000_10000010del",
+      "ENST00000607605",
+      "9:g.133256013del",
+      "ENSP00000418819",
+      "EHR",
+      [
+        -7063,
+        9757,
+        9310
+      ],
+      "7nUaFrDhRO8mlgQNUdr8H3xLeK4zjHIUh",
+      "2:g.265023C>T",
+      false,
+      5942,
+      "p8buYCsjz8Cs3hdX6fPf",
+      "X:g.66937331T>A",
+      "ENST00000336483",
+      "ENST00000473104",
+      "blqFUhRi",
+      "t8Wi",
+      [
+        -6681,
+        391,
+        3438,
+        4079,
+        8641,
+        1325,
+        1798,
+        -3658
+      ],
+      "7H8YO0o"
+    ]
+  },
+  "fetchGeneXrefsGET": {
+    "accession|query": [
+      "ENSG00000169083",
+      "ENSG00000155657",
+      "ENSG00000227232",
+      "ENSP00000338007",
+      "ENSP00000384307",
+      "ENSG00000223972",
+      "ENSG00000157764",
+      "ENSP00000418212",
+      "ENSG00000141510",
+      "ENSP00000418960",
+      "ENSG00000198727",
+      "ENSP00000419481",
+      "ENSP00000389681",
+      "ENSP00000418819",
+      "ENSP00000383928",
+      "ENSP00000417241",
+      "ENSG00000182185",
+      "ENSP00000333633",
+      "ENSP00000370242",
+      "ENSP00000420201",
+      "ENSP00000331242",
+      "ENSP00000368062",
+      "ENSP00000419988",
+      "ENSP00000348471",
+      "ENSP00000408596",
+      "ENSP00000465818",
+      "ENSP00000467301",
+      "ENSP00000410331"
+    ]
+  },
+  "fetchPdbHeaderPOST": {},
+  "fetchPdbHeaderGET": {
+    "pdbId|path": [
+      "1a37",
+      "2ajj",
+      "2hbb",
+      "4hhb",
+      "5xnl",
+      "3tij",
+      "1d66",
+      "9gst",
+      "3nyq",
+      "3kzn",
+      "3plv",
+      "1hho",
+      "2bev",
+      "1a4o",
+      "1cbs",
+      "1fsl"
+    ]
+  },
+  "fetchPfamDomainsByPfamAccessionPOST": {},
+  "fetchPfamDomainsByAccessionGET": {
+    "pfamAccession|path": [
+      "PF00001",
+      "PF00002",
+      "PF00010",
+      "PF00006",
+      "PF00004",
+      "PF00005",
+      "PF00007",
+      "PF00003",
+      "PF00093"
+    ]
+  },
+  "fetchPostTranslationalModificationsGET": {
+    "ensemblTranscriptId|query": [
+      "ENST00000544455",
+      "default",
+      "ENST00000619216",
+      "ENST00000335137",
+      "ENST00000442933",
+      "zkVkrwu0",
+      "2"
+    ]
+  },
+  "fetchPostTranslationalModificationsByPtmFilterPOST": {},
+  "fetchVersionGET": {}
+}

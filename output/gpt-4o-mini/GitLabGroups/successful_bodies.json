@@ -1,0 +1,64 @@
+{
+  "get_groups": {},
+  "post_groups": {
+    "name": [
+      "Community Engagement",
+      "Research and Development",
+      "Design Group",
+      "Marketing Squad",
+      "Finance Team",
+      "Customer Support",
+      "Project Management",
+      "Development Team",
+      "Content Creation",
+      "Quality Assurance",
+      "community-engagement"
+    ],
+    "path": [
+      "community-engagement",
+      "research-development",
+      "design-group",
+      "marketing-squad",
+      "finance-team",
+      "customer-support",
+      "project-management",
+      "development-team",
+      "content-creation",
+      "quality-assurance",
+      64
+    ],
+    "description": [
+      "This group covers all design-related projects.",
+      "Focused on engaging with the community.",
+      "A collective for all marketing initiatives.",
+      "A group responsible for financial planning.",
+      "A support group for assisting customers.",
+      "Overseeing all project activities.",
+      "A group focused on development projects.",
+      "A group dedicated to content creation and marketing.",
+      "A group dedicated to testing and quality control.",
+      "Focused on innovative research and development.",
+      "2026-02-25T14:48:10.915Z"
+    ],
+    "avatar": [
+      "default"
+    ]
+  },
+  "get_groups_id": {},
+  "put_groups_id": {
+    "avatar": []
+  },
+  "delete_groups_id": {},
+  "post_groups_id_share": {},
+  "delete_groups_id_share_group_id": {},
+  "get_groups_id_subgroups": {},
+  "get_groups_id_hooks": {},
+  "post_groups_id_hooks": {},
+  "get_groups_id_hooks_hook_id": {},
+  "put_groups_id_hooks_hook_id": {},
+  "delete_groups_id_hooks_hook_id": {},
+  "get_groups_id_descendant_groups": {},
+  "get_groups_id_projects": {},
+  "post_groups_id_projects_project_id": {},
+  "get_groups_id_projects_shared": {}
+}

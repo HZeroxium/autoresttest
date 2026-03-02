@@ -1,0 +1,27 @@
+{
+  "Title": "AutoRestTest Report for 'GitLab Project API' (GitLabProject)",
+  "Duration": "3600 seconds",
+  "Total Requests Sent": 14104,
+  "Status Code Distribution": {
+    "200": 1719,
+    "400": 4682,
+    "404": 5893,
+    "201": 794,
+    "401": 420,
+    "202": 61,
+    "422": 66,
+    "304": 126,
+    "409": 227,
+    "204": 64,
+    "403": 23,
+    "414": 18,
+    "500": 11
+  },
+  "Number of Total Operations": 31,
+  "Number of Successfully Processed Operations": 29,
+  "Percentage of Successfully Processed Operations": "93.55%",
+  "Number of Unique Server Errors": 10,
+  "Operations with Server Errors": {
+    "post_projects_id_fork_forked_from_id": 11
+  }
+}

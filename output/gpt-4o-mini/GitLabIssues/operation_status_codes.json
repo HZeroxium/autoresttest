@@ -1,0 +1,181 @@
+{
+  "get_projects_id_issues_issue_iid_metric_images": {
+    "404": 4084,
+    "400": 1,
+    "200": 67
+  },
+  "get_projects": {
+    "200": 477,
+    "400": 68,
+    "414": 2,
+    "404": 2
+  },
+  "post_projects_id_issues_issue_iid_time_estimate": {
+    "404": 434,
+    "400": 248,
+    "200": 114,
+    "401": 30,
+    "403": 5,
+    "414": 1
+  },
+  "post_projects_id_issues_issue_iid_todo": {
+    "404": 432,
+    "400": 86,
+    "201": 13,
+    "304": 6,
+    "401": 34
+  },
+  "post_projects_id_issues_issue_iid_metric_images": {
+    "404": 1925,
+    "414": 1,
+    "400": 6,
+    "415": 3
+  },
+  "post_projects_id_issues_issue_iid_reset_time_estimate": {
+    "400": 99,
+    "404": 399,
+    "200": 23,
+    "401": 16
+  },
+  "get_projects_id_issues_issue_iid_participants": {
+    "400": 117,
+    "404": 386,
+    "200": 47
+  },
+  "post_groups": {
+    "400": 308,
+    "401": 17,
+    "404": 172,
+    "201": 12,
+    "414": 3,
+    "415": 1
+  },
+  "get_projects_id_issues": {
+    "404": 172,
+    "400": 214,
+    "200": 105,
+    "415": 1,
+    "414": 1
+  },
+  "post_projects_id_issues_issue_iid_subscribe": {
+    "404": 588,
+    "304": 16,
+    "401": 28,
+    "201": 3
+  },
+  "post_projects_id_issues_issue_iid_unsubscribe": {
+    "404": 530,
+    "401": 18,
+    "201": 12,
+    "304": 7,
+    "400": 1
+  },
+  "get_projects_id_issues_issue_iid_time_stats": {
+    "400": 126,
+    "404": 389,
+    "200": 61
+  },
+  "get_issues": {
+    "200": 363,
+    "401": 13,
+    "400": 176,
+    "414": 4
+  },
+  "post_projects_id_issues_issue_iid_add_spent_time": {
+    "400": 107,
+    "404": 297,
+    "401": 21,
+    "201": 107,
+    "403": 6,
+    "500": 1,
+    "414": 1
+  },
+  "put_projects_id_issues_issue_iid": {
+    "404": 298,
+    "400": 140,
+    "401": 15,
+    "200": 65,
+    "403": 17,
+    "414": 2
+  },
+  "delete_projects_id_issues_issue_iid": {
+    "400": 82,
+    "404": 361,
+    "401": 15,
+    "204": 29,
+    "403": 17
+  },
+  "get_groups": {
+    "200": 347,
+    "400": 242,
+    "404": 1,
+    "414": 1
+  },
+  "get_projects_id_issues_issue_iid_closed_by": {
+    "400": 114,
+    "200": 63,
+    "404": 378
+  },
+  "post_projects_id_issues_issue_iid_move": {
+    "404": 330,
+    "400": 155,
+    "401": 27,
+    "201": 38
+  },
+  "get_issues_id": {
+    "404": 291,
+    "200": 270,
+    "401": 23
+  },
+  "post_projects_id_issues": {
+    "400": 95,
+    "404": 130,
+    "201": 229,
+    "409": 9,
+    "414": 2,
+    "401": 23,
+    "403": 89,
+    "500": 1
+  },
+  "post_projects": {
+    "400": 420,
+    "401": 17,
+    "422": 1,
+    "201": 115,
+    "414": 1,
+    "404": 2
+  },
+  "post_projects_id_issues_issue_iid_reset_spent_time": {
+    "400": 100,
+    "404": 373,
+    "200": 36,
+    "401": 23,
+    "500": 1,
+    "403": 1
+  },
+  "put_projects_id_issues_issue_iid_reorder": {
+    "404": 978,
+    "400": 532,
+    "500": 1,
+    "422": 21,
+    "401": 59,
+    "403": 27
+  },
+  "get_projects_id_issues_issue_iid": {
+    "404": 395,
+    "400": 94,
+    "200": 64
+  },
+  "get_groups_id_issues": {
+    "404": 379,
+    "400": 38,
+    "415": 4,
+    "200": 104,
+    "414": 3
+  },
+  "get_projects_id_issues_issue_iid_related_merge_requests": {
+    "404": 382,
+    "200": 65,
+    "400": 104
+  }
+}
