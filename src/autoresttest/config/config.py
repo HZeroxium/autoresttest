@@ -72,6 +72,14 @@ class RequestGenerationConfig(BaseModel):
     mutation_rate: float
 
 
+class ObservabilityConfig(BaseModel):
+    enabled: bool = True
+    snapshot_interval_seconds: int = 300
+    snapshot_interval_requests: int = 200
+    max_preview_chars: int = 4000
+    trace_flush_on_write: bool = True
+
+
 class ApiConfig(BaseModel):
     """API URL configuration. Override the spec URL with custom host/port."""
     override_url: bool = False
@@ -104,6 +112,7 @@ class Config(BaseModel):
     cache: CacheConfig
     q_learning: QLearningConfig
     request_generation: RequestGenerationConfig
+    observability: ObservabilityConfig = ObservabilityConfig()
     api: ApiConfig = ApiConfig()
     custom_headers: CustomHeadersConfig = CustomHeadersConfig()
 

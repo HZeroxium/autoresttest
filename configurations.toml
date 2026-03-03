@@ -6,7 +6,17 @@
 # Relative path from the project root to the OpenAPI specification file.
 # Only .yaml and .json are supported; file MUST be OpenAPI 3.0.
 # location = "specs/original/oas/ohsome.yaml"
-location = "aratrl-openapi/market2.yaml"
+# location = "aratrl-openapi/market2.yaml"
+location = "datasets/Bills-api.json"
+# location = "datasets/CanadaHoliday.json"
+# location = "datasets/Genome-nexus.json"
+# location = "datasets/GitLabCommit.json"
+# location = "datasets/GitLabGroups.json"
+# location = "datasets/GitLabIssues.json"
+# location = "datasets/GitLabProject.json"
+# location = "datasets/GitLabBranch.json"
+# location = "datasets/petstore.json"
+
 
 # Maximum times a circular/self-reference may appear in the resolution stack.
 # A value of 1 means an element may be referred to exactly once before triggering the handler.
@@ -19,7 +29,8 @@ strict_validation = false
 # LLM engine used for Value Agent (and optional Header Agent) generation.
 # Supports any model from an OpenAI-API compatible provider (OpenAI, OpenRouter, Azure, local models, etc.).
 # Must support JSON mode.
-engine = "google/gemini-2.5-flash-lite-preview-09-2025"
+# engine = "google/gemini-2.5-flash-lite-preview-09-2025"
+engine = "gpt-4.1-mini"
 
 # Sampling temperature for creative generations (0.0 = deterministic, higher = more random).
 creative_temperature = 1
@@ -29,10 +40,13 @@ strict_temperature = 1
 
 # Base URL for the LLM API. Supports any OpenAI-API compatible endpoint.
 # Examples: "https://api.openai.com/v1", "https://openrouter.ai/api/v1", "http://localhost:1234/v1"
-api_base = "https://openrouter.ai/api/v1"
+# api_base = "https://openrouter.ai/api/v1"
+api_base = "https://api.openai.com/v1"
 
 # Maximum tokens for LLM response. Set to -1 to omit and use provider default.
-max_tokens = 30000
+# max_tokens = 30000
+# max_tokens = 16384
+max_tokens = 32768
 
 [agent]
 # Max number of optional parameters per combination (required params always included).
@@ -61,26 +75,44 @@ enabled = false
 
 [cache]
 # Use the cached Semantic Operation Dependency Graph produced by a prior run.
-use_cached_graph = true
+# use_cached_graph = true
+use_cached_graph = false
 
 # Use the cached Q-table(s) for the Value Agent (and optional Header Agent) to avoid re-running the LLM.
-use_cached_table = true
+# use_cached_table = true
+use_cached_table = false
 
 # Tip: Set either cache flag to false if you changed graph construction or table generation logic to regenerate the cache.
 
 [q_learning]
 # Q-learning agent hyperparameters.
-learning_rate = 0.1        # alpha
-discount_factor = 0.9       # gamma
-max_exploration = 1         # epsilon; decays over time to 0.1
+learning_rate = 0.1   # alpha
+discount_factor = 0.9 # gamma
+max_exploration = 1   # epsilon; decays over time to 0.1
 
 [request_generation]
 # Controls the request generation process.
 # Duration for generation in seconds.
-time_duration = 1200
+# time_duration = 1200
+time_duration = 300
+# time_duration = 3600
 
 # Probability of mutating request parameters during generation.
 mutation_rate = 0.2
+
+[observability]
+# Enable append-only request tracing and periodic aggregate checkpoints.
+enabled = true
+
+# Persist aggregate JSON outputs every N seconds or every N HTTP attempts, whichever comes first.
+snapshot_interval_seconds = 300
+snapshot_interval_requests = 200
+
+# Limit serialized request/response previews written into trace files.
+max_preview_chars = 4000
+
+# Flush each JSONL trace event immediately to reduce loss on crashes.
+trace_flush_on_write = true
 
 [api]
 # By default, the API URL is extracted from the OpenAPI specification's "servers" field.
@@ -93,5 +125,6 @@ port = 8080
 # Static headers to include with every request.
 # Supports environment variable interpolation using ${VAR_NAME} syntax.
 # Example:
-# Authorization = "Bearer ${ACCESS_TOKEN}"
+# Authorization = "Bearer glpat-4FFRUYI3ARMJ8eCEUVCtLm86MQp1OjEH.01.0w0wtjhd2"
 # X-API-Key = "static-value"
+api_key = "special-key"

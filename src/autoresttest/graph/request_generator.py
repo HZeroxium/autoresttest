@@ -41,6 +41,10 @@ from autoresttest.llm import NaiveValueGenerator, SmartValueGenerator
 if TYPE_CHECKING:
     from .generate_graph import OperationGraph, OperationNode, OperationEdge
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 CONFIG = get_config()
 
 
@@ -686,7 +690,17 @@ class RequestGenerator:
                         completed_count += 1
                         if progress_callback:
                             progress_callback(result_op_id, completed_count)
-                except Exception:
+                except Exception as e:
+                    operation_id = futures[future]
+                    logger.error(
+                        f"Failed to generate values for operation '{operation_id}': {e}"
+                    )
+                    # Print warning to user
+                    if "API key is required" in str(e):
+                        logger.warning(
+                            f"⚠️  LLM unavailable for '{operation_id}' - using empty fallback. "
+                            "Check API_KEY in .env file."
+                        )
                     # Still increment count on error to avoid stuck progress
                     with progress_lock:
                         completed_count += 1

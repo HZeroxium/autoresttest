@@ -101,10 +101,10 @@ class LanguageModel:
             except Exception:
                 if attempt < max_retries - 1:
                     delay = base_delay * (2**attempt)
-                    # print(
-                    #     f"[LLM] API call failed (attempt {attempt + 1}/{max_retries}): {type(e).__name__}: {e}"
-                    # )
-                    # print(f"[LLM] Retrying in {delay}s...")
+                    print(
+                        f"[LLM] API call failed (attempt {attempt + 1}/{max_retries}): {type(e).__name__}: {e}"
+                    )
+                    print(f"[LLM] Retrying in {delay}s...")
                     time.sleep(delay)
                 else:
                     # print(

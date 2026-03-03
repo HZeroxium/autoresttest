@@ -9,6 +9,7 @@ import numpy as np
 import requests
 
 from autoresttest.config import get_config
+from autoresttest.observability import LogicalRequestHandle, RunRecorder
 
 if TYPE_CHECKING:
     from autoresttest.tui import LiveDisplay, TUIDisplay
@@ -54,6 +55,7 @@ class QLearning:
         time_duration: int = 600,
         mutation_rate: float = 0.3,
         tui: Optional["TUIDisplay"] = None,
+        run_recorder: Optional[RunRecorder] = None,
     ) -> None:
         self.q_table: dict[str, Any] = {}
         self.operation_graph: OperationGraph = operation_graph
@@ -90,6 +92,7 @@ class QLearning:
         # TUI integration
         self.tui = tui
         self._live_display: Optional["LiveDisplay"] = None
+        self.run_recorder = run_recorder
 
     def print_q_tables(self):
         print("OPERATION Q-TABLE: ", self.operation_agent.q_table)
@@ -116,6 +119,75 @@ class QLearning:
         if not mime_types or not body_values:
             return None
         return {mime: body_values[mime] for mime in mime_types if mime in body_values}
+
+    def _start_logical_request(
+        self,
+        operation_id: str,
+        operation_props: OperationProperties,
+        select_params: Any,
+        select_header: Any,
+        data_source: str,
+        dependency_type: str | None,
+        mutate_operation: bool,
+        mutated_parameter_names: bool,
+        parameters: dict[ParameterKey, Any] | None,
+        body: dict[str, Any] | None,
+        header: dict[str, Any] | None,
+        specific_method: str | None,
+    ) -> Optional[LogicalRequestHandle]:
+        if self.run_recorder is None:
+            return None
+
+        metadata = {
+            "operation_id": operation_id,
+            "endpoint_path": operation_props.endpoint_path,
+            "http_method": (
+                specific_method if specific_method else operation_props.http_method
+            ),
+            "data_source": data_source,
+            "dependency_type": dependency_type,
+            "mutated": mutate_operation,
+            "mutated_parameter_names": mutated_parameter_names,
+            "selected_parameter_keys": (
+                [str(param) for param in (select_params.req_params or [])]
+                if select_params is not None
+                else []
+            ),
+            "selected_mime_type": (
+                select_params.mime_type if select_params is not None else None
+            ),
+            "selected_header": select_header,
+            "applied_parameter_keys": (
+                [str(param) for param in parameters] if parameters else []
+            ),
+            "request_body_mime_types": list(body.keys()) if body else [],
+            "has_header_overrides": header is not None,
+        }
+        return self.run_recorder.begin_logical_request(metadata)
+
+    def _complete_logical_request(
+        self,
+        handle: Optional[LogicalRequestHandle],
+        response: requests.Response | None,
+        *,
+        good_reward: int | None,
+        bad_reward: int | None,
+        skipped_reason: str | None,
+        state_changed: bool,
+        request_failed: bool,
+    ) -> None:
+        if self.run_recorder is None:
+            return
+
+        self.run_recorder.complete_logical_request(
+            handle,
+            response,
+            good_reward=good_reward,
+            bad_reward=bad_reward,
+            skipped_reason=skipped_reason,
+            state_changed=state_changed,
+            request_failed=request_failed,
+        )
 
     def get_mutated_value(self, param_type: str | None) -> Any:
         if not param_type:
@@ -1234,6 +1306,14 @@ class QLearning:
             operation_props = self.operation_graph.operation_nodes[
                 operation_id
             ].operation_properties
+            specific_method = None
+            logical_handle = None
+            response = None
+            good_response_reward = None
+            bad_response_reward = None
+            skipped_reason = None
+            state_changed = False
+            request_failed = False
             if mutate_operation:
                 avail_primitives = sum(
                     len(v) for v in self.successful_primitives.values()
@@ -1241,7 +1321,6 @@ class QLearning:
                 use_mutator = random.random() < 0.8 or (
                     avail_primitives == 0 and operation_id not in complete_body_mappings
                 )
-                specific_method = None
 
                 if use_mutator:
                     (
@@ -1273,22 +1352,69 @@ class QLearning:
                         )
                         self.mutation_count += 1
 
+                logical_handle = self._start_logical_request(
+                    operation_id=operation_id,
+                    operation_props=operation_props,
+                    select_params=select_params,
+                    select_header=select_header,
+                    data_source=data_source,
+                    dependency_type=dependency_type,
+                    mutate_operation=mutate_operation,
+                    mutated_parameter_names=mutated_parameter_names,
+                    parameters=parameters,
+                    body=body,
+                    header=header,
+                    specific_method=specific_method,
+                )
                 response = self.send_operation(
                     operation_props, parameters, body, header, specific_method
                 )
             else:
+                logical_handle = self._start_logical_request(
+                    operation_id=operation_id,
+                    operation_props=operation_props,
+                    select_params=select_params,
+                    select_header=select_header,
+                    data_source=data_source,
+                    dependency_type=dependency_type,
+                    mutate_operation=mutate_operation,
+                    mutated_parameter_names=mutated_parameter_names,
+                    parameters=parameters,
+                    body=body,
+                    header=header,
+                    specific_method=specific_method,
+                )
                 response = self.send_operation(
                     operation_props, parameters, body, header
                 )
 
             # If invalid response do not process
             if response is None:
+                request_failed = True
+                self._complete_logical_request(
+                    logical_handle,
+                    response,
+                    good_reward=good_response_reward,
+                    bad_reward=bad_response_reward,
+                    skipped_reason=skipped_reason,
+                    state_changed=state_changed,
+                    request_failed=request_failed,
+                )
+                if self.run_recorder is not None:
+                    self.run_recorder.maybe_checkpoint(
+                        self,
+                        reason="marl_interval",
+                    )
                 continue
+
+            state_changed = True
+            good_response_reward = self.determine_good_response_reward(response)
+            bad_response_reward = self.determine_bad_response_reward(response)
 
             # Only update table when using table values (so not mutated)
             if not mutate_operation:
                 self.operation_agent.update_q_table(
-                    operation_id, self.determine_bad_response_reward(response)
+                    operation_id, bad_response_reward
                 )
 
                 curr_Q_param, curr_Q_mime = self.parameter_agent.get_Q_curr(
@@ -1395,6 +1521,22 @@ class QLearning:
                     )
                 elif data_source == "DEPENDENCY" and dependency_type == "RANDOM":
                     if not 200 <= response.status_code < 300:
+                        skipped_reason = "dependency_random_non_2xx"
+                        self._complete_logical_request(
+                            logical_handle,
+                            response,
+                            good_reward=good_response_reward,
+                            bad_reward=bad_response_reward,
+                            skipped_reason=skipped_reason,
+                            state_changed=state_changed,
+                            request_failed=request_failed,
+                        )
+                        if self.run_recorder is not None:
+                            self.run_recorder.mark_aggregate_dirty()
+                            self.run_recorder.maybe_checkpoint(
+                                self,
+                                reason="marl_interval",
+                            )
                         continue
                     if parameter_dependencies:
                         for (
@@ -1453,9 +1595,7 @@ class QLearning:
                     + sum(curr_Q_dependency_body)
                 )
                 td_error = (
-                    self.determine_good_response_reward(response)
-                    + self.gamma * Q_target
-                    - Q_curr
+                    good_response_reward + self.gamma * Q_target - Q_curr
                 )
 
                 # Update Q-tables
@@ -1614,6 +1754,23 @@ class QLearning:
                     elif data_signature not in self.unique_errors[operation_id]:
                         self.unique_errors[operation_id].append(data_signature)
 
+            self._complete_logical_request(
+                logical_handle,
+                response,
+                good_reward=good_response_reward,
+                bad_reward=bad_response_reward,
+                skipped_reason=skipped_reason,
+                state_changed=state_changed,
+                request_failed=request_failed,
+            )
+            if self.run_recorder is not None:
+                if state_changed:
+                    self.run_recorder.mark_aggregate_dirty()
+                self.run_recorder.maybe_checkpoint(
+                    self,
+                    reason="marl_interval",
+                )
+
     def tui_output(self, start_time, operation_id):
         """Output current status via live TUI display."""
         unique_processed_200s: Set[str] = set()
@@ -1654,6 +1811,12 @@ class QLearning:
         try:
             self.execute_operations()
         finally:
+            if self.run_recorder is not None:
+                self.run_recorder.maybe_checkpoint(
+                    self,
+                    force=True,
+                    reason="run_loop_exit",
+                )
             # Ensure live display is stopped properly
             if self._live_display:
                 self._live_display.stop()

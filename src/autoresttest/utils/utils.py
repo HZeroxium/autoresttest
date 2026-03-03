@@ -15,6 +15,7 @@ from gensim.models import KeyedVectors
 
 from autoresttest.config import get_config
 from autoresttest.models import ParameterKey, ParameterProperties, SchemaProperties
+from autoresttest.observability import get_active_run_recorder
 from autoresttest.prompts.generator_prompts import FIX_JSON_OBJ
 from autoresttest.prompts.system_prompts import FIX_JSON_SYSTEM_MESSAGE
 from autoresttest.specification import SpecificationParser
@@ -518,11 +519,35 @@ def dispatch_request(
     if accept:
         headers.setdefault("Accept", accept)
 
+    recorder = get_active_run_recorder()
     response = None
+    method_name = getattr(select_method, "__name__", "request")
     for attempt in range(max_retries + 1):
-        response = _dispatch_request_inner(
-            select_method, full_url, params, body, headers.copy(), cookies
-        )
+        start_time = time.perf_counter()
+        try:
+            response = _dispatch_request_inner(
+                select_method, full_url, params, body, headers.copy(), cookies
+            )
+        except Exception as exc:
+            duration_ms = (time.perf_counter() - start_time) * 1000
+            if recorder is not None:
+                recorder.record_http_attempt(
+                    method=method_name,
+                    full_url=full_url,
+                    params=params,
+                    body=body,
+                    headers=headers,
+                    cookies=cookies,
+                    response=None,
+                    duration_ms=duration_ms,
+                    attempt_index=attempt + 1,
+                    max_retries=max_retries,
+                    will_retry=False,
+                    transport_error=exc,
+                )
+            raise
+
+        duration_ms = (time.perf_counter() - start_time) * 1000
 
         if response is None:
             return None
@@ -535,11 +560,41 @@ def dispatch_request(
                 retry_after = response.headers.get("Retry-After")
                 if retry_after and retry_after.isdigit():
                     delay = max(delay, int(retry_after))
+                if recorder is not None:
+                    recorder.record_http_attempt(
+                        method=method_name,
+                        full_url=full_url,
+                        params=params,
+                        body=body,
+                        headers=headers,
+                        cookies=cookies,
+                        response=response,
+                        duration_ms=duration_ms,
+                        attempt_index=attempt + 1,
+                        max_retries=max_retries,
+                        will_retry=True,
+                        retry_delay_s=delay,
+                    )
                 print(
                     f"Rate limited (429). Retrying in {delay:.1f}s (attempt {attempt + 1}/{max_retries})"
                 )
                 time.sleep(delay)
                 continue
+
+        if recorder is not None:
+            recorder.record_http_attempt(
+                method=method_name,
+                full_url=full_url,
+                params=params,
+                body=body,
+                headers=headers,
+                cookies=cookies,
+                response=response,
+                duration_ms=duration_ms,
+                attempt_index=attempt + 1,
+                max_retries=max_retries,
+                will_retry=False,
+            )
 
         return response
 
