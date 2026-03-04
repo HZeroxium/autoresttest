@@ -44,8 +44,12 @@ faultloadResultsFile.xlsx
 
 # Build and tooling outputs
 target/
-output/
+# output/
 out/
+node_modules/
+**/node_modules/
+.pnpm-store/
+apps/autoresttest-inspector/web/dist/
 restler_bin/
 restler/
 rest-gitlab/

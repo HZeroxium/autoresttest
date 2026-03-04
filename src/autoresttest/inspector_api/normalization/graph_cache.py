@@ -44,6 +44,17 @@ def _build_edge(layer: str, edge: Any) -> GraphEdge:
     )
 
 
+def _resource_group_for_path(endpoint_path: str) -> str:
+    parts = [part for part in endpoint_path.split("/") if part]
+    if "api" in parts:
+        api_index = parts.index("api")
+        if len(parts) > api_index + 2:
+            return parts[api_index + 2]
+    if len(parts) >= 3:
+        return parts[2]
+    return "unknown"
+
+
 def load_graph_snapshot(
     dataset_id: str,
     cache_root: Path,
@@ -79,7 +90,7 @@ def load_graph_snapshot(
     if not isinstance(nodes_dict, dict):
         raise ValueError("Invalid graph nodes")
 
-    nodes: list[GraphNode] = []
+    node_payloads: dict[str, dict[str, Any]] = {}
     edges: list[GraphEdge] = []
     seen_edges: set[tuple[str, str, str]] = set()
 
@@ -88,21 +99,20 @@ def load_graph_snapshot(
         parameters = operation_properties.parameters or {}
         request_body = operation_properties.request_body or {}
         responses = operation_properties.responses or {}
-        nodes.append(
-            GraphNode(
-                id=operation_id,
-                label=operation_id,
-                method=operation_properties.http_method.upper(),
-                path=operation_properties.endpoint_path,
-                summary=operation_properties.summary,
-                parameter_count=len(parameters),
-                required_parameter_count=_count_required_parameters(parameters),
-                request_body_mime_types=sorted(request_body.keys()),
-                response_statuses=sorted(str(code) for code in responses.keys()),
-                has_runtime_qtable=operation_id in runtime_operations,
-                has_cached_value_qtable=operation_id in cached_value_operations,
-            )
-        )
+        node_payloads[operation_id] = {
+            "id": operation_id,
+            "label": operation_id,
+            "method": operation_properties.http_method.upper(),
+            "path": operation_properties.endpoint_path,
+            "resource_group": _resource_group_for_path(operation_properties.endpoint_path),
+            "summary": operation_properties.summary,
+            "parameter_count": len(parameters),
+            "required_parameter_count": _count_required_parameters(parameters),
+            "request_body_mime_types": sorted(request_body.keys()),
+            "response_statuses": sorted(str(code) for code in responses.keys()),
+            "has_runtime_qtable": operation_id in runtime_operations,
+            "has_cached_value_qtable": operation_id in cached_value_operations,
+        }
 
         for layer, node_edges in (
             ("effective", getattr(node, "outgoing_edges", [])),
@@ -121,6 +131,23 @@ def load_graph_snapshot(
             continue
         seen_edges.add(dedupe_key)
         edges.append(_build_edge("confirmed", edge))
+
+    in_degree: dict[str, int] = {operation_id: 0 for operation_id in node_payloads}
+    out_degree: dict[str, int] = {operation_id: 0 for operation_id in node_payloads}
+    for edge in edges:
+        out_degree[edge.source_id] = out_degree.get(edge.source_id, 0) + 1
+        in_degree[edge.target_id] = in_degree.get(edge.target_id, 0) + 1
+
+    nodes = [
+        GraphNode(
+            **payload,
+            in_degree=in_degree.get(payload["id"], 0),
+            out_degree=out_degree.get(payload["id"], 0),
+            total_degree=in_degree.get(payload["id"], 0)
+            + out_degree.get(payload["id"], 0),
+        )
+        for payload in node_payloads.values()
+    ]
 
     return GraphSnapshot(
         dataset_id=dataset_id,

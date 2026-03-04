@@ -86,6 +86,7 @@ class GraphNode(CamelModel):
     label: str
     method: str
     path: str
+    resource_group: str
     summary: str | None = None
     parameter_count: int
     required_parameter_count: int
@@ -93,6 +94,9 @@ class GraphNode(CamelModel):
     response_statuses: list[str] = Field(default_factory=list)
     has_runtime_qtable: bool
     has_cached_value_qtable: bool
+    in_degree: int = 0
+    out_degree: int = 0
+    total_degree: int = 0
 
 
 class GraphEdge(CamelModel):
@@ -155,6 +159,12 @@ class UnifiedTraceEvent(CamelModel):
     transport_error: dict[str, Any] | None = None
     llm_purpose: str | None = None
     cache_hit: bool | None = None
+    kind_label: str | None = None
+    summary_label: str | None = None
+    status_family: str | None = None
+    is_error: bool | None = None
+    is_retry: bool | None = None
+    token_total: int | None = None
     payload: dict[str, Any]
 
 
@@ -165,6 +175,69 @@ class TimelinePage(CamelModel):
     has_more: bool
     timeline_order: str
     is_live_capable: bool
+    warnings: list[str] = Field(default_factory=list)
+
+
+class TraceChainItem(CamelModel):
+    event_sequence_id: int
+    trace_kind: str
+    timestamp: datetime | None = None
+    duration_ms: float | None = None
+    status_code: int | None = None
+    is_error: bool = False
+    is_retry: bool = False
+    summary_label: str
+    operation_id: str | None = None
+    logical_request_id: int | None = None
+
+
+class TraceChainSummary(CamelModel):
+    chain_id: str
+    logical_request_id: int | None = None
+    is_orphan: bool = False
+    phase: str | None = None
+    component: str | None = None
+    operation_id: str | None = None
+    started_at: datetime | None = None
+    completed_at: datetime | None = None
+    duration_ms: float | None = None
+    event_sequence_start: int
+    event_sequence_end: int
+    http_attempt_count: int = 0
+    llm_call_count: int = 0
+    has_error: bool = False
+    has_retry: bool = False
+    has_cache_hit: bool = False
+    dominant_status_code: int | None = None
+    items: list[TraceChainItem] = Field(default_factory=list)
+
+
+class TraceChainPage(CamelModel):
+    run_id: str
+    cursor: int
+    chains: list[TraceChainSummary] = Field(default_factory=list)
+    has_more: bool
+    warnings: list[str] = Field(default_factory=list)
+
+
+class OperationMetric(CamelModel):
+    operation_id: str
+    logical_count: int = 0
+    http_attempt_count: int = 0
+    llm_call_count: int = 0
+    retry_count: int = 0
+    success_2xx_count: int = 0
+    client_error_4xx_count: int = 0
+    server_error_5xx_count: int = 0
+    transport_error_count: int = 0
+    avg_duration_ms: float | None = None
+    max_duration_ms: float | None = None
+
+
+class OperationMetricsResponse(CamelModel):
+    run_id: str
+    operations: list[OperationMetric] = Field(default_factory=list)
+    totals: dict[str, Any] = Field(default_factory=dict)
     warnings: list[str] = Field(default_factory=list)
 
 

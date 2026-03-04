@@ -4,8 +4,17 @@ from fastapi import APIRouter, Depends, Query
 
 from autoresttest.inspector_api.config import AppContext
 from autoresttest.inspector_api.dependencies import get_context
-from autoresttest.inspector_api.schemas import TimelinePage
-from autoresttest.inspector_api.services.trace_service import get_timeline, get_trace_stream
+from autoresttest.inspector_api.schemas import (
+    OperationMetricsResponse,
+    TimelinePage,
+    TraceChainPage,
+)
+from autoresttest.inspector_api.services.trace_service import (
+    get_operation_metrics,
+    get_timeline,
+    get_trace_chains,
+    get_trace_stream,
+)
 
 
 router = APIRouter(prefix="/datasets/{dataset_id}/runs/{run_id}", tags=["traces"])
@@ -19,9 +28,11 @@ def read_timeline(
     limit: int = 500,
     phase: str | None = None,
     operation_id: str | None = Query(default=None, alias="operationId"),
+    logical_request_id: int | None = Query(default=None, alias="logicalRequestId"),
     trace_kind: str | None = Query(default=None, alias="traceKind"),
     status_code: int | None = Query(default=None, alias="statusCode"),
     search: str | None = None,
+    include_payload: bool = Query(default=True, alias="includePayload"),
     context: AppContext = Depends(get_context),
 ) -> TimelinePage:
     return get_timeline(
@@ -32,10 +43,46 @@ def read_timeline(
         limit=limit,
         phase=phase,
         operation_id=operation_id,
+        logical_request_id=logical_request_id,
+        trace_kind=trace_kind,
+        status_code=status_code,
+        search=search,
+        include_payload=include_payload,
+    )
+
+
+@router.get("/trace-chains", response_model=TraceChainPage)
+def read_trace_chains(
+    dataset_id: str,
+    run_id: str,
+    limit: int = 100,
+    phase: str | None = None,
+    operation_id: str | None = Query(default=None, alias="operationId"),
+    trace_kind: str | None = Query(default=None, alias="traceKind"),
+    status_code: int | None = Query(default=None, alias="statusCode"),
+    search: str | None = None,
+    context: AppContext = Depends(get_context),
+) -> TraceChainPage:
+    return get_trace_chains(
+        context,
+        dataset_id,
+        run_id,
+        limit=limit,
+        phase=phase,
+        operation_id=operation_id,
         trace_kind=trace_kind,
         status_code=status_code,
         search=search,
     )
+
+
+@router.get("/operation-metrics", response_model=OperationMetricsResponse)
+def read_operation_metrics(
+    dataset_id: str,
+    run_id: str,
+    context: AppContext = Depends(get_context),
+) -> OperationMetricsResponse:
+    return get_operation_metrics(context, dataset_id, run_id)
 
 
 @router.get("/logical-requests")
@@ -46,6 +93,7 @@ def read_logical_requests(
     limit: int = 200,
     phase: str | None = None,
     operation_id: str | None = Query(default=None, alias="operationId"),
+    logical_request_id: int | None = Query(default=None, alias="logicalRequestId"),
     request_failed: bool | None = Query(default=None, alias="requestFailed"),
     context: AppContext = Depends(get_context),
 ) -> dict[str, object]:
@@ -58,6 +106,7 @@ def read_logical_requests(
         limit=limit,
         phase=phase,
         operation_id=operation_id,
+        logical_request_id=logical_request_id,
         request_failed=request_failed,
     )
 
@@ -70,6 +119,7 @@ def read_http_attempts(
     limit: int = 200,
     phase: str | None = None,
     operation_id: str | None = Query(default=None, alias="operationId"),
+    logical_request_id: int | None = Query(default=None, alias="logicalRequestId"),
     status_code: int | None = Query(default=None, alias="statusCode"),
     transport_error: bool | None = Query(default=None, alias="transportError"),
     min_duration_ms: float | None = Query(default=None, alias="minDurationMs"),
@@ -85,6 +135,7 @@ def read_http_attempts(
         limit=limit,
         phase=phase,
         operation_id=operation_id,
+        logical_request_id=logical_request_id,
         status_code=status_code,
         transport_error=transport_error,
         min_duration_ms=min_duration_ms,
@@ -100,6 +151,7 @@ def read_llm_calls(
     limit: int = 200,
     phase: str | None = None,
     operation_id: str | None = Query(default=None, alias="operationId"),
+    logical_request_id: int | None = Query(default=None, alias="logicalRequestId"),
     llm_purpose: str | None = Query(default=None, alias="llmPurpose"),
     cache_hit: bool | None = Query(default=None, alias="cacheHit"),
     min_duration_ms: float | None = Query(default=None, alias="minDurationMs"),
@@ -115,6 +167,7 @@ def read_llm_calls(
         limit=limit,
         phase=phase,
         operation_id=operation_id,
+        logical_request_id=logical_request_id,
         llm_purpose=llm_purpose,
         cache_hit=cache_hit,
         min_duration_ms=min_duration_ms,
