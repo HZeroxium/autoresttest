@@ -1,4 +1,5 @@
 import {
+  ButtonBase,
   Card,
   CardContent,
   Chip,
@@ -46,10 +47,15 @@ export function TraceChainCard({
       }}
     >
       <CardContent sx={{ p: 2.5, "&:last-child": { pb: 2.5 } }}>
-        <button
-          type="button"
+        <ButtonBase
           onClick={() => onSelectChain(chain)}
-          className="w-full cursor-pointer rounded-2xl border-0 bg-transparent p-0 text-left"
+          sx={{
+            display: "block",
+            width: "100%",
+            borderRadius: 3,
+            textAlign: "left",
+            p: 0,
+          }}
         >
           <Stack spacing={1.5}>
             <Stack
@@ -59,10 +65,11 @@ export function TraceChainCard({
             >
               <div>
                 <Typography variant="subtitle1" fontWeight={700}>
-                  {chain.operationId ?? chain.chainId}
+                  {`Sequence #${chain.eventSequenceStart} -> #${chain.eventSequenceEnd}`}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {chain.phase ?? "unknown phase"} • {formatDate(chain.startedAt)}
+                  {chain.operationId ?? chain.chainId} • {chain.phase ?? "unknown phase"} •{" "}
+                  {formatDate(chain.startedAt)}
                 </Typography>
               </div>
               <Stack direction="row" flexWrap="wrap" gap={1}>
@@ -99,7 +106,7 @@ export function TraceChainCard({
               />
             </Stack>
           </Stack>
-        </button>
+        </ButtonBase>
 
         <div className="mt-4 flex flex-wrap items-center gap-2">
           {visibleItems.map((item) => (

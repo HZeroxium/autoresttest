@@ -15,6 +15,7 @@ import { formatDate } from "@/lib/formatters/format";
 type TraceDetailDrawerProps = {
   selectedChain?: TraceChainSummary;
   selectedEvent?: UnifiedTraceEvent;
+  sticky?: boolean;
 };
 
 function SafePre({
@@ -37,6 +38,7 @@ function SafePre({
 export function TraceDetailDrawer({
   selectedChain,
   selectedEvent,
+  sticky = true,
 }: TraceDetailDrawerProps) {
   const [tab, setTab] = useState(0);
 
@@ -71,10 +73,10 @@ export function TraceDetailDrawer({
         variant="outlined"
         sx={{
           p: 2.5,
-          minHeight: 720,
+          minHeight: 320,
           borderRadius: 4,
-          position: "sticky",
-          top: 0,
+          position: sticky ? "sticky" : "relative",
+          top: sticky ? 0 : "auto",
         }}
       >
         <Typography variant="h6">Event detail</Typography>
@@ -91,10 +93,10 @@ export function TraceDetailDrawer({
       variant="outlined"
       sx={{
         p: 2.5,
-        minHeight: 720,
+        minHeight: 320,
         borderRadius: 4,
-        position: "sticky",
-        top: 0,
+        position: sticky ? "sticky" : "relative",
+        top: sticky ? 0 : "auto",
       }}
     >
       <Stack spacing={2}>

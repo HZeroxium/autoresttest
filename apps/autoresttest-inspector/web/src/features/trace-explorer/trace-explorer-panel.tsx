@@ -1,27 +1,26 @@
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
-import {
-  Autocomplete,
-  Box,
-  Chip,
-  FormControlLabel,
-  Slider,
-  Stack,
-  Switch,
-  TextField,
-  ToggleButton,
-  ToggleButtonGroup,
-  Typography,
-} from "@mui/material";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { Alert, Chip, Stack } from "@mui/material";
 
 import { Panel } from "@/components/common/panel";
-import { useTimeline, useTraceChains } from "@/lib/api/hooks";
-import { TraceChainSummary } from "@/lib/schemas/api";
+import { useTimeline } from "@/lib/api/hooks";
+import { TraceChainSummary, UnifiedTraceEvent } from "@/lib/schemas/api";
 import { useInspectorStore } from "@/lib/state/inspector-store";
 
 import { TraceChainBoard } from "./trace-chain-board";
 import { TraceDensityStrip } from "./trace-density-strip";
 import { TraceDetailDrawer } from "./trace-detail-drawer";
-import { mergeTimelineIntoChains } from "./trace-grouping";
+import { TraceLedger } from "./trace-ledger";
+import { TracePhaseSwimlanes } from "./trace-phase-swimlanes";
+import { TraceSequenceRibbon } from "./trace-sequence-ribbon";
+import { TraceSequenceStory } from "./trace-sequence-story";
+import {
+  TraceViewMode,
+  buildTraceChains,
+  filterTimelineEvents,
+  getEventBySequence,
+  mergeTimelineEvents,
+} from "./trace-grouping";
+import { TraceViewControls } from "./trace-view-controls";
 
 type TraceExplorerPanelProps = {
   datasetId: string;
@@ -55,53 +54,45 @@ export function TraceExplorerPanel({
   );
 
   const deferredSearch = useDeferredValue(traceSearch);
+  const [viewMode, setViewMode] = useState<TraceViewMode>("story");
   const [activeTraceKind, setActiveTraceKind] = useState<string>("");
   const [phaseFilters, setPhaseFilters] = useState<string[]>([]);
   const [errorsOnly, setErrorsOnly] = useState(false);
   const [retriesOnly, setRetriesOnly] = useState(false);
   const [durationRange, setDurationRange] = useState<[number, number]>([0, 30_000]);
-  const [chains, setChains] = useState<TraceChainSummary[]>([]);
+  const [timelineEvents, setTimelineEvents] = useState<UnifiedTraceEvent[]>([]);
   const [cursor, setCursor] = useState<number>(0);
-  const parentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    setTimelineEvents([]);
+    setCursor(0);
     setSelectedEventSequenceId(null);
     setSelectedLogicalRequestId(null);
-    setChains([]);
-    setCursor(0);
-  }, [
-    datasetId,
-    runId,
-    deferredSearch,
-    activeTraceKind,
-    selectedOperationId,
-    setSelectedEventSequenceId,
-    setSelectedLogicalRequestId,
-  ]);
+  }, [datasetId, runId, setSelectedEventSequenceId, setSelectedLogicalRequestId]);
 
-  const traceChainsQuery = useTraceChains(datasetId, runId, {
-    operationId: selectedOperationId ?? undefined,
-    traceKind: activeTraceKind || undefined,
-    search: deferredSearch || undefined,
-    limit: 200,
+  const snapshotTimelineQuery = useTimeline(datasetId, runId, {
+    limit: 5000,
+    includePayload: false,
   });
 
   useEffect(() => {
-    if (!traceChainsQuery.data) {
+    if (!snapshotTimelineQuery.data) {
       return;
     }
-    setChains(traceChainsQuery.data.chains);
-    setCursor(traceChainsQuery.data.cursor);
-  }, [traceChainsQuery.data]);
+    setTimelineEvents((current) =>
+      current.length === 0
+        ? snapshotTimelineQuery.data.events
+        : mergeTimelineEvents(snapshotTimelineQuery.data.events, current),
+    );
+    setCursor(snapshotTimelineQuery.data.cursor);
+  }, [snapshotTimelineQuery.data]);
 
   const shouldPoll = liveMode && runStatus === "running";
   const liveTimelineQuery = useTimeline(datasetId, runId, {
     enabled: shouldPoll,
-    operationId: selectedOperationId ?? undefined,
-    traceKind: activeTraceKind || undefined,
-    search: deferredSearch || undefined,
     afterEventSequenceId: cursor > 0 ? cursor : undefined,
     includePayload: false,
+    limit: 5000,
     refetchInterval: shouldPoll ? 1500 : false,
   });
 
@@ -109,8 +100,8 @@ export function TraceExplorerPanel({
     if (!liveTimelineQuery.data || liveTimelineQuery.data.events.length === 0) {
       return;
     }
-    setChains((previous) =>
-      mergeTimelineIntoChains(previous, liveTimelineQuery.data?.events ?? []),
+    setTimelineEvents((current) =>
+      mergeTimelineEvents(current, liveTimelineQuery.data?.events ?? []),
     );
     setCursor(liveTimelineQuery.data.cursor);
   }, [liveTimelineQuery.data]);
@@ -119,15 +110,15 @@ export function TraceExplorerPanel({
     () =>
       Math.max(
         1000,
-        ...chains.map((chain) => Math.round(chain.durationMs ?? 0)),
+        ...timelineEvents.map((event) => Math.round(event.durationMs ?? 0)),
       ),
-    [chains],
+    [timelineEvents],
   );
 
   useEffect(() => {
     setDurationRange((previous) => [
       Math.min(previous[0], maxDuration),
-      Math.min(Math.max(previous[1], maxDuration), maxDuration),
+      Math.min(previous[1], maxDuration),
     ]);
   }, [maxDuration]);
 
@@ -135,226 +126,310 @@ export function TraceExplorerPanel({
     () =>
       Array.from(
         new Set(
-          chains
-            .map((chain) => chain.phase)
+          timelineEvents
+            .map((event) => event.phase)
             .filter((phase): phase is string => Boolean(phase)),
         ),
       ).sort(),
-    [chains],
+    [timelineEvents],
   );
 
   const operationOptions = useMemo(
     () =>
       Array.from(
         new Set(
-          chains
-            .map((chain) => chain.operationId)
+          timelineEvents
+            .map((event) => event.operationId)
             .filter((operationId): operationId is string => Boolean(operationId)),
         ),
       ).sort(),
-    [chains],
+    [timelineEvents],
   );
 
-  const visibleChains = useMemo(() => {
-    return chains.filter((chain) => {
-      if (phaseFilters.length > 0 && (!chain.phase || !phaseFilters.includes(chain.phase))) {
-        return false;
-      }
-      const duration = chain.durationMs ?? 0;
-      if (duration < durationRange[0] || duration > durationRange[1]) {
-        return false;
-      }
-      if (errorsOnly && !chain.hasError) {
-        return false;
-      }
-      if (retriesOnly && !chain.hasRetry) {
-        return false;
-      }
-      return true;
-    });
-  }, [chains, phaseFilters, durationRange, errorsOnly, retriesOnly]);
+  const filteredEvents = useMemo(
+    () =>
+      filterTimelineEvents(timelineEvents, {
+        search: deferredSearch,
+        operationId: selectedOperationId,
+        traceKind: activeTraceKind,
+        phases: phaseFilters,
+        errorsOnly,
+        retriesOnly,
+        durationRange,
+      }),
+    [
+      timelineEvents,
+      deferredSearch,
+      selectedOperationId,
+      activeTraceKind,
+      phaseFilters,
+      errorsOnly,
+      retriesOnly,
+      durationRange,
+    ],
+  );
 
-  const selectedChain = useMemo(() => {
-    if (selectedLogicalRequestId != null) {
-      return visibleChains.find(
-        (chain) => chain.logicalRequestId === selectedLogicalRequestId,
-      );
-    }
-    if (selectedEventSequenceId != null) {
-      return visibleChains.find((chain) =>
-        chain.items.some((item) => item.eventSequenceId === selectedEventSequenceId),
-      );
-    }
-    return undefined;
-  }, [selectedLogicalRequestId, selectedEventSequenceId, visibleChains]);
+  const visibleChains = useMemo(
+    () => buildTraceChains(filteredEvents),
+    [filteredEvents],
+  );
 
-  const selectedChainTimelineQuery = useTimeline(datasetId, runId, {
-    enabled: selectedLogicalRequestId != null,
-    logicalRequestId: selectedLogicalRequestId ?? undefined,
+  const selectedEventLight = useMemo(
+    () =>
+      getEventBySequence(filteredEvents, selectedEventSequenceId) ??
+      getEventBySequence(timelineEvents, selectedEventSequenceId),
+    [filteredEvents, timelineEvents, selectedEventSequenceId],
+  );
+
+  const effectiveLogicalRequestId =
+    selectedLogicalRequestId ?? selectedEventLight?.logicalRequestId ?? null;
+
+  const selectedChainQuery = useTimeline(datasetId, runId, {
+    enabled: effectiveLogicalRequestId != null,
+    logicalRequestId: effectiveLogicalRequestId ?? undefined,
     includePayload: true,
-    limit: 200,
+    limit: 500,
   });
 
+  const selectedOrphanEventQuery = useTimeline(datasetId, runId, {
+    enabled:
+      selectedEventSequenceId != null &&
+      selectedEventLight?.logicalRequestId == null &&
+      Boolean(selectedEventLight),
+    includePayload: true,
+    limit: 5000,
+  });
+
+  const selectedChain = useMemo<TraceChainSummary | undefined>(() => {
+    if (selectedChainQuery.data?.events.length) {
+      return buildTraceChains(selectedChainQuery.data.events)[0];
+    }
+    if (effectiveLogicalRequestId == null) {
+      return visibleChains.find((chain) =>
+        selectedEventSequenceId == null
+          ? false
+          : chain.items.some(
+              (item) => item.eventSequenceId === selectedEventSequenceId,
+            ),
+      );
+    }
+    return visibleChains.find(
+      (chain) => chain.logicalRequestId === effectiveLogicalRequestId,
+    );
+  }, [
+    selectedChainQuery.data?.events,
+    effectiveLogicalRequestId,
+    visibleChains,
+    selectedEventSequenceId,
+  ]);
+
   const selectedFullEvent = useMemo(() => {
-    const events = selectedChainTimelineQuery.data?.events ?? [];
-    if (selectedEventSequenceId != null) {
-      return events.find(
+    if (selectedChainQuery.data?.events.length && selectedEventSequenceId != null) {
+      return selectedChainQuery.data.events.find(
         (event) => event.eventSequenceId === selectedEventSequenceId,
       );
     }
-    return events[0];
-  }, [selectedChainTimelineQuery.data?.events, selectedEventSequenceId]);
+    if (
+      selectedOrphanEventQuery.data?.events.length &&
+      selectedEventSequenceId != null
+    ) {
+      return selectedOrphanEventQuery.data.events.find(
+        (event) => event.eventSequenceId === selectedEventSequenceId,
+      );
+    }
+    return selectedEventLight;
+  }, [
+    selectedChainQuery.data?.events,
+    selectedOrphanEventQuery.data?.events,
+    selectedEventSequenceId,
+    selectedEventLight,
+  ]);
+
+  const timelineOrder =
+    liveTimelineQuery.data?.timelineOrder ?? snapshotTimelineQuery.data?.timelineOrder;
+  const warnings =
+    snapshotTimelineQuery.data?.warnings ?? liveTimelineQuery.data?.warnings ?? [];
+
+  const handleSelectEvent = (
+    eventSequenceId: number,
+    logicalRequestId: number | null,
+  ) => {
+    setSelectedEventSequenceId(eventSequenceId);
+    setSelectedLogicalRequestId(logicalRequestId);
+  };
+
+  const handleSelectChain = (chain: TraceChainSummary) => {
+    setSelectedLogicalRequestId(chain.logicalRequestId ?? null);
+    setSelectedEventSequenceId(chain.items[0]?.eventSequenceId ?? null);
+  };
 
   return (
     <div className="space-y-4">
-      <Panel title="Trace chains">
-        <Stack spacing={2}>
-          <Stack
-            direction={{ xs: "column", xl: "row" }}
-            spacing={1.5}
-            useFlexGap
-            sx={{ alignItems: { xl: "center" }, justifyContent: "space-between" }}
-          >
-            <Stack direction={{ xs: "column", lg: "row" }} spacing={1.5} useFlexGap>
-              <Autocomplete
-                size="small"
-                sx={{ minWidth: 300 }}
-                options={operationOptions}
-                value={selectedOperationId}
-                onChange={(_, value) => setSelectedOperationId(value)}
-                renderInput={(params) => (
-                  <TextField {...params} label="Operation filter" />
-                )}
-              />
-              <TextField
-                size="small"
-                label="Search"
-                placeholder="Search raw payload..."
-                value={traceSearch}
-                onChange={(event) => setTraceSearch(event.target.value)}
-              />
-            </Stack>
-
-            <ToggleButtonGroup
-              exclusive
-              size="small"
-              value={activeTraceKind}
-              onChange={(_, value: string | null) => setActiveTraceKind(value ?? "")}
-            >
-              <ToggleButton value="">All traces</ToggleButton>
-              <ToggleButton value="logical_request">Logical</ToggleButton>
-              <ToggleButton value="http_attempt">HTTP</ToggleButton>
-              <ToggleButton value="llm_call">LLM</ToggleButton>
-            </ToggleButtonGroup>
-          </Stack>
-
-          <Stack
-            direction={{ xs: "column", xl: "row" }}
-            spacing={2}
-            useFlexGap
-            sx={{ alignItems: { xl: "center" }, justifyContent: "space-between" }}
-          >
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
-              {phases.map((phase) => {
-                const active = phaseFilters.includes(phase);
-                return (
-                  <Chip
-                    key={phase}
-                    label={phase}
-                    color={active ? "secondary" : "default"}
-                    variant={active ? "filled" : "outlined"}
-                    onClick={() =>
-                      setPhaseFilters((previous) =>
-                        previous.includes(phase)
-                          ? previous.filter((item) => item !== phase)
-                          : [...previous, phase],
-                      )
-                    }
-                  />
-                );
-              })}
-            </Box>
-
-            <Stack direction={{ xs: "column", md: "row" }} spacing={2} useFlexGap>
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={errorsOnly}
-                    onChange={(event) => setErrorsOnly(event.target.checked)}
-                  />
-                }
-                label="Errors only"
-              />
-              <FormControlLabel
-                control={
-                  <Switch
-                    checked={retriesOnly}
-                    onChange={(event) => setRetriesOnly(event.target.checked)}
-                  />
-                }
-                label="Retries only"
-              />
-            </Stack>
-          </Stack>
-
-          <Box sx={{ px: 1 }}>
-            <Typography variant="caption" color="text.secondary">
-              Duration filter ({Math.round(durationRange[0])} ms to {Math.round(durationRange[1])} ms)
-            </Typography>
-            <Slider
-              value={durationRange}
-              min={0}
-              max={maxDuration}
-              onChange={(_, value) =>
-                setDurationRange(value as [number, number])
-              }
-              valueLabelDisplay="auto"
-            />
-          </Box>
-        </Stack>
+      <Panel title="Trace explorer">
+        <TraceViewControls
+          viewMode={viewMode}
+          operationOptions={operationOptions}
+          operationFilter={selectedOperationId}
+          search={traceSearch}
+          traceKind={activeTraceKind}
+          phaseFilters={phaseFilters}
+          phases={phases}
+          errorsOnly={errorsOnly}
+          retriesOnly={retriesOnly}
+          durationRange={durationRange}
+          maxDuration={maxDuration}
+          eventCount={filteredEvents.length}
+          chainCount={visibleChains.length}
+          onViewModeChange={setViewMode}
+          onOperationFilterChange={setSelectedOperationId}
+          onSearchChange={setTraceSearch}
+          onTraceKindChange={setActiveTraceKind}
+          onTogglePhase={(phase) =>
+            setPhaseFilters((current) =>
+              current.includes(phase)
+                ? current.filter((item) => item !== phase)
+                : [...current, phase],
+            )
+          }
+          onErrorsOnlyChange={setErrorsOnly}
+          onRetriesOnlyChange={setRetriesOnly}
+          onDurationRangeChange={setDurationRange}
+        />
       </Panel>
 
-      <TraceDensityStrip
-        chains={visibleChains}
-        onSelectEvent={(eventSequenceId, logicalRequestId) => {
-          setSelectedEventSequenceId(eventSequenceId);
-          setSelectedLogicalRequestId(logicalRequestId);
-        }}
-      />
+      {warnings.length > 0 ? (
+        <Alert severity="warning" variant="outlined">
+          {warnings.join(" ")}
+        </Alert>
+      ) : null}
 
-      <div className="grid gap-4 xl:grid-cols-[minmax(0,1.3fr)_420px]">
-        <div className="space-y-3">
-          <div className="flex items-center justify-between px-1 text-xs uppercase tracking-wide text-slate">
-            <span>{visibleChains.length} chains visible</span>
-            <span>
-              {liveTimelineQuery.data?.timelineOrder ??
-                traceChainsQuery.data?.warnings?.[0] ??
-                "snapshot"}
-            </span>
+      <TraceDensityStrip events={filteredEvents} onSelectEvent={handleSelectEvent} />
+
+      <Stack
+        direction={{ xs: "column", xl: "row" }}
+        spacing={2}
+        sx={{ alignItems: "flex-start" }}
+      >
+        <div className="min-w-0 flex-1 space-y-3">
+          <div className="flex flex-wrap items-center gap-2 px-1 text-xs uppercase tracking-wide text-slate">
+            <span>{filteredEvents.length} events visible</span>
+            <span>{visibleChains.length} sequences</span>
+            {timelineOrder ? (
+              <Chip size="small" label={`${timelineOrder} ordering`} />
+            ) : null}
+            <Chip
+              size="small"
+              color={runStatus === "running" && liveMode ? "secondary" : "default"}
+              label={
+                runStatus === "running" && liveMode
+                  ? "Live incremental"
+                  : "Static snapshot"
+              }
+            />
           </div>
-          <TraceChainBoard
-            parentRef={parentRef}
-            chains={visibleChains}
+
+          <TraceViewSurface
+            viewMode={viewMode}
+            filteredEvents={filteredEvents}
+            visibleChains={visibleChains}
             selectedEventSequenceId={selectedEventSequenceId}
             selectedLogicalRequestId={selectedLogicalRequestId}
-            onSelectChain={(chain) => {
-              setSelectedLogicalRequestId(chain.logicalRequestId ?? null);
-              setSelectedEventSequenceId(chain.items[0]?.eventSequenceId ?? null);
-            }}
-            onSelectEvent={(chain, eventSequenceId, logicalRequestId) => {
-              setSelectedLogicalRequestId(
-                logicalRequestId ?? chain.logicalRequestId ?? null,
-              );
-              setSelectedEventSequenceId(eventSequenceId);
-            }}
+            onSelectEvent={handleSelectEvent}
+            onSelectChain={handleSelectChain}
           />
         </div>
 
-        <TraceDetailDrawer
-          selectedChain={selectedChain}
-          selectedEvent={selectedFullEvent}
-        />
-      </div>
+        <div className="w-full xl:sticky xl:top-0 xl:w-[420px] xl:self-start">
+          <TraceDetailDrawer
+            sticky={false}
+            selectedChain={selectedChain}
+            selectedEvent={selectedFullEvent}
+          />
+        </div>
+      </Stack>
     </div>
+  );
+}
+
+type TraceViewSurfaceProps = {
+  viewMode: TraceViewMode;
+  filteredEvents: UnifiedTraceEvent[];
+  visibleChains: TraceChainSummary[];
+  selectedEventSequenceId: number | null;
+  selectedLogicalRequestId: number | null;
+  onSelectEvent: (eventSequenceId: number, logicalRequestId: number | null) => void;
+  onSelectChain: (chain: TraceChainSummary) => void;
+};
+
+function TraceViewSurface({
+  viewMode,
+  filteredEvents,
+  visibleChains,
+  selectedEventSequenceId,
+  selectedLogicalRequestId,
+  onSelectEvent,
+  onSelectChain,
+}: TraceViewSurfaceProps) {
+  if (filteredEvents.length === 0) {
+    return (
+      <Alert severity="info" variant="outlined">
+        No trace events match the current filter combination. Loosen the filters or
+        switch to a different trace kind.
+      </Alert>
+    );
+  }
+
+  if (viewMode === "story") {
+    return (
+      <TraceSequenceStory
+        chains={visibleChains}
+        selectedLogicalRequestId={selectedLogicalRequestId}
+        selectedEventSequenceId={selectedEventSequenceId}
+        onSelectChain={onSelectChain}
+        onSelectEvent={onSelectEvent}
+      />
+    );
+  }
+
+  if (viewMode === "swimlanes") {
+    return (
+      <TracePhaseSwimlanes
+        events={filteredEvents}
+        selectedEventSequenceId={selectedEventSequenceId}
+        onSelectEvent={onSelectEvent}
+      />
+    );
+  }
+
+  if (viewMode === "ribbon") {
+    return (
+      <TraceSequenceRibbon
+        events={filteredEvents}
+        selectedEventSequenceId={selectedEventSequenceId}
+        onSelectEvent={onSelectEvent}
+      />
+    );
+  }
+
+  if (viewMode === "ledger") {
+    return (
+      <TraceLedger
+        events={filteredEvents}
+        selectedEventSequenceId={selectedEventSequenceId}
+        onSelectEvent={onSelectEvent}
+      />
+    );
+  }
+
+  return (
+    <TraceChainBoard
+      chains={visibleChains}
+      selectedEventSequenceId={selectedEventSequenceId}
+      selectedLogicalRequestId={selectedLogicalRequestId}
+      onSelectChain={onSelectChain}
+      onSelectEvent={(chain, eventSequenceId, logicalRequestId) =>
+        onSelectEvent(eventSequenceId, logicalRequestId ?? chain.logicalRequestId ?? null)
+      }
+    />
   );
 }
