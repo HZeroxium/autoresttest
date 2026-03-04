@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 
 from autoresttest.config import get_config
+from autoresttest.observability import get_active_run_recorder
 from autoresttest.prompts.system_prompts import DEFAULT_SYSTEM_MESSAGE
 from autoresttest.utils import encode_dictionary
 
@@ -65,14 +66,37 @@ class LanguageModel:
         return encode_dictionary(key_data)
 
     def query(
-        self, user_message, system_message=DEFAULT_SYSTEM_MESSAGE, json_mode=False
+        self,
+        user_message,
+        system_message=DEFAULT_SYSTEM_MESSAGE,
+        json_mode=False,
+        trace_metadata: dict | None = None,
     ) -> str:
         cache_key = self._generate_cache_key(user_message, system_message, json_mode)
+        recorder = get_active_run_recorder()
+        start_time = time.perf_counter()
 
         # Thread-safe cache read
         with LanguageModel._cache_lock:
             if cache_key in LanguageModel.cache:
-                return LanguageModel.cache[cache_key]
+                cached_result = LanguageModel.cache[cache_key]
+                if recorder is not None:
+                    recorder.record_llm_call(
+                        model=self.engine,
+                        cache_hit=True,
+                        json_mode=json_mode,
+                        temperature=self.temperature,
+                        max_tokens=self.max_tokens,
+                        prompt=user_message,
+                        system_prompt=system_message,
+                        response_text=cached_result,
+                        duration_ms=(time.perf_counter() - start_time) * 1000,
+                        attempt_count=0,
+                        input_tokens=0,
+                        output_tokens=0,
+                        trace_metadata=trace_metadata,
+                    )
+                return cached_result
 
         messages = [
             {"role": "system", "content": system_message},
@@ -94,11 +118,16 @@ class LanguageModel:
         max_retries = 3
         base_delay = 1.0
 
+        response = None
+        final_error: Exception | None = None
+        attempt_count = 0
         for attempt in range(max_retries):
+            attempt_count = attempt + 1
             try:
                 response = self.client.chat.completions.create(**kwargs)
                 break
-            except Exception:
+            except Exception as e:
+                final_error = e
                 if attempt < max_retries - 1:
                     delay = base_delay * (2**attempt)
                     print(
@@ -107,9 +136,23 @@ class LanguageModel:
                     print(f"[LLM] Retrying in {delay}s...")
                     time.sleep(delay)
                 else:
-                    # print(
-                    #     f"[LLM] API call failed after {max_retries} attempts: {type(e).__name__}: {e}"
-                    # )
+                    if recorder is not None:
+                        recorder.record_llm_call(
+                            model=self.engine,
+                            cache_hit=False,
+                            json_mode=json_mode,
+                            temperature=self.temperature,
+                            max_tokens=self.max_tokens,
+                            prompt=user_message,
+                            system_prompt=system_message,
+                            response_text="",
+                            duration_ms=(time.perf_counter() - start_time) * 1000,
+                            attempt_count=attempt_count,
+                            input_tokens=0,
+                            output_tokens=0,
+                            trace_metadata=trace_metadata,
+                            error=final_error,
+                        )
                     return ""
 
         input_tokens = 0
@@ -126,6 +169,22 @@ class LanguageModel:
             LanguageModel.output_tokens += output_tokens
 
         if not response.choices:
+            if recorder is not None:
+                recorder.record_llm_call(
+                    model=self.engine,
+                    cache_hit=False,
+                    json_mode=json_mode,
+                    temperature=self.temperature,
+                    max_tokens=self.max_tokens,
+                    prompt=user_message,
+                    system_prompt=system_message,
+                    response_text="",
+                    duration_ms=(time.perf_counter() - start_time) * 1000,
+                    attempt_count=attempt_count,
+                    input_tokens=input_tokens,
+                    output_tokens=output_tokens,
+                    trace_metadata=trace_metadata,
+                )
             return ""
         content = response.choices[0].message.content
         result = content.strip() if content else ""
@@ -133,5 +192,22 @@ class LanguageModel:
         # Thread-safe cache write
         with LanguageModel._cache_lock:
             LanguageModel.cache[cache_key] = result
+
+        if recorder is not None:
+            recorder.record_llm_call(
+                model=self.engine,
+                cache_hit=False,
+                json_mode=json_mode,
+                temperature=self.temperature,
+                max_tokens=self.max_tokens,
+                prompt=user_message,
+                system_prompt=system_message,
+                response_text=result,
+                duration_ms=(time.perf_counter() - start_time) * 1000,
+                attempt_count=attempt_count,
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
+                trace_metadata=trace_metadata,
+            )
 
         return result

@@ -139,6 +139,9 @@ class QLearning:
             return None
 
         metadata = {
+            "phase": "marl_request_generation",
+            "component": "marl",
+            "event_type": "logical_request",
             "operation_id": operation_id,
             "endpoint_path": operation_props.endpoint_path,
             "http_method": (

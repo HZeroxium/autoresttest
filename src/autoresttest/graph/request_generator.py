@@ -15,6 +15,10 @@ import pickle
 import os
 
 from autoresttest.config import get_config
+from autoresttest.observability import (
+    reset_active_run_recorder,
+    set_active_run_recorder,
+)
 from autoresttest.models import (
     OperationProperties,
     ParameterKey,
@@ -69,6 +73,7 @@ class RequestGenerator:
             {}
         )  # Dictionary to store responses for each operation_id
         self.allowed_retries = 1
+        self.run_recorder = None
 
     @staticmethod
     def generate_naive_values(
@@ -531,6 +536,183 @@ class RequestGenerator:
                 #        parameter_mappings[operation_id]['body'][mime][body_param][value] = 0
                 #        occurrences[body_param] = occurrences.get(body_param, 0) + 1
 
+    def _count_existing_value_candidates(
+        self,
+        operation_id: str,
+        parameter_mappings: Dict,
+    ) -> int:
+        operation_mappings = parameter_mappings.get(operation_id, {})
+        param_count = sum(
+            len(values) for values in operation_mappings.get("params", {}).values()
+        )
+        body_count = sum(
+            len(values) for values in operation_mappings.get("body", {}).values()
+        )
+        return param_count + body_count
+
+    def _generate_value_candidates_for_operation(
+        self,
+        operation_node: "OperationNode",
+        parameter_mappings: Dict,
+        generation_mode: str,
+        mappings_lock: Any | None = None,
+    ) -> str:
+        operation_id = operation_node.operation_id
+
+        if mappings_lock is not None:
+            with mappings_lock:
+                if operation_id not in parameter_mappings:
+                    parameter_mappings[operation_id] = {"params": {}, "body": {}}
+        elif operation_id not in parameter_mappings:
+            parameter_mappings[operation_id] = {"params": {}, "body": {}}
+
+        desired_size = 10
+        occurrences: Dict[str, int] = {}
+        lowest_occurrences = min(occurrences.values()) if occurrences else 0
+        existing_candidate_count_before = self._count_existing_value_candidates(
+            operation_id,
+            parameter_mappings,
+        )
+
+        recorder_token = None
+        logical_handle = None
+        possible_responses: List[RequestResponse] = []
+        generated_parameters: Dict[ParameterKey, List[Any]] = {}
+        generated_request_body: Dict[str, List[Any]] = {}
+        generation_strategy = "skipped_existing_candidates"
+        probe_request_budget = 2
+
+        try:
+            if self.run_recorder is not None:
+                recorder_token = set_active_run_recorder(self.run_recorder)
+                logical_handle = self.run_recorder.begin_logical_request(
+                    {
+                        "phase": "value_agent_q_table_generation",
+                        "component": "value_agent",
+                        "event_type": "operation_bootstrap",
+                        "operation_id": operation_id,
+                        "endpoint_path": operation_node.operation_properties.endpoint_path,
+                        "http_method": operation_node.operation_properties.http_method,
+                        "generation_mode": generation_mode,
+                        "desired_candidate_count": desired_size,
+                        "existing_candidate_count_before": existing_candidate_count_before,
+                        "probe_request_budget": probe_request_budget,
+                    }
+                )
+
+            if lowest_occurrences < desired_size:
+                for _ in range(probe_request_budget):
+                    response = self.create_and_send_request(
+                        operation_node, allow_retry=True, permitted_retries=2
+                    )
+                    if response is not None:
+                        possible_responses.append(response)
+
+                value_generator = SmartValueGenerator(
+                    operation_properties=operation_node.operation_properties
+                )
+                if possible_responses:
+                    generation_strategy = "response_informed"
+                    generated_parameters, generated_request_body = (
+                        value_generator.generate_informed_value_agent_params(
+                            num_values=desired_size - lowest_occurrences,
+                            responses=possible_responses,
+                        ),
+                        value_generator.generate_informed_value_agent_body(
+                            num_values=desired_size - lowest_occurrences,
+                            responses=possible_responses,
+                        ),
+                    )
+                else:
+                    generation_strategy = "schema_only"
+                    generated_parameters, generated_request_body = (
+                        value_generator.generate_value_agent_params(
+                            num_values=desired_size - lowest_occurrences
+                        ),
+                        value_generator.generate_value_agent_body(
+                            num_values=desired_size - lowest_occurrences
+                        ),
+                    )
+
+                if mappings_lock is not None:
+                    with mappings_lock:
+                        self._validate_value_mappings(
+                            operation_node,
+                            parameter_mappings,
+                            generated_parameters,
+                            generated_request_body,
+                            occurrences,
+                        )
+                else:
+                    self._validate_value_mappings(
+                        operation_node,
+                        parameter_mappings,
+                        generated_parameters,
+                        generated_request_body,
+                        occurrences,
+                    )
+
+            if logical_handle is not None and self.run_recorder is not None:
+                probe_status_codes = [
+                    request_response.response.status_code
+                    for request_response in possible_responses
+                    if request_response.response is not None
+                ]
+                generated_param_candidates = sum(
+                    len(values) for values in generated_parameters.values()
+                )
+                generated_body_candidates = sum(
+                    len(values) for values in generated_request_body.values()
+                )
+                resulting_candidate_count = self._count_existing_value_candidates(
+                    operation_id,
+                    parameter_mappings,
+                )
+                self.run_recorder.complete_logical_request(
+                    logical_handle,
+                    response=None,
+                    state_changed=True,
+                    result_metadata={
+                        "generation_strategy": generation_strategy,
+                        "probe_request_count": probe_request_budget,
+                        "successful_probe_count": len(possible_responses),
+                        "probe_status_codes": probe_status_codes,
+                        "generated_parameter_candidate_count": generated_param_candidates,
+                        "generated_body_candidate_count": generated_body_candidates,
+                        "existing_candidate_count_after": resulting_candidate_count,
+                    },
+                    response_summary=None,
+                )
+            return operation_id
+        except Exception as exc:
+            if logical_handle is not None and self.run_recorder is not None:
+                probe_status_codes = [
+                    request_response.response.status_code
+                    for request_response in possible_responses
+                    if request_response.response is not None
+                ]
+                self.run_recorder.complete_logical_request(
+                    logical_handle,
+                    response=None,
+                    state_changed=False,
+                    request_failed=True,
+                    result_metadata={
+                        "generation_strategy": generation_strategy,
+                        "probe_request_count": probe_request_budget,
+                        "successful_probe_count": len(possible_responses),
+                        "probe_status_codes": probe_status_codes,
+                        "error": {
+                            "type": type(exc).__name__,
+                            "message": str(exc),
+                        },
+                    },
+                    response_summary=None,
+                )
+            raise
+        finally:
+            if recorder_token is not None:
+                reset_active_run_recorder(recorder_token)
+
     def value_depth_traversal(
         self,
         curr_node: "OperationNode",
@@ -551,45 +733,11 @@ class RequestGenerator:
                 )
 
         print("Building value table generation for operation: ", curr_node.operation_id)
-
-        occurrences = {}
-        # self.handle_dependent_values(curr_node, dependent_responses, occurrences, parameter_mappings, responses)
-
-        desired_size = 10
-        lowest_occurrences = min(occurrences.values()) if occurrences else 0
-        if lowest_occurrences < desired_size:
-            possible_responses = []
-            # Use two samples with two retries each to gather server responses for augmenting value generation
-            for _ in range(2):
-                response = self.create_and_send_request(
-                    curr_node, allow_retry=True, permitted_retries=2
-                )
-                if response is not None:
-                    possible_responses.append(response)
-
-            value_generator = SmartValueGenerator(
-                operation_properties=curr_node.operation_properties
-            )
-            if possible_responses:
-                parameters, request_body = (
-                    value_generator.generate_informed_value_agent_params(
-                        num_values=desired_size - lowest_occurrences,
-                        responses=possible_responses,
-                    ),
-                    value_generator.generate_informed_value_agent_body(
-                        num_values=desired_size - lowest_occurrences,
-                        responses=possible_responses,
-                    ),
-                )
-            else:
-                parameters, request_body = value_generator.generate_value_agent_params(
-                    num_values=desired_size - lowest_occurrences
-                ), value_generator.generate_value_agent_body(
-                    num_values=desired_size - lowest_occurrences
-                )
-            self._validate_value_mappings(
-                curr_node, parameter_mappings, parameters, request_body, occurrences
-            )
+        self._generate_value_candidates_for_operation(
+            operation_node=curr_node,
+            parameter_mappings=parameter_mappings,
+            generation_mode="sequential",
+        )
 
         print(
             "Completed value table generation for operation: ", curr_node.operation_id
@@ -620,60 +768,12 @@ class RequestGenerator:
                     return operation_id
                 visited.add(operation_id)
 
-            # Pre-initialize Q-table entry to ensure it exists even if later steps fail
-            with mappings_lock:
-                if operation_id not in parameter_mappings:
-                    parameter_mappings[operation_id] = {"params": {}, "body": {}}
-
-            # Generate values (I/O bound - HTTP + LLM calls)
-            occurrences: Dict[str, int] = {}
-            desired_size = 10
-            lowest_occurrences = min(occurrences.values()) if occurrences else 0
-
-            if lowest_occurrences < desired_size:
-                possible_responses: List[RequestResponse] = []
-                for _ in range(2):
-                    response = self.create_and_send_request(
-                        operation_node, allow_retry=True, permitted_retries=2
-                    )
-                    if response is not None:
-                        possible_responses.append(response)
-
-                value_generator = SmartValueGenerator(
-                    operation_properties=operation_node.operation_properties
-                )
-                if possible_responses:
-                    parameters, request_body = (
-                        value_generator.generate_informed_value_agent_params(
-                            num_values=desired_size - lowest_occurrences,
-                            responses=possible_responses,
-                        ),
-                        value_generator.generate_informed_value_agent_body(
-                            num_values=desired_size - lowest_occurrences,
-                            responses=possible_responses,
-                        ),
-                    )
-                else:
-                    parameters, request_body = (
-                        value_generator.generate_value_agent_params(
-                            num_values=desired_size - lowest_occurrences
-                        ),
-                        value_generator.generate_value_agent_body(
-                            num_values=desired_size - lowest_occurrences
-                        ),
-                    )
-
-                # Thread-safe update to parameter_mappings
-                with mappings_lock:
-                    self._validate_value_mappings(
-                        operation_node,
-                        parameter_mappings,
-                        parameters,
-                        request_body,
-                        occurrences,
-                    )
-
-            return operation_id
+            return self._generate_value_candidates_for_operation(
+                operation_node=operation_node,
+                parameter_mappings=parameter_mappings,
+                generation_mode="parallel",
+                mappings_lock=mappings_lock,
+            )
 
         # Submit all operations to thread pool
         with ThreadPoolExecutor(max_workers=max_workers) as executor:

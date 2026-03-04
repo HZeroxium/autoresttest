@@ -62,6 +62,7 @@ class RunRecorderPaths:
     runtime_dir: Path
     http_attempts_path: Path
     logical_requests_path: Path
+    llm_calls_path: Path
     run_manifest_path: Path
     latest_manifest_path: Path
 
@@ -217,6 +218,7 @@ class RunRecorder:
         )
         self._attempt_sequence = 0
         self._logical_sequence = 0
+        self._event_sequence = 0
         self._checkpoint_count = 0
         self._aggregate_dirty = False
         self._last_snapshot_at = self._started_at
@@ -235,12 +237,15 @@ class RunRecorder:
             runtime_dir=runtime_dir,
             http_attempts_path=trace_dir / f"{self._run_id}.http_attempts.jsonl",
             logical_requests_path=trace_dir / f"{self._run_id}.logical_requests.jsonl",
+            llm_calls_path=trace_dir / f"{self._run_id}.llm_calls.jsonl",
             run_manifest_path=runtime_dir / f"{self._run_id}.manifest.json",
             latest_manifest_path=runtime_dir / "latest_run_manifest.json",
         )
 
         self._http_attempts_handle = None
         self._logical_requests_handle = None
+        self._llm_calls_handle = None
+        self._llm_call_sequence = 0
 
         if self.enabled:
             self._http_attempts_handle = self.paths.http_attempts_path.open(
@@ -249,6 +254,11 @@ class RunRecorder:
                 buffering=1,
             )
             self._logical_requests_handle = self.paths.logical_requests_path.open(
+                "a",
+                encoding="utf-8",
+                buffering=1,
+            )
+            self._llm_calls_handle = self.paths.llm_calls_path.open(
                 "a",
                 encoding="utf-8",
                 buffering=1,
@@ -280,6 +290,9 @@ class RunRecorder:
                 "attempt_count": 0,
                 "first_attempt_sequence_id": None,
                 "last_attempt_sequence_id": None,
+                "llm_call_count": 0,
+                "first_llm_call_id": None,
+                "last_llm_call_id": None,
             }
 
             bound_context = {
@@ -289,6 +302,9 @@ class RunRecorder:
                 "data_source": normalized_metadata.get("data_source"),
                 "dependency_type": normalized_metadata.get("dependency_type"),
                 "mutated": normalized_metadata.get("mutated"),
+                "phase": normalized_metadata.get("phase"),
+                "component": normalized_metadata.get("component"),
+                "event_type": normalized_metadata.get("event_type"),
             }
             context_token = _LOGICAL_REQUEST_CONTEXT.set(bound_context)
             return LogicalRequestHandle(
@@ -306,6 +322,8 @@ class RunRecorder:
         skipped_reason: str | None = None,
         state_changed: bool = False,
         request_failed: bool = False,
+        result_metadata: dict[str, Any] | None = None,
+        response_summary: dict[str, Any] | None = None,
     ) -> None:
         if not self.enabled or self._closed or handle is None:
             return
@@ -322,8 +340,12 @@ class RunRecorder:
                     (time.perf_counter() - active_request["started_monotonic"]) * 1000,
                     3,
                 )
+                self._event_sequence += 1
 
                 event = {
+                    "schema_version": 1,
+                    "trace_kind": "logical_request",
+                    "event_sequence_id": self._event_sequence,
                     "run_id": self._run_id,
                     "logical_request_id": handle.logical_request_id,
                     "started_at": active_request["started_at"],
@@ -339,12 +361,25 @@ class RunRecorder:
                         "first_attempt_sequence_id"
                     ],
                     "last_attempt_sequence_id": active_request["last_attempt_sequence_id"],
-                    "response": {
-                        "status_code": response.status_code if response is not None else None,
-                        "ok": response.ok if response is not None else False,
-                    },
+                    "llm_call_count": active_request["llm_call_count"],
+                    "first_llm_call_id": active_request["first_llm_call_id"],
+                    "last_llm_call_id": active_request["last_llm_call_id"],
+                    "response": (
+                        _sanitize_mapping(response_summary)
+                        if response_summary is not None
+                        else (
+                            {
+                                "status_code": response.status_code,
+                                "ok": response.ok,
+                            }
+                            if response is not None
+                            else None
+                        )
+                    ),
                 }
                 event.update(active_request["metadata"])
+                if result_metadata:
+                    event.update(_sanitize_mapping(result_metadata))
                 self._append_jsonl(self._logical_requests_handle, event)
             finally:
                 _LOGICAL_REQUEST_CONTEXT.reset(handle.context_token)
@@ -370,7 +405,9 @@ class RunRecorder:
             return
 
         with self._lock:
+            self._event_sequence += 1
             self._attempt_sequence += 1
+            event_sequence_id = self._event_sequence
             attempt_sequence_id = self._attempt_sequence
             logical_context = _LOGICAL_REQUEST_CONTEXT.get()
 
@@ -384,9 +421,25 @@ class RunRecorder:
                     active_request["last_attempt_sequence_id"] = attempt_sequence_id
 
             event = {
+                "schema_version": 1,
+                "trace_kind": "http_attempt",
+                "event_sequence_id": event_sequence_id,
                 "run_id": self._run_id,
                 "attempt_sequence_id": attempt_sequence_id,
                 "recorded_at": _utc_now_iso(),
+                "phase": (
+                    logical_context.get("phase") if logical_context is not None else None
+                ),
+                "component": (
+                    logical_context.get("component")
+                    if logical_context is not None
+                    else None
+                ),
+                "logical_event_type": (
+                    logical_context.get("event_type")
+                    if logical_context is not None
+                    else None
+                ),
                 "logical_request_id": (
                     logical_context.get("logical_request_id")
                     if logical_context is not None
@@ -442,6 +495,106 @@ class RunRecorder:
                 }
 
             self._append_jsonl(self._http_attempts_handle, event)
+
+    def record_llm_call(
+        self,
+        *,
+        model: str,
+        cache_hit: bool,
+        json_mode: bool,
+        temperature: float,
+        max_tokens: int,
+        prompt: str,
+        system_prompt: str,
+        response_text: str,
+        duration_ms: float,
+        attempt_count: int,
+        input_tokens: int,
+        output_tokens: int,
+        trace_metadata: dict[str, Any] | None = None,
+        error: BaseException | None = None,
+    ) -> None:
+        if not self.enabled or self._closed:
+            return
+
+        with self._lock:
+            self._event_sequence += 1
+            self._llm_call_sequence += 1
+            event_sequence_id = self._event_sequence
+            llm_call_id = self._llm_call_sequence
+            logical_context = _LOGICAL_REQUEST_CONTEXT.get()
+
+            if logical_context is not None:
+                logical_request_id = logical_context["logical_request_id"]
+                active_request = self._active_logical_requests.get(logical_request_id)
+                if active_request is not None:
+                    active_request["llm_call_count"] += 1
+                    if active_request["first_llm_call_id"] is None:
+                        active_request["first_llm_call_id"] = llm_call_id
+                    active_request["last_llm_call_id"] = llm_call_id
+
+            event = {
+                "schema_version": 1,
+                "trace_kind": "llm_call",
+                "event_sequence_id": event_sequence_id,
+                "run_id": self._run_id,
+                "llm_call_id": llm_call_id,
+                "recorded_at": _utc_now_iso(),
+                "phase": (
+                    logical_context.get("phase") if logical_context is not None else None
+                ),
+                "component": (
+                    logical_context.get("component")
+                    if logical_context is not None
+                    else None
+                ),
+                "logical_event_type": (
+                    logical_context.get("event_type")
+                    if logical_context is not None
+                    else None
+                ),
+                "logical_request_id": (
+                    logical_context.get("logical_request_id")
+                    if logical_context is not None
+                    else None
+                ),
+                "logical_operation_id": (
+                    logical_context.get("operation_id")
+                    if logical_context is not None
+                    else None
+                ),
+                "llm": {
+                    "model": model,
+                    "cache_hit": cache_hit,
+                    "json_mode": json_mode,
+                    "temperature": temperature,
+                    "max_tokens": max_tokens,
+                    "attempt_count": attempt_count,
+                    "duration_ms": round(duration_ms, 3),
+                    "input_tokens": input_tokens,
+                    "output_tokens": output_tokens,
+                    "result_empty": not bool(response_text),
+                },
+                "prompt": _serialize_preview(prompt, self.max_preview_chars),
+                "system_prompt": _serialize_preview(
+                    system_prompt,
+                    min(self.max_preview_chars, 1000),
+                ),
+                "response": _serialize_preview(response_text, self.max_preview_chars),
+                "error": (
+                    {
+                        "type": type(error).__name__,
+                        "message": str(error),
+                    }
+                    if error is not None
+                    else None
+                ),
+            }
+
+            if trace_metadata:
+                event["metadata"] = _sanitize_mapping(trace_metadata)
+
+            self._append_jsonl(self._llm_calls_handle, event)
 
     def mark_aggregate_dirty(self) -> None:
         if not self.enabled or self._closed:
@@ -516,6 +669,7 @@ class RunRecorder:
 
             self._http_attempts_handle.close()
             self._logical_requests_handle.close()
+            self._llm_calls_handle.close()
             self._closed = True
 
     def _append_jsonl(self, handle: Any, payload: dict[str, Any]) -> None:
@@ -524,13 +678,19 @@ class RunRecorder:
             handle.flush()
 
     def _flush_trace_handles(self, *, sync_to_disk: bool) -> None:
-        if self._http_attempts_handle is None or self._logical_requests_handle is None:
+        if (
+            self._http_attempts_handle is None
+            or self._logical_requests_handle is None
+            or self._llm_calls_handle is None
+        ):
             return
         self._http_attempts_handle.flush()
         self._logical_requests_handle.flush()
+        self._llm_calls_handle.flush()
         if sync_to_disk:
             os.fsync(self._http_attempts_handle.fileno())
             os.fsync(self._logical_requests_handle.fileno())
+            os.fsync(self._llm_calls_handle.fileno())
 
     def _manifest_payload(self, completed_at: str | None = None) -> dict[str, Any]:
         return {
@@ -545,11 +705,14 @@ class RunRecorder:
                 "output_dir": str(self.paths.output_dir),
                 "http_attempts_trace": str(self.paths.http_attempts_path),
                 "logical_requests_trace": str(self.paths.logical_requests_path),
+                "llm_calls_trace": str(self.paths.llm_calls_path),
                 "latest_snapshot_report": str(self.paths.output_dir / "report.json"),
             },
             "counters": {
+                "event_sequence": self._event_sequence,
                 "attempt_sequence": self._attempt_sequence,
                 "logical_sequence": self._logical_sequence,
+                "llm_call_sequence": self._llm_call_sequence,
                 "checkpoint_count": self._checkpoint_count,
                 "last_snapshot_at": self._last_snapshot_at,
                 "last_snapshot_reason": self._last_snapshot_reason,
@@ -561,5 +724,11 @@ class RunRecorder:
 
     def _write_manifest(self, completed_at: str | None = None) -> None:
         payload = self._manifest_payload(completed_at=completed_at)
-        atomic_write_json(self.paths.run_manifest_path, payload)
-        atomic_write_json(self.paths.latest_manifest_path, payload)
+        for manifest_path in (
+            self.paths.run_manifest_path,
+            self.paths.latest_manifest_path,
+        ):
+            try:
+                atomic_write_json(manifest_path, payload)
+            except PermissionError as exc:  # pragma: no cover - Windows file lock race
+                print(f"Manifest write skipped for {manifest_path.name}: {exc}")

@@ -262,6 +262,16 @@ class SmartValueGenerator:
         )
         self.parameters_reqs: Dict[str, Any] = self.parameter_requirements_labels
 
+    def _llm_trace_metadata(
+        self, *, purpose: str, is_request_body: bool
+    ) -> Dict[str, Any]:
+        return {
+            "llm_purpose": purpose,
+            "operation_id": self.operation_properties.operation_id,
+            "endpoint_path": self.operation_properties.endpoint_path,
+            "is_request_body": is_request_body,
+        }
+
     def _format_param_dict_for_prompt(self, params: Optional[Dict]) -> Dict:
         """
         Convert a parameter dict to a format suitable for LLM prompts.
@@ -521,6 +531,10 @@ class SmartValueGenerator:
             user_message=parameter_prompt,
             system_message=PARAMETERS_GEN_SYSTEM_MESSAGE,
             json_mode=True,
+            trace_metadata=self._llm_trace_metadata(
+                purpose="value_agent_params",
+                is_request_body=False,
+            ),
         )
         try:
             generated_parameters = json.loads(generated_parameters)
@@ -563,6 +577,10 @@ class SmartValueGenerator:
                 user_message=request_body_prompt,
                 system_message=REQUEST_BODY_GEN_SYSTEM_MESSAGE,
                 json_mode=True,
+                trace_metadata=self._llm_trace_metadata(
+                    purpose="value_agent_body",
+                    is_request_body=True,
+                ),
             )
             try:
                 generated_request_body = json.loads(generated_request_body)
@@ -598,6 +616,10 @@ class SmartValueGenerator:
             user_message=parameter_prompt,
             system_message=PARAMETERS_GEN_SYSTEM_MESSAGE,
             json_mode=True,
+            trace_metadata=self._llm_trace_metadata(
+                purpose="value_agent_params_informed",
+                is_request_body=False,
+            ),
         )
         try:
             generated_parameters = json.loads(generated_parameters)
@@ -637,6 +659,10 @@ class SmartValueGenerator:
                 user_message=request_body_prompt,
                 system_message=REQUEST_BODY_GEN_SYSTEM_MESSAGE,
                 json_mode=True,
+                trace_metadata=self._llm_trace_metadata(
+                    purpose="value_agent_body_informed",
+                    is_request_body=True,
+                ),
             )
             try:
                 generated_request_body = json.loads(generated_request_body)

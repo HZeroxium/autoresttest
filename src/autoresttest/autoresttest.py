@@ -280,6 +280,8 @@ class AutoRestTest:
             tui=self.tui,
             run_recorder=run_recorder,
         )
+        if operation_graph.request_generator is not None:
+            operation_graph.request_generator.run_recorder = run_recorder
         db_q_table = get_q_table_cache_path(spec_name)
 
         # Initialize Q-tables for all agents with progress tracking
