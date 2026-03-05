@@ -19,9 +19,11 @@ from autoresttest.models import to_dict_helper
 from autoresttest.run_artifacts import (
     atomic_write_json,
     build_report_title,
-    ensure_output_dir,
-    ensure_runtime_dir,
-    ensure_trace_dir,
+    ensure_dataset_dir,
+    ensure_run_dir,
+    ensure_run_metadata_dir,
+    ensure_run_runtime_dir,
+    ensure_run_trace_dir,
     write_standard_output_snapshot,
 )
 
@@ -57,14 +59,15 @@ class LogicalRequestHandle:
 
 @dataclass(frozen=True)
 class RunRecorderPaths:
-    output_dir: Path
+    dataset_dir: Path
+    run_dir: Path
+    metadata_dir: Path
     trace_dir: Path
     runtime_dir: Path
     http_attempts_path: Path
     logical_requests_path: Path
     llm_calls_path: Path
     run_manifest_path: Path
-    latest_manifest_path: Path
 
 
 def _utc_now_iso() -> str:
@@ -227,19 +230,22 @@ class RunRecorder:
         self._last_snapshot_attempt_sequence = 0
         self._active_logical_requests: dict[int, dict[str, Any]] = {}
 
-        output_dir = ensure_output_dir(spec_name)
-        trace_dir = ensure_trace_dir(spec_name)
-        runtime_dir = ensure_runtime_dir(spec_name)
+        dataset_dir = ensure_dataset_dir(spec_name)
+        run_dir = ensure_run_dir(spec_name, self._run_id)
+        metadata_dir = ensure_run_metadata_dir(spec_name, self._run_id)
+        trace_dir = ensure_run_trace_dir(spec_name, self._run_id)
+        runtime_dir = ensure_run_runtime_dir(spec_name, self._run_id)
 
         self.paths = RunRecorderPaths(
-            output_dir=output_dir,
+            dataset_dir=dataset_dir,
+            run_dir=run_dir,
+            metadata_dir=metadata_dir,
             trace_dir=trace_dir,
             runtime_dir=runtime_dir,
-            http_attempts_path=trace_dir / f"{self._run_id}.http_attempts.jsonl",
-            logical_requests_path=trace_dir / f"{self._run_id}.logical_requests.jsonl",
-            llm_calls_path=trace_dir / f"{self._run_id}.llm_calls.jsonl",
-            run_manifest_path=runtime_dir / f"{self._run_id}.manifest.json",
-            latest_manifest_path=runtime_dir / "latest_run_manifest.json",
+            http_attempts_path=trace_dir / "http_attempts.jsonl",
+            logical_requests_path=trace_dir / "logical_requests.jsonl",
+            llm_calls_path=trace_dir / "llm_calls.jsonl",
+            run_manifest_path=runtime_dir / "manifest.json",
         )
 
         self._http_attempts_handle = None
@@ -631,7 +637,12 @@ class RunRecorder:
                     return False
 
             try:
-                write_standard_output_snapshot(self.spec_name, q_learning, self.report_title)
+                write_standard_output_snapshot(
+                    self.spec_name,
+                    self._run_id,
+                    q_learning,
+                    self.report_title,
+                )
                 self._checkpoint_count += 1
                 self._aggregate_dirty = False
                 self._last_snapshot_monotonic = time.monotonic()
@@ -702,11 +713,15 @@ class RunRecorder:
             "updated_at": _utc_now_iso(),
             "completed_at": completed_at,
             "paths": {
-                "output_dir": str(self.paths.output_dir),
+                "dataset_dir": str(self.paths.dataset_dir),
+                "run_dir": str(self.paths.run_dir),
+                "metadata_dir": str(self.paths.metadata_dir),
+                "trace_dir": str(self.paths.trace_dir),
+                "runtime_dir": str(self.paths.runtime_dir),
                 "http_attempts_trace": str(self.paths.http_attempts_path),
                 "logical_requests_trace": str(self.paths.logical_requests_path),
                 "llm_calls_trace": str(self.paths.llm_calls_path),
-                "latest_snapshot_report": str(self.paths.output_dir / "report.json"),
+                "latest_snapshot_report": str(self.paths.run_dir / "report.json"),
             },
             "counters": {
                 "event_sequence": self._event_sequence,
@@ -724,11 +739,9 @@ class RunRecorder:
 
     def _write_manifest(self, completed_at: str | None = None) -> None:
         payload = self._manifest_payload(completed_at=completed_at)
-        for manifest_path in (
-            self.paths.run_manifest_path,
-            self.paths.latest_manifest_path,
-        ):
-            try:
-                atomic_write_json(manifest_path, payload)
-            except PermissionError as exc:  # pragma: no cover - Windows file lock race
-                print(f"Manifest write skipped for {manifest_path.name}: {exc}")
+        try:
+            atomic_write_json(self.paths.run_manifest_path, payload)
+        except PermissionError as exc:  # pragma: no cover - Windows file lock race
+            print(
+                f"Manifest write skipped for {self.paths.run_manifest_path.name}: {exc}"
+            )

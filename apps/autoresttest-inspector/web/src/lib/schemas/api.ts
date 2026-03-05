@@ -199,6 +199,7 @@ export const operationMetricsResponseSchema = z.object({
 
 export const artifactsResponseSchema = z.object({
   datasetId: z.string(),
+  runId: z.string(),
   artifacts: z.array(
     z.object({
       name: z.string(),
@@ -213,6 +214,7 @@ export const runBundleSummarySchema = z.object({
   manifest: runManifestSummarySchema,
   report: z.record(z.any()).nullable().optional(),
   operationStatusCodes: z.record(z.record(z.number())).nullable().optional(),
+  hasQtableSnapshot: z.boolean().optional(),
   traceCounts: z.record(z.number()),
   phaseSummaries: z.record(z.record(z.number())),
   warnings: z.array(z.string()),

@@ -96,24 +96,24 @@ For more information, visit: https://github.com/tylerstennett/AutoRestTest
     return parser.parse_args()
 
 
-def output_q_table(q_learning: QLearning, spec_name: str):
-    output_dir = ensure_output_dir(spec_name)
+def output_q_table(q_learning: QLearning, spec_name: str, run_id: str):
+    output_dir = ensure_output_dir(spec_name, run_id)
     atomic_write_json(output_dir / "q_tables.json", build_q_table_payload(q_learning))
 
 
-def output_successes(q_learning: QLearning, spec_name: str):
-    output_dir = ensure_output_dir(spec_name)
+def output_successes(q_learning: QLearning, spec_name: str, run_id: str):
+    output_dir = ensure_output_dir(spec_name, run_id)
     for filename, payload in build_success_payloads(q_learning).items():
         atomic_write_json(output_dir / filename, payload)
 
 
-def output_errors(q_learning: QLearning, spec_name: str):
-    output_dir = ensure_output_dir(spec_name)
+def output_errors(q_learning: QLearning, spec_name: str, run_id: str):
+    output_dir = ensure_output_dir(spec_name, run_id)
     atomic_write_json(output_dir / "server_errors.json", build_error_payload(q_learning))
 
 
-def output_operation_status_codes(q_learning: QLearning, spec_name: str):
-    output_dir = ensure_output_dir(spec_name)
+def output_operation_status_codes(q_learning: QLearning, spec_name: str, run_id: str):
+    output_dir = ensure_output_dir(spec_name, run_id)
     atomic_write_json(
         output_dir / "operation_status_codes.json",
         build_operation_status_codes_payload(q_learning),
@@ -121,9 +121,12 @@ def output_operation_status_codes(q_learning: QLearning, spec_name: str):
 
 
 def output_report(
-    q_learning: QLearning, spec_name: str, spec_parser: SpecificationParser
+    q_learning: QLearning,
+    spec_name: str,
+    spec_parser: SpecificationParser,
+    run_id: str,
 ):
-    output_dir = ensure_output_dir(spec_name)
+    output_dir = ensure_output_dir(spec_name, run_id)
     atomic_write_json(
         output_dir / "report.json",
         build_report_payload(
@@ -282,6 +285,9 @@ class AutoRestTest:
         )
         if operation_graph.request_generator is not None:
             operation_graph.request_generator.run_recorder = run_recorder
+        if run_recorder is None:
+            raise ValueError("Run recorder is required for run-scoped output paths.")
+        run_id = run_recorder.run_id
         db_q_table = get_q_table_cache_path(spec_name)
 
         # Initialize Q-tables for all agents with progress tracking
@@ -297,7 +303,7 @@ class AutoRestTest:
             agent.initialize_q_table()
             self.tui.print_step(f"Initialized {agent_name} Agent Q-table", "success")
 
-        output_q_table(q_learning, spec_name)
+        output_q_table(q_learning, spec_name, run_id)
 
         with shelve.open(str(db_q_table)) as db:
             loaded_value_from_shelf = False
@@ -399,7 +405,7 @@ class AutoRestTest:
             except Exception:
                 self.tui.print_step("Failed to cache Q-tables", "warning")
 
-        output_q_table(q_learning, spec_name)
+        output_q_table(q_learning, spec_name, run_id)
         if run_recorder is not None:
             run_recorder.mark_aggregate_dirty()
             run_recorder.maybe_checkpoint(
@@ -493,12 +499,14 @@ class AutoRestTest:
                 if not saved:
                     write_standard_output_snapshot(
                         spec_name,
+                        run_recorder.run_id,
                         q_learning,
                         run_recorder.report_title,
                     )
             else:
                 write_standard_output_snapshot(
                     spec_name,
+                    run_recorder.run_id,
                     q_learning,
                     run_recorder.report_title,
                 )
@@ -506,7 +514,10 @@ class AutoRestTest:
             run_recorder.set_status("completed")
 
             self.tui.print_success("AutoRestTest completed successfully!")
-            self.tui.print_step(f"Results saved to: data/{spec_name}/", "info")
+            self.tui.print_step(
+                f"Results saved to: data/{spec_name}/{run_recorder.run_id}/",
+                "info",
+            )
         except KeyboardInterrupt:
             run_recorder.set_status("interrupted")
             if q_learning is not None:
@@ -519,6 +530,7 @@ class AutoRestTest:
                 if not saved:
                     write_standard_output_snapshot(
                         spec_name,
+                        run_recorder.run_id,
                         q_learning,
                         run_recorder.report_title,
                     )
@@ -535,6 +547,7 @@ class AutoRestTest:
                 if not saved:
                     write_standard_output_snapshot(
                         spec_name,
+                        run_recorder.run_id,
                         q_learning,
                         run_recorder.report_title,
                     )

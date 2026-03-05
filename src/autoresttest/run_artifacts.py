@@ -14,22 +14,51 @@ PROJECT_ROOT = AUTORESTTEST_DIR.parent.parent
 DATA_ROOT = PROJECT_ROOT / "data"
 
 
-def ensure_output_dir(spec_name: str) -> Path:
-    output_dir = DATA_ROOT / spec_name
-    output_dir.mkdir(parents=True, exist_ok=True)
-    return output_dir
+def ensure_dataset_dir(spec_name: str) -> Path:
+    dataset_dir = DATA_ROOT / spec_name
+    dataset_dir.mkdir(parents=True, exist_ok=True)
+    return dataset_dir
 
 
-def ensure_runtime_dir(spec_name: str) -> Path:
-    runtime_dir = ensure_output_dir(spec_name) / "runtime"
+def ensure_run_dir(spec_name: str, run_id: str) -> Path:
+    run_dir = ensure_dataset_dir(spec_name) / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+    return run_dir
+
+
+def ensure_run_metadata_dir(spec_name: str, run_id: str) -> Path:
+    metadata_dir = ensure_run_dir(spec_name, run_id) / "metadata"
+    metadata_dir.mkdir(parents=True, exist_ok=True)
+    return metadata_dir
+
+
+def ensure_run_runtime_dir(spec_name: str, run_id: str) -> Path:
+    runtime_dir = ensure_run_metadata_dir(spec_name, run_id) / "runtime"
     runtime_dir.mkdir(parents=True, exist_ok=True)
     return runtime_dir
 
 
-def ensure_trace_dir(spec_name: str) -> Path:
-    trace_dir = ensure_output_dir(spec_name) / "trace"
+def ensure_run_trace_dir(spec_name: str, run_id: str) -> Path:
+    trace_dir = ensure_run_metadata_dir(spec_name, run_id) / "trace"
     trace_dir.mkdir(parents=True, exist_ok=True)
     return trace_dir
+
+
+def ensure_output_dir(spec_name: str, run_id: str | None = None) -> Path:
+    if run_id is None:
+        raise ValueError(
+            "run_id is required in the run-centric data layout. "
+            "Use ensure_dataset_dir(...) for dataset scope or ensure_run_dir(..., run_id) for run scope."
+        )
+    return ensure_run_dir(spec_name, run_id)
+
+
+def ensure_runtime_dir(spec_name: str, run_id: str) -> Path:
+    return ensure_run_runtime_dir(spec_name, run_id)
+
+
+def ensure_trace_dir(spec_name: str, run_id: str) -> Path:
+    return ensure_run_trace_dir(spec_name, run_id)
 
 
 def build_report_title(spec_name: str, api_title: str | None = None) -> str:
@@ -170,9 +199,9 @@ def build_standard_output_payloads(
 
 
 def write_standard_output_snapshot(
-    spec_name: str, q_learning: Any, report_title: str
+    spec_name: str, run_id: str, q_learning: Any, report_title: str
 ) -> dict[str, Path]:
-    output_dir = ensure_output_dir(spec_name)
+    output_dir = ensure_output_dir(spec_name, run_id)
     written_paths: dict[str, Path] = {}
 
     for filename, payload in build_standard_output_payloads(q_learning, report_title).items():

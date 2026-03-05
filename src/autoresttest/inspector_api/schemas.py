@@ -76,6 +76,7 @@ class RunBundleSummary(CamelModel):
     manifest: RunManifestSummary
     report: dict[str, Any] | None = None
     operation_status_codes: dict[str, dict[str, int]] | None = None
+    has_qtable_snapshot: bool = False
     trace_counts: dict[str, int] = Field(default_factory=dict)
     phase_summaries: dict[str, dict[str, int]] = Field(default_factory=dict)
     warnings: list[str] = Field(default_factory=list)
@@ -250,6 +251,7 @@ class ArtifactSummary(CamelModel):
 
 class ArtifactsResponse(CamelModel):
     dataset_id: str
+    run_id: str
     artifacts: list[ArtifactSummary]
 
 

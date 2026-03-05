@@ -14,18 +14,20 @@ from autoresttest.inspector_api.services.artifact_service import (
 router = APIRouter(prefix="/datasets/{dataset_id}", tags=["artifacts"])
 
 
-@router.get("/artifacts", response_model=ArtifactsResponse)
+@router.get("/runs/{run_id}/artifacts", response_model=ArtifactsResponse)
 def list_artifacts(
     dataset_id: str,
+    run_id: str,
     context: AppContext = Depends(get_context),
 ) -> ArtifactsResponse:
-    return get_artifact_summaries(context, dataset_id)
+    return get_artifact_summaries(context, dataset_id, run_id)
 
 
-@router.get("/artifacts/{artifact_name}")
+@router.get("/runs/{run_id}/artifacts/{artifact_name}")
 def read_artifact(
     dataset_id: str,
+    run_id: str,
     artifact_name: str,
     context: AppContext = Depends(get_context),
 ) -> dict[str, object]:
-    return get_artifact_payload(context, dataset_id, artifact_name)
+    return get_artifact_payload(context, dataset_id, run_id, artifact_name)

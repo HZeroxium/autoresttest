@@ -14,7 +14,7 @@ from ..normalization.traces import (
     get_stream_page,
 )
 from .dataset_service import get_dataset_dir
-from .run_service import get_run_summary
+from .run_service import get_run_manifest
 
 
 def get_timeline(
@@ -33,12 +33,12 @@ def get_timeline(
     include_payload: bool = True,
 ) -> TimelinePage:
     dataset_dir = get_dataset_dir(context, dataset_id)
-    run_summary = get_run_summary(context, dataset_id, run_id)
+    run_manifest = get_run_manifest(context, dataset_id, run_id)
     return build_timeline_page(
         dataset_dir,
         context.file_cache,
         run_id=run_id,
-        manifest_paths=run_summary.manifest.paths,
+        manifest_paths=run_manifest.paths,
         after_event_sequence_id=after_event_sequence_id,
         limit=limit,
         phase=phase,
@@ -71,12 +71,12 @@ def get_trace_stream(
     max_duration_ms: float | None = None,
 ) -> dict[str, object]:
     dataset_dir = get_dataset_dir(context, dataset_id)
-    run_summary = get_run_summary(context, dataset_id, run_id)
+    run_manifest = get_run_manifest(context, dataset_id, run_id)
     return get_stream_page(
         dataset_dir,
         context.file_cache,
         run_id=run_id,
-        manifest_paths=run_summary.manifest.paths,
+        manifest_paths=run_manifest.paths,
         stream_key=stream_key,
         offset=offset,
         limit=limit,
@@ -106,12 +106,12 @@ def get_trace_chains(
     search: str | None = None,
 ) -> TraceChainPage:
     dataset_dir = get_dataset_dir(context, dataset_id)
-    run_summary = get_run_summary(context, dataset_id, run_id)
+    run_manifest = get_run_manifest(context, dataset_id, run_id)
     return build_trace_chain_page(
         dataset_dir,
         context.file_cache,
         run_id=run_id,
-        manifest_paths=run_summary.manifest.paths,
+        manifest_paths=run_manifest.paths,
         limit=limit,
         phase=phase,
         operation_id=operation_id,
@@ -127,10 +127,10 @@ def get_operation_metrics(
     run_id: str,
 ) -> OperationMetricsResponse:
     dataset_dir = get_dataset_dir(context, dataset_id)
-    run_summary = get_run_summary(context, dataset_id, run_id)
+    run_manifest = get_run_manifest(context, dataset_id, run_id)
     return build_operation_metrics(
         dataset_dir,
         context.file_cache,
         run_id=run_id,
-        manifest_paths=run_summary.manifest.paths,
+        manifest_paths=run_manifest.paths,
     )

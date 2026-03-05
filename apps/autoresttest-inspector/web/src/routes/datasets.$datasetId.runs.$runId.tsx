@@ -32,10 +32,10 @@ export function RunRoutePage({ datasetId, runId }: RunRoutePageProps) {
   const datasetQuery = useDataset(datasetId);
   const runsQuery = useRuns(datasetId);
   const runQuery = useRun(datasetId, runId);
-  const graphQuery = useGraph(datasetId);
-  const runtimeQtablesQuery = useRuntimeQtables(datasetId);
+  const graphQuery = useGraph(datasetId, runId);
+  const runtimeQtablesQuery = useRuntimeQtables(datasetId, runId);
   const cachedQtablesQuery = useCachedQtables(datasetId);
-  const artifactsQuery = useArtifacts(datasetId);
+  const artifactsQuery = useArtifacts(datasetId, runId);
   const timelineQuery = useTimeline(datasetId, runId);
 
   const activeTab = useInspectorStore((state) => state.activeTab);
@@ -110,7 +110,11 @@ export function RunRoutePage({ datasetId, runId }: RunRoutePageProps) {
           />
         </Tabs.Content>
         <Tabs.Content value="artifacts">
-          <ArtifactsPanel datasetId={datasetId} artifacts={artifactsQuery.data} />
+          <ArtifactsPanel
+            datasetId={datasetId}
+            runId={runId}
+            artifacts={artifactsQuery.data}
+          />
         </Tabs.Content>
         <Tabs.Content value="compare">
           <RunComparePanel

@@ -7,10 +7,11 @@ import { useInspectorStore } from "@/lib/state/inspector-store";
 
 type ArtifactsPanelProps = {
   datasetId: string;
+  runId: string;
   artifacts?: ArtifactsResponse;
 };
 
-export function ArtifactsPanel({ datasetId, artifacts }: ArtifactsPanelProps) {
+export function ArtifactsPanel({ datasetId, runId, artifacts }: ArtifactsPanelProps) {
   const selectedArtifact = useInspectorStore((state) => state.selectedArtifact);
   const setSelectedArtifact = useInspectorStore((state) => state.setSelectedArtifact);
   const [search, setSearch] = useState("");
@@ -33,7 +34,11 @@ export function ArtifactsPanel({ datasetId, artifacts }: ArtifactsPanelProps) {
     [artifacts, deferredSearch],
   );
 
-  const payloadQuery = useArtifactPayload(datasetId, selectedArtifact ?? undefined);
+  const payloadQuery = useArtifactPayload(
+    datasetId,
+    runId,
+    selectedArtifact ?? undefined,
+  );
 
   return (
     <div className="grid gap-4 xl:grid-cols-[0.45fr_0.55fr]">

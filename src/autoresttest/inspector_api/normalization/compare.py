@@ -37,6 +37,9 @@ def build_compare_response(
 
     baseline_llm = baseline.trace_counts.get("llm_calls", 0)
     candidate_llm = candidate.trace_counts.get("llm_calls", 0)
+    qtable_comparison_available = (
+        bool(baseline.has_qtable_snapshot) and bool(candidate.has_qtable_snapshot)
+    )
     return CompareResponse(
         dataset_id=dataset_id,
         baseline_run_id=baseline.manifest.run_id,
@@ -64,8 +67,6 @@ def build_compare_response(
             "deltaCalls": candidate_llm - baseline_llm,
         },
         operation_deltas=operation_deltas,
-        qtable_comparison_available=False,
-        warnings=[
-            "Per-run q-table diff is unavailable because q_tables.json is stored as the latest dataset snapshot, not per-run history."
-        ],
+        qtable_comparison_available=qtable_comparison_available,
+        warnings=[],
     )

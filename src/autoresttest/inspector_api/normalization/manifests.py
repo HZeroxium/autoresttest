@@ -19,6 +19,12 @@ TRACE_PATH_KEYS = {
     "llm_calls": "llm_calls_trace",
 }
 
+TRACE_FILE_NAMES = {
+    "logical_requests": "logical_requests.jsonl",
+    "http_attempts": "http_attempts.jsonl",
+    "llm_calls": "llm_calls.jsonl",
+}
+
 
 def _safe_dt(value: Any) -> datetime | None:
     if not value or not isinstance(value, str):
@@ -29,20 +35,37 @@ def _safe_dt(value: Any) -> datetime | None:
         return None
 
 
-def _is_valid_manifest_file(path: Path) -> bool:
-    if not path.is_file():
-        return False
-    if path.suffix != ".json":
-        return False
-    if path.name == "latest_run_manifest.json":
-        return False
-    if path.name.endswith(".tmp"):
-        return False
-    return path.name.endswith(".manifest.json")
-
-
 def _is_dataset_dir(path: Path) -> bool:
     return path.is_dir() and not path.name.startswith(".")
+
+
+def _manifest_path_for_run_dir(run_dir: Path) -> Path:
+    return run_dir / "metadata" / "runtime" / "manifest.json"
+
+
+def _iter_run_manifest_paths(dataset_dir: Path) -> list[Path]:
+    manifest_paths: list[Path] = []
+    for run_dir in dataset_dir.iterdir():
+        if not run_dir.is_dir() or run_dir.name.startswith("."):
+            continue
+        manifest_path = _manifest_path_for_run_dir(run_dir)
+        if manifest_path.exists() and manifest_path.is_file():
+            manifest_paths.append(manifest_path)
+    return manifest_paths
+
+
+def resolve_run_dir(
+    dataset_dir: Path,
+    run_id: str,
+    manifest_paths: dict[str, Any] | None,
+) -> Path:
+    manifest_paths = manifest_paths or {}
+    raw_run_dir = manifest_paths.get("run_dir")
+    if isinstance(raw_run_dir, str) and raw_run_dir:
+        candidate = Path(raw_run_dir)
+        if candidate.exists() and candidate.is_dir():
+            return candidate
+    return dataset_dir / run_id
 
 
 def resolve_trace_paths(
@@ -50,20 +73,17 @@ def resolve_trace_paths(
     run_id: str,
     manifest_paths: dict[str, Any] | None,
 ) -> dict[str, Path | None]:
-    trace_dir = dataset_dir / "trace"
+    run_dir = resolve_run_dir(dataset_dir, run_id, manifest_paths)
+    trace_dir = run_dir / "metadata" / "trace"
     paths: dict[str, Path | None] = {}
     manifest_paths = manifest_paths or {}
     for key, manifest_key in TRACE_PATH_KEYS.items():
         raw_path = manifest_paths.get(manifest_key)
-        candidate: Path | None = None
         if isinstance(raw_path, str) and raw_path:
             candidate = Path(raw_path)
         else:
-            candidate = trace_dir / f"{run_id}.{key}.jsonl"
-        if candidate.exists():
-            paths[key] = candidate
-        else:
-            paths[key] = None
+            candidate = trace_dir / TRACE_FILE_NAMES[key]
+        paths[key] = candidate if candidate.exists() else None
     return paths
 
 
@@ -73,7 +93,12 @@ def build_run_manifest_summary(
     dataset_dir: Path,
 ) -> RunManifestSummary:
     run_id = str(manifest_payload.get("run_id", "unknown"))
-    trace_paths = resolve_trace_paths(dataset_dir, run_id, manifest_payload.get("paths"))
+    paths = (
+        manifest_payload.get("paths", {})
+        if isinstance(manifest_payload.get("paths"), dict)
+        else {}
+    )
+    trace_paths = resolve_trace_paths(dataset_dir, run_id, paths)
     return RunManifestSummary(
         run_id=run_id,
         dataset_id=dataset_id,
@@ -81,26 +106,26 @@ def build_run_manifest_summary(
         started_at=_safe_dt(manifest_payload.get("started_at")),
         updated_at=_safe_dt(manifest_payload.get("updated_at")),
         completed_at=_safe_dt(manifest_payload.get("completed_at")),
-        paths=manifest_payload.get("paths", {}) if isinstance(manifest_payload.get("paths"), dict) else {},
-        counters=manifest_payload.get("counters", {}) if isinstance(manifest_payload.get("counters"), dict) else {},
+        paths=paths,
+        counters=(
+            manifest_payload.get("counters", {})
+            if isinstance(manifest_payload.get("counters"), dict)
+            else {}
+        ),
         trace_availability={key: path is not None for key, path in trace_paths.items()},
     )
 
 
 def list_run_manifests(dataset_dir: Path, file_cache: Any) -> list[RunManifestSummary]:
-    runtime_dir = dataset_dir / "runtime"
-    if not runtime_dir.exists():
-        return []
-
     manifests: list[RunManifestSummary] = []
-    for path in runtime_dir.iterdir():
-        if not _is_valid_manifest_file(path):
-            continue
+    for manifest_path in _iter_run_manifest_paths(dataset_dir):
         try:
-            payload = file_cache.get_or_load_json(path)
+            payload = file_cache.get_or_load_json(manifest_path)
             if not isinstance(payload, dict):
                 continue
-            manifests.append(build_run_manifest_summary(dataset_dir.name, payload, dataset_dir))
+            manifests.append(
+                build_run_manifest_summary(dataset_dir.name, payload, dataset_dir)
+            )
         except Exception:
             continue
 
@@ -119,17 +144,27 @@ def list_datasets(data_root: Path, cache_root: Path, file_cache: Any) -> list[Da
     for dataset_dir in sorted(path for path in data_root.iterdir() if _is_dataset_dir(path)):
         runs = list_run_manifests(dataset_dir, file_cache)
         latest_run = runs[0] if runs else None
-        trace_dir = dataset_dir / "trace"
-        runtime_dir = dataset_dir / "runtime"
+
+        has_data_artifacts = False
+        has_trace_artifacts = False
+        for run in runs:
+            run_dir = resolve_run_dir(dataset_dir, run.run_id, run.paths)
+            if (run_dir / "report.json").exists() or (run_dir / "q_tables.json").exists():
+                has_data_artifacts = True
+            trace_dir = run_dir / "metadata" / "trace"
+            if trace_dir.exists() and any(path.suffix == ".jsonl" for path in trace_dir.iterdir()):
+                has_trace_artifacts = True
+
         graph_cache_exists = (cache_root / "graphs" / f"{dataset_dir.name}.dat").exists()
         qtable_cache_exists = (cache_root / "q_tables" / f"{dataset_dir.name}.dat").exists()
+
         datasets.append(
             DatasetSummary(
                 dataset_id=dataset_dir.name,
                 display_name=dataset_dir.name.replace("-", " "),
-                has_data_artifacts=any((dataset_dir / name).exists() for name in ("report.json", "q_tables.json")),
-                has_runtime_manifests=runtime_dir.exists() and any(_is_valid_manifest_file(path) for path in runtime_dir.iterdir()),
-                has_trace_artifacts=trace_dir.exists() and any(path.suffix == ".jsonl" for path in trace_dir.iterdir()),
+                has_data_artifacts=has_data_artifacts,
+                has_runtime_manifests=bool(runs),
+                has_trace_artifacts=has_trace_artifacts,
                 has_graph_cache=graph_cache_exists,
                 has_qtable_cache=qtable_cache_exists,
                 latest_run_id=latest_run.run_id if latest_run else None,
@@ -144,23 +179,40 @@ def get_dataset_detail(dataset_dir: Path, cache_root: Path, file_cache: Any) -> 
     runs = list_run_manifests(dataset_dir, file_cache)
     datasets = list_datasets(dataset_dir.parent, cache_root, file_cache)
     dataset = next(item for item in datasets if item.dataset_id == dataset_dir.name)
-    report_summary = None
-    report_path = dataset_dir / "report.json"
-    if report_path.exists():
-        payload = file_cache.get_or_load_json(report_path)
-        if isinstance(payload, dict):
-            report_summary = payload
 
-    trace_dir = dataset_dir / "trace"
-    trace_file_count = len(list(trace_dir.glob("*.jsonl"))) if trace_dir.exists() else 0
-    artifacts = list_artifact_summaries(dataset_dir, file_cache).artifacts
+    report_summary = None
+    artifact_names: list[str] = []
+    trace_file_count = 0
+    if runs:
+        latest_run = runs[0]
+        latest_run_dir = resolve_run_dir(dataset_dir, latest_run.run_id, latest_run.paths)
+        report_path = latest_run_dir / "report.json"
+        if report_path.exists():
+            payload = file_cache.get_or_load_json(report_path)
+            if isinstance(payload, dict):
+                report_summary = payload
+
+        artifacts = list_artifact_summaries(
+            dataset_dir.name,
+            latest_run.run_id,
+            latest_run_dir,
+            file_cache,
+        ).artifacts
+        artifact_names = [artifact.name for artifact in artifacts if artifact.available]
+
+        for run in runs:
+            run_dir = resolve_run_dir(dataset_dir, run.run_id, run.paths)
+            trace_dir = run_dir / "metadata" / "trace"
+            if trace_dir.exists():
+                trace_file_count += len(list(trace_dir.glob("*.jsonl")))
+
     return DatasetDetail(
         dataset=dataset,
         latest_run=runs[0] if runs else None,
         report_summary=report_summary,
         run_count=len(runs),
         trace_file_count=trace_file_count,
-        artifact_names=[artifact.name for artifact in artifacts if artifact.available],
+        artifact_names=artifact_names,
         has_graph_cache=dataset.has_graph_cache,
         has_qtable_cache=dataset.has_qtable_cache,
         warnings=[],

@@ -14,12 +14,13 @@ from autoresttest.inspector_api.services.qtable_service import (
 router = APIRouter(prefix="/datasets/{dataset_id}", tags=["qtables"])
 
 
-@router.get("/q-tables", response_model=QTableSnapshot)
+@router.get("/runs/{run_id}/q-tables", response_model=QTableSnapshot)
 def get_runtime_qtables(
     dataset_id: str,
+    run_id: str,
     context: AppContext = Depends(get_context),
 ) -> QTableSnapshot:
-    return get_runtime_qtable_snapshot(context, dataset_id)
+    return get_runtime_qtable_snapshot(context, dataset_id, run_id)
 
 
 @router.get("/cache/q-table", response_model=CacheQTableSnapshot)

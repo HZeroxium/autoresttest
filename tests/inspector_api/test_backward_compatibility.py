@@ -8,22 +8,26 @@ from autoresttest.inspector_api.services.trace_service import get_timeline
 
 def test_backward_compatibility_synthesizes_event_order(tmp_path) -> None:
     dataset_dir = tmp_path / "data" / "legacy"
-    runtime_dir = dataset_dir / "runtime"
-    trace_dir = dataset_dir / "trace"
+    run_id = "legacy-run"
+    run_dir = dataset_dir / run_id
+    runtime_dir = run_dir / "metadata" / "runtime"
+    trace_dir = run_dir / "metadata" / "trace"
     runtime_dir.mkdir(parents=True)
     trace_dir.mkdir(parents=True)
-
-    run_id = "legacy-run"
     manifest = {
         "run_id": run_id,
         "status": "completed",
         "started_at": "2026-03-04T15:00:00+00:00",
         "updated_at": "2026-03-04T15:00:02+00:00",
-        "paths": {},
+        "paths": {
+            "run_dir": str(run_dir),
+            "logical_requests_trace": str(trace_dir / "logical_requests.jsonl"),
+            "http_attempts_trace": str(trace_dir / "http_attempts.jsonl"),
+        },
         "counters": {},
     }
-    (runtime_dir / f"{run_id}.manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
-    (trace_dir / f"{run_id}.logical_requests.jsonl").write_text(
+    (runtime_dir / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    (trace_dir / "logical_requests.jsonl").write_text(
         json.dumps(
             {
                 "run_id": run_id,
@@ -35,7 +39,7 @@ def test_backward_compatibility_synthesizes_event_order(tmp_path) -> None:
         + "\n",
         encoding="utf-8",
     )
-    (trace_dir / f"{run_id}.http_attempts.jsonl").write_text(
+    (trace_dir / "http_attempts.jsonl").write_text(
         json.dumps(
             {
                 "run_id": run_id,

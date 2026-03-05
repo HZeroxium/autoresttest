@@ -60,21 +60,32 @@ export function useRun(
   });
 }
 
-export function useGraph(datasetId: string | undefined) {
+export function useGraph(
+  datasetId: string | undefined,
+  runId?: string | undefined,
+) {
   return useQuery({
-    queryKey: ["graph", datasetId],
+    queryKey: ["graph", datasetId, runId ?? ""],
     enabled: Boolean(datasetId),
-    queryFn: () =>
-      fetchApi(`/api/datasets/${datasetId}/graph`, graphSnapshotSchema),
+    queryFn: () => {
+      const query = runId ? `?runId=${encodeURIComponent(runId)}` : "";
+      return fetchApi(`/api/datasets/${datasetId}/graph${query}`, graphSnapshotSchema);
+    },
   });
 }
 
-export function useRuntimeQtables(datasetId: string | undefined) {
+export function useRuntimeQtables(
+  datasetId: string | undefined,
+  runId: string | undefined,
+) {
   return useQuery({
-    queryKey: ["runtime-qtables", datasetId],
-    enabled: Boolean(datasetId),
+    queryKey: ["runtime-qtables", datasetId, runId],
+    enabled: Boolean(datasetId && runId),
     queryFn: () =>
-      fetchApi(`/api/datasets/${datasetId}/q-tables`, qtableSnapshotSchema),
+      fetchApi(
+        `/api/datasets/${datasetId}/runs/${runId}/q-tables`,
+        qtableSnapshotSchema,
+      ),
   });
 }
 
@@ -90,25 +101,32 @@ export function useCachedQtables(datasetId: string | undefined) {
   });
 }
 
-export function useArtifacts(datasetId: string | undefined) {
+export function useArtifacts(
+  datasetId: string | undefined,
+  runId: string | undefined,
+) {
   return useQuery({
-    queryKey: ["artifacts", datasetId],
-    enabled: Boolean(datasetId),
+    queryKey: ["artifacts", datasetId, runId],
+    enabled: Boolean(datasetId && runId),
     queryFn: () =>
-      fetchApi(`/api/datasets/${datasetId}/artifacts`, artifactsResponseSchema),
+      fetchApi(
+        `/api/datasets/${datasetId}/runs/${runId}/artifacts`,
+        artifactsResponseSchema,
+      ),
   });
 }
 
 export function useArtifactPayload(
   datasetId: string | undefined,
+  runId: string | undefined,
   artifactName: string | undefined,
 ) {
   return useQuery({
-    queryKey: ["artifact", datasetId, artifactName],
-    enabled: Boolean(datasetId && artifactName),
+    queryKey: ["artifact", datasetId, runId, artifactName],
+    enabled: Boolean(datasetId && runId && artifactName),
     queryFn: async () => {
       const response = await fetch(
-        `/api/datasets/${datasetId}/artifacts/${artifactName}`,
+        `/api/datasets/${datasetId}/runs/${runId}/artifacts/${artifactName}`,
       );
       if (!response.ok) {
         const payload = await response.json();

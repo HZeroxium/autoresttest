@@ -19,7 +19,9 @@ SUPPORTED_ARTIFACTS = (
 
 
 def list_artifact_summaries(
-    dataset_dir: Path,
+    dataset_id: str,
+    run_id: str,
+    run_dir: Path,
     file_cache: Any,
     *,
     include_qtables: bool = True,
@@ -27,7 +29,7 @@ def list_artifact_summaries(
     artifact_names = SUPPORTED_ARTIFACTS if include_qtables else SUPPORTED_ARTIFACTS[0:2] + SUPPORTED_ARTIFACTS[3:]
     summaries: list[ArtifactSummary] = []
     for name in artifact_names:
-        path = dataset_dir / name
+        path = run_dir / name
         available = path.exists() and path.is_file()
         item_count = None
         size_bytes = None
@@ -49,20 +51,32 @@ def list_artifact_summaries(
                 item_count=item_count,
             )
         )
-    return ArtifactsResponse(dataset_id=dataset_dir.name, artifacts=summaries)
+    return ArtifactsResponse(dataset_id=dataset_id, run_id=run_id, artifacts=summaries)
 
 
-def read_artifact(dataset_dir: Path, file_cache: Any, artifact_name: str) -> dict[str, Any]:
+def read_artifact(
+    dataset_id: str,
+    run_id: str,
+    run_dir: Path,
+    file_cache: Any,
+    artifact_name: str,
+) -> dict[str, Any]:
     if artifact_name not in SUPPORTED_ARTIFACTS:
         raise FileNotFoundError(f"Unsupported artifact: {artifact_name}")
-    path = dataset_dir / artifact_name
+    path = run_dir / artifact_name
     if not path.exists():
         raise FileNotFoundError(f"Artifact not found: {artifact_name}")
     payload = file_cache.get_or_load_json(path)
     if not isinstance(payload, dict):
-        return {"datasetId": dataset_dir.name, "artifactName": artifact_name, "payload": payload}
+        return {
+            "datasetId": dataset_id,
+            "runId": run_id,
+            "artifactName": artifact_name,
+            "payload": payload,
+        }
     return {
-        "datasetId": dataset_dir.name,
+        "datasetId": dataset_id,
+        "runId": run_id,
         "artifactName": artifact_name,
         "payload": payload,
     }

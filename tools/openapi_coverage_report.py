@@ -60,7 +60,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--data-root",
         default="data",
-        help="Root directory containing */operation_status_codes.json",
+        help="Root directory containing data/{dataset}/{run_id}/operation_status_codes.json",
     )
     parser.add_argument(
         "--out-dir",
@@ -68,15 +68,6 @@ def parse_args() -> argparse.Namespace:
         help="Output directory for coverage reports.",
     )
     return parser.parse_args()
-
-
-def canonical_dataset_name(run_name: str, known_datasets: set[str]) -> str | None:
-    if run_name in known_datasets:
-        return run_name
-    stripped = re.sub(r"-\d+$", "", run_name)
-    if stripped in known_datasets:
-        return stripped
-    return None
 
 
 def normalize_operation_name(name: str) -> str:
@@ -422,60 +413,62 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     docs_by_dataset = load_summary(summary_path)
-    known_datasets = set(docs_by_dataset.keys())
-
     all_operation_results: list[CoverageResult] = []
     unmatched_rows: list[dict[str, str]] = []
 
-    for run_dir in sorted(p for p in data_root.iterdir() if p.is_dir()):
-        run_name = run_dir.name
-        observed_path = run_dir / "operation_status_codes.json"
-        if not observed_path.exists():
-            continue
-
-        dataset = canonical_dataset_name(run_name, known_datasets)
-        if dataset is None:
-            unmatched_rows.append(
-                {
-                    "run": run_name,
-                    "dataset": "",
-                    "kind": "run_dataset_not_in_summary",
-                    "operation": "",
-                }
-            )
+    for dataset_dir in sorted(p for p in data_root.iterdir() if p.is_dir()):
+        dataset = dataset_dir.name
+        run_dirs = sorted(p for p in dataset_dir.iterdir() if p.is_dir())
+        if dataset not in docs_by_dataset:
+            for run_dir in run_dirs:
+                if (run_dir / "operation_status_codes.json").exists():
+                    unmatched_rows.append(
+                        {
+                            "run": run_dir.name,
+                            "dataset": dataset,
+                            "kind": "run_dataset_not_in_summary",
+                            "operation": "",
+                        }
+                    )
             continue
 
         docs = docs_by_dataset[dataset]
-        observed = load_observed(observed_path)
-        operation_results, unmatched_doc_ops = compute_operation_results(
-            run_name=run_name, dataset=dataset, docs=docs, observed=observed
-        )
-        all_operation_results.extend(operation_results)
+        for run_dir in run_dirs:
+            run_name = run_dir.name
+            observed_path = run_dir / "operation_status_codes.json"
+            if not observed_path.exists():
+                continue
 
-        matched_observed = {
-            item.matched_observed_operation
-            for item in operation_results
-            if item.matched_observed_operation
-        }
-        extra_observed = sorted(set(observed.keys()) - matched_observed)
-        for op in unmatched_doc_ops:
-            unmatched_rows.append(
-                {
-                    "run": run_name,
-                    "dataset": dataset,
-                    "kind": "documented_operation_not_found_in_observed",
-                    "operation": op,
-                }
+            observed = load_observed(observed_path)
+            operation_results, unmatched_doc_ops = compute_operation_results(
+                run_name=run_name, dataset=dataset, docs=docs, observed=observed
             )
-        for op in extra_observed:
-            unmatched_rows.append(
-                {
-                    "run": run_name,
-                    "dataset": dataset,
-                    "kind": "observed_operation_not_found_in_documented",
-                    "operation": op,
-                }
-            )
+            all_operation_results.extend(operation_results)
+
+            matched_observed = {
+                item.matched_observed_operation
+                for item in operation_results
+                if item.matched_observed_operation
+            }
+            extra_observed = sorted(set(observed.keys()) - matched_observed)
+            for op in unmatched_doc_ops:
+                unmatched_rows.append(
+                    {
+                        "run": run_name,
+                        "dataset": dataset,
+                        "kind": "documented_operation_not_found_in_observed",
+                        "operation": op,
+                    }
+                )
+            for op in extra_observed:
+                unmatched_rows.append(
+                    {
+                        "run": run_name,
+                        "dataset": dataset,
+                        "kind": "observed_operation_not_found_in_documented",
+                        "operation": op,
+                    }
+                )
 
     operation_report = out_dir / "operation_coverage.csv"
     dataset_report = out_dir / "dataset_coverage.csv"
