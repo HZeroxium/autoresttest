@@ -6,14 +6,16 @@ import math
 import random
 import time
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Set, Tuple, cast
+from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Tuple, cast
 
 import numpy as np
+import requests
 from dotenv import load_dotenv
 from gensim.downloader import load
 from gensim.models import KeyedVectors
 
 from autoresttest.config import get_config
+from autoresttest.http_transport import get_managed_session
 from autoresttest.models import ParameterKey, ParameterProperties, SchemaProperties
 from autoresttest.observability import get_active_run_recorder
 from autoresttest.prompts.generator_prompts import FIX_JSON_OBJ
@@ -392,57 +394,121 @@ def get_accept_header(responses: dict | None) -> str | None:
     return ", ".join(sorted(mime_types)) if mime_types else None
 
 
+def _sanitize_headers(header: Optional[Dict[str, Any]]) -> Dict[str, str | bytes]:
+    if not header:
+        return {}
+
+    sanitized: Dict[str, str | bytes] = {}
+    for raw_name, raw_value in header.items():
+        if raw_name is None or raw_value is None:
+            continue
+
+        name = raw_name if isinstance(raw_name, str) else str(raw_name)
+        if isinstance(raw_value, bytes):
+            sanitized[name] = raw_value
+        else:
+            sanitized[name] = str(raw_value)
+
+    return sanitized
+
+
+def extract_structured_response_content(response: Any) -> Any | None:
+    content = getattr(response, "content", None)
+    if not content:
+        return None
+
+    headers = getattr(response, "headers", {}) or {}
+    content_type = str(headers.get("Content-Type", "")).lower()
+    should_attempt_json = "json" in content_type
+
+    if not should_attempt_json:
+        if isinstance(content, bytes):
+            should_attempt_json = content.lstrip().startswith((b"{", b"["))
+        elif isinstance(content, str):
+            should_attempt_json = content.lstrip().startswith(("{", "["))
+
+    if not should_attempt_json:
+        return None
+
+    try:
+        if hasattr(response, "json"):
+            return response.json()
+        return json.loads(content)
+    except (TypeError, ValueError, UnicodeDecodeError):
+        return None
+
+
+def _normalize_request_payload_for_json(payload: Any) -> Any:
+    if isinstance(payload, tuple):
+        return list(payload)
+    return payload
+
+
+def _serialize_non_json_payload(payload: Any) -> str | bytes:
+    if payload is None:
+        return ""
+    if isinstance(payload, bytes):
+        return payload
+    if isinstance(payload, bytearray):
+        return bytes(payload)
+    if isinstance(payload, memoryview):
+        return payload.tobytes()
+    if isinstance(payload, (dict, list, tuple, bool, int, float)):
+        return json.dumps(payload)
+    return str(payload)
+
+
 def _dispatch_request_inner(
-    select_method,
+    request_callable: Callable[..., requests.Response],
     full_url: str,
     params: Dict,
     body: Dict[str, Any] | None,
     headers: Dict,
     cookies: Optional[Dict],
+    *,
+    timeout: tuple[float, float] | None = None,
+    pass_timeout: bool = False,
 ):
     """
     Internal helper that performs a single HTTP request.
     """
+    def build_request_kwargs() -> Dict[str, Any]:
+        request_kwargs: Dict[str, Any] = {
+            "params": params,
+            "headers": headers or None,
+            "cookies": cookies,
+        }
+        if pass_timeout and timeout is not None:
+            request_kwargs["timeout"] = timeout
+        return request_kwargs
+
     if not body:
-        return select_method(
-            full_url, params=params, headers=headers or None, cookies=cookies
-        )
+        return request_callable(full_url, **build_request_kwargs())
 
     if not isinstance(body, dict):
-        return select_method(
-            full_url, params=params, data=body, headers=headers or None, cookies=cookies
-        )
+        return request_callable(full_url, data=body, **build_request_kwargs())
 
     # Use the first provided MIME type; bodies are expected to be singular.
     mime_type, payload = next(iter(body.items()))
     mime_lower = mime_type.lower() if mime_type else ""
+    is_wildcard_mime = mime_lower in {"*/*", ""}
 
     if _is_json_mime(mime_type):
         headers.setdefault("Content-Type", mime_type)
         if payload is not None:
-            return select_method(
+            return request_callable(
                 full_url,
-                params=params,
-                json=payload,
-                headers=headers or None,
-                cookies=cookies,
+                json=_normalize_request_payload_for_json(payload),
+                **build_request_kwargs(),
             )
-        return select_method(
-            full_url, params=params, headers=headers or None, cookies=cookies
-        )
+        return request_callable(full_url, **build_request_kwargs())
 
     if "x-www-form-urlencoded" in mime_lower:
         headers.setdefault("Content-Type", mime_type)
         body_data = get_object_shallow_mappings(payload)
         if not body_data or not isinstance(body_data, dict):
             body_data = {"data": payload}
-        return select_method(
-            full_url,
-            params=params,
-            data=body_data,
-            headers=headers or None,
-            cookies=cookies,
-        )
+        return request_callable(full_url, data=body_data, **build_request_kwargs())
 
     if mime_lower.startswith("multipart/"):
         # Convert payload to proper files format for requests.
@@ -463,43 +529,90 @@ def _dispatch_request_inner(
             # Non-dict payload: serialize entire thing
             files_data = {"data": (None, json.dumps(payload) if payload else "")}
 
-        return select_method(
-            full_url,
-            params=params,
-            files=files_data,
-            headers=headers or None,
-            cookies=cookies,
-        )
+        return request_callable(full_url, files=files_data, **build_request_kwargs())
 
     if mime_lower.startswith("text/"):
         headers.setdefault("Content-Type", mime_type)
         if not isinstance(payload, str):
             payload = str(payload)
-        return select_method(
+        return request_callable(full_url, data=payload, **build_request_kwargs())
+
+    if is_wildcard_mime:
+        if isinstance(payload, (bytes, bytearray, memoryview)):
+            headers.setdefault("Content-Type", "application/octet-stream")
+            return request_callable(
+                full_url,
+                data=_serialize_non_json_payload(payload),
+                **build_request_kwargs(),
+            )
+        headers.setdefault("Content-Type", "application/json")
+        return request_callable(
             full_url,
-            params=params,
-            data=payload,
-            headers=headers or None,
-            cookies=cookies,
+            json=_normalize_request_payload_for_json(payload),
+            **build_request_kwargs(),
         )
 
     # Fallback: send whatever the MIME type is with a best-effort serializer.
     headers.setdefault("Content-Type", mime_type)
     if isinstance(payload, (dict, list)):
-        return select_method(
-            full_url,
-            params=params,
-            json=payload,
-            headers=headers or None,
-            cookies=cookies,
-        )
-    return select_method(
-        full_url, params=params, data=payload, headers=headers or None, cookies=cookies
+        return request_callable(full_url, json=payload, **build_request_kwargs())
+    return request_callable(
+        full_url,
+        data=_serialize_non_json_payload(payload),
+        **build_request_kwargs(),
     )
 
 
+_REQUESTS_API_METHODS = {"get", "post", "put", "patch", "delete", "head", "options"}
+_SAFE_TRANSPORT_RETRY_METHODS = {"get", "head", "options"}
+_TRANSPORT_RETRY_EXCEPTIONS = (
+    requests.exceptions.ConnectionError,
+    requests.exceptions.ConnectTimeout,
+    requests.exceptions.ReadTimeout,
+)
+
+
+def _resolve_dispatch_method_name(
+    method_name: str | None,
+    select_method: Callable[..., Any] | None,
+) -> str | None:
+    if method_name:
+        return method_name.lower()
+
+    if select_method is None:
+        return None
+
+    inferred_name = getattr(select_method, "__name__", "").lower()
+    inferred_module = getattr(select_method, "__module__", "")
+    if inferred_name in _REQUESTS_API_METHODS and inferred_module == "requests.api":
+        return inferred_name
+    return None
+
+
+def _build_request_callable(
+    method_name: str | None,
+    select_method: Callable[..., Any] | None,
+) -> tuple[Callable[..., requests.Response], str, bool]:
+    resolved_method_name = _resolve_dispatch_method_name(method_name, select_method)
+    if resolved_method_name is not None:
+        session = get_managed_session()
+
+        def session_request(full_url: str, **kwargs):
+            return session.request(resolved_method_name, full_url, **kwargs)
+
+        return session_request, resolved_method_name, True
+
+    if select_method is None:
+        raise ValueError("Either method_name or select_method must be provided")
+
+    fallback_method_name = getattr(select_method, "__name__", "request").lower()
+    return select_method, fallback_method_name, False
+
+
 def dispatch_request(
-    select_method,
+    select_method=None,
+    *,
+    method_name: str | None = None,
     full_url: str,
     params: Dict,
     body: Dict[str, Any] | None,
@@ -514,89 +627,139 @@ def dispatch_request(
     Includes automatic retry with exponential backoff for rate-limited (429) responses.
     """
     params = params or {}
-    headers = header.copy() if header is not None else {}
+    headers = _sanitize_headers(header)
     cookies = cookies or None
     if accept:
         headers.setdefault("Accept", accept)
 
+    request_callable, resolved_method_name, uses_managed_session = _build_request_callable(
+        method_name, select_method
+    )
+    http_config = get_config().http
+    timeout = (
+        http_config.connect_timeout_seconds,
+        http_config.read_timeout_seconds,
+    )
+    transport_retry_attempts = (
+        http_config.transport_retry_attempts
+        if resolved_method_name in _SAFE_TRANSPORT_RETRY_METHODS
+        else 0
+    )
+    transport_retry_backoff = http_config.transport_retry_backoff_seconds
+
     recorder = get_active_run_recorder()
     response = None
-    method_name = getattr(select_method, "__name__", "request")
-    for attempt in range(max_retries + 1):
-        start_time = time.perf_counter()
-        try:
-            response = _dispatch_request_inner(
-                select_method, full_url, params, body, headers.copy(), cookies
-            )
-        except Exception as exc:
-            duration_ms = (time.perf_counter() - start_time) * 1000
-            if recorder is not None:
-                recorder.record_http_attempt(
-                    method=method_name,
-                    full_url=full_url,
-                    params=params,
-                    body=body,
-                    headers=headers,
-                    cookies=cookies,
-                    response=None,
-                    duration_ms=duration_ms,
-                    attempt_index=attempt + 1,
-                    max_retries=max_retries,
-                    will_retry=False,
-                    transport_error=exc,
+    attempt_index = 0
+    for rate_limit_attempt in range(max_retries + 1):
+        for transport_attempt in range(transport_retry_attempts + 1):
+            start_time = time.perf_counter()
+            attempt_index += 1
+            try:
+                response = _dispatch_request_inner(
+                    request_callable,
+                    full_url,
+                    params,
+                    body,
+                    headers.copy(),
+                    cookies,
+                    timeout=timeout,
+                    pass_timeout=uses_managed_session,
                 )
-            raise
-
-        duration_ms = (time.perf_counter() - start_time) * 1000
-
-        if response is None:
-            return None
-
-        # Handle rate limiting (429) with exponential backoff + jitter
-        if response.status_code == 429:
-            if attempt < max_retries:
-                # Exponential backoff: 1s, 2s, 4s + random jitter (0-1s)
-                delay = base_delay * (2**attempt) + random.uniform(0, 1)
-                retry_after = response.headers.get("Retry-After")
-                if retry_after and retry_after.isdigit():
-                    delay = max(delay, int(retry_after))
+            except _TRANSPORT_RETRY_EXCEPTIONS as exc:
+                duration_ms = (time.perf_counter() - start_time) * 1000
+                should_retry_transport = transport_attempt < transport_retry_attempts
+                delay = None
+                if should_retry_transport:
+                    delay = transport_retry_backoff * (2**transport_attempt)
                 if recorder is not None:
                     recorder.record_http_attempt(
-                        method=method_name,
+                        method=resolved_method_name,
                         full_url=full_url,
                         params=params,
                         body=body,
                         headers=headers,
                         cookies=cookies,
-                        response=response,
+                        response=None,
                         duration_ms=duration_ms,
-                        attempt_index=attempt + 1,
+                        attempt_index=attempt_index,
                         max_retries=max_retries,
-                        will_retry=True,
+                        will_retry=should_retry_transport,
                         retry_delay_s=delay,
+                        transport_error=exc,
                     )
-                print(
-                    f"Rate limited (429). Retrying in {delay:.1f}s (attempt {attempt + 1}/{max_retries})"
+                if should_retry_transport:
+                    time.sleep(delay)
+                    continue
+                raise
+            except Exception as exc:
+                duration_ms = (time.perf_counter() - start_time) * 1000
+                if recorder is not None:
+                    recorder.record_http_attempt(
+                        method=resolved_method_name,
+                        full_url=full_url,
+                        params=params,
+                        body=body,
+                        headers=headers,
+                        cookies=cookies,
+                        response=None,
+                        duration_ms=duration_ms,
+                        attempt_index=attempt_index,
+                        max_retries=max_retries,
+                        will_retry=False,
+                        transport_error=exc,
+                    )
+                raise
+
+            duration_ms = (time.perf_counter() - start_time) * 1000
+
+            if response is None:
+                return None
+
+            # Handle rate limiting (429) with exponential backoff + jitter
+            if response.status_code == 429:
+                if rate_limit_attempt < max_retries:
+                    # Exponential backoff: 1s, 2s, 4s + random jitter (0-1s)
+                    delay = base_delay * (2**rate_limit_attempt) + random.uniform(0, 1)
+                    retry_after = response.headers.get("Retry-After")
+                    if retry_after and retry_after.isdigit():
+                        delay = max(delay, int(retry_after))
+                    if recorder is not None:
+                        recorder.record_http_attempt(
+                            method=resolved_method_name,
+                            full_url=full_url,
+                            params=params,
+                            body=body,
+                            headers=headers,
+                            cookies=cookies,
+                            response=response,
+                            duration_ms=duration_ms,
+                            attempt_index=attempt_index,
+                            max_retries=max_retries,
+                            will_retry=True,
+                            retry_delay_s=delay,
+                        )
+                    print(
+                        f"Rate limited (429). Retrying in {delay:.1f}s (attempt {rate_limit_attempt + 1}/{max_retries})"
+                    )
+                    time.sleep(delay)
+                    break
+
+            if recorder is not None:
+                recorder.record_http_attempt(
+                    method=resolved_method_name,
+                    full_url=full_url,
+                    params=params,
+                    body=body,
+                    headers=headers,
+                    cookies=cookies,
+                    response=response,
+                    duration_ms=duration_ms,
+                    attempt_index=attempt_index,
+                    max_retries=max_retries,
+                    will_retry=False,
                 )
-                time.sleep(delay)
-                continue
 
-        if recorder is not None:
-            recorder.record_http_attempt(
-                method=method_name,
-                full_url=full_url,
-                params=params,
-                body=body,
-                headers=headers,
-                cookies=cookies,
-                response=response,
-                duration_ms=duration_ms,
-                attempt_index=attempt + 1,
-                max_retries=max_retries,
-                will_retry=False,
-            )
-
-        return response
+            return response
 
     return response  # Return last response even if still 429
 

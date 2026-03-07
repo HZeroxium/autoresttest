@@ -428,9 +428,6 @@ class RequestGenerator:
             endpoint_path = endpoint_path.replace("{" + name + "}", str(value))
 
         try:
-            select_method = getattr(
-                requests, http_method
-            )  # selects correct http method
             full_url = f"{self.api_url}{endpoint_path}"
 
             # Merge custom headers from config
@@ -441,7 +438,7 @@ class RequestGenerator:
                 request_data.operation_properties.responses
             )
             response = dispatch_request(
-                select_method=select_method,
+                method_name=http_method,
                 full_url=full_url,
                 params=query_params,
                 body=request_body,

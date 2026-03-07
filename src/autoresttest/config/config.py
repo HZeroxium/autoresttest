@@ -72,6 +72,15 @@ class RequestGenerationConfig(BaseModel):
     mutation_rate: float
 
 
+class HttpConfig(BaseModel):
+    connect_timeout_seconds: float = 3.0
+    read_timeout_seconds: float = 30.0
+    pool_connections: int = 10
+    pool_maxsize: int = 64
+    transport_retry_attempts: int = 1
+    transport_retry_backoff_seconds: float = 0.25
+
+
 class ObservabilityConfig(BaseModel):
     enabled: bool = True
     snapshot_interval_seconds: int = 300
@@ -82,6 +91,7 @@ class ObservabilityConfig(BaseModel):
 
 class ApiConfig(BaseModel):
     """API URL configuration. Override the spec URL with custom host/port."""
+
     override_url: bool = False
     host: str = "localhost"
     port: int = 8080
@@ -112,6 +122,7 @@ class Config(BaseModel):
     cache: CacheConfig
     q_learning: QLearningConfig
     request_generation: RequestGenerationConfig
+    http: HttpConfig = HttpConfig()
     observability: ObservabilityConfig = ObservabilityConfig()
     api: ApiConfig = ApiConfig()
     custom_headers: CustomHeadersConfig = CustomHeadersConfig()

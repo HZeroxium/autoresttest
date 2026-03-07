@@ -1,5 +1,4 @@
 import copy
-import json
 import os
 import random
 import time
@@ -26,7 +25,7 @@ from autoresttest.agents import OperationAgent, HeaderAgent, ParameterAgent, Val
 from autoresttest.graph import RequestGenerator
 from autoresttest.utils import construct_db_dir, construct_basic_token, get_body_params, \
     get_response_params, get_response_param_mappings, remove_nulls, encode_dictionary, EmbeddingModel, get_api_url, \
-    dispatch_request
+    dispatch_request, extract_structured_response_content
 from autoresttest.llm import identify_generator, randomize_string, random_generator, randomize_object
 
 
@@ -290,10 +289,9 @@ class Ablation1:
         #self._test_send_operation(operation_properties, parameters, body, header, specific_method)
 
         try:
-            select_method = getattr(requests, http_method)
             full_url = self.api_url + endpoint_path
             response = dispatch_request(
-                select_method=select_method,
+                method_name=http_method,
                 full_url=full_url,
                 params=processed_parameters,
                 body=body,
@@ -790,24 +788,19 @@ class Ablation1:
                                 if prop_name in self.successful_bodies[operation_id] and prop_val not in self.successful_bodies[operation_id][prop_name]:
                                     self.successful_bodies[operation_id][prop_name].append(prop_val)
                 if response.content and self.successful_responses[operation_id] is not None:
-                    try:
-                        response_content = json.loads(response.content)
-                    except json.JSONDecodeError:
-                        print("Error decoding JSON response content")
-                        print("Response content: ", response.content)
-                        response_content = None
+                    response_content = extract_structured_response_content(response)
+                    if response_content is not None:
+                        deconstructed_response: Dict[str, List] = {}
+                        self._deconstruct_response(response_content, deconstructed_response)
 
-                    deconstructed_response: Dict[str, List] = {}
-                    self._deconstruct_response(response_content, deconstructed_response)
-
-                    if deconstructed_response:
-                        for response_prop, response_vals in deconstructed_response.items():
-                            if response_prop in self.successful_responses[operation_id]:
-                                for response_val in response_vals:
-                                    if response_val not in self.successful_responses[operation_id][response_prop]:
-                                        self.successful_responses[operation_id][response_prop].append(response_val)
-                            else:
-                                self.successful_responses[operation_id][response_prop] = response_vals
+                        if deconstructed_response:
+                            for response_prop, response_vals in deconstructed_response.items():
+                                if response_prop in self.successful_responses[operation_id]:
+                                    for response_val in response_vals:
+                                        if response_val not in self.successful_responses[operation_id][response_prop]:
+                                            self.successful_responses[operation_id][response_prop].append(response_val)
+                                else:
+                                    self.successful_responses[operation_id][response_prop] = response_vals
                                 if self.dependency_agent.add_undocumented_responses(operation_id, response_prop) and "DEPENDENCY" not in self.data_source_agent.available_data_sources:
                                     self.data_source_agent.initialize_dependency_source()
 

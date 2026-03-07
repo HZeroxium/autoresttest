@@ -41,6 +41,7 @@ from autoresttest.tui.config_wizard import apply_config_overrides
 from autoresttest.tui.themes import DEFAULT_THEME
 from autoresttest.utils import (
     EmbeddingModel,
+    close_all_sessions,
     construct_db_dir,
     get_api_url,
     get_graph_cache_path,
@@ -109,7 +110,9 @@ def output_successes(q_learning: QLearning, spec_name: str, run_id: str):
 
 def output_errors(q_learning: QLearning, spec_name: str, run_id: str):
     output_dir = ensure_output_dir(spec_name, run_id)
-    atomic_write_json(output_dir / "server_errors.json", build_error_payload(q_learning))
+    atomic_write_json(
+        output_dir / "server_errors.json", build_error_payload(q_learning)
+    )
 
 
 def output_operation_status_codes(q_learning: QLearning, spec_name: str, run_id: str):
@@ -601,6 +604,7 @@ class AutoRestTest:
                     )
             raise
         finally:
+            close_all_sessions()
             reset_active_run_recorder(recorder_token)
             run_recorder.close()
 

@@ -1,3 +1,4 @@
+from autoresttest.http_transport import close_all_sessions, reset_transport_state_for_testing
 from .utils import (
     EmbeddingModel,
     attempt_fix_json,
@@ -11,6 +12,7 @@ from .utils import (
     GRAPH_CACHE_DIR,
     encode_dict_as_key,
     encode_dictionary,
+    extract_structured_response_content,
     get_api_url,
     get_body_combinations,
     get_body_object_combinations,
@@ -47,6 +49,7 @@ __all__ = [
     "GRAPH_CACHE_DIR",
     "encode_dict_as_key",
     "encode_dictionary",
+    "extract_structured_response_content",
     "get_api_url",
     "get_body_combinations",
     "get_body_object_combinations",
@@ -68,4 +71,6 @@ __all__ = [
     "split_parameter_values",
     "dispatch_request",
     "get_accept_header",
+    "close_all_sessions",
+    "reset_transport_state_for_testing",
 ]

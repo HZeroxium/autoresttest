@@ -1,5 +1,4 @@
 import copy
-import json
 import random
 import time
 from collections import Counter, defaultdict
@@ -36,6 +35,7 @@ from autoresttest.models import ParameterKey
 from autoresttest.utils import (
     construct_basic_token,
     dispatch_request,
+    extract_structured_response_content,
     get_accept_header,
     get_body_params,
     get_response_param_mappings,
@@ -621,11 +621,10 @@ class QLearning:
         # self._test_send_operation(operation_properties, parameters, body, header, specific_method)
 
         try:
-            select_method = getattr(requests, http_method)
             full_url = self.api_url + endpoint_path
             accept_header = get_accept_header(operation_properties.responses)
             response = dispatch_request(
-                select_method=select_method,
+                method_name=http_method,
                 full_url=full_url,
                 params=query_params,
                 body=body,
@@ -1683,32 +1682,32 @@ class QLearning:
                     response.content
                     and self.successful_responses[operation_id] is not None
                 ):
-                    try:
-                        response_content = json.loads(response.content)
-                    except json.JSONDecodeError:
-                        print("Error decoding JSON response content")
-                        print("Response content: ", response.content)
-                        response_content = None
+                    response_content = extract_structured_response_content(response)
+                    if response_content is not None:
+                        deconstructed_response: Dict[str, List] = {}
+                        self._deconstruct_response(
+                            response_content, deconstructed_response
+                        )
 
-                    deconstructed_response: Dict[str, List] = {}
-                    self._deconstruct_response(response_content, deconstructed_response)
-
-                    if deconstructed_response:
-                        for (
-                            response_prop,
-                            response_vals,
-                        ) in deconstructed_response.items():
-                            if response_prop in self.successful_responses[operation_id]:
-                                for response_val in response_vals:
-                                    if (
-                                        response_val
-                                        not in self.successful_responses[operation_id][
-                                            response_prop
-                                        ]
-                                    ):
-                                        self.successful_responses[operation_id][
-                                            response_prop
-                                        ].append(response_val)
+                        if deconstructed_response:
+                            for (
+                                response_prop,
+                                response_vals,
+                            ) in deconstructed_response.items():
+                                if (
+                                    response_prop
+                                    in self.successful_responses[operation_id]
+                                ):
+                                    for response_val in response_vals:
+                                        if (
+                                            response_val
+                                            not in self.successful_responses[
+                                                operation_id
+                                            ][response_prop]
+                                        ):
+                                            self.successful_responses[operation_id][
+                                                response_prop
+                                            ].append(response_val)
                             else:
                                 self.successful_responses[operation_id][
                                     response_prop

@@ -290,10 +290,9 @@ class Ablation3:
         #self._test_send_operation(operation_properties, parameters, body, header, specific_method)
 
         try:
-            select_method = getattr(requests, http_method)
             full_url = self.api_url + endpoint_path
             response = dispatch_request(
-                select_method=select_method,
+                method_name=http_method,
                 full_url=full_url,
                 params=processed_parameters,
                 body=body,
