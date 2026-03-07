@@ -1,5 +1,12 @@
-# About Us
-Genome Nexus is developed at [Memorial Sloan Kettering Cancer Center](http://www.mskcc.org/) (MSK) and has received several contributions from [The Hyve](http://thehyve.nl/). The [Genome Nexus website](https://www.genomenexus.org/) is hosted by the [Center for Molecular Oncology](http://www.mskcc.org/research/molecular-oncology) at MSK. The software is available under an open source license via [GitHub](https://github.com/genome-nexus).
+# About
+Genome Nexus is a comprehensive resource integrating variant annotations from [more than a dozen sources](https://docs.genomenexus.org/annotation-sources) relevant to cancer. The annotations can be accessed through a performant [application programming interface](https://docs.genomenexus.org/api) and an [intuitive user interface](https://www.genomenexus.org/), supporting various use cases of variant interpretation. It is freely available under an open source license and can be installed in a private cloud or local environment and integrated with local institutional resources.
+
+Genome Nexus is developed at [Memorial Sloan Kettering Cancer Center](http://www.mskcc.org/) (MSK) and has received several contributions from [The Hyve](http://thehyve.nl/). The [Genome Nexus website](https://www.genomenexus.org/) is hosted by the [Center for Molecular Oncology](http://www.mskcc.org/research/molecular-oncology) at MSK. The software is available under an open source license via [GitHub](https://github.com/genome-nexus). 
+
+### How do I cite Genome Nexus?
+When using Genome Nexus, please cite [de Bruijn et al., JCO CCI 2022](https://ascopubs.org/doi/abs/10.1200/CCI.21.00144).
+
+Genome Nexus aggregates variant annotation from various sources. See this [documentation](./Annotation-Sources.md#annotation-sources🗄️) for all supported annotation sources. Remember to also cite the underlying annotation sources you are using.
 
 ### Current Funding
 *   [Marie-José and Henry R. Kravis Center for Molecular Oncology at MSK](http://www.mskcc.org/research/molecular-oncology)
@@ -35,5 +42,6 @@ Genome Nexus is developed at [Memorial Sloan Kettering Cancer Center](http://www
 *   Cyriac Kandoth
 *   Zachary Heins
 *   Sander Tan
+*   Ananthan Sadagopan
 *   Alice Thum
 *   Emily Zhang

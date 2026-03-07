@@ -64,8 +64,9 @@ public class VariantAnnotation
     private List<IntergenicConsequences> intergenicConsequences;
     private List<TranscriptConsequence> transcriptConsequences;
     private Boolean successfullyAnnotated;
+    private String errorMessage;
 
-    private MutationAssessorAnnotation mutationAssessorAnnotation;
+    private MutationAssessor mutationAssessor;
     private NucleotideContextAnnotation nucleotideContextAnnotation;
     private MyVariantInfoAnnotation myVariantInfoAnnotation;
     private HotspotAnnotation hotspotAnnotation;
@@ -76,6 +77,7 @@ public class VariantAnnotation
     private SignalAnnotation signalAnnotation;
     private String originalVariantQuery;
     private Map<String, Object> dynamicProps;
+    private String genomicLocationExplanation;
 
     public VariantAnnotation()
     {
@@ -93,6 +95,36 @@ public class VariantAnnotation
         this.annotationJSON = annotationJSON;
         this.dynamicProps = new LinkedHashMap<>();
         this.successfullyAnnotated = !(annotationJSON == null);
+    }
+
+    public VariantAnnotation(VariantAnnotation other) {
+        this.variant = other.variant;
+        this.annotationJSON = other.annotationJSON;
+        this.variantId = other.variantId;
+        this.assemblyName = other.assemblyName;
+        this.seqRegionName = other.seqRegionName;
+        this.start = other.start;
+        this.end = other.end;
+        this.alleleString = other.alleleString;
+        this.strand = other.strand;
+        this.mostSevereConsequence = other.mostSevereConsequence;
+        this.colocatedVariants = other.colocatedVariants;
+        this.intergenicConsequences = other.intergenicConsequences;
+        this.transcriptConsequences = other.transcriptConsequences;
+        this.successfullyAnnotated = other.successfullyAnnotated;
+        this.errorMessage = other.errorMessage;
+        this.mutationAssessor = other.mutationAssessor;
+        this.nucleotideContextAnnotation = other.nucleotideContextAnnotation;
+        this.myVariantInfoAnnotation = other.myVariantInfoAnnotation;
+        this.hotspotAnnotation = other.hotspotAnnotation;
+        this.ptmAnnotation = other.ptmAnnotation;
+        this.oncokbAnnotation = other.oncokbAnnotation;
+        this.clinvarAnnotation = other.clinvarAnnotation;
+        this.annotationSummary = other.annotationSummary;
+        this.signalAnnotation = other.signalAnnotation;
+        this.originalVariantQuery = other.originalVariantQuery;
+        this.dynamicProps = other.dynamicProps;
+        this.genomicLocationExplanation = other.genomicLocationExplanation;
     }
 
     public String getVariant()
@@ -256,12 +288,12 @@ public class VariantAnnotation
         this.nucleotideContextAnnotation = nucleotideContextAnnotation;
     }
 
-    public MutationAssessorAnnotation getMutationAssessorAnnotation() {
-        return mutationAssessorAnnotation;
+    public MutationAssessor getMutationAssessor() {
+        return mutationAssessor;
     }
 
-    public void setMutationAssessorAnnotation(MutationAssessorAnnotation mutationAssessorAnnotation) {
-        this.mutationAssessorAnnotation = mutationAssessorAnnotation;
+    public void setMutationAssessor(MutationAssessor mutationAssessor) {
+        this.mutationAssessor = mutationAssessor;
     }
 
     public MyVariantInfoAnnotation getMyVariantInfoAnnotation() {
@@ -285,20 +317,19 @@ public class VariantAnnotation
     }
 
     public String getHgvsg() {
-        if (this.getVariantId() != null && this.getVariantId().contains("g."))
-        {
-            return this.getVariantId();
-        } else if (this.getTranscriptConsequences() == null) {
-            return null;
-        } else {
-            // id is not of hgvsg format
+        if (this.getTranscriptConsequences() != null) {
             for (TranscriptConsequence ts : this.getTranscriptConsequences()) {
                 if (ts.getHgvsg() != null && !ts.getHgvsg().isEmpty()) {
                     return ts.getHgvsg();
                 }
             }
-            return null;
         }
+
+        if (this.getVariantId() != null && this.getVariantId().contains("g.")) {
+            return this.getVariantId();
+        }
+
+        return null;
     }
 
     public void setPtmAnnotation(PtmAnnotation ptmAnnotation) {
@@ -353,5 +384,21 @@ public class VariantAnnotation
     public Map<String, Object> getDynamicProps()
     {
         return this.dynamicProps;
+    }
+
+    public String getGenomicLocationExplanation() {
+        return genomicLocationExplanation;
+    }
+
+    public void setGenomicLocationExplanation(String genomicLocationExplanation) {
+        this.genomicLocationExplanation = genomicLocationExplanation;
+    }
+    
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

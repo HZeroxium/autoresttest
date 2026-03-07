@@ -1,5 +1,6 @@
 package org.cbioportal.genome_nexus.service.cached;
 
+import com.google.gson.Gson;
 import com.mongodb.DBObject;
 import org.cbioportal.genome_nexus.model.VariantAnnotation;
 import org.cbioportal.genome_nexus.persistence.VariantAnnotationRepository;
@@ -73,7 +74,13 @@ public abstract class BaseCachedVariantAnnotationFetcher
             } else {
                 variantAnnotation.setSuccessfullyAnnotated(true);
             }
-        } catch (Exception e) {
+        }
+        catch (HttpClientErrorException e) {
+            variantAnnotation = new VariantAnnotation(id);
+            variantAnnotation.setErrorMessage(new Gson().fromJson(e.getResponseBodyAsString(), Map.class).getOrDefault("error", "Error from VEP").toString());
+            return variantAnnotation;
+        }
+        catch (Exception e) {
             return new VariantAnnotation(id);
         }
         return variantAnnotation;
@@ -86,6 +93,7 @@ public abstract class BaseCachedVariantAnnotationFetcher
         for (String variantId : variantResponse.keySet()) {
             if (variantResponse.get(variantId) == null) {
                 VariantAnnotation variantAnnotation = new VariantAnnotation(variantId);
+                variantAnnotation.setErrorMessage("Error from VEP for: " + variantId);
                 variantResponse.put(variantId, variantAnnotation);
             } else {
                 variantResponse.get(variantId).setSuccessfullyAnnotated(true);
@@ -95,7 +103,9 @@ public abstract class BaseCachedVariantAnnotationFetcher
         // need to pass in a list representing indexes of original request
         List<VariantAnnotation> values = new ArrayList();
         for (String id : ids) {
-           values.add(variantResponse.get(id));
+            // Copy constructor only necessary due to constructFetchedMap.
+            // Should refactor to use lists instead of maps so duplicate keys can have their own annotation
+            values.add(new VariantAnnotation(variantResponse.get(id)));
         } 
         return values;
     }

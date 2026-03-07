@@ -41,9 +41,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -104,6 +107,11 @@ public class GenomeNexusAnnotation extends SpringBootServletInitializer implemen
         return new MappingJackson2HttpMessageConverter(new ApiObjectMapper());
     }
 
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
             .title("Genome Nexus API")
@@ -128,6 +136,7 @@ public class GenomeNexusAnnotation extends SpringBootServletInitializer implemen
     private static final String PATH = "/error";
 
     @RequestMapping(value = PATH)
+    @ResponseStatus(HttpStatus.OK)
     public String error() {
         return "forward:/";
     }

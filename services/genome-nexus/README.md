@@ -1,5 +1,3 @@
-docker run --name=gn-mongo --restart=always -p 27018:27017 -d genomenexus/gn-mongo:latest
-java8
 # Genome Nexus 🧬
 
 Genome Nexus, a comprehensive one-stop resource for fast, automated and
@@ -27,14 +25,9 @@ If you want to setup Genome Nexus for mouse, also set the `SPECIES` variable to 
 export SPECIES=mus_musculus
 ```
 
-If you would like to do local VEP annotations instead of using the public Ensembl API, please uncomment `# gn_vep.region.url=http://localhost:6060/vep/human/region/VARIANT` in your `application.properties`. This will require you to download the VEP cache files for the preferred Ensembl Release and Reference genome, see our documentation on [downloading the Genome Nexus VEP Cache](https://github.com/genome-nexus/genome-nexus-vep/blob/master/README.md#create-vep-cache). This will take several hours.
-```
-# Set local cache dir
-export VEP_CACHE=<local_vep_cache>
+If you would like to do local VEP annotations instead of using the public Ensembl API, please change `vep.url` in your `application.properties` to point to a local instance of the VEP command line tool REST wrapper. For more details on setting up this wrapper, see the Genome Nexus VEP [documentation](https://github.com/genome-nexus/genome-nexus-vep). Additionally, prebuilt Genome Nexus VEP images are available on [Docker Hub](https://hub.docker.com/r/genomenexus/genome-nexus-vep). Please note that Genome Nexus versions greater than 2.0.0 are only supported by Genome Nexus VEP versions greater than 2.0.0 (or the public Ensembl API). 
 
-# GRCh38 or GRCh37
-export VEP_ASSEMBLY=GRCh38
-```
+**IMPORTANT:** As of version 2.0.0 of Genome Nexus VEP, dbSNP annotations are not supported. If you plan to use Genome Nexus's dbSNP annotation endpoints, please use the public Ensembl API.
 
 Run docker-compose to create images and containers:
 ```
@@ -76,6 +69,21 @@ After that run this:
 mvn clean install
 java -jar web/target/web-*.war
 ```
+
+## Examples
+The Genome Nexus website's variant page uses the HGVS format to describe variants. The Genome Nexus API supports multiple input formats.
+- HGVS: For `GET /annotation/{variant}` and `POST /annotation` endpoint, Genome Nexus follows [HGVS](https://hgvs-nomenclature.org/stable/recommendations/general/) format.
+- Genomic change: For `GET /annotation/genomic/{genomicLocation}` and  `POST /annotation/genomic` endpoint, Genome Nexus uses a comma separated version of [MAF](https://docs.gdc.cancer.gov/Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2/) from TCGA (chromosome, start_postion, end_postion, reference_allle, variant_allele).
+
+|Type| HGVS |Genomic change|API response|Variant page|
+|--|--|--|--|--|
+|Substitution| `7:g.140453136A>T`|`7,140453136,140453136,A,T`|[7:g.140453136A>T](https://www.genomenexus.org/annotation/7:g.140453136A%3ET?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor)|[7:g.140453136A>T](https://www.genomenexus.org/variant/7:g.140453136A%3ET)
+|Deletion| `3:g.52439259del` or `1:g.27105878_27105881del`| `3,52439259,52439259,G,-` or `1,27105878,27105881,AGCT,-`|[3:g.52439259del](https://www.genomenexus.org/variant/3:g.52439259del), [1:g.27105878_27105881del](https://www.genomenexus.org/variant/1:g.27105878_27105881del)|[3:g.52439259del](https://www.genomenexus.org/annotation/3:g.52439259del?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor), [1:g.27105878_27105881del](https://www.genomenexus.org/annotation/1:g.27105878_27105881del?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor)
+|Duplication| `9:g.21970956dup` or `9:g.21970956_21970957dup`| `9,21970956,21970956,C,CC`or`9,21970956,21970957,CG,CGCG`|[9:g.21970956dup](https://www.genomenexus.org/variant/9:g.21970956dup), [9:g.21970956_21970957dup](https://www.genomenexus.org/variant/9:g.21970956_21970957dup) | [9:g.21970956dup](https://www.genomenexus.org/annotation/9:g.21970956dup?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor), [9:g.21970956_21970957dup](https://www.genomenexus.org/annotation/9:g.21970956_21970957dup?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor)
+|Insertion| `17:g.41242962_41242963insGA`|`17,41242962,41242963,-,GA`|[17:g.41242962_41242963insGA](https://www.genomenexus.org/variant/17:g.41242962_41242963insGA) | [17:g.41242962_41242963insGA](https://www.genomenexus.org/annotation/17:g.41242962_41242963insGA?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor)
+|Inversion| `X:g.66937331_66937332inv`|`X,66937331,66937332,TT,AA`| [X:g.66937331_66937332inv](https://www.genomenexus.org/variant/X:g.66937331_66937332inv)|[X:g.66937331_66937332inv](https://www.genomenexus.org/annotation/X:g.66937331_66937332inv?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor)
+|Deletion-Insertion| `4:g.1803568_1803569delinsG`|`4,1803568,1803569,CC,G`|[4:g.1803568_1803569delinsG](https://www.genomenexus.org/variant/4:g.1803568_1803569delinsG)|[4:g.1803568_1803569delinsG](https://www.genomenexus.org/annotation/4:g.1803568_1803569delinsG?fields=hotspots,annotation_summary,my_variant_info,clinvar,signal,mutation_assessor)
+
 
 ## Test Status 👷‍♀️
 

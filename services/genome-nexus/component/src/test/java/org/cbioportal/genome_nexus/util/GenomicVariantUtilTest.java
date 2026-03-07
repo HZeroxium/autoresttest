@@ -138,6 +138,20 @@ public class GenomicVariantUtilTest {
         assertEquals("5:140533-140532:1/C", GenomicVariantUtil.toRegion(variant));
     }
 
+    @Test
+    public void testGenomicVariantDelToRegion() {
+        GenomicVariant variant = new GenomicVariant("5", GenomicVariant.RefType.GENOMIC, 140532, 140532, GenomicVariant.Type.DELETION, "-", "-");
+
+        assertEquals("5:140532-140532:1/-", GenomicVariantUtil.toRegion(variant));
+    }
+
+    @Test
+    public void testGenomicVariantDelWithRefAlleleToRegion() {
+        GenomicVariant variant = new GenomicVariant("10", GenomicVariant.RefType.GENOMIC, 89624230, 89624231, GenomicVariant.Type.DELETION, "AC", "-");
+
+        assertEquals("10:89624230-89624231:1/-", GenomicVariantUtil.toRegion(variant));
+    }
+
     // TODO: add conversion test cases from hgvs delete and indel (maybe dup?)
 
     @Test
@@ -152,6 +166,13 @@ public class GenomicVariantUtilTest {
         String region = GenomicVariantUtil.toRegion(GenomicVariantUtil.fromHgvs("12:g.25398285_25398286insA"));
 
         assertEquals("12:25398286-25398285:1/A", region);
+    }
+
+    @Test
+    public void testHgvsDelToGenomicVariantToRegion() {
+        String region = GenomicVariantUtil.toRegion(GenomicVariantUtil.fromHgvs("11:g.2133018del"));
+
+        assertEquals("11:2133018-2133018:1/-", region);
     }
 
     // TODO: add conversion test cases from hgvs delete and indel (maybe dup?)
@@ -224,7 +245,16 @@ public class GenomicVariantUtilTest {
         testCases.put("1g.1_2del", NONE);
         testCases.put("1g.1_2delA", "A");
         testCases.put("1g.1delAA", "AA");
-        // if supported, duplication cases would have the same rules / test cases as deletion
+        // Duplication cases
+        testCases.put("1g.1dup", NONE);
+        testCases.put("1g.1dup ", NONE);
+        testCases.put("1g.1dupA", "A");
+        testCases.put("1g.1dupA ", "A");
+        testCases.put("1g.1_2dupAA", "AA");
+        testCases.put("1g.1_3dupAAA", "AAA");
+        testCases.put("1g.1_2dup", NONE);
+        testCases.put("1g.1_2dupA", "A");
+        testCases.put("1g.1dupAA", "AA");
         testCases.forEach((hgvs, expectedValue) -> assertEquals("for test case " + hgvs, expectedValue, GenomicVariantUtil.providedReferenceAlleleFromHgvs(hgvs)));
     }
 

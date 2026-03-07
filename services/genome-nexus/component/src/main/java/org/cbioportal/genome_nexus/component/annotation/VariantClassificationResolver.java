@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 public class VariantClassificationResolver
@@ -45,6 +46,21 @@ public class VariantClassificationResolver
             variantClassification = this.resolveVariantClassification(
                 this.consequencePrioritizer.pickHighestPriorityConsequence(transcriptConsequence.getConsequenceTerms()),
                     variantType, isInframe);
+        }
+        // if variant has no transcript and has intergenicConsequences instead, try to resolve the variant classification from intergenicConsequences
+        else if (variantAnnotation != null && variantAnnotation.getIntergenicConsequences() != null && !variantAnnotation.getIntergenicConsequences().isEmpty()) {
+            // pick the highest priority consequence from the intergenic consequences
+            // get every getConsequenceTerms() from each intergenic consequence and put in a list
+            variantClassification = this.resolveVariantClassification(
+                this.consequencePrioritizer.pickHighestPriorityConsequence(
+                    variantAnnotation.getIntergenicConsequences()
+                    .stream()
+                    .flatMap(consequence -> consequence.getConsequenceTerms()
+                    .stream())
+                    .collect(Collectors.toList())),
+                    variantType,
+                    isInframe
+            );
         }
         // use the most severe consequence to resolve the variant classification
         else if (variantAnnotation != null)
@@ -132,6 +148,40 @@ public class VariantClassificationResolver
         return VARIANT_MAP.getOrDefault(variant, defaultValue);
     }
 
+    public String resolveRevueVariantClassification(String revueVariantClassification) {
+        if (revueVariantClassification == null) {
+            return null;
+        }
+        switch (revueVariantClassification) {
+            // Spilice exon skip:
+            case "Splice_Exon_Skip_In_Frame":
+                return "In_Frame_Del";
+            case "Splice_Exon_Skip_Out_Of_Frame":
+                return "Frame_Shift_Del";
+            case "Splice_Exon_Skip_Non_Start":
+                return "In_Frame_Del";
+            // Splice exon extension:
+            case "Splice_Exon_Extension_In_Frame":
+                return "In_Frame_Ins";
+            case "Splice_Exon_Extension_Out_Of_Frame":
+                return "Frame_Shift_Ins";
+            case "Splice_Exon_Extension_Nonsense":
+                return "In_Frame_Ins";
+            // Splice exon shortening:
+            case "Splice_Exon_Shortening_In_Frame":
+                return "In_Frame_Del";
+            case "Splice_Exon_Shortening_Out_Of_Frame":
+                return "Frame_Shift_Del";
+            // Splice intron retention:
+            case "Splice_Intron_Retention_In_Frame":
+                return "In_Frame_Ins";
+            case "Splice_Intron_Retention_Out_Of_Frame":
+                return "Frame_Shift_Ins";
+            default:
+                return null;
+        }
+    }
+
     private static Map<String, String> initVariantMap()
     {
         Map<String, String> variantMap = new HashMap<>();
@@ -152,10 +202,17 @@ public class VariantClassificationResolver
         variantMap.put("missense_variant",              "Missense_Mutation");
         variantMap.put("protein_altering_variant",      "Missense_Mutation"); // Not always correct, resolveVariantClassification handles the exceptions
         variantMap.put("coding_sequence_variant",       "Missense_Mutation"); // Not always correct, resolveVariantClassification handles the exceptions
+        variantMap.put("coding_transcript_variant",       "Missense_Mutation"); // Not always correct, resolveVariantClassification handles the exceptions
         variantMap.put("conservative_missense_variant", "Missense_Mutation");
         variantMap.put("rare_amino_acid_variant",       "Missense_Mutation");
         variantMap.put("transcript_amplification",      "Intron");
+        variantMap.put("feature_elongation",      "Feature_Elongation");
+        variantMap.put("feature_truncation",      "Feature_Elongation");
+        variantMap.put("sequence_variant",      "Sequence_Variant");
         variantMap.put("splice_region_variant",         "Splice_Region");
+        variantMap.put("splice_donor_region_variant",         "Splice_Region");
+        variantMap.put("splice_polypyrimidine_tract_variant",         "Splice_Region");
+        variantMap.put("splice_donor_5th_base_variant",         "Splice_Region");
         variantMap.put("intron_variant",                "Intron");
         variantMap.put("intragenic",                    "Intron");
         variantMap.put("intragenic_variant",            "Intron");
@@ -174,8 +231,12 @@ public class VariantClassificationResolver
         variantMap.put("5_prime_utr_premature_start_codon_gain_variant", "5'UTR");
         variantMap.put("3_prime_utr_variant",           "3'UTR");
         variantMap.put("tf_binding_site_variant",       "IGR");
+        variantMap.put("tfbs_ablation",       "IGR");
+        variantMap.put("tfbs_amplification",       "IGR");
         variantMap.put("regulatory_region_variant",     "IGR");
+        variantMap.put("regulatory_region_amplification",     "IGR");
         variantMap.put("regulatory_region",             "IGR");
+        variantMap.put("regulatory_region_ablation",             "IGR");
         variantMap.put("intergenic_variant",            "IGR");
         variantMap.put("intergenic_region",             "IGR");
         variantMap.put("upstream_gene_variant",         "5'Flank");

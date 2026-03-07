@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Hgvs
 {
 
@@ -13,6 +16,8 @@ public class Hgvs
     @Field(value = "genomic")
     private List<String> genomic;
 
+    @Field(value = "protein")
+    private List<String> protein;
 
     public List<String> getCoding()
     {
@@ -31,6 +36,16 @@ public class Hgvs
     public void setGenomic(List<String> genomic)
     {
         this.genomic = genomic;
+    }
+
+    public List<String> getProtein()
+    {
+        return protein;
+    }
+
+    public void setProtein(List<String> protein)
+    {
+        this.protein = protein;
     }
 
 }

@@ -72,8 +72,8 @@ public class VariantAnnotationMixin {
     private Boolean successfullyAnnotated;
 
     @JsonProperty(value="mutation_assessor", required = true)
-    @ApiModelProperty(value = "Mutation Assessor Annotation", required = false)
-    private MutationAssessorAnnotation mutationAssessorAnnotation;
+    @ApiModelProperty(value = "Mutation Assessor", required = false)
+    private MutationAssessor mutationAssessor;
 
     @JsonProperty(value="nucleotide_context", required = true)
     @ApiModelProperty(value = "Nucleotide Context Annotation", required = false)
@@ -100,7 +100,7 @@ public class VariantAnnotationMixin {
     private MyVariantInfoAnnotation myVariantInfoAnnotation;
 
     @JsonProperty(value="clinvar", required = true)
-    @ApiModelProperty(value = "ClinVar", required = false)
+    @ApiModelProperty(value = "MyVariantInfoClinVar", required = false)
     private ClinvarAnnotation clinvarAnnotation;
 
     @JsonIgnore

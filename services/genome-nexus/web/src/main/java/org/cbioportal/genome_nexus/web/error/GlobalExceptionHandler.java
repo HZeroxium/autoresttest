@@ -56,16 +56,16 @@ public class GlobalExceptionHandler
     {
         return new ResponseEntity<>(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);
     }
-
-    @ExceptionHandler(MutationAssessorWebServiceException.class)
-    public ResponseEntity<ErrorResponse> handleMutationAssessorWebServiceException(MutationAssessorWebServiceException ex)
-    {
-        return new ResponseEntity<>(new ErrorResponse(ex.getResponseBody()), ex.getStatusCode());
-    }
-
+    
     @ExceptionHandler(EnsemblWebServiceException.class)
     public ResponseEntity<ErrorResponse> handleEnsemblWebServiceException(EnsemblWebServiceException ex)
     {
         return new ResponseEntity<>(new ErrorResponse(ex.getResponseBody()), ex.getStatusCode());
+    }
+
+    @ExceptionHandler(CuriousCasesNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleCuriousCasesNotFound(CuriousCasesNotFoundException ex)
+    {
+        return new ResponseEntity<>(new ErrorResponse(ex.getLocalizedMessage()), HttpStatus.NOT_FOUND);
     }
 }

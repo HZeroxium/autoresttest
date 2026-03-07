@@ -4,7 +4,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Document(collection = "my_variant_info.annotation")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MyVariantInfo
 {
     @Id
@@ -32,7 +35,7 @@ public class MyVariantInfo
     private Cosmic cosmic;
 
     @Field(value = "clinvar")
-    private ClinVar clinVar;
+    private MyVariantInfoClinVar clinVar;
 
     @Field(value = "mutdb")
     private Mutdb mutdb;
@@ -107,11 +110,11 @@ public class MyVariantInfo
         this.cosmic = cosmic;
     }
 
-    public ClinVar getClinVar() {
+    public MyVariantInfoClinVar getClinVar() {
         return clinVar;
     }
 
-    public void setClinVar(ClinVar clinVar) {
+    public void setClinVar(MyVariantInfoClinVar clinVar) {
         this.clinVar = clinVar;
     }
 
