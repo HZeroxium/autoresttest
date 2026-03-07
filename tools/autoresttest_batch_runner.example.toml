@@ -1,0 +1,19 @@
+[runner]
+base_config = "configurations.toml"
+max_parallel_datasets = 2
+output_dir = "data/batch-runs"
+failure_policy = "continue_all"
+
+[defaults]
+overrides = { "cache.use_cached_graph" = true, "cache.use_cached_table" = true, "request_generation.time_duration" = 20 }
+
+[[datasets]]
+name = "rest-countries"
+spec = "datasets/rest-countries.json"
+runs = 2
+
+[[datasets]]
+name = "language-tool"
+spec = "datasets/language-tool.json"
+runs = 1
+overrides = { "request_generation.time_duration" = 10 }
