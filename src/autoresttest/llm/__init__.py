@@ -1,4 +1,4 @@
-from .llm import LanguageModel
+from .llm import LanguageModel, TokenCounter
 from .value_generator import (
     NaiveValueGenerator,
     PromptData,
@@ -17,6 +17,7 @@ from .value_generator import (
 
 __all__ = [
     "LanguageModel",
+    "TokenCounter",
     "NaiveValueGenerator",
     "PromptData",
     "SmartValueGenerator",

@@ -33,10 +33,11 @@ class LanguageModel:
 
     @staticmethod
     def get_tokens() -> TokenCounter:
-        return TokenCounter(
-            input_tokens=LanguageModel.input_tokens,
-            output_tokens=LanguageModel.output_tokens,
-        )
+        with LanguageModel._token_lock:
+            return TokenCounter(
+                input_tokens=LanguageModel.input_tokens,
+                output_tokens=LanguageModel.output_tokens,
+            )
 
     def __init__(
         self,

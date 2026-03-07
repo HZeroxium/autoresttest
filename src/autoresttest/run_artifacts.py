@@ -157,7 +157,23 @@ def build_operation_status_codes_payload(q_learning: Any) -> dict[str, dict[int,
     return q_learning.operation_response_counter
 
 
-def build_report_payload(q_learning: Any, report_title: str) -> dict[str, Any]:
+def _get_run_token_usage(q_learning: Any) -> tuple[int, int]:
+    get_run_token_usage = getattr(q_learning, "get_run_token_usage", None)
+    if callable(get_run_token_usage):
+        token_usage = get_run_token_usage()
+        input_tokens = getattr(token_usage, "input_tokens", 0) or 0
+        output_tokens = getattr(token_usage, "output_tokens", 0) or 0
+        return max(0, int(input_tokens)), max(0, int(output_tokens))
+    return 0, 0
+
+
+def build_report_payload(
+    q_learning: Any,
+    report_title: str,
+    *,
+    run_status: str = "completed",
+    snapshot_reason: str = "run_completed",
+) -> dict[str, Any]:
     unique_processed_200s = set()
     for operation_idx, status_codes in q_learning.operation_response_counter.items():
         for status_code in status_codes:
@@ -171,10 +187,13 @@ def build_report_payload(q_learning: Any, report_title: str) -> dict[str, Any]:
         len(unique_processed_200s) / max(total_operations, 1) * 100,
         2,
     )
+    input_tokens, output_tokens = _get_run_token_usage(q_learning)
 
     return {
         "Title": "AutoRestTest Report for " + report_title,
         "Duration": f"{q_learning.time_duration} seconds",
+        "Run Status": run_status,
+        "Snapshot Reason": snapshot_reason,
         "Total Requests Sent": total_requests,
         "Status Code Distribution": dict(q_learning.responses),
         "Number of Total Operations": total_operations,
@@ -182,29 +201,52 @@ def build_report_payload(q_learning: Any, report_title: str) -> dict[str, Any]:
         "Percentage of Successfully Processed Operations": f"{success_percentage}%",
         "Number of Unique Server Errors": unique_errors,
         "Operations with Server Errors": q_learning.errors,
+        "Input Tokens": input_tokens,
+        "Output Tokens": output_tokens,
+        "Total Tokens": input_tokens + output_tokens,
     }
 
 
 def build_standard_output_payloads(
-    q_learning: Any, report_title: str
+    q_learning: Any,
+    report_title: str,
+    *,
+    run_status: str = "completed",
+    snapshot_reason: str = "run_completed",
 ) -> dict[str, Any]:
     payloads = {
         "q_tables.json": build_q_table_payload(q_learning),
         "server_errors.json": build_error_payload(q_learning),
         "operation_status_codes.json": build_operation_status_codes_payload(q_learning),
-        "report.json": build_report_payload(q_learning, report_title),
+        "report.json": build_report_payload(
+            q_learning,
+            report_title,
+            run_status=run_status,
+            snapshot_reason=snapshot_reason,
+        ),
     }
     payloads.update(build_success_payloads(q_learning))
     return payloads
 
 
 def write_standard_output_snapshot(
-    spec_name: str, run_id: str, q_learning: Any, report_title: str
+    spec_name: str,
+    run_id: str,
+    q_learning: Any,
+    report_title: str,
+    *,
+    run_status: str = "completed",
+    snapshot_reason: str = "run_completed",
 ) -> dict[str, Path]:
     output_dir = ensure_output_dir(spec_name, run_id)
     written_paths: dict[str, Path] = {}
 
-    for filename, payload in build_standard_output_payloads(q_learning, report_title).items():
+    for filename, payload in build_standard_output_payloads(
+        q_learning,
+        report_title,
+        run_status=run_status,
+        snapshot_reason=snapshot_reason,
+    ).items():
         path = output_dir / filename
         atomic_write_json(path, payload)
         written_paths[filename] = path

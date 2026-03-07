@@ -29,6 +29,8 @@ from autoresttest.llm import (
     random_generator,
     randomize_object,
     randomize_string,
+    LanguageModel,
+    TokenCounter,
 )
 from autoresttest.models import ParameterKey
 from autoresttest.utils import (
@@ -88,11 +90,25 @@ class QLearning:
         self._init_parameter_tracking()
         self._init_body_tracking()
         self._init_response_tracking()
+        self._run_token_baseline = LanguageModel.get_tokens()
 
         # TUI integration
         self.tui = tui
         self._live_display: Optional["LiveDisplay"] = None
         self.run_recorder = run_recorder
+
+    def get_run_token_usage(self) -> TokenCounter:
+        current_tokens = LanguageModel.get_tokens()
+        return TokenCounter(
+            input_tokens=max(
+                0,
+                current_tokens.input_tokens - self._run_token_baseline.input_tokens,
+            ),
+            output_tokens=max(
+                0,
+                current_tokens.output_tokens - self._run_token_baseline.output_tokens,
+            ),
+        )
 
     def print_q_tables(self):
         print("OPERATION Q-TABLE: ", self.operation_agent.q_table)
@@ -1786,9 +1802,7 @@ class QLearning:
 
         # Update live display
         if self._live_display:
-            from autoresttest.llm import LanguageModel
-
-            token_counter = LanguageModel.get_tokens()
+            token_counter = self.get_run_token_usage()
             self._live_display.update(
                 current_operation=operation_id,
                 responses=Counter(self.responses),

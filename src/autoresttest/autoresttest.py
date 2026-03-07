@@ -125,6 +125,9 @@ def output_report(
     spec_name: str,
     spec_parser: SpecificationParser,
     run_id: str,
+    *,
+    run_status: str = "completed",
+    snapshot_reason: str = "run_completed",
 ):
     output_dir = ensure_output_dir(spec_name, run_id)
     atomic_write_json(
@@ -132,7 +135,28 @@ def output_report(
         build_report_payload(
             q_learning,
             build_report_title(spec_name, spec_parser.get_api_title()),
+            run_status=run_status,
+            snapshot_reason=snapshot_reason,
         ),
+    )
+
+
+def persist_run_snapshot(
+    q_learning: QLearning,
+    spec_name: str,
+    run_id: str,
+    report_title: str,
+    *,
+    run_status: str,
+    snapshot_reason: str,
+):
+    return write_standard_output_snapshot(
+        spec_name,
+        run_id,
+        q_learning,
+        report_title,
+        run_status=run_status,
+        snapshot_reason=snapshot_reason,
     )
 
 
@@ -373,6 +397,15 @@ class AutoRestTest:
                     "success",
                 )
 
+            persist_run_snapshot(
+                q_learning,
+                spec_name,
+                run_id,
+                run_recorder.report_title,
+                run_status="running",
+                snapshot_reason="post_value_agent_initialization",
+            )
+
             if self.config.enable_header_agent and not loaded_header_from_shelf:
                 total_ops = len(operation_graph.operation_nodes)
                 with InitializationProgressDisplay(
@@ -406,6 +439,14 @@ class AutoRestTest:
                 self.tui.print_step("Failed to cache Q-tables", "warning")
 
         output_q_table(q_learning, spec_name, run_id)
+        persist_run_snapshot(
+            q_learning,
+            spec_name,
+            run_id,
+            run_recorder.report_title,
+            run_status="running",
+            snapshot_reason="post_q_table_initialization",
+        )
         if run_recorder is not None:
             run_recorder.mark_aggregate_dirty()
             run_recorder.maybe_checkpoint(
@@ -429,7 +470,7 @@ class AutoRestTest:
     def print_performance(
         self, q_learning: QLearning, spec_parser: SpecificationParser
     ):
-        token_counter = LanguageModel.get_tokens()
+        token_counter = q_learning.get_run_token_usage()
 
         # Calculate statistics for final report
         unique_processed_200s = set()
@@ -489,6 +530,7 @@ class AutoRestTest:
             )
             self.print_performance(q_learning, operation_graph.spec_parser)
 
+            run_recorder.set_status("completed")
             if run_recorder.enabled:
                 run_recorder.mark_aggregate_dirty()
                 saved = run_recorder.maybe_checkpoint(
@@ -497,21 +539,23 @@ class AutoRestTest:
                     reason="run_completed",
                 )
                 if not saved:
-                    write_standard_output_snapshot(
+                    persist_run_snapshot(
+                        q_learning,
                         spec_name,
                         run_recorder.run_id,
-                        q_learning,
                         run_recorder.report_title,
+                        run_status="completed",
+                        snapshot_reason="run_completed",
                     )
             else:
-                write_standard_output_snapshot(
+                persist_run_snapshot(
+                    q_learning,
                     spec_name,
                     run_recorder.run_id,
-                    q_learning,
                     run_recorder.report_title,
+                    run_status="completed",
+                    snapshot_reason="run_completed",
                 )
-
-            run_recorder.set_status("completed")
 
             self.tui.print_success("AutoRestTest completed successfully!")
             self.tui.print_step(
@@ -528,11 +572,13 @@ class AutoRestTest:
                     reason="keyboard_interrupt",
                 )
                 if not saved:
-                    write_standard_output_snapshot(
+                    persist_run_snapshot(
+                        q_learning,
                         spec_name,
                         run_recorder.run_id,
-                        q_learning,
                         run_recorder.report_title,
+                        run_status="interrupted",
+                        snapshot_reason="keyboard_interrupt",
                     )
             raise
         except Exception:
@@ -545,11 +591,13 @@ class AutoRestTest:
                     reason="run_failed",
                 )
                 if not saved:
-                    write_standard_output_snapshot(
+                    persist_run_snapshot(
+                        q_learning,
                         spec_name,
                         run_recorder.run_id,
-                        q_learning,
                         run_recorder.report_title,
+                        run_status="failed",
+                        snapshot_reason="run_failed",
                     )
             raise
         finally:

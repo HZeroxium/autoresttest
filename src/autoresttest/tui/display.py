@@ -30,9 +30,23 @@ class TUIDisplay:
     """Main TUI display handler for AutoRestTest."""
 
     def __init__(self, theme: TUITheme = DEFAULT_THEME, width: int = 80):
+        self._configure_output_encoding()
         self.console = Console(force_terminal=True, width=width)
         self.theme = theme
         self.width = width
+
+    @staticmethod
+    def _configure_output_encoding() -> None:
+        """Prefer UTF-8 output to avoid Windows console encoding failures."""
+        for stream_name in ("stdout", "stderr"):
+            stream = getattr(sys, stream_name, None)
+            reconfigure = getattr(stream, "reconfigure", None)
+            if callable(reconfigure):
+                try:
+                    reconfigure(encoding="utf-8", errors="replace")
+                except ValueError:
+                    # Some wrapped streams may not allow reconfiguration.
+                    continue
 
     def clear(self):
         """Clear the terminal screen."""

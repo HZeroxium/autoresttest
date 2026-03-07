@@ -642,6 +642,8 @@ class RunRecorder:
                     self._run_id,
                     q_learning,
                     self.report_title,
+                    run_status=self._status,
+                    snapshot_reason=reason,
                 )
                 self._checkpoint_count += 1
                 self._aggregate_dirty = False
