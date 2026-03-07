@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "servers": [
     {
-      "url": "http://localhost:9007"
+      "url": "http://localhost:9002/rest"
     }
   ],
   "info": {
@@ -11,13 +11,240 @@
     "version": "v2.0.5"
   },
   "paths": {
+    "/v1/all": {
+      "get": {
+        "operationId": "v1All",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/alpha/{alphacode}": {
+      "get": {
+        "operationId": "v1Alphacode",
+        "parameters": [
+          {
+            "name": "alphacode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/alpha": {
+      "get": {
+        "operationId": "v1Alphacodes",
+        "parameters": [
+          {
+            "name": "codes",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/currency/{currency}": {
+      "get": {
+        "operationId": "v1Currency",
+        "parameters": [
+          {
+            "name": "currency",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/name/{name}": {
+      "get": {
+        "operationId": "v1Name",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fullText",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/callingcode/{callingcode}": {
+      "get": {
+        "operationId": "v1Callingcode",
+        "parameters": [
+          {
+            "name": "callingcode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/capital/{capital}": {
+      "get": {
+        "operationId": "v1Capital",
+        "parameters": [
+          {
+            "name": "capital",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/region/{region}": {
+      "get": {
+        "operationId": "v1Region",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/subregion/{subregion}": {
+      "get": {
+        "operationId": "v1Subregion",
+        "parameters": [
+          {
+            "name": "subregion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v1/lang/{lang}": {
+      "get": {
+        "operationId": "v1Lang",
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
     "/v2/all": {
       "get": {
         "operationId": "v2All",
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -41,7 +268,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -50,7 +276,6 @@
           },
           {
             "name": "alphacode",
-            "description": "Search by ISO 3166-1 2-letter or 3-letter country code",
             "in": "path",
             "required": true,
             "schema": {
@@ -74,7 +299,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -83,14 +307,10 @@
           },
           {
             "name": "codes",
-            "description": "Search by list of ISO 3166-1 2-letter or 3-letter country codes",
             "in": "query",
             "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "type": "string"
             }
           }
         ],
@@ -110,7 +330,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -119,7 +338,6 @@
           },
           {
             "name": "currency",
-            "description": "Search by ISO 4217 currency code",
             "in": "path",
             "required": true,
             "schema": {
@@ -143,7 +361,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -152,7 +369,6 @@
           },
           {
             "name": "name",
-            "description": "Search by country name. It can be the native name or partial name",
             "in": "path",
             "required": true,
             "schema": {
@@ -184,7 +400,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -193,7 +408,6 @@
           },
           {
             "name": "callingcode",
-            "description": "Search by calling code",
             "in": "path",
             "required": true,
             "schema": {
@@ -217,7 +431,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -226,7 +439,6 @@
           },
           {
             "name": "capital",
-            "description": "Search by capital city",
             "in": "path",
             "required": true,
             "schema": {
@@ -250,7 +462,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -259,28 +470,41 @@
           },
           {
             "name": "region",
-            "description": "In version 2 regions are continent and subregions are region Search by continent: Africa, Americas, Asia, Europe, Oceania",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string"
-            },
-            "examples": {
-              "1": {
-                "value": "Africa"
-              },
-              "2": {
-                "value": "Americas"
-              },
-              "3": {
-                "value": "Asia"
-              },
-              "4": {
-                "value": "Europe"
-              },
-              "5": {
-                "value": "Oceania"
-              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v2/subregion/{subregion}": {
+      "get": {
+        "operationId": "v2Subregion",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subregion",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -300,7 +524,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -309,7 +532,37 @@
           },
           {
             "name": "lang",
-            "description": "Search by ISO 639-1 language code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "default": {
+            "description": "Other responses"
+          }
+        }
+      }
+    },
+    "/v2/demonym/{demonym}": {
+      "get": {
+        "operationId": "v2Demonym",
+        "parameters": [
+          {
+            "name": "fields",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "demonym",
             "in": "path",
             "required": true,
             "schema": {
@@ -333,7 +586,6 @@
         "parameters": [
           {
             "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
             "in": "query",
             "required": false,
             "schema": {
@@ -342,441 +594,6 @@
           },
           {
             "name": "regionalbloc",
-            "description": "Search by regional bloc:\n  - EU (European Union)\n  - EFTA (European Free Trade Association)\n  - CARICOM (Caribbean Community)\n  - PA (Pacific Alliance)\n  - AU (African Union)\n  - USAN (Union of South American Nations)\n  - EEU (Eurasian Economic Union)\n  - AL (Arab League)\n  - ASEAN (Association of Southeast Asian Nations)\n  - CAIS (Central American Integration System)\n  - CEFTA (Central European Free Trade Agreement)\n  - NAFTA (North American Free Trade Agreement)\n  - SAARC (South Asian Association for Regional Cooperation)\n",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "1": {
-                "value": "EU"
-              },
-              "2": {
-                "value": "EFTA"
-              },
-              "3": {
-                "value": "CARICOM"
-              },
-              "4": {
-                "value": "PA"
-              },
-              "5": {
-                "value": "AU"
-              },
-              "6": {
-                "value": "USAN"
-              },
-              "7": {
-                "value": "EEU"
-              },
-              "8": {
-                "value": "AL"
-              },
-              "9": {
-                "value": "ASEAN"
-              },
-              "10": {
-                "value": "CAIS"
-              },
-              "11": {
-                "value": "CEFTA"
-              },
-              "12": {
-                "value": "NAFTA"
-              },
-              "13": {
-                "value": "SAARC"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/all": {
-      "get": {
-        "operationId": "v3All",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/alpha/{alphacode}": {
-      "get": {
-        "operationId": "v3Alphacode",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "alphacode",
-            "description": "Search by ISO 3166-1 2-letter or 3-letter country code",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/alpha": {
-      "get": {
-        "operationId": "v3Alphacodes",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "codes",
-            "description": "Search by list of ISO 3166-1 2-letter or 3-letter country codes",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/currency/{currency}": {
-      "get": {
-        "operationId": "v3Currency",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "currency",
-            "description": "Search by currency code or name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/name/{name}": {
-      "get": {
-        "operationId": "v3Name",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "name",
-            "description": "Search by country name. It can be the common or official value",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fullText",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/capital/{capital}": {
-      "get": {
-        "operationId": "v3Capital",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "capital",
-            "description": "Search by capital city",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3.1/region/{region}": {
-      "get": {
-        "operationId": "v3Region",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "region",
-            "description": "Search by Region: Africa, Americas, Asia, Europe, Oceania. The search can be using the full region’s name or just part of it",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "1": {
-                "value": "Africa"
-              },
-              "2": {
-                "value": "Americas"
-              },
-              "3": {
-                "value": "Asia"
-              },
-              "4": {
-                "value": "Europe"
-              },
-              "5": {
-                "value": "Oceania"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/subregion/{subregion}": {
-      "get": {
-        "operationId": "v3Subregion",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "subregion",
-            "description": "Search by Subregion: South America, Southern Europe, Central America, Eastern Asia, etc. The search can be using the full subregion’s name or just part of it",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            },
-            "examples": {
-              "1": {
-                "value": "South America"
-              },
-              "2": {
-                "value": "Southern Europe"
-              },
-              "3": {
-                "value": "Central America"
-              },
-              "4": {
-                "value": "Eastern Asia"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/lang/{lang}": {
-      "get": {
-        "operationId": "v3Lang",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "lang",
-            "description": "Search by language code or name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/demonym/{demonym}": {
-      "get": {
-        "operationId": "v3Demonym",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "demonym",
-            "description": "Now you can search by how a citizen is called.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful response"
-          },
-          "default": {
-            "description": "Other responses"
-          }
-        }
-      }
-    },
-    "/v3/translation/{translation}": {
-      "get": {
-        "operationId": "v3Translation",
-        "parameters": [
-          {
-            "name": "fields",
-            "description": "You can filter the output of your request to include only the specified fields.",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "translation",
-            "description": "You can search by any translation name",
             "in": "path",
             "required": true,
             "schema": {
