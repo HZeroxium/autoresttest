@@ -11,6 +11,32 @@ export const datasetSummarySchema = z.object({
   latestRunId: z.string().nullable().optional(),
   latestRunStatus: z.string().nullable().optional(),
   latestUpdatedAt: z.string().datetime().nullable().optional(),
+  latestTotalRequestsSent: z.number().nullable().optional(),
+  latestTotalTokens: z.number().nullable().optional(),
+  latestReportSchema: z.string().nullable().optional(),
+});
+
+export const reportMetricsSchema = z.object({
+  title: z.string().nullable().optional(),
+  durationSeconds: z.number().nullable().optional(),
+  runStatus: z.string(),
+  snapshotReason: z.string().nullable().optional(),
+  totalRequestsSent: z.number(),
+  statusCodeDistribution: z.record(z.number()),
+  totalOperations: z.number().nullable().optional(),
+  successfulOperations: z.number().nullable().optional(),
+  successfulPercentage: z.number().nullable().optional(),
+  uniqueServerErrors: z.number().nullable().optional(),
+  inputTokens: z.number(),
+  outputTokens: z.number(),
+  totalTokens: z.number(),
+  traceEventCount: z.number().nullable().optional(),
+  logicalCount: z.number().nullable().optional(),
+  httpAttemptCount: z.number().nullable().optional(),
+  llmCallCount: z.number().nullable().optional(),
+  checkpointCount: z.number().nullable().optional(),
+  reportSchema: z.string(),
+  derivedFields: z.array(z.string()),
 });
 
 export const runManifestSummarySchema = z.object({
@@ -29,6 +55,7 @@ export const datasetDetailSchema = z.object({
   dataset: datasetSummarySchema,
   latestRun: runManifestSummarySchema.nullable().optional(),
   reportSummary: z.record(z.any()).nullable().optional(),
+  reportMetrics: reportMetricsSchema.nullable().optional(),
   runCount: z.number(),
   traceFileCount: z.number(),
   artifactNames: z.array(z.string()),
@@ -188,6 +215,10 @@ export const operationMetricSchema = z.object({
   transportErrorCount: z.number(),
   avgDurationMs: z.number().nullable().optional(),
   maxDurationMs: z.number().nullable().optional(),
+  inputTokenTotal: z.number(),
+  outputTokenTotal: z.number(),
+  totalTokenCount: z.number(),
+  statusCodeBreakdown: z.record(z.number()),
 });
 
 export const operationMetricsResponseSchema = z.object({
@@ -210,9 +241,50 @@ export const artifactsResponseSchema = z.object({
   ),
 });
 
+export const artifactPreviewEntrySchema = z.object({
+  key: z.string(),
+  valueType: z.string(),
+  itemCount: z.number().nullable().optional(),
+  preview: z.record(z.any()).nullable().optional(),
+});
+
+export const artifactPreviewResponseSchema = z.object({
+  datasetId: z.string(),
+  runId: z.string(),
+  artifactName: z.string(),
+  summary: z.record(z.any()),
+  offset: z.number(),
+  limit: z.number(),
+  total: z.number(),
+  hasMore: z.boolean(),
+  entries: z.array(artifactPreviewEntrySchema),
+  warnings: z.array(z.string()),
+});
+
+const facetOptionSchema = z.object({
+  value: z.string(),
+  count: z.number(),
+});
+
+export const traceFacetsResponseSchema = z.object({
+  runId: z.string(),
+  totals: z.record(z.any()),
+  phases: z.array(facetOptionSchema),
+  operations: z.array(facetOptionSchema),
+  statusCodes: z.array(facetOptionSchema),
+  statusFamilies: z.array(facetOptionSchema),
+  traceKinds: z.array(facetOptionSchema),
+  llmPurposes: z.array(facetOptionSchema),
+  cacheHitCounts: z.record(z.number()),
+  requestFailedCounts: z.record(z.number()),
+  transportErrorCounts: z.record(z.number()),
+  warnings: z.array(z.string()),
+});
+
 export const runBundleSummarySchema = z.object({
   manifest: runManifestSummarySchema,
   report: z.record(z.any()).nullable().optional(),
+  reportMetrics: reportMetricsSchema.nullable().optional(),
   operationStatusCodes: z.record(z.record(z.number())).nullable().optional(),
   hasQtableSnapshot: z.boolean().optional(),
   traceCounts: z.record(z.number()),
@@ -230,6 +302,8 @@ export const compareResponseSchema = z.object({
   llmDelta: z.record(z.any()),
   operationDeltas: z.array(z.record(z.any())),
   qtableComparisonAvailable: z.boolean(),
+  baselineMetrics: reportMetricsSchema.nullable().optional(),
+  candidateMetrics: reportMetricsSchema.nullable().optional(),
   warnings: z.array(z.string()),
 });
 
@@ -237,6 +311,7 @@ export type DatasetSummary = z.infer<typeof datasetSummarySchema>;
 export type DatasetDetail = z.infer<typeof datasetDetailSchema>;
 export type RunManifestSummary = z.infer<typeof runManifestSummarySchema>;
 export type RunBundleSummary = z.infer<typeof runBundleSummarySchema>;
+export type ReportMetrics = z.infer<typeof reportMetricsSchema>;
 export type GraphNode = z.infer<typeof graphNodeSchema>;
 export type GraphEdge = z.infer<typeof graphEdgeSchema>;
 export type GraphSnapshot = z.infer<typeof graphSnapshotSchema>;
@@ -252,4 +327,6 @@ export type OperationMetricsResponse = z.infer<
   typeof operationMetricsResponseSchema
 >;
 export type ArtifactsResponse = z.infer<typeof artifactsResponseSchema>;
+export type ArtifactPreviewResponse = z.infer<typeof artifactPreviewResponseSchema>;
+export type TraceFacetsResponse = z.infer<typeof traceFacetsResponseSchema>;
 export type CompareResponse = z.infer<typeof compareResponseSchema>;

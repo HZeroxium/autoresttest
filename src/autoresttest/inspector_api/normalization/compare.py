@@ -10,14 +10,38 @@ def build_compare_response(
     baseline: RunBundleSummary,
     candidate: RunBundleSummary,
 ) -> CompareResponse:
-    baseline_report = baseline.report or {}
-    candidate_report = candidate.report or {}
-    baseline_status = baseline_report.get("Status Code Distribution", {})
-    candidate_status = candidate_report.get("Status Code Distribution", {})
-    baseline_total = baseline_report.get("Total Requests Sent", 0)
-    candidate_total = candidate_report.get("Total Requests Sent", 0)
-    baseline_success = baseline_report.get("Number of Successfully Processed Operations", 0)
-    candidate_success = candidate_report.get("Number of Successfully Processed Operations", 0)
+    baseline_metrics = baseline.report_metrics
+    candidate_metrics = candidate.report_metrics
+    baseline_status = (
+        baseline_metrics.status_code_distribution
+        if baseline_metrics is not None
+        else {}
+    )
+    candidate_status = (
+        candidate_metrics.status_code_distribution
+        if candidate_metrics is not None
+        else {}
+    )
+    baseline_total = (
+        baseline_metrics.total_requests_sent if baseline_metrics is not None else 0
+    )
+    candidate_total = (
+        candidate_metrics.total_requests_sent if candidate_metrics is not None else 0
+    )
+    baseline_success = (
+        baseline_metrics.successful_operations if baseline_metrics is not None else 0
+    ) or 0
+    candidate_success = (
+        candidate_metrics.successful_operations if candidate_metrics is not None else 0
+    ) or 0
+    baseline_errors = (
+        baseline_metrics.unique_server_errors if baseline_metrics is not None else 0
+    ) or 0
+    candidate_errors = (
+        candidate_metrics.unique_server_errors if candidate_metrics is not None else 0
+    ) or 0
+    baseline_tokens = baseline_metrics.total_tokens if baseline_metrics is not None else 0
+    candidate_tokens = candidate_metrics.total_tokens if candidate_metrics is not None else 0
 
     operation_deltas: list[dict[str, Any]] = []
     baseline_ops = baseline.operation_status_codes or {}
@@ -47,8 +71,11 @@ def build_compare_response(
         summary_delta={
             "totalRequests": candidate_total - baseline_total,
             "successfulOperations": candidate_success - baseline_success,
+            "uniqueServerErrors": candidate_errors - baseline_errors,
+            "totalTokens": candidate_tokens - baseline_tokens,
             "statusCodes": {
-                str(code): int(candidate_status.get(code, 0)) - int(baseline_status.get(code, 0))
+                str(code): int(candidate_status.get(code, 0))
+                - int(baseline_status.get(code, 0))
                 for code in sorted(set(baseline_status) | set(candidate_status))
             },
         },
@@ -58,15 +85,23 @@ def build_compare_response(
             "delta": candidate_success - baseline_success,
         },
         trace_volume_delta={
-            key: candidate.trace_counts.get(key, 0) - baseline.trace_counts.get(key, 0)
-            for key in sorted(set(baseline.trace_counts) | set(candidate.trace_counts))
+            key: candidate.trace_counts.get(key, 0)
+            - baseline.trace_counts.get(key, 0)
+            for key in sorted(
+                set(baseline.trace_counts) | set(candidate.trace_counts)
+            )
         },
         llm_delta={
             "baselineCalls": baseline_llm,
             "candidateCalls": candidate_llm,
             "deltaCalls": candidate_llm - baseline_llm,
+            "baselineTokens": baseline_tokens,
+            "candidateTokens": candidate_tokens,
+            "deltaTokens": candidate_tokens - baseline_tokens,
         },
         operation_deltas=operation_deltas,
         qtable_comparison_available=qtable_comparison_available,
+        baseline_metrics=baseline_metrics,
+        candidate_metrics=candidate_metrics,
         warnings=[],
     )

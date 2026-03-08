@@ -3,9 +3,17 @@ from __future__ import annotations
 from fastapi import HTTPException, status
 
 from autoresttest.inspector_api.config import AppContext
-from autoresttest.inspector_api.schemas import ArtifactsResponse, CompareResponse
+from autoresttest.inspector_api.schemas import (
+    ArtifactPreviewResponse,
+    ArtifactsResponse,
+    CompareResponse,
+)
 
-from ..normalization.artifacts import list_artifact_summaries, read_artifact
+from ..normalization.artifacts import (
+    build_artifact_preview,
+    list_artifact_summaries,
+    read_artifact,
+)
 from ..normalization.compare import build_compare_response
 from ..normalization.manifests import resolve_run_dir
 from .dataset_service import get_dataset_dir
@@ -39,6 +47,42 @@ def get_artifact_payload(
             run_dir,
             context.file_cache,
             artifact_name,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "artifact_not_found",
+                "message": str(exc),
+            },
+        ) from exc
+
+
+def get_artifact_preview(
+    context: AppContext,
+    dataset_id: str,
+    run_id: str,
+    artifact_name: str,
+    *,
+    offset: int = 0,
+    limit: int = 50,
+    search: str | None = None,
+    operation_id: str | None = None,
+) -> ArtifactPreviewResponse:
+    dataset_dir = get_dataset_dir(context, dataset_id)
+    run_manifest = get_run_manifest(context, dataset_id, run_id)
+    run_dir = resolve_run_dir(dataset_dir, run_id, run_manifest.paths)
+    try:
+        return build_artifact_preview(
+            dataset_id,
+            run_id,
+            run_dir,
+            context.file_cache,
+            artifact_name,
+            offset=offset,
+            limit=limit,
+            search=search,
+            operation_id=operation_id,
         )
     except FileNotFoundError as exc:
         raise HTTPException(

@@ -11,6 +11,7 @@ from autoresttest.inspector_api.schemas import (
     OperationMetric,
     OperationMetricsResponse,
     TimelinePage,
+    TraceFacetsResponse,
     TraceChainItem,
     TraceChainPage,
     TraceChainSummary,
@@ -97,6 +98,17 @@ def _token_total(raw_event: dict[str, Any]) -> int | None:
     return input_tokens + output_tokens
 
 
+def _llm_token_parts(raw_event: dict[str, Any]) -> tuple[int, int]:
+    llm_payload = raw_event.get("llm")
+    if not isinstance(llm_payload, dict):
+        return 0, 0
+    input_tokens = llm_payload.get("input_tokens")
+    output_tokens = llm_payload.get("output_tokens")
+    if not isinstance(input_tokens, int) or not isinstance(output_tokens, int):
+        return 0, 0
+    return input_tokens, output_tokens
+
+
 def _trim_payload(event: UnifiedTraceEvent) -> dict[str, Any]:
     payload = event.payload
     summary: dict[str, Any] = {
@@ -148,7 +160,9 @@ def _normalize_event(
     metadata = raw_event.get("metadata", {})
     llm_payload = raw_event.get("llm", {})
     cache_hit = llm_payload.get("cache_hit") if isinstance(llm_payload, dict) else None
-    llm_purpose = metadata.get("llm_purpose") if isinstance(metadata, dict) else None
+    llm_purpose = None
+    if isinstance(metadata, dict):
+        llm_purpose = metadata.get("llm_purpose") or metadata.get("purpose")
     is_retry = bool(raw_event.get("attempt_index", 1) > 1)
     normalized_status = status_code if isinstance(status_code, int) else None
     is_error = (
@@ -171,7 +185,16 @@ def _normalize_event(
             or raw_event.get("completed_at")
             or raw_event.get("started_at")
         ),
-        duration_ms=raw_event.get("duration_ms"),
+        duration_ms=(
+            raw_event.get("duration_ms")
+            if isinstance(raw_event.get("duration_ms"), (int, float))
+            else (
+                llm_payload.get("duration_ms")
+                if isinstance(llm_payload, dict)
+                and isinstance(llm_payload.get("duration_ms"), (int, float))
+                else None
+            )
+        ),
         status_code=normalized_status,
         transport_error=raw_event.get("transport_error")
         if isinstance(raw_event.get("transport_error"), dict)
@@ -268,6 +291,7 @@ def _filter_events(
     logical_request_id: int | None = None,
     trace_kind: str | None = None,
     status_code: int | None = None,
+    status_family: str | None = None,
     search: str | None = None,
     cache_hit: bool | None = None,
     request_failed: bool | None = None,
@@ -287,6 +311,8 @@ def _filter_events(
         if trace_kind and event.trace_kind != trace_kind:
             continue
         if status_code is not None and event.status_code != status_code:
+            continue
+        if status_family and event.status_family != status_family:
             continue
         if cache_hit is not None and event.cache_hit != cache_hit:
             continue
@@ -340,8 +366,15 @@ def build_timeline_page(
     logical_request_id: int | None = None,
     trace_kind: str | None = None,
     status_code: int | None = None,
+    status_family: str | None = None,
     search: str | None = None,
     include_payload: bool = True,
+    cache_hit: bool | None = None,
+    request_failed: bool | None = None,
+    transport_error: bool | None = None,
+    llm_purpose: str | None = None,
+    min_duration_ms: float | None = None,
+    max_duration_ms: float | None = None,
 ) -> TimelinePage:
     streams = load_trace_streams(
         dataset_dir,
@@ -358,7 +391,14 @@ def build_timeline_page(
         logical_request_id=logical_request_id,
         trace_kind=trace_kind,
         status_code=status_code,
+        status_family=status_family,
         search=search,
+        cache_hit=cache_hit,
+        request_failed=request_failed,
+        transport_error=transport_error,
+        llm_purpose=llm_purpose,
+        min_duration_ms=min_duration_ms,
+        max_duration_ms=max_duration_ms,
     )
 
     if after_event_sequence_id is not None:
@@ -387,12 +427,20 @@ def build_trace_chain_page(
     *,
     run_id: str,
     manifest_paths: dict[str, Any] | None,
+    after_event_sequence_id: int | None = None,
     limit: int = 100,
     phase: str | None = None,
     operation_id: str | None = None,
     trace_kind: str | None = None,
     status_code: int | None = None,
+    status_family: str | None = None,
     search: str | None = None,
+    cache_hit: bool | None = None,
+    request_failed: bool | None = None,
+    transport_error: bool | None = None,
+    llm_purpose: str | None = None,
+    min_duration_ms: float | None = None,
+    max_duration_ms: float | None = None,
 ) -> TraceChainPage:
     streams = load_trace_streams(
         dataset_dir,
@@ -421,7 +469,14 @@ def build_trace_chain_page(
             operation_id=operation_id,
             trace_kind=trace_kind,
             status_code=status_code,
+            status_family=status_family,
             search=search,
+            cache_hit=cache_hit,
+            request_failed=request_failed,
+            transport_error=transport_error,
+            llm_purpose=llm_purpose,
+            min_duration_ms=min_duration_ms,
+            max_duration_ms=max_duration_ms,
         )
         if not matching_events:
             continue
@@ -467,6 +522,12 @@ def build_trace_chain_page(
         )
 
     bounded_limit = max(1, min(limit, 500))
+    if after_event_sequence_id is not None:
+        chain_summaries = [
+            chain
+            for chain in chain_summaries
+            if chain.event_sequence_end > after_event_sequence_id
+        ]
     page_chains = chain_summaries[:bounded_limit]
     has_more = len(chain_summaries) > bounded_limit
     cursor = page_chains[-1].event_sequence_end if page_chains else 0
@@ -507,7 +568,9 @@ def build_operation_metrics(
             "transport_error_count": 0,
             "_logical_durations": [],
             "_child_durations": [],
-            "_token_total": 0,
+            "_input_tokens": 0,
+            "_output_tokens": 0,
+            "_status_code_breakdown": {},
         }
     )
 
@@ -528,6 +591,9 @@ def build_operation_metrics(
             if event.transport_error is not None:
                 bucket["transport_error_count"] += 1
             if event.status_code is not None:
+                bucket["_status_code_breakdown"][str(event.status_code)] = (
+                    bucket["_status_code_breakdown"].get(str(event.status_code), 0) + 1
+                )
                 if 200 <= event.status_code < 300:
                     bucket["success_2xx_count"] += 1
                 elif 400 <= event.status_code < 500:
@@ -538,17 +604,20 @@ def build_operation_metrics(
             bucket["llm_call_count"] += 1
             if isinstance(event.duration_ms, (int, float)):
                 bucket["_child_durations"].append(float(event.duration_ms))
-            if event.token_total is not None:
-                bucket["_token_total"] += event.token_total
+            input_tokens, output_tokens = _llm_token_parts(event.payload)
+            bucket["_input_tokens"] += input_tokens
+            bucket["_output_tokens"] += output_tokens
 
     operation_metrics: list[OperationMetric] = []
-    total_token_count = 0
+    total_input_tokens = 0
+    total_output_tokens = 0
     total_logical = total_http = total_llm = 0
     for operation_id, bucket in metrics.items():
         durations = bucket["_logical_durations"] or bucket["_child_durations"]
         avg_duration_ms = round(mean(durations), 3) if durations else None
         max_duration_ms = round(max(durations), 3) if durations else None
-        total_token_count += int(bucket["_token_total"])
+        total_input_tokens += int(bucket["_input_tokens"])
+        total_output_tokens += int(bucket["_output_tokens"])
         total_logical += int(bucket["logical_count"])
         total_http += int(bucket["http_attempt_count"])
         total_llm += int(bucket["llm_call_count"])
@@ -565,6 +634,12 @@ def build_operation_metrics(
                 transport_error_count=int(bucket["transport_error_count"]),
                 avg_duration_ms=avg_duration_ms,
                 max_duration_ms=max_duration_ms,
+                input_token_total=int(bucket["_input_tokens"]),
+                output_token_total=int(bucket["_output_tokens"]),
+                total_token_count=int(bucket["_input_tokens"]) + int(bucket["_output_tokens"]),
+                status_code_breakdown=dict(
+                    sorted(bucket["_status_code_breakdown"].items())
+                ),
             )
         )
 
@@ -577,8 +652,103 @@ def build_operation_metrics(
             "logicalCount": total_logical,
             "httpAttemptCount": total_http,
             "llmCallCount": total_llm,
-            "tokenTotal": total_token_count,
+            "inputTokenTotal": total_input_tokens,
+            "outputTokenTotal": total_output_tokens,
+            "tokenTotal": total_input_tokens + total_output_tokens,
         },
+        warnings=[],
+    )
+
+
+def build_trace_facets(
+    dataset_dir: Path,
+    file_cache: Any,
+    *,
+    run_id: str,
+    manifest_paths: dict[str, Any] | None,
+    phase: str | None = None,
+    operation_id: str | None = None,
+    logical_request_id: int | None = None,
+    trace_kind: str | None = None,
+    status_code: int | None = None,
+    status_family: str | None = None,
+    search: str | None = None,
+    cache_hit: bool | None = None,
+    request_failed: bool | None = None,
+    transport_error: bool | None = None,
+    llm_purpose: str | None = None,
+    min_duration_ms: float | None = None,
+    max_duration_ms: float | None = None,
+) -> TraceFacetsResponse:
+    streams = load_trace_streams(
+        dataset_dir,
+        file_cache,
+        run_id=run_id,
+        manifest_paths=manifest_paths,
+    )
+    merged = [event for stream in streams.values() for event in stream]
+    ordered_events, timeline_order = _sort_events(merged)
+    filtered = _filter_events(
+        ordered_events,
+        phase=phase,
+        operation_id=operation_id,
+        logical_request_id=logical_request_id,
+        trace_kind=trace_kind,
+        status_code=status_code,
+        status_family=status_family,
+        search=search,
+        cache_hit=cache_hit,
+        request_failed=request_failed,
+        transport_error=transport_error,
+        llm_purpose=llm_purpose,
+        min_duration_ms=min_duration_ms,
+        max_duration_ms=max_duration_ms,
+    )
+
+    def _count(items: Iterable[str | None]) -> list[dict[str, Any]]:
+        counts: dict[str, int] = {}
+        for item in items:
+            if item is None or item == "":
+                continue
+            counts[item] = counts.get(item, 0) + 1
+        return [
+            {"value": value, "count": count}
+            for value, count in sorted(counts.items(), key=lambda row: (-row[1], row[0]))
+        ]
+
+    cache_hit_counts = {"true": 0, "false": 0}
+    request_failed_counts = {"true": 0, "false": 0}
+    transport_error_counts = {"true": 0, "false": 0}
+    for event in filtered:
+        if event.trace_kind == "llm_call":
+            cache_hit_counts["true" if event.cache_hit else "false"] += 1
+        if event.trace_kind == "logical_request":
+            request_failed_counts[
+                "true" if bool(event.payload.get("request_failed")) else "false"
+            ] += 1
+        if event.trace_kind == "http_attempt":
+            transport_error_counts[
+                "true" if event.transport_error is not None else "false"
+            ] += 1
+
+    return TraceFacetsResponse(
+        run_id=run_id,
+        totals={
+            "events": len(filtered),
+            "timelineOrder": timeline_order,
+        },
+        phases=_count(event.phase for event in filtered),
+        operations=_count(event.operation_id for event in filtered),
+        status_codes=_count(
+            str(event.status_code) if event.status_code is not None else None
+            for event in filtered
+        ),
+        status_families=_count(event.status_family for event in filtered),
+        trace_kinds=_count(event.trace_kind for event in filtered),
+        llm_purposes=_count(event.llm_purpose for event in filtered),
+        cache_hit_counts=cache_hit_counts,
+        request_failed_counts=request_failed_counts,
+        transport_error_counts=transport_error_counts,
         warnings=[],
     )
 

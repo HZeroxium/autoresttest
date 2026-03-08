@@ -7,7 +7,7 @@
 # Only .yaml and .json are supported; file MUST be OpenAPI 3.0.
 # location = "specs/original/oas/ohsome.yaml"
 # location = "aratrl-openapi/market2.yaml"
-location = "datasets/Bills-api.json"
+# location = "datasets/Bills-api.json"
 # location = "datasets/CanadaHoliday.json"
 # location = "datasets/Genome-nexus.json"
 # location = "datasets/GitLabCommit.json"
@@ -15,7 +15,11 @@ location = "datasets/Bills-api.json"
 # location = "datasets/GitLabIssues.json"
 # location = "datasets/GitLabProject.json"
 # location = "datasets/GitLabBranch.json"
+# location = "datasets/GitLabRepository.json"
 # location = "datasets/petstore.json"
+location = "datasets/language-tool.json"
+# location = "datasets/rest-countries.json"
+# location = "datasets/Genome-nexus-local.json"
 
 
 # Maximum times a circular/self-reference may appear in the resolution stack.
@@ -94,11 +98,22 @@ max_exploration = 1   # epsilon; decays over time to 0.1
 # Controls the request generation process.
 # Duration for generation in seconds.
 # time_duration = 1200
-time_duration = 300
-# time_duration = 3600
+# time_duration = 400
+time_duration = 3600
+# time_duration = 5400
+# time_duration = 7200
 
 # Probability of mutating request parameters during generation.
 mutation_rate = 0.2
+
+[http]
+# HTTP transport configuration for pooled requests.Session usage.
+connect_timeout_seconds = 3.0
+read_timeout_seconds = 30.0
+pool_connections = 10
+pool_maxsize = 64
+transport_retry_attempts = 1
+transport_retry_backoff_seconds = 0.25
 
 [observability]
 # Enable append-only request tracing and periodic aggregate checkpoints.
@@ -106,7 +121,7 @@ enabled = true
 
 # Persist aggregate JSON outputs every N seconds or every N HTTP attempts, whichever comes first.
 snapshot_interval_seconds = 300
-snapshot_interval_requests = 200
+snapshot_interval_requests = 20000
 
 # Limit serialized request/response previews written into trace files.
 max_preview_chars = 4000
@@ -127,4 +142,4 @@ port = 8080
 # Example:
 # Authorization = "Bearer glpat-4FFRUYI3ARMJ8eCEUVCtLm86MQp1OjEH.01.0w0wtjhd2"
 # X-API-Key = "static-value"
-api_key = "special-key"
+# api_key = "special-key"

@@ -7,7 +7,14 @@ from typing import Any
 from autoresttest.inspector_api.schemas import (
     DatasetDetail,
     DatasetSummary,
+    ReportMetrics,
     RunManifestSummary,
+)
+from autoresttest.reporting import (
+    build_run_inventory,
+    has_valid_run_manifests,
+    iter_run_dirs,
+    iter_valid_dataset_dirs,
 )
 
 from .artifacts import list_artifact_summaries
@@ -36,7 +43,7 @@ def _safe_dt(value: Any) -> datetime | None:
 
 
 def _is_dataset_dir(path: Path) -> bool:
-    return path.is_dir() and not path.name.startswith(".")
+    return path.is_dir() and not path.name.startswith(".") and has_valid_run_manifests(path)
 
 
 def _manifest_path_for_run_dir(run_dir: Path) -> Path:
@@ -45,9 +52,7 @@ def _manifest_path_for_run_dir(run_dir: Path) -> Path:
 
 def _iter_run_manifest_paths(dataset_dir: Path) -> list[Path]:
     manifest_paths: list[Path] = []
-    for run_dir in dataset_dir.iterdir():
-        if not run_dir.is_dir() or run_dir.name.startswith("."):
-            continue
+    for run_dir in iter_run_dirs(dataset_dir):
         manifest_path = _manifest_path_for_run_dir(run_dir)
         if manifest_path.exists() and manifest_path.is_file():
             manifest_paths.append(manifest_path)
@@ -141,9 +146,19 @@ def list_datasets(data_root: Path, cache_root: Path, file_cache: Any) -> list[Da
     if not data_root.exists():
         return datasets
 
-    for dataset_dir in sorted(path for path in data_root.iterdir() if _is_dataset_dir(path)):
+    for dataset_dir in iter_valid_dataset_dirs(data_root):
         runs = list_run_manifests(dataset_dir, file_cache)
         latest_run = runs[0] if runs else None
+        latest_inventory = (
+            build_run_inventory(
+                resolve_run_dir(dataset_dir, latest_run.run_id, latest_run.paths),
+                dataset=dataset_dir.name,
+                json_loader=file_cache.get_or_load_json,
+                jsonl_loader=file_cache.get_or_load_jsonl,
+            )
+            if latest_run is not None
+            else None
+        )
 
         has_data_artifacts = False
         has_trace_artifacts = False
@@ -170,6 +185,21 @@ def list_datasets(data_root: Path, cache_root: Path, file_cache: Any) -> list[Da
                 latest_run_id=latest_run.run_id if latest_run else None,
                 latest_run_status=latest_run.status if latest_run else None,
                 latest_updated_at=latest_run.updated_at if latest_run else None,
+                latest_total_requests_sent=(
+                    latest_inventory.metrics.total_requests_sent
+                    if latest_inventory is not None
+                    else None
+                ),
+                latest_total_tokens=(
+                    latest_inventory.metrics.total_tokens
+                    if latest_inventory is not None
+                    else None
+                ),
+                latest_report_schema=(
+                    latest_inventory.metrics.report_schema
+                    if latest_inventory is not None
+                    else None
+                ),
             )
         )
     return datasets
@@ -181,16 +211,27 @@ def get_dataset_detail(dataset_dir: Path, cache_root: Path, file_cache: Any) -> 
     dataset = next(item for item in datasets if item.dataset_id == dataset_dir.name)
 
     report_summary = None
+    report_metrics: ReportMetrics | None = None
     artifact_names: list[str] = []
     trace_file_count = 0
     if runs:
         latest_run = runs[0]
         latest_run_dir = resolve_run_dir(dataset_dir, latest_run.run_id, latest_run.paths)
+        latest_inventory = build_run_inventory(
+            latest_run_dir,
+            dataset=dataset_dir.name,
+            json_loader=file_cache.get_or_load_json,
+            jsonl_loader=file_cache.get_or_load_jsonl,
+        )
         report_path = latest_run_dir / "report.json"
         if report_path.exists():
             payload = file_cache.get_or_load_json(report_path)
             if isinstance(payload, dict):
                 report_summary = payload
+        if latest_inventory is not None:
+            report_metrics = ReportMetrics.model_validate(
+                latest_inventory.metrics.to_dict()
+            )
 
         artifacts = list_artifact_summaries(
             dataset_dir.name,
@@ -210,6 +251,7 @@ def get_dataset_detail(dataset_dir: Path, cache_root: Path, file_cache: Any) -> 
         dataset=dataset,
         latest_run=runs[0] if runs else None,
         report_summary=report_summary,
+        report_metrics=report_metrics,
         run_count=len(runs),
         trace_file_count=trace_file_count,
         artifact_names=artifact_names,

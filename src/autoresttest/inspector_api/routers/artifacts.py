@@ -1,11 +1,12 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 
 from autoresttest.inspector_api.config import AppContext
 from autoresttest.inspector_api.dependencies import get_context
-from autoresttest.inspector_api.schemas import ArtifactsResponse
+from autoresttest.inspector_api.schemas import ArtifactPreviewResponse, ArtifactsResponse
 from autoresttest.inspector_api.services.artifact_service import (
+    get_artifact_preview,
     get_artifact_payload,
     get_artifact_summaries,
 )
@@ -21,6 +22,32 @@ def list_artifacts(
     context: AppContext = Depends(get_context),
 ) -> ArtifactsResponse:
     return get_artifact_summaries(context, dataset_id, run_id)
+
+
+@router.get(
+    "/runs/{run_id}/artifacts/{artifact_name}/preview",
+    response_model=ArtifactPreviewResponse,
+)
+def read_artifact_preview(
+    dataset_id: str,
+    run_id: str,
+    artifact_name: str,
+    offset: int = 0,
+    limit: int = 50,
+    search: str | None = None,
+    operation_id: str | None = Query(default=None, alias="operationId"),
+    context: AppContext = Depends(get_context),
+) -> ArtifactPreviewResponse:
+    return get_artifact_preview(
+        context,
+        dataset_id,
+        run_id,
+        artifact_name,
+        offset=offset,
+        limit=limit,
+        search=search,
+        operation_id=operation_id,
+    )
 
 
 @router.get("/runs/{run_id}/artifacts/{artifact_name}")

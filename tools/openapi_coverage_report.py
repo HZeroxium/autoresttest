@@ -4,9 +4,24 @@ import argparse
 import csv
 import json
 import re
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from autoresttest.reporting import (  # noqa: E402
+    RunInventory,
+    build_run_inventory,
+    iter_run_dirs,
+    iter_valid_dataset_dirs,
+)
+
 
 HTTP_METHODS = {"get", "post", "put", "patch", "delete", "head", "options", "trace"}
 
@@ -15,6 +30,10 @@ HTTP_METHODS = {"get", "post", "put", "patch", "delete", "head", "options", "tra
 class OperationDoc:
     dataset: str
     operation: str
+    operation_id: str
+    method: str
+    path: str
+    normalized_operation: str
     doc_2xx: frozenset[str]
     doc_4xx: frozenset[str]
 
@@ -29,12 +48,19 @@ class CoverageResult:
     dataset: str
     operation: str
     matched_observed_operation: str | None
+    matched_by: str
+    run_status: str
+    report_schema: str
+    has_operation_status_codes: bool
     doc_2xx: frozenset[str]
     hit_2xx: frozenset[str]
+    observed_2xx_all: frozenset[str]
     doc_4xx: frozenset[str]
     hit_4xx: frozenset[str]
     observed_4xx_all: frozenset[str]
+    observed_5xx_all: frozenset[str]
     undocumented_4xx: frozenset[str]
+    observed_total_requests: int
 
     @property
     def doc_all(self) -> frozenset[str]:
@@ -55,12 +81,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--summary-csv",
         default="datasets/openapi_status_summary.csv",
-        help="CSV created from OpenAPI specs (dataset, operation, 2xx_code, 4xx_code).",
+        help=(
+            "CSV created from OpenAPI specs. Supports legacy columns "
+            "(dataset, operation, 2xx_code, 4xx_code) and enriched columns."
+        ),
     )
     parser.add_argument(
         "--data-root",
         default="data",
-        help="Root directory containing data/{dataset}/{run_id}/operation_status_codes.json",
+        help="Root directory containing data/{dataset}/{run_id}/... artifacts.",
     )
     parser.add_argument(
         "--out-dir",
@@ -131,7 +160,7 @@ def hit_documented_codes(
         for code, count in observed_counts.items()
         if count and count > 0
     }
-    observed_values = {x for x in observed_values if x is not None}
+    observed_values = {value for value in observed_values if value is not None}
 
     hit: set[str] = set()
     for token in documented:
@@ -153,7 +182,11 @@ def observed_codes_by_class(observed_counts: dict[str, int], wanted_class: int) 
         for code, count in observed_counts.items()
         if count and count > 0
     }
-    typed = sorted(str(v) for v in values if v is not None and (v // 100) == wanted_class)
+    typed = sorted(
+        str(value)
+        for value in values
+        if value is not None and (value // 100) == wanted_class
+    )
     return frozenset(typed)
 
 
@@ -169,14 +202,24 @@ def is_observed_code_documented(observed_code: str, documented: frozenset[str]) 
 
 def load_summary(summary_csv: Path) -> dict[str, list[OperationDoc]]:
     by_dataset: dict[str, list[OperationDoc]] = {}
-    with summary_csv.open("r", encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f)
+    with summary_csv.open("r", encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
         for row in reader:
             dataset = row["dataset"].strip()
             operation = row["operation"].strip()
+            operation_id = row.get("operation_id", "").strip()
+            method = row.get("method", "").strip().upper()
+            path = row.get("path", "").strip()
+            normalized_operation = row.get("normalized_operation", "").strip()
+            if not normalized_operation:
+                normalized_operation = normalize_operation_name(operation)
             op_doc = OperationDoc(
                 dataset=dataset,
                 operation=operation,
+                operation_id=operation_id,
+                method=method,
+                path=path,
+                normalized_operation=normalized_operation,
                 doc_2xx=parse_codes(row.get("2xx_code", "")),
                 doc_4xx=parse_codes(row.get("4xx_code", "")),
             )
@@ -184,58 +227,60 @@ def load_summary(summary_csv: Path) -> dict[str, list[OperationDoc]]:
     return by_dataset
 
 
-def load_observed(path: Path) -> dict[str, dict[str, int]]:
-    with path.open("r", encoding="utf-8") as f:
-        data = json.load(f)
-    if not isinstance(data, dict):
-        return {}
-
-    parsed: dict[str, dict[str, int]] = {}
-    for op_name, statuses in data.items():
-        if not isinstance(op_name, str) or not isinstance(statuses, dict):
-            continue
-        parsed_statuses: dict[str, int] = {}
-        for code, count in statuses.items():
-            if isinstance(code, str) and isinstance(count, int):
-                parsed_statuses[code] = count
-        parsed[op_name] = parsed_statuses
-    return parsed
-
-
 def build_operation_index(observed: dict[str, dict[str, int]]) -> dict[str, str]:
     index: dict[str, str] = {}
-    for op in observed:
-        index.setdefault(normalize_operation_name(op), op)
+    for operation in observed:
+        index.setdefault(normalize_operation_name(operation), operation)
     return index
 
 
-def compute_operation_results(
-    run_name: str,
-    dataset: str,
-    docs: list[OperationDoc],
+def _match_documented_operation(
     observed: dict[str, dict[str, int]],
+    observed_index: dict[str, str],
+    doc: OperationDoc,
+) -> tuple[str | None, str, dict[str, int]]:
+    if doc.operation in observed:
+        return doc.operation, "operation", observed[doc.operation]
+
+    if doc.operation_id and doc.operation_id in observed:
+        return doc.operation_id, "operation_id", observed[doc.operation_id]
+
+    if doc.normalized_operation:
+        matched_name = observed_index.get(doc.normalized_operation)
+        if matched_name is not None:
+            return matched_name, "normalized_operation", observed[matched_name]
+
+    method_path_name = f"{doc.method} {doc.path}".strip()
+    if method_path_name.strip() and method_path_name in observed:
+        return method_path_name, "method_path", observed[method_path_name]
+
+    return None, "unmatched", {}
+
+
+def compute_operation_results(
+    inventory: RunInventory,
+    docs: list[OperationDoc],
 ) -> tuple[list[CoverageResult], list[str]]:
     results: list[CoverageResult] = []
     unmatched_doc_ops: list[str] = []
 
+    observed = inventory.operation_status_codes or {}
     observed_index = build_operation_index(observed)
 
     for doc in docs:
-        direct = observed.get(doc.operation)
-        matched_name: str | None = doc.operation if direct is not None else None
-
-        if direct is None:
-            normalized = normalize_operation_name(doc.operation)
-            matched_name = observed_index.get(normalized)
-            direct = observed.get(matched_name) if matched_name else None
-
-        observed_counts = direct or {}
+        matched_name, matched_by, observed_counts = _match_documented_operation(
+            observed,
+            observed_index,
+            doc,
+        )
         if matched_name is None:
             unmatched_doc_ops.append(doc.operation)
 
         hit_2xx = hit_documented_codes(doc.doc_2xx, observed_counts, wanted_class=2)
         hit_4xx = hit_documented_codes(doc.doc_4xx, observed_counts, wanted_class=4)
+        observed_2xx_all = observed_codes_by_class(observed_counts, wanted_class=2)
         observed_4xx_all = observed_codes_by_class(observed_counts, wanted_class=4)
+        observed_5xx_all = observed_codes_by_class(observed_counts, wanted_class=5)
         undocumented_4xx = frozenset(
             code
             for code in observed_4xx_all
@@ -244,16 +289,23 @@ def compute_operation_results(
 
         results.append(
             CoverageResult(
-                run=run_name,
-                dataset=dataset,
+                run=inventory.run,
+                dataset=inventory.dataset,
                 operation=doc.operation,
                 matched_observed_operation=matched_name,
+                matched_by=matched_by,
+                run_status=inventory.metrics.run_status,
+                report_schema=inventory.metrics.report_schema,
+                has_operation_status_codes=inventory.has_operation_status_codes,
                 doc_2xx=doc.doc_2xx,
                 hit_2xx=hit_2xx,
+                observed_2xx_all=observed_2xx_all,
                 doc_4xx=doc.doc_4xx,
                 hit_4xx=hit_4xx,
                 observed_4xx_all=observed_4xx_all,
+                observed_5xx_all=observed_5xx_all,
                 undocumented_4xx=undocumented_4xx,
+                observed_total_requests=sum(observed_counts.values()),
             )
         )
 
@@ -285,9 +337,16 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
         "doc_all_count",
         "hit_all_count",
         "coverage_all",
+        "matched_by",
+        "observed_2xx_all",
+        "observed_5xx_all",
+        "observed_total_requests",
+        "run_status",
+        "has_operation_status_codes",
+        "report_schema",
     ]
-    with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         for item in results:
             writer.writerow(
@@ -315,11 +374,22 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
                     "doc_all_count": len(item.doc_all),
                     "hit_all_count": len(item.hit_all),
                     "coverage_all": format_ratio(len(item.hit_all), len(item.doc_all)),
+                    "matched_by": item.matched_by,
+                    "observed_2xx_all": join_codes(item.observed_2xx_all),
+                    "observed_5xx_all": join_codes(item.observed_5xx_all),
+                    "observed_total_requests": item.observed_total_requests,
+                    "run_status": item.run_status,
+                    "has_operation_status_codes": str(item.has_operation_status_codes).lower(),
+                    "report_schema": item.report_schema,
                 }
             )
 
 
-def write_dataset_report(path: Path, results: list[CoverageResult]) -> None:
+def write_dataset_report(
+    path: Path,
+    results: list[CoverageResult],
+    inventories: dict[tuple[str, str], RunInventory],
+) -> None:
     fieldnames = [
         "run",
         "dataset",
@@ -334,17 +404,38 @@ def write_dataset_report(path: Path, results: list[CoverageResult]) -> None:
         "doc_all_count",
         "hit_all_count",
         "coverage_all",
+        "report_schema",
+        "run_status",
+        "snapshot_reason",
+        "started_at",
+        "updated_at",
+        "completed_at",
+        "has_report",
+        "has_operation_status_codes",
+        "has_qtables",
+        "has_trace",
+        "total_requests_sent",
+        "input_tokens",
+        "output_tokens",
+        "total_tokens",
+        "event_sequence",
+        "http_attempt_count",
+        "logical_count",
+        "llm_call_count",
+        "checkpoint_count",
+        "status_code_distribution_json",
     ]
 
     grouped: dict[tuple[str, str], list[CoverageResult]] = {}
     for row in results:
         grouped.setdefault((row.run, row.dataset), []).append(row)
 
-    with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
 
         for (run, dataset), items in sorted(grouped.items()):
+            inventory = inventories[(dataset, run)]
             doc_pairs_2xx: set[tuple[str, str]] = set()
             hit_pairs_2xx: set[tuple[str, str]] = set()
             doc_pairs_4xx: set[tuple[str, str]] = set()
@@ -378,29 +469,104 @@ def write_dataset_report(path: Path, results: list[CoverageResult]) -> None:
                     "dataset": dataset,
                     "doc_2xx_count": len(doc_pairs_2xx),
                     "hit_2xx_count": len(hit_pairs_2xx),
-                    "coverage_2xx": format_ratio(
-                        len(hit_pairs_2xx), len(doc_pairs_2xx)
-                    ),
+                    "coverage_2xx": format_ratio(len(hit_pairs_2xx), len(doc_pairs_2xx)),
                     "doc_4xx_count": len(doc_pairs_4xx),
                     "hit_4xx_count": len(hit_pairs_4xx),
                     "observed_4xx_count": len(observed_pairs_4xx),
                     "undocumented_4xx_count": len(undocumented_pairs_4xx),
-                    "coverage_4xx": format_ratio(
-                        len(hit_pairs_4xx), len(doc_pairs_4xx)
-                    ),
+                    "coverage_4xx": format_ratio(len(hit_pairs_4xx), len(doc_pairs_4xx)),
                     "doc_all_count": len(doc_pairs_all),
                     "hit_all_count": len(hit_pairs_all),
-                    "coverage_all": format_ratio(
-                        len(hit_pairs_all), len(doc_pairs_all)
+                    "coverage_all": format_ratio(len(hit_pairs_all), len(doc_pairs_all)),
+                    "report_schema": inventory.metrics.report_schema,
+                    "run_status": inventory.metrics.run_status,
+                    "snapshot_reason": inventory.metrics.snapshot_reason or "",
+                    "started_at": inventory.started_at.isoformat() if inventory.started_at else "",
+                    "updated_at": inventory.updated_at.isoformat() if inventory.updated_at else "",
+                    "completed_at": (
+                        inventory.completed_at.isoformat() if inventory.completed_at else ""
                     ),
+                    "has_report": str(inventory.has_report).lower(),
+                    "has_operation_status_codes": str(inventory.has_operation_status_codes).lower(),
+                    "has_qtables": str(inventory.has_qtables).lower(),
+                    "has_trace": str(inventory.has_trace).lower(),
+                    "total_requests_sent": inventory.metrics.total_requests_sent,
+                    "input_tokens": inventory.metrics.input_tokens,
+                    "output_tokens": inventory.metrics.output_tokens,
+                    "total_tokens": inventory.metrics.total_tokens,
+                    "event_sequence": inventory.metrics.trace_event_count or 0,
+                    "http_attempt_count": inventory.metrics.http_attempt_count or 0,
+                    "logical_count": inventory.metrics.logical_count or 0,
+                    "llm_call_count": inventory.metrics.llm_call_count or 0,
+                    "checkpoint_count": inventory.metrics.checkpoint_count or 0,
+                    "status_code_distribution_json": inventory.status_code_distribution_json,
+                }
+            )
+
+
+def write_run_inventory(path: Path, inventories: list[RunInventory]) -> None:
+    fieldnames = [
+        "dataset",
+        "run",
+        "report_schema",
+        "run_status",
+        "snapshot_reason",
+        "started_at",
+        "updated_at",
+        "completed_at",
+        "has_report",
+        "has_operation_status_codes",
+        "has_qtables",
+        "has_trace",
+        "total_requests_sent",
+        "input_tokens",
+        "output_tokens",
+        "total_tokens",
+        "event_sequence",
+        "attempt_sequence",
+        "logical_sequence",
+        "llm_call_sequence",
+        "checkpoint_count",
+        "status_code_distribution_json",
+    ]
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+        for inventory in sorted(inventories, key=lambda item: (item.dataset, item.run)):
+            writer.writerow(
+                {
+                    "dataset": inventory.dataset,
+                    "run": inventory.run,
+                    "report_schema": inventory.metrics.report_schema,
+                    "run_status": inventory.metrics.run_status,
+                    "snapshot_reason": inventory.metrics.snapshot_reason or "",
+                    "started_at": inventory.started_at.isoformat() if inventory.started_at else "",
+                    "updated_at": inventory.updated_at.isoformat() if inventory.updated_at else "",
+                    "completed_at": (
+                        inventory.completed_at.isoformat() if inventory.completed_at else ""
+                    ),
+                    "has_report": str(inventory.has_report).lower(),
+                    "has_operation_status_codes": str(inventory.has_operation_status_codes).lower(),
+                    "has_qtables": str(inventory.has_qtables).lower(),
+                    "has_trace": str(inventory.has_trace).lower(),
+                    "total_requests_sent": inventory.metrics.total_requests_sent,
+                    "input_tokens": inventory.metrics.input_tokens,
+                    "output_tokens": inventory.metrics.output_tokens,
+                    "total_tokens": inventory.metrics.total_tokens,
+                    "event_sequence": inventory.metrics.trace_event_count or 0,
+                    "attempt_sequence": inventory.metrics.http_attempt_count or 0,
+                    "logical_sequence": inventory.metrics.logical_count or 0,
+                    "llm_call_sequence": inventory.metrics.llm_call_count or 0,
+                    "checkpoint_count": inventory.metrics.checkpoint_count or 0,
+                    "status_code_distribution_json": inventory.status_code_distribution_json,
                 }
             )
 
 
 def write_unmatched_report(path: Path, rows: list[dict[str, str]]) -> None:
     fieldnames = ["run", "dataset", "kind", "operation"]
-    with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
 
@@ -415,33 +581,44 @@ def main() -> int:
     docs_by_dataset = load_summary(summary_path)
     all_operation_results: list[CoverageResult] = []
     unmatched_rows: list[dict[str, str]] = []
+    inventories: list[RunInventory] = []
+    inventory_index: dict[tuple[str, str], RunInventory] = {}
 
-    for dataset_dir in sorted(p for p in data_root.iterdir() if p.is_dir()):
+    for dataset_dir in iter_valid_dataset_dirs(data_root):
         dataset = dataset_dir.name
-        run_dirs = sorted(p for p in dataset_dir.iterdir() if p.is_dir())
-        if dataset not in docs_by_dataset:
-            for run_dir in run_dirs:
-                if (run_dir / "operation_status_codes.json").exists():
+        docs = docs_by_dataset.get(dataset)
+        for run_dir in iter_run_dirs(dataset_dir):
+            inventory = build_run_inventory(run_dir)
+            if inventory is None:
+                continue
+            inventories.append(inventory)
+            inventory_index[(inventory.dataset, inventory.run)] = inventory
+
+            if docs is None:
+                if inventory.has_operation_status_codes:
                     unmatched_rows.append(
                         {
-                            "run": run_dir.name,
-                            "dataset": dataset,
+                            "run": inventory.run,
+                            "dataset": inventory.dataset,
                             "kind": "run_dataset_not_in_summary",
                             "operation": "",
                         }
                     )
-            continue
-
-        docs = docs_by_dataset[dataset]
-        for run_dir in run_dirs:
-            run_name = run_dir.name
-            observed_path = run_dir / "operation_status_codes.json"
-            if not observed_path.exists():
                 continue
 
-            observed = load_observed(observed_path)
+            if not inventory.has_operation_status_codes:
+                unmatched_rows.append(
+                    {
+                        "run": inventory.run,
+                        "dataset": inventory.dataset,
+                        "kind": "run_missing_operation_status_codes",
+                        "operation": "",
+                    }
+                )
+
             operation_results, unmatched_doc_ops = compute_operation_results(
-                run_name=run_name, dataset=dataset, docs=docs, observed=observed
+                inventory,
+                docs,
             )
             all_operation_results.extend(operation_results)
 
@@ -450,39 +627,45 @@ def main() -> int:
                 for item in operation_results
                 if item.matched_observed_operation
             }
-            extra_observed = sorted(set(observed.keys()) - matched_observed)
-            for op in unmatched_doc_ops:
+            extra_observed = sorted(
+                set((inventory.operation_status_codes or {}).keys()) - matched_observed
+            )
+            for operation in unmatched_doc_ops:
                 unmatched_rows.append(
                     {
-                        "run": run_name,
-                        "dataset": dataset,
+                        "run": inventory.run,
+                        "dataset": inventory.dataset,
                         "kind": "documented_operation_not_found_in_observed",
-                        "operation": op,
+                        "operation": operation,
                     }
                 )
-            for op in extra_observed:
+            for operation in extra_observed:
                 unmatched_rows.append(
                     {
-                        "run": run_name,
-                        "dataset": dataset,
+                        "run": inventory.run,
+                        "dataset": inventory.dataset,
                         "kind": "observed_operation_not_found_in_documented",
-                        "operation": op,
+                        "operation": operation,
                     }
                 )
 
     operation_report = out_dir / "operation_coverage.csv"
     dataset_report = out_dir / "dataset_coverage.csv"
     unmatched_report = out_dir / "operation_matching_issues.csv"
+    run_inventory_report = out_dir / "run_inventory.csv"
 
     write_operation_report(operation_report, all_operation_results)
-    write_dataset_report(dataset_report, all_operation_results)
+    write_dataset_report(dataset_report, all_operation_results, inventory_index)
     write_unmatched_report(unmatched_report, unmatched_rows)
+    write_run_inventory(run_inventory_report, inventories)
 
     print(f"[OK] Wrote operation report: {operation_report}")
     print(f"[OK] Wrote dataset report:   {dataset_report}")
     print(f"[OK] Wrote matching issues:  {unmatched_report}")
+    print(f"[OK] Wrote run inventory:    {run_inventory_report}")
     print(f"[OK] Total operation rows:   {len(all_operation_results)}")
     print(f"[OK] Total matching issues:  {len(unmatched_rows)}")
+    print(f"[OK] Total runs scanned:     {len(inventories)}")
     return 0
 
 

@@ -6,7 +6,12 @@ from typing import Any
 from fastapi import HTTPException, status
 
 from autoresttest.inspector_api.config import AppContext
-from autoresttest.inspector_api.schemas import RunBundleSummary, RunManifestSummary
+from autoresttest.inspector_api.schemas import (
+    ReportMetrics,
+    RunBundleSummary,
+    RunManifestSummary,
+)
+from autoresttest.reporting import build_run_inventory
 
 from ..normalization.manifests import list_run_manifests, resolve_run_dir
 from ..normalization.traces import load_trace_streams
@@ -50,6 +55,12 @@ def get_run_summary(context: AppContext, dataset_id: str, run_id: str) -> RunBun
     dataset_dir = get_dataset_dir(context, dataset_id)
     manifest = get_run_manifest(context, dataset_id, run_id)
     run_dir = resolve_run_dir(dataset_dir, run_id, manifest.paths)
+    inventory = build_run_inventory(
+        run_dir,
+        dataset=dataset_id,
+        json_loader=context.file_cache.get_or_load_json,
+        jsonl_loader=context.file_cache.get_or_load_jsonl,
+    )
 
     report = _load_optional_json(run_dir / "report.json", context.file_cache)
     operation_status_codes = _load_optional_json(
@@ -90,6 +101,11 @@ def get_run_summary(context: AppContext, dataset_id: str, run_id: str) -> RunBun
     return RunBundleSummary(
         manifest=manifest,
         report=report,
+        report_metrics=(
+            ReportMetrics.model_validate(inventory.metrics.to_dict())
+            if inventory is not None
+            else None
+        ),
         operation_status_codes=operation_status_codes,
         has_qtable_snapshot=qtable_payload is not None,
         trace_counts=trace_counts,

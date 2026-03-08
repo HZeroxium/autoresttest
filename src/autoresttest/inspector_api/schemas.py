@@ -46,6 +46,32 @@ class DatasetSummary(CamelModel):
     latest_run_id: str | None = None
     latest_run_status: str | None = None
     latest_updated_at: datetime | None = None
+    latest_total_requests_sent: int | None = None
+    latest_total_tokens: int | None = None
+    latest_report_schema: str | None = None
+
+
+class ReportMetrics(CamelModel):
+    title: str | None = None
+    duration_seconds: float | None = None
+    run_status: str
+    snapshot_reason: str | None = None
+    total_requests_sent: int = 0
+    status_code_distribution: dict[str, int] = Field(default_factory=dict)
+    total_operations: int | None = None
+    successful_operations: int | None = None
+    successful_percentage: float | None = None
+    unique_server_errors: int | None = None
+    input_tokens: int = 0
+    output_tokens: int = 0
+    total_tokens: int = 0
+    trace_event_count: int | None = None
+    logical_count: int | None = None
+    http_attempt_count: int | None = None
+    llm_call_count: int | None = None
+    checkpoint_count: int | None = None
+    report_schema: str
+    derived_fields: list[str] = Field(default_factory=list)
 
 
 class RunManifestSummary(CamelModel):
@@ -64,6 +90,7 @@ class DatasetDetail(CamelModel):
     dataset: DatasetSummary
     latest_run: RunManifestSummary | None = None
     report_summary: dict[str, Any] | None = None
+    report_metrics: ReportMetrics | None = None
     run_count: int
     trace_file_count: int
     artifact_names: list[str]
@@ -75,6 +102,7 @@ class DatasetDetail(CamelModel):
 class RunBundleSummary(CamelModel):
     manifest: RunManifestSummary
     report: dict[str, Any] | None = None
+    report_metrics: ReportMetrics | None = None
     operation_status_codes: dict[str, dict[str, int]] | None = None
     has_qtable_snapshot: bool = False
     trace_counts: dict[str, int] = Field(default_factory=dict)
@@ -233,6 +261,10 @@ class OperationMetric(CamelModel):
     transport_error_count: int = 0
     avg_duration_ms: float | None = None
     max_duration_ms: float | None = None
+    input_token_total: int = 0
+    output_token_total: int = 0
+    total_token_count: int = 0
+    status_code_breakdown: dict[str, int] = Field(default_factory=dict)
 
 
 class OperationMetricsResponse(CamelModel):
@@ -255,6 +287,41 @@ class ArtifactsResponse(CamelModel):
     artifacts: list[ArtifactSummary]
 
 
+class ArtifactPreviewEntry(CamelModel):
+    key: str
+    value_type: str
+    item_count: int | None = None
+    preview: dict[str, Any] | None = None
+
+
+class ArtifactPreviewResponse(CamelModel):
+    dataset_id: str
+    run_id: str
+    artifact_name: str
+    summary: dict[str, Any] = Field(default_factory=dict)
+    offset: int = 0
+    limit: int = 0
+    total: int = 0
+    has_more: bool = False
+    entries: list[ArtifactPreviewEntry] = Field(default_factory=list)
+    warnings: list[str] = Field(default_factory=list)
+
+
+class TraceFacetsResponse(CamelModel):
+    run_id: str
+    totals: dict[str, Any] = Field(default_factory=dict)
+    phases: list[dict[str, Any]] = Field(default_factory=list)
+    operations: list[dict[str, Any]] = Field(default_factory=list)
+    status_codes: list[dict[str, Any]] = Field(default_factory=list)
+    status_families: list[dict[str, Any]] = Field(default_factory=list)
+    trace_kinds: list[dict[str, Any]] = Field(default_factory=list)
+    llm_purposes: list[dict[str, Any]] = Field(default_factory=list)
+    cache_hit_counts: dict[str, int] = Field(default_factory=dict)
+    request_failed_counts: dict[str, int] = Field(default_factory=dict)
+    transport_error_counts: dict[str, int] = Field(default_factory=dict)
+    warnings: list[str] = Field(default_factory=list)
+
+
 class CompareResponse(CamelModel):
     dataset_id: str
     baseline_run_id: str
@@ -265,4 +332,6 @@ class CompareResponse(CamelModel):
     llm_delta: dict[str, Any]
     operation_deltas: list[dict[str, Any]]
     qtable_comparison_available: bool
+    baseline_metrics: ReportMetrics | None = None
+    candidate_metrics: ReportMetrics | None = None
     warnings: list[str] = Field(default_factory=list)

@@ -26,9 +26,9 @@ export function AppShell({
   children,
 }: AppShellProps) {
   return (
-    <div className="min-h-full px-4 py-4 lg:px-6">
-      <div className="grid min-h-[calc(100vh-2rem)] grid-cols-1 gap-4 lg:grid-cols-[300px_minmax(0,1fr)]">
-        <aside className="rounded-3xl border border-line bg-panel/90 p-4 shadow-panel backdrop-blur-sm">
+    <div className="min-h-full px-3 py-3 sm:px-4 lg:px-6">
+      <div className="grid min-h-[calc(100vh-1.5rem)] grid-cols-1 gap-4 lg:grid-cols-[300px_minmax(0,1fr)]">
+        <aside className="rounded-3xl border border-line bg-panel/90 p-4 shadow-panel backdrop-blur-sm lg:sticky lg:top-3 lg:max-h-[calc(100vh-1.5rem)] lg:overflow-auto">
           <div className="mb-5">
             <div className="font-display text-xl font-bold text-ink">
               AutoRestTest Inspector
@@ -103,7 +103,7 @@ export function AppShell({
           </div>
         </aside>
 
-        <main className="space-y-4">
+        <main className="min-w-0 space-y-4">
           <header className="rounded-3xl border border-line bg-panel/90 px-6 py-5 shadow-panel backdrop-blur-sm">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>

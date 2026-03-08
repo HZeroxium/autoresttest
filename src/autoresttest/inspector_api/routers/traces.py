@@ -8,9 +8,11 @@ from autoresttest.inspector_api.schemas import (
     OperationMetricsResponse,
     TimelinePage,
     TraceChainPage,
+    TraceFacetsResponse,
 )
 from autoresttest.inspector_api.services.trace_service import (
     get_operation_metrics,
+    get_trace_facets,
     get_timeline,
     get_trace_chains,
     get_trace_stream,
@@ -31,8 +33,15 @@ def read_timeline(
     logical_request_id: int | None = Query(default=None, alias="logicalRequestId"),
     trace_kind: str | None = Query(default=None, alias="traceKind"),
     status_code: int | None = Query(default=None, alias="statusCode"),
+    status_family: str | None = Query(default=None, alias="statusFamily"),
     search: str | None = None,
     include_payload: bool = Query(default=True, alias="includePayload"),
+    cache_hit: bool | None = Query(default=None, alias="cacheHit"),
+    request_failed: bool | None = Query(default=None, alias="requestFailed"),
+    transport_error: bool | None = Query(default=None, alias="transportError"),
+    llm_purpose: str | None = Query(default=None, alias="llmPurpose"),
+    min_duration_ms: float | None = Query(default=None, alias="minDurationMs"),
+    max_duration_ms: float | None = Query(default=None, alias="maxDurationMs"),
     context: AppContext = Depends(get_context),
 ) -> TimelinePage:
     return get_timeline(
@@ -46,8 +55,15 @@ def read_timeline(
         logical_request_id=logical_request_id,
         trace_kind=trace_kind,
         status_code=status_code,
+        status_family=status_family,
         search=search,
         include_payload=include_payload,
+        cache_hit=cache_hit,
+        request_failed=request_failed,
+        transport_error=transport_error,
+        llm_purpose=llm_purpose,
+        min_duration_ms=min_duration_ms,
+        max_duration_ms=max_duration_ms,
     )
 
 
@@ -55,24 +71,40 @@ def read_timeline(
 def read_trace_chains(
     dataset_id: str,
     run_id: str,
+    after_event_sequence_id: int | None = Query(default=None, alias="afterEventSequenceId"),
     limit: int = 100,
     phase: str | None = None,
     operation_id: str | None = Query(default=None, alias="operationId"),
     trace_kind: str | None = Query(default=None, alias="traceKind"),
     status_code: int | None = Query(default=None, alias="statusCode"),
+    status_family: str | None = Query(default=None, alias="statusFamily"),
     search: str | None = None,
+    cache_hit: bool | None = Query(default=None, alias="cacheHit"),
+    request_failed: bool | None = Query(default=None, alias="requestFailed"),
+    transport_error: bool | None = Query(default=None, alias="transportError"),
+    llm_purpose: str | None = Query(default=None, alias="llmPurpose"),
+    min_duration_ms: float | None = Query(default=None, alias="minDurationMs"),
+    max_duration_ms: float | None = Query(default=None, alias="maxDurationMs"),
     context: AppContext = Depends(get_context),
 ) -> TraceChainPage:
     return get_trace_chains(
         context,
         dataset_id,
         run_id,
+        after_event_sequence_id=after_event_sequence_id,
         limit=limit,
         phase=phase,
         operation_id=operation_id,
         trace_kind=trace_kind,
         status_code=status_code,
+        status_family=status_family,
         search=search,
+        cache_hit=cache_hit,
+        request_failed=request_failed,
+        transport_error=transport_error,
+        llm_purpose=llm_purpose,
+        min_duration_ms=min_duration_ms,
+        max_duration_ms=max_duration_ms,
     )
 
 
@@ -83,6 +115,45 @@ def read_operation_metrics(
     context: AppContext = Depends(get_context),
 ) -> OperationMetricsResponse:
     return get_operation_metrics(context, dataset_id, run_id)
+
+
+@router.get("/trace-facets", response_model=TraceFacetsResponse)
+def read_trace_facets(
+    dataset_id: str,
+    run_id: str,
+    phase: str | None = None,
+    operation_id: str | None = Query(default=None, alias="operationId"),
+    logical_request_id: int | None = Query(default=None, alias="logicalRequestId"),
+    trace_kind: str | None = Query(default=None, alias="traceKind"),
+    status_code: int | None = Query(default=None, alias="statusCode"),
+    status_family: str | None = Query(default=None, alias="statusFamily"),
+    search: str | None = None,
+    cache_hit: bool | None = Query(default=None, alias="cacheHit"),
+    request_failed: bool | None = Query(default=None, alias="requestFailed"),
+    transport_error: bool | None = Query(default=None, alias="transportError"),
+    llm_purpose: str | None = Query(default=None, alias="llmPurpose"),
+    min_duration_ms: float | None = Query(default=None, alias="minDurationMs"),
+    max_duration_ms: float | None = Query(default=None, alias="maxDurationMs"),
+    context: AppContext = Depends(get_context),
+) -> TraceFacetsResponse:
+    return get_trace_facets(
+        context,
+        dataset_id,
+        run_id,
+        phase=phase,
+        operation_id=operation_id,
+        logical_request_id=logical_request_id,
+        trace_kind=trace_kind,
+        status_code=status_code,
+        status_family=status_family,
+        search=search,
+        cache_hit=cache_hit,
+        request_failed=request_failed,
+        transport_error=transport_error,
+        llm_purpose=llm_purpose,
+        min_duration_ms=min_duration_ms,
+        max_duration_ms=max_duration_ms,
+    )
 
 
 @router.get("/logical-requests")

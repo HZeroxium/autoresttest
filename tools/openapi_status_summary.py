@@ -118,7 +118,9 @@ def infer_default_4xx_codes(response_data: dict) -> set[str]:
         ("rate limit", "429"),
     ]
     inferred = {
-        code for phrase, code in phrase_to_code if re.search(rf"\b{re.escape(phrase)}\b", description)
+        code
+        for phrase, code in phrase_to_code
+        if re.search(rf"\b{re.escape(phrase)}\b", description)
     }
     return inferred
 
@@ -139,6 +141,26 @@ def operation_name(method: str, path: str, operation_data: dict) -> str:
     return f"{method.upper()} {path}"
 
 
+def normalize_operation_name(name: str) -> str:
+    text = name.strip()
+    if not text:
+        return ""
+
+    parts = text.split(maxsplit=1)
+    if (
+        len(parts) == 2
+        and parts[0].lower() in HTTP_METHODS
+        and parts[1].startswith("/")
+    ):
+        method = parts[0].lower()
+        path = parts[1]
+        path_norm = re.sub(r"[{}]", "", path.strip().lower())
+        path_norm = re.sub(r"[^a-z0-9]+", "_", path_norm).strip("_")
+        return f"{method}_{path_norm}"
+
+    return re.sub(r"[^a-z0-9]+", "_", text.lower()).strip("_")
+
+
 def extract_rows(spec: dict, dataset_name: str) -> list[dict[str, str]]:
     rows: list[dict[str, str]] = []
     paths = spec.get("paths")
@@ -150,7 +172,9 @@ def extract_rows(spec: dict, dataset_name: str) -> list[dict[str, str]]:
             continue
 
         for method, operation_data in methods.items():
-            if method.lower() not in HTTP_METHODS or not isinstance(operation_data, dict):
+            if method.lower() not in HTTP_METHODS or not isinstance(
+                operation_data, dict
+            ):
                 continue
 
             responses = operation_data.get("responses")
@@ -167,13 +191,25 @@ def extract_rows(spec: dict, dataset_name: str) -> list[dict[str, str]]:
                     codes_2xx.add(status_code.upper())
                 elif category == "4xx":
                     codes_4xx.add(status_code.upper())
-                elif status_code.strip().lower() == "default" and isinstance(response_data, dict):
+                elif status_code.strip().lower() == "default" and isinstance(
+                    response_data, dict
+                ):
                     codes_4xx.update(infer_default_4xx_codes(response_data))
 
             rows.append(
                 {
                     "dataset": dataset_name,
                     "operation": operation_name(method, endpoint, operation_data),
+                    "operation_id": (
+                        operation_data.get("operationId")
+                        if isinstance(operation_data.get("operationId"), str)
+                        else ""
+                    ),
+                    "method": method.upper(),
+                    "path": endpoint,
+                    "normalized_operation": normalize_operation_name(
+                        operation_name(method, endpoint, operation_data)
+                    ),
                     "2xx_code": "|".join(sort_codes(codes_2xx)),
                     "4xx_code": "|".join(sort_codes(codes_4xx)),
                 }
@@ -211,7 +247,17 @@ def main() -> int:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(
-            f, fieldnames=["dataset", "operation", "2xx_code", "4xx_code"]
+            f,
+            fieldnames=[
+                "dataset",
+                "operation",
+                "2xx_code",
+                "4xx_code",
+                "operation_id",
+                "method",
+                "path",
+                "normalized_operation",
+            ],
         )
         writer.writeheader()
         writer.writerows(all_rows)

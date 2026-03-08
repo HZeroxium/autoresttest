@@ -6,13 +6,18 @@ from fastapi import HTTPException, status
 
 from autoresttest.inspector_api.config import AppContext
 from autoresttest.inspector_api.schemas import DatasetDetail, DatasetSummary
+from autoresttest.reporting import has_valid_run_manifests
 
 from ..normalization.manifests import get_dataset_detail, list_datasets
 
 
 def get_dataset_dir(context: AppContext, dataset_id: str) -> Path:
     dataset_dir = context.settings.data_root / dataset_id
-    if not dataset_dir.exists() or not dataset_dir.is_dir():
+    if (
+        not dataset_dir.exists()
+        or not dataset_dir.is_dir()
+        or not has_valid_run_manifests(dataset_dir)
+    ):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail={

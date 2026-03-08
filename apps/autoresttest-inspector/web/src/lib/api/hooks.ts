@@ -4,6 +4,7 @@ import { z } from "zod";
 
 import { fetchApi } from "@/lib/api/client";
 import {
+  artifactPreviewResponseSchema,
   artifactsResponseSchema,
   cacheQtableSnapshotSchema,
   compareResponseSchema,
@@ -14,6 +15,7 @@ import {
   qtableSnapshotSchema,
   runBundleSummarySchema,
   runManifestSummarySchema,
+  traceFacetsResponseSchema,
   traceChainPageSchema,
   timelinePageSchema,
 } from "@/lib/schemas/api";
@@ -139,6 +141,40 @@ export function useArtifactPayload(
   });
 }
 
+type ArtifactPreviewOptions = {
+  enabled?: boolean;
+  offset?: number;
+  limit?: number;
+  search?: string;
+  operationId?: string;
+};
+
+export function useArtifactPreview(
+  datasetId: string | undefined,
+  runId: string | undefined,
+  artifactName: string | undefined,
+  options: ArtifactPreviewOptions = {},
+) {
+  const queryString = useMemo(() => {
+    const params = new URLSearchParams();
+    params.set("offset", String(options.offset ?? 0));
+    params.set("limit", String(options.limit ?? 50));
+    if (options.search) params.set("search", options.search);
+    if (options.operationId) params.set("operationId", options.operationId);
+    return params.toString();
+  }, [options]);
+
+  return useQuery({
+    queryKey: ["artifact-preview", datasetId, runId, artifactName, queryString],
+    enabled: Boolean(datasetId && runId && artifactName && (options.enabled ?? true)),
+    queryFn: () =>
+      fetchApi(
+        `/api/datasets/${datasetId}/runs/${runId}/artifacts/${artifactName}/preview?${queryString}`,
+        artifactPreviewResponseSchema,
+      ),
+  });
+}
+
 type TimelineOptions = {
   enabled?: boolean;
   phase?: string;
@@ -146,11 +182,18 @@ type TimelineOptions = {
   logicalRequestId?: number;
   traceKind?: string;
   statusCode?: number;
+  statusFamily?: string;
   search?: string;
   afterEventSequenceId?: number;
   limit?: number;
   includePayload?: boolean;
   refetchInterval?: number | false;
+  cacheHit?: boolean;
+  requestFailed?: boolean;
+  transportError?: boolean;
+  llmPurpose?: string;
+  minDurationMs?: number;
+  maxDurationMs?: number;
 };
 
 export function useTimeline(
@@ -170,9 +213,26 @@ export function useTimeline(
     if (typeof options.statusCode === "number") {
       params.set("statusCode", String(options.statusCode));
     }
+    if (options.statusFamily) params.set("statusFamily", options.statusFamily);
     if (options.search) params.set("search", options.search);
     if (typeof options.afterEventSequenceId === "number") {
       params.set("afterEventSequenceId", String(options.afterEventSequenceId));
+    }
+    if (typeof options.cacheHit === "boolean") {
+      params.set("cacheHit", String(options.cacheHit));
+    }
+    if (typeof options.requestFailed === "boolean") {
+      params.set("requestFailed", String(options.requestFailed));
+    }
+    if (typeof options.transportError === "boolean") {
+      params.set("transportError", String(options.transportError));
+    }
+    if (options.llmPurpose) params.set("llmPurpose", options.llmPurpose);
+    if (typeof options.minDurationMs === "number") {
+      params.set("minDurationMs", String(options.minDurationMs));
+    }
+    if (typeof options.maxDurationMs === "number") {
+      params.set("maxDurationMs", String(options.maxDurationMs));
     }
     if (typeof options.includePayload === "boolean") {
       params.set("includePayload", String(options.includePayload));
@@ -194,12 +254,21 @@ export function useTimeline(
 
 type TraceChainOptions = {
   enabled?: boolean;
+  afterEventSequenceId?: number;
   phase?: string;
   operationId?: string;
   traceKind?: string;
   statusCode?: number;
+  statusFamily?: string;
   search?: string;
   limit?: number;
+  cacheHit?: boolean;
+  requestFailed?: boolean;
+  transportError?: boolean;
+  llmPurpose?: string;
+  minDurationMs?: number;
+  maxDurationMs?: number;
+  refetchInterval?: number | false;
 };
 
 export function useTraceChains(
@@ -210,19 +279,40 @@ export function useTraceChains(
   const queryString = useMemo(() => {
     const params = new URLSearchParams();
     params.set("limit", String(options.limit ?? 100));
+    if (typeof options.afterEventSequenceId === "number") {
+      params.set("afterEventSequenceId", String(options.afterEventSequenceId));
+    }
     if (options.phase) params.set("phase", options.phase);
     if (options.operationId) params.set("operationId", options.operationId);
     if (options.traceKind) params.set("traceKind", options.traceKind);
     if (typeof options.statusCode === "number") {
       params.set("statusCode", String(options.statusCode));
     }
+    if (options.statusFamily) params.set("statusFamily", options.statusFamily);
     if (options.search) params.set("search", options.search);
+    if (typeof options.cacheHit === "boolean") {
+      params.set("cacheHit", String(options.cacheHit));
+    }
+    if (typeof options.requestFailed === "boolean") {
+      params.set("requestFailed", String(options.requestFailed));
+    }
+    if (typeof options.transportError === "boolean") {
+      params.set("transportError", String(options.transportError));
+    }
+    if (options.llmPurpose) params.set("llmPurpose", options.llmPurpose);
+    if (typeof options.minDurationMs === "number") {
+      params.set("minDurationMs", String(options.minDurationMs));
+    }
+    if (typeof options.maxDurationMs === "number") {
+      params.set("maxDurationMs", String(options.maxDurationMs));
+    }
     return params.toString();
   }, [options]);
 
   return useQuery({
     queryKey: ["trace-chains", datasetId, runId, queryString],
     enabled: Boolean(datasetId && runId && (options.enabled ?? true)),
+    refetchInterval: options.refetchInterval,
     queryFn: () =>
       fetchApi(
         `/api/datasets/${datasetId}/runs/${runId}/trace-chains?${queryString}`,
@@ -242,6 +332,71 @@ export function useOperationMetrics(
       fetchApi(
         `/api/datasets/${datasetId}/runs/${runId}/operation-metrics`,
         operationMetricsResponseSchema,
+      ),
+  });
+}
+
+type TraceFacetOptions = {
+  enabled?: boolean;
+  phase?: string;
+  operationId?: string;
+  logicalRequestId?: number;
+  traceKind?: string;
+  statusCode?: number;
+  statusFamily?: string;
+  search?: string;
+  cacheHit?: boolean;
+  requestFailed?: boolean;
+  transportError?: boolean;
+  llmPurpose?: string;
+  minDurationMs?: number;
+  maxDurationMs?: number;
+};
+
+export function useTraceFacets(
+  datasetId: string | undefined,
+  runId: string | undefined,
+  options: TraceFacetOptions = {},
+) {
+  const queryString = useMemo(() => {
+    const params = new URLSearchParams();
+    if (options.phase) params.set("phase", options.phase);
+    if (options.operationId) params.set("operationId", options.operationId);
+    if (typeof options.logicalRequestId === "number") {
+      params.set("logicalRequestId", String(options.logicalRequestId));
+    }
+    if (options.traceKind) params.set("traceKind", options.traceKind);
+    if (typeof options.statusCode === "number") {
+      params.set("statusCode", String(options.statusCode));
+    }
+    if (options.statusFamily) params.set("statusFamily", options.statusFamily);
+    if (options.search) params.set("search", options.search);
+    if (typeof options.cacheHit === "boolean") {
+      params.set("cacheHit", String(options.cacheHit));
+    }
+    if (typeof options.requestFailed === "boolean") {
+      params.set("requestFailed", String(options.requestFailed));
+    }
+    if (typeof options.transportError === "boolean") {
+      params.set("transportError", String(options.transportError));
+    }
+    if (options.llmPurpose) params.set("llmPurpose", options.llmPurpose);
+    if (typeof options.minDurationMs === "number") {
+      params.set("minDurationMs", String(options.minDurationMs));
+    }
+    if (typeof options.maxDurationMs === "number") {
+      params.set("maxDurationMs", String(options.maxDurationMs));
+    }
+    return params.toString();
+  }, [options]);
+
+  return useQuery({
+    queryKey: ["trace-facets", datasetId, runId, queryString],
+    enabled: Boolean(datasetId && runId && (options.enabled ?? true)),
+    queryFn: () =>
+      fetchApi(
+        `/api/datasets/${datasetId}/runs/${runId}/trace-facets?${queryString}`,
+        traceFacetsResponseSchema,
       ),
   });
 }

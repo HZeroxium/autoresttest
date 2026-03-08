@@ -14,6 +14,7 @@ import {
   useDataset,
   useDatasets,
   useGraph,
+  useOperationMetrics,
   useRun,
   useRuns,
   useRuntimeQtables,
@@ -37,6 +38,7 @@ export function RunRoutePage({ datasetId, runId }: RunRoutePageProps) {
   const cachedQtablesQuery = useCachedQtables(datasetId);
   const artifactsQuery = useArtifacts(datasetId, runId);
   const timelineQuery = useTimeline(datasetId, runId);
+  const operationMetricsQuery = useOperationMetrics(datasetId, runId);
 
   const activeTab = useInspectorStore((state) => state.activeTab);
   const setActiveTab = useInspectorStore((state) => state.setActiveTab);
@@ -67,7 +69,7 @@ export function RunRoutePage({ datasetId, runId }: RunRoutePageProps) {
         }}
         className="space-y-4"
       >
-        <Tabs.List className="flex flex-wrap gap-2">
+        <Tabs.List className="flex flex-wrap gap-2 overflow-x-auto pb-1">
           {[
             ["overview", "Overview"],
             ["graph", "Semantic Graph"],
@@ -87,7 +89,13 @@ export function RunRoutePage({ datasetId, runId }: RunRoutePageProps) {
         </Tabs.List>
 
         <Tabs.Content value="overview">
-          {run ? <RunOverviewPanel run={run} timeline={timelineQuery.data} /> : null}
+          {run ? (
+            <RunOverviewPanel
+              run={run}
+              timeline={timelineQuery.data}
+              operationMetrics={operationMetricsQuery.data}
+            />
+          ) : null}
         </Tabs.Content>
         <Tabs.Content value="graph">
           <SemanticGraphPanel
