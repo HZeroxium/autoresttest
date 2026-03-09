@@ -61,6 +61,7 @@ class CoverageResult:
     observed_5xx_all: frozenset[str]
     undocumented_4xx: frozenset[str]
     observed_total_requests: int
+    operation_coverage: float | None
 
     @property
     def doc_all(self) -> frozenset[str]:
@@ -142,7 +143,13 @@ def parse_observed_status_code(token: str) -> int | None:
 def format_ratio(hit: int, doc: int) -> str:
     if doc == 0:
         return "N/A"
-    return f"{hit / doc:.4f}"
+    return f"{(hit / doc) * 100:.4f}"
+
+
+def format_optional_float(value: float | None) -> str:
+    if value is None:
+        return ""
+    return str(value)
 
 
 def join_codes(codes: Iterable[str]) -> str:
@@ -306,6 +313,7 @@ def compute_operation_results(
                 observed_5xx_all=observed_5xx_all,
                 undocumented_4xx=undocumented_4xx,
                 observed_total_requests=sum(observed_counts.values()),
+                operation_coverage=inventory.metrics.successful_percentage,
             )
         )
 
@@ -341,6 +349,7 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
         "observed_2xx_all",
         "observed_5xx_all",
         "observed_total_requests",
+        "operation_coverage",
         "run_status",
         "has_operation_status_codes",
         "report_schema",
@@ -378,6 +387,7 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
                     "observed_2xx_all": join_codes(item.observed_2xx_all),
                     "observed_5xx_all": join_codes(item.observed_5xx_all),
                     "observed_total_requests": item.observed_total_requests,
+                    "operation_coverage": format_optional_float(item.operation_coverage),
                     "run_status": item.run_status,
                     "has_operation_status_codes": str(item.has_operation_status_codes).lower(),
                     "report_schema": item.report_schema,
@@ -404,6 +414,7 @@ def write_dataset_report(
         "doc_all_count",
         "hit_all_count",
         "coverage_all",
+        "operation_coverage",
         "report_schema",
         "run_status",
         "snapshot_reason",
@@ -478,6 +489,9 @@ def write_dataset_report(
                     "doc_all_count": len(doc_pairs_all),
                     "hit_all_count": len(hit_pairs_all),
                     "coverage_all": format_ratio(len(hit_pairs_all), len(doc_pairs_all)),
+                    "operation_coverage": format_optional_float(
+                        inventory.metrics.successful_percentage
+                    ),
                     "report_schema": inventory.metrics.report_schema,
                     "run_status": inventory.metrics.run_status,
                     "snapshot_reason": inventory.metrics.snapshot_reason or "",
@@ -528,6 +542,7 @@ def write_run_inventory(path: Path, inventories: list[RunInventory]) -> None:
         "llm_call_sequence",
         "checkpoint_count",
         "status_code_distribution_json",
+        "operation_coverage",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
@@ -559,6 +574,9 @@ def write_run_inventory(path: Path, inventories: list[RunInventory]) -> None:
                     "llm_call_sequence": inventory.metrics.llm_call_count or 0,
                     "checkpoint_count": inventory.metrics.checkpoint_count or 0,
                     "status_code_distribution_json": inventory.status_code_distribution_json,
+                    "operation_coverage": format_optional_float(
+                        inventory.metrics.successful_percentage
+                    ),
                 }
             )
 

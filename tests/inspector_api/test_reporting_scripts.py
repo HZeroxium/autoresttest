@@ -215,6 +215,9 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
             "Snapshot Reason": "manual_stop",
             "Total Requests Sent": 6,
             "Status Code Distribution": {"503": 6},
+            "Number of Total Operations": 5,
+            "Number of Successfully Processed Operations": 4,
+            "Percentage of Successfully Processed Operations": "80.0%",
             "Input Tokens": 4,
             "Output Tokens": 6,
             "Total Tokens": 10,
@@ -243,8 +246,10 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
     by_run = {row["run"]: row for row in inventory_rows}
     assert by_run["demo-20260305T000000Z-1000"]["report_schema"] == "legacy_report"
     assert by_run["demo-20260305T000000Z-1000"]["total_tokens"] == "13"
+    assert by_run["demo-20260305T000000Z-1000"]["operation_coverage"] == "100.0"
     assert by_run["demo-20260305T000000Z-1000"]["has_operation_status_codes"] == "true"
     assert by_run["demo-20260305T000100Z-1000"]["report_schema"] == "run_scoped_v2"
+    assert by_run["demo-20260305T000100Z-1000"]["operation_coverage"] == "80.0"
     assert by_run["demo-20260305T000100Z-1000"]["run_status"] == "failed"
     assert by_run["demo-20260305T000100Z-1000"]["has_operation_status_codes"] == "false"
 
@@ -252,25 +257,43 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
         dataset_reader = csv.DictReader(handle)
         dataset_rows = list(dataset_reader)
     assert "run_status" in dataset_reader.fieldnames
+    assert "operation_coverage" in dataset_reader.fieldnames
     assert "input_tokens" in dataset_reader.fieldnames
     assert "event_sequence" in dataset_reader.fieldnames
     dataset_by_run = {row["run"]: row for row in dataset_rows}
+    assert dataset_by_run["demo-20260305T000000Z-1000"]["coverage_2xx"] == "100.0000"
+    assert dataset_by_run["demo-20260305T000000Z-1000"]["coverage_4xx"] == "100.0000"
+    assert dataset_by_run["demo-20260305T000000Z-1000"]["coverage_all"] == "100.0000"
+    assert dataset_by_run["demo-20260305T000000Z-1000"]["operation_coverage"] == "100.0"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["total_requests_sent"] == "4"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["event_sequence"] == "9"
+    assert dataset_by_run["demo-20260305T000100Z-1000"]["coverage_2xx"] == "0.0000"
+    assert dataset_by_run["demo-20260305T000100Z-1000"]["coverage_4xx"] == "0.0000"
+    assert dataset_by_run["demo-20260305T000100Z-1000"]["coverage_all"] == "0.0000"
+    assert dataset_by_run["demo-20260305T000100Z-1000"]["operation_coverage"] == "80.0"
     assert dataset_by_run["demo-20260305T000100Z-1000"]["run_status"] == "failed"
 
     with (out_dir / "operation_coverage.csv").open("r", encoding="utf-8", newline="") as handle:
         operation_reader = csv.DictReader(handle)
         operation_rows = list(operation_reader)
     assert "matched_by" in operation_reader.fieldnames
+    assert "operation_coverage" in operation_reader.fieldnames
     assert "observed_2xx_all" in operation_reader.fieldnames
     assert "observed_5xx_all" in operation_reader.fieldnames
     assert "run_status" in operation_reader.fieldnames
     operation_by_run = {row["run"]: row for row in operation_rows}
     assert operation_by_run["demo-20260305T000000Z-1000"]["matched_by"] == "normalized_operation"
+    assert operation_by_run["demo-20260305T000000Z-1000"]["coverage_2xx"] == "100.0000"
+    assert operation_by_run["demo-20260305T000000Z-1000"]["coverage_4xx"] == "100.0000"
+    assert operation_by_run["demo-20260305T000000Z-1000"]["coverage_all"] == "100.0000"
+    assert operation_by_run["demo-20260305T000000Z-1000"]["operation_coverage"] == "100.0"
     assert operation_by_run["demo-20260305T000000Z-1000"]["observed_2xx_all"] == "200"
     assert operation_by_run["demo-20260305T000000Z-1000"]["observed_5xx_all"] == "500"
     assert operation_by_run["demo-20260305T000000Z-1000"]["observed_total_requests"] == "4"
+    assert operation_by_run["demo-20260305T000100Z-1000"]["coverage_2xx"] == "0.0000"
+    assert operation_by_run["demo-20260305T000100Z-1000"]["coverage_4xx"] == "0.0000"
+    assert operation_by_run["demo-20260305T000100Z-1000"]["coverage_all"] == "0.0000"
+    assert operation_by_run["demo-20260305T000100Z-1000"]["operation_coverage"] == "80.0"
     assert operation_by_run["demo-20260305T000100Z-1000"]["run_status"] == "failed"
 
     with (out_dir / "operation_matching_issues.csv").open(
