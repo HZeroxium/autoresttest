@@ -308,7 +308,8 @@ class SpecificationParser:
         Process the responses to return a Dictionary with status code and its properties and values.
         """
         response_properties = {}
-        for status_code, response_details in responses.items():
+        for raw_status_code, response_details in responses.items():
+            status_code = str(raw_status_code)
             response_properties.setdefault(
                 status_code,
                 ResponseProperties(

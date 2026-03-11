@@ -165,7 +165,34 @@ class ServiceSmokeTests(unittest.TestCase):
         )
         self.assertEqual(docker_ps.stdout.strip(), "")
 
-    def test_04_stop_is_idempotent(self) -> None:
+    def test_04_spring_petclinic_rest_start_stop_with_jacoco(self) -> None:
+        tool_name = "windows-smoke-spring-petclinic-rest"
+        self.run_script(
+            "services/spring-petclinic-rest/start_with_jacoco.py",
+            timeout=1200,
+            args=["--tool-name", tool_name, "--rebuild", "--timeout-seconds", "600"],
+        )
+        self.addCleanup(
+            lambda: self.run_script(
+                "services/spring-petclinic-rest/stop_with_jacoco.py",
+                timeout=300,
+                args=["--tool-name", tool_name],
+                expect_success=False,
+            )
+        )
+        self.assertEqual(self.get_status("http://localhost:9966/petclinic/actuator/health"), 200)
+        self.assertEqual(self.get_status("http://localhost:9966/petclinic/api/pettypes"), 200)
+        self.run_script(
+            "services/spring-petclinic-rest/stop_with_jacoco.py",
+            timeout=300,
+            args=["--tool-name", tool_name],
+        )
+        self.assertFalse(is_port_open(9966))
+        self.assertTrue((REPO_ROOT / "services/spring-petclinic-rest/target/jacoco.exec").exists())
+        self.assertTrue((REPO_ROOT / "services/spring-petclinic-rest/target/site/jacoco/index.html").exists())
+        self.assert_report_exists("spring-petclinic-rest", tool_name)
+
+    def test_05_stop_is_idempotent(self) -> None:
         tool_name = "windows-smoke-idempotent"
         self.run_script(
             "services/restcountries/start_with_jacoco.py",
@@ -185,7 +212,7 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(second_stop.returncode, 0)
         self.assertIn("No running rest-countries instance was found.", second_stop.stdout)
 
-    def test_05_stale_runtime_metadata_is_repaired(self) -> None:
+    def test_06_stale_runtime_metadata_is_repaired(self) -> None:
         runtime_file = REPO_ROOT / "services/restcountries/target/runtime.json"
         runtime_file.parent.mkdir(parents=True, exist_ok=True)
         runtime_file.write_text(
@@ -222,7 +249,7 @@ class ServiceSmokeTests(unittest.TestCase):
             args=["--tool-name", tool_name],
         )
 
-    def test_06_port_conflict_is_reported(self) -> None:
+    def test_07_port_conflict_is_reported(self) -> None:
         server = HTTPServer(("127.0.0.1", 9102), _OkHandler)
         thread = Thread(target=server.serve_forever, daemon=True)
         thread.start()

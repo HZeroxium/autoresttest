@@ -60,7 +60,7 @@ def is_parameter_key(value: Any) -> bool:
 class ResponseProperties:
     """Stores the properties of an HTTP response."""
 
-    status_code: int = -1
+    status_code: str = ""
     description: Optional[str] = None
     content: Dict[str, "SchemaProperties"] = field(default_factory=dict)
 

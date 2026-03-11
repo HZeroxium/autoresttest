@@ -39,6 +39,7 @@ class ServiceConfig:
     report_name: str
     report_classfiles: tuple[str, ...]
     start_command_builder: Callable[["RuntimeContext"], list[str]]
+    report_excluded_paths: tuple[str, ...] = ()
     build_fn: Optional[Callable[["RuntimeContext", bool], None]] = None
     before_start_fn: Optional[Callable[["RuntimeContext"], None]] = None
     after_stop_fn: Optional[Callable[["RuntimeContext", bool], None]] = None
@@ -130,6 +131,30 @@ def make_genome_nexus_config() -> ServiceConfig:
         after_stop_fn=stop_genome_nexus_mongo,
         startup_cleanup_fn=cleanup_failed_genome_nexus_start,
         start_command_builder=build_genome_nexus_start_command,
+    )
+
+
+def make_spring_petclinic_rest_config() -> ServiceConfig:
+    return ServiceConfig(
+        public_name="spring-petclinic-rest",
+        service_subdir="services/spring-petclinic-rest",
+        default_port=9966,
+        default_jacoco_port=6306,
+        min_java_major=21,
+        preferred_java_homes=("JAVA21_HOME",),
+        jacoco_includes="org.springframework.samples.petclinic.*",
+        readiness_urls=(
+            "http://localhost:{port}/petclinic/actuator/health",
+            "http://localhost:{port}/petclinic/v3/api-docs",
+        ),
+        report_name="Spring PetClinic REST Coverage",
+        report_classfiles=("target/classes",),
+        report_excluded_paths=(
+            "org/springframework/samples/petclinic/rest/api",
+            "org/springframework/samples/petclinic/rest/dto",
+        ),
+        build_fn=build_spring_petclinic_rest,
+        start_command_builder=build_spring_petclinic_rest_start_command,
     )
 
 
@@ -229,7 +254,7 @@ def create_context(config: ServiceConfig, script_path: Path, args: argparse.Name
     log_dir = target_dir / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)
     java_cmd, java_home = resolve_java_command(args.java, config.preferred_java_homes, config.min_java_major)
-    mvn_cmd = resolve_executable(args.mvn, "mvn")
+    mvn_cmd = resolve_maven_command(args.mvn, service_dir)
     docker_cmd = resolve_executable(args.docker, "docker") if config.public_name == "genome-nexus" else None
     jacoco_agent, jacoco_cli = ensure_jacoco_artifacts(repo_root, mvn_cmd, java_home)
     results_root = resolve_results_root(repo_root, args.results_root)
@@ -338,6 +363,16 @@ def resolve_executable(override: Optional[str], name: str) -> str:
     raise ServiceError(f"Required executable '{name}' was not found on PATH.")
 
 
+def resolve_maven_command(override: Optional[str], service_dir: Path) -> str:
+    if override:
+        return resolve_executable(override, "mvn")
+    for wrapper_name in ("mvnw.cmd", "mvnw"):
+        wrapper = service_dir / wrapper_name
+        if wrapper.exists():
+            return str(wrapper)
+    return resolve_executable(None, "mvn")
+
+
 def executable_name(name: str) -> str:
     return f"{name}.exe" if os.name == "nt" else name
 
@@ -441,6 +476,24 @@ def build_genome_nexus(context: RuntimeContext, rebuild: bool) -> None:
         raise ServiceError("Genome Nexus build completed but no web-*.war artifact was produced.")
 
 
+def build_spring_petclinic_rest(context: RuntimeContext, rebuild: bool) -> None:
+    artifact = resolve_latest_file(context.service_dir / "target", "spring-petclinic-rest-*.jar")
+    if artifact is not None and not rebuild:
+        return
+    goals = ["clean", "package"] if rebuild else ["package"]
+    run_command(
+        [context.mvn_cmd, *goals, "-DskipTests"],
+        cwd=context.service_dir,
+        env=build_java_env(context.java_home),
+        description="Building Spring PetClinic REST",
+    )
+    artifact = resolve_latest_file(context.service_dir / "target", "spring-petclinic-rest-*.jar")
+    if artifact is None:
+        raise ServiceError(
+            "Spring PetClinic REST build completed but no spring-petclinic-rest-*.jar artifact was produced."
+        )
+
+
 def build_restcountries_start_command(context: RuntimeContext) -> list[str]:
     jar_file = context.service_dir / "target" / "restcountries-sut.jar"
     if not jar_file.exists():
@@ -472,6 +525,21 @@ def build_genome_nexus_start_command(context: RuntimeContext) -> list[str]:
     jar_file = resolve_latest_file(context.service_dir / "web" / "target", "web-*.war")
     if jar_file is None:
         raise ServiceError("Genome Nexus WAR was not found. Re-run with --rebuild or fix the build.")
+    return [
+        context.java_cmd,
+        jacoco_agent_argument(context),
+        "-jar",
+        str(jar_file),
+        f"--server.port={context.port}",
+    ]
+
+
+def build_spring_petclinic_rest_start_command(context: RuntimeContext) -> list[str]:
+    jar_file = resolve_latest_file(context.service_dir / "target", "spring-petclinic-rest-*.jar")
+    if jar_file is None:
+        raise ServiceError(
+            "Spring PetClinic REST jar was not found. Re-run with --rebuild or fix the Maven build."
+        )
     return [
         context.java_cmd,
         jacoco_agent_argument(context),
@@ -836,11 +904,34 @@ def generate_jacoco_report(context: RuntimeContext) -> Path:
 
 def resolve_report_classfiles(context: RuntimeContext) -> list[Path]:
     classfiles: list[Path] = []
+    if context.config.report_excluded_paths:
+        stage_dir = context.target_dir / "jacoco-report-classfiles"
+        remove_path(stage_dir)
+        stage_dir.mkdir(parents=True, exist_ok=True)
     for relative_path in context.config.report_classfiles:
         candidate = context.service_dir / relative_path
         if candidate.exists():
-            classfiles.append(candidate)
+            if not context.config.report_excluded_paths:
+                classfiles.append(candidate)
+                continue
+            staged_candidate = stage_filtered_classfiles(
+                candidate,
+                stage_dir / sanitize_report_stage_name(relative_path),
+                context.config.report_excluded_paths,
+            )
+            classfiles.append(staged_candidate)
     return classfiles
+
+
+def stage_filtered_classfiles(source_dir: Path, target_dir: Path, excluded_paths: Sequence[str]) -> Path:
+    shutil.copytree(source_dir, target_dir)
+    for excluded_path in excluded_paths:
+        remove_path(target_dir / excluded_path)
+    return target_dir
+
+
+def sanitize_report_stage_name(relative_path: str) -> str:
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", relative_path.strip("/\\"))
 
 
 def copy_report_tree(context: RuntimeContext, report_dir: Path) -> Path:
