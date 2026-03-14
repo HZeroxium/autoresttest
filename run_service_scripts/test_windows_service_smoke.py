@@ -5,6 +5,7 @@ import socket
 import subprocess
 import sys
 import unittest
+import urllib.error
 import urllib.request
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
@@ -72,6 +73,47 @@ class ServiceSmokeTests(unittest.TestCase):
     def get_status(self, url: str) -> int:
         with urllib.request.urlopen(url, timeout=10) as response:
             return response.status
+
+    def request_json(
+        self,
+        url: str,
+        *,
+        method: str = "GET",
+        payload: dict[str, object] | None = None,
+        headers: dict[str, str] | None = None,
+    ) -> tuple[int, dict[str, str], object | None]:
+        request_headers = dict(headers or {})
+        data = None
+        if payload is not None:
+            data = json.dumps(payload).encode("utf-8")
+            request_headers.setdefault("Content-Type", "application/json")
+        request = urllib.request.Request(url, data=data, headers=request_headers, method=method)
+        try:
+            with urllib.request.urlopen(request, timeout=15) as response:
+                raw_body = response.read().decode("utf-8")
+                body = json.loads(raw_body) if raw_body else None
+                return response.status, dict(response.headers.items()), body
+        except urllib.error.HTTPError as exc:
+            raw_body = exc.read().decode("utf-8", errors="replace")
+            self.fail(f"HTTP {exc.code} for {url}: {raw_body}")
+        except json.JSONDecodeError as exc:
+            self.fail(f"Invalid JSON returned by {url}: {exc}")
+        raise AssertionError("unreachable")
+
+    def authenticate_jhipster(self, base_url: str) -> str:
+        status, headers, body = self.request_json(
+            f"{base_url}/api/authenticate",
+            method="POST",
+            payload={"username": "admin", "password": "admin", "rememberMe": False},
+            headers={"Accept": "application/json"},
+        )
+        self.assertEqual(status, 200)
+        if isinstance(body, dict) and isinstance(body.get("id_token"), str):
+            return body["id_token"]
+        authorization = headers.get("Authorization") or headers.get("authorization")
+        self.assertIsNotNone(authorization, "Authentication response did not include a JWT token.")
+        prefix = "Bearer "
+        return authorization[len(prefix) :] if authorization.startswith(prefix) else authorization
 
     def assert_report_exists(self, service_name: str, tool_name: str) -> None:
         report_dir = latest_report_dir(service_name, tool_name)
@@ -192,7 +234,51 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertTrue((REPO_ROOT / "services/spring-petclinic-rest/target/site/jacoco/index.html").exists())
         self.assert_report_exists("spring-petclinic-rest", tool_name)
 
-    def test_05_stop_is_idempotent(self) -> None:
+    def test_05_jhipster_sample_app_start_stop_with_jacoco(self) -> None:
+        tool_name = "windows-smoke-jhipster-sample-app"
+        export_path = REPO_ROOT / "services/jhipster-sample-app/target/jhipster-openapi-smoke.json"
+        if export_path.exists():
+            export_path.unlink()
+        self.run_script(
+            "services/jhipster-sample-app/start_with_jacoco.py",
+            timeout=2400,
+            args=["--tool-name", tool_name, "--rebuild", "--timeout-seconds", "1200"],
+        )
+        self.addCleanup(
+            lambda: self.run_script(
+                "services/jhipster-sample-app/stop_with_jacoco.py",
+                timeout=600,
+                args=["--tool-name", tool_name],
+                expect_success=False,
+            )
+        )
+        base_url = "http://localhost:8080"
+        self.assertEqual(self.get_status(f"{base_url}/management/health"), 200)
+        token = self.authenticate_jhipster(base_url)
+        status, _, body = self.request_json(
+            f"{base_url}/api/account",
+            headers={"Authorization": f"Bearer {token}", "Accept": "application/json"},
+        )
+        self.assertEqual(status, 200)
+        self.assertIsInstance(body, dict)
+        self.assertEqual(body.get("login"), "admin")
+        self.run_script(
+            "services/jhipster-sample-app/export_openapi.py",
+            timeout=300,
+            args=["--port", "8080", "--output", str(export_path), "--timeout-seconds", "30"],
+        )
+        self.assertTrue(export_path.exists())
+        self.run_script(
+            "services/jhipster-sample-app/stop_with_jacoco.py",
+            timeout=600,
+            args=["--tool-name", tool_name],
+        )
+        self.assertFalse(is_port_open(8080))
+        self.assertTrue((REPO_ROOT / "services/jhipster-sample-app/target/jacoco.exec").exists())
+        self.assertTrue((REPO_ROOT / "services/jhipster-sample-app/target/site/jacoco/index.html").exists())
+        self.assert_report_exists("jhipster-sample-app", tool_name)
+
+    def test_06_stop_is_idempotent(self) -> None:
         tool_name = "windows-smoke-idempotent"
         self.run_script(
             "services/restcountries/start_with_jacoco.py",
@@ -212,7 +298,7 @@ class ServiceSmokeTests(unittest.TestCase):
         self.assertEqual(second_stop.returncode, 0)
         self.assertIn("No running rest-countries instance was found.", second_stop.stdout)
 
-    def test_06_stale_runtime_metadata_is_repaired(self) -> None:
+    def test_07_stale_runtime_metadata_is_repaired(self) -> None:
         runtime_file = REPO_ROOT / "services/restcountries/target/runtime.json"
         runtime_file.parent.mkdir(parents=True, exist_ok=True)
         runtime_file.write_text(
@@ -249,7 +335,7 @@ class ServiceSmokeTests(unittest.TestCase):
             args=["--tool-name", tool_name],
         )
 
-    def test_07_port_conflict_is_reported(self) -> None:
+    def test_08_port_conflict_is_reported(self) -> None:
         server = HTTPServer(("127.0.0.1", 9102), _OkHandler)
         thread = Thread(target=server.serve_forever, daemon=True)
         thread.start()

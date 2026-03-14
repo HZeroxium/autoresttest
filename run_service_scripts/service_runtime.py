@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Callable, Optional, Sequence
 
 
-JACOCO_VERSION = "0.8.7"
+JACOCO_VERSION = "0.8.14"
 GN_MONGO_CONTAINER = "gn-mongo"
 GN_MONGO_IMAGE = "genomenexus/gn-mongo:latest"
 
@@ -155,6 +155,23 @@ def make_spring_petclinic_rest_config() -> ServiceConfig:
         ),
         build_fn=build_spring_petclinic_rest,
         start_command_builder=build_spring_petclinic_rest_start_command,
+    )
+
+
+def make_jhipster_sample_app_config() -> ServiceConfig:
+    return ServiceConfig(
+        public_name="jhipster-sample-app",
+        service_subdir="services/jhipster-sample-app",
+        default_port=8080,
+        default_jacoco_port=6307,
+        min_java_major=21,
+        preferred_java_homes=("JAVA21_HOME",),
+        jacoco_includes="io.github.jhipster.sample.*",
+        readiness_urls=("http://localhost:{port}/management/health",),
+        report_name="JHipster Sample App Coverage",
+        report_classfiles=("target/classes",),
+        build_fn=build_jhipster_sample_app,
+        start_command_builder=build_jhipster_sample_app_start_command,
     )
 
 
@@ -494,6 +511,32 @@ def build_spring_petclinic_rest(context: RuntimeContext, rebuild: bool) -> None:
         )
 
 
+def build_jhipster_sample_app(context: RuntimeContext, rebuild: bool) -> None:
+    artifact = resolve_latest_file(context.service_dir / "target", "jhipster-sample-application-*.jar")
+    if artifact is not None and not rebuild:
+        return
+    goals = ["clean", "package"] if rebuild else ["package"]
+    run_command(
+        [
+            context.mvn_cmd,
+            "-ntp",
+            "--batch-mode",
+            "-Dskip.installnodenpm",
+            "-Dskip.npm",
+            "-DskipTests",
+            *goals,
+        ],
+        cwd=context.service_dir,
+        env=build_java_env(context.java_home),
+        description="Building JHipster Sample App",
+    )
+    artifact = resolve_latest_file(context.service_dir / "target", "jhipster-sample-application-*.jar")
+    if artifact is None:
+        raise ServiceError(
+            "JHipster Sample App build completed but no jhipster-sample-application-*.jar artifact was produced."
+        )
+
+
 def build_restcountries_start_command(context: RuntimeContext) -> list[str]:
     jar_file = context.service_dir / "target" / "restcountries-sut.jar"
     if not jar_file.exists():
@@ -546,6 +589,20 @@ def build_spring_petclinic_rest_start_command(context: RuntimeContext) -> list[s
         "-jar",
         str(jar_file),
         f"--server.port={context.port}",
+    ]
+
+
+def build_jhipster_sample_app_start_command(context: RuntimeContext) -> list[str]:
+    jar_file = resolve_latest_file(context.service_dir / "target", "jhipster-sample-application-*.jar")
+    if jar_file is None:
+        raise ServiceError("JHipster Sample App jar was not found. Re-run with --rebuild or fix the Maven build.")
+    return [
+        context.java_cmd,
+        jacoco_agent_argument(context),
+        "-jar",
+        str(jar_file),
+        f"--server.port={context.port}",
+        "--spring.profiles.active=dev,api-docs",
     ]
 
 
