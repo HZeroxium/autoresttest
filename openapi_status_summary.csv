@@ -1,0 +1,634 @@
+dataset,operation,2xx_code,4xx_code,operation_id,method,path,normalized_operation
+Bills-api,GetAmendments,200,400|404,GetAmendments,GET,/api/v1/Bills/{billId}/Stages/{billStageId}/Amendments,getamendments
+Bills-api,GetAmendment,200,400|404,GetAmendment,GET,/api/v1/Bills/{billId}/Stages/{billStageId}/Amendments/{amendmentId},getamendment
+Bills-api,GetNewsArticles,200,400|404,GetNewsArticles,GET,/api/v1/Bills/{billId}/NewsArticles,getnewsarticles
+Bills-api,GET /api/v1/BillTypes,200,400,,GET,/api/v1/BillTypes,get_api_v1_billtypes
+Bills-api,GetBills,200,400,GetBills,GET,/api/v1/Bills,getbills
+Bills-api,GetBill,200,400|404,GetBill,GET,/api/v1/Bills/{billId},getbill
+Bills-api,GetBillStageDetails,200,400|404,GetBillStageDetails,GET,/api/v1/Bills/{billId}/Stages/{billStageId},getbillstagedetails
+Bills-api,GET /api/v1/Bills/{billId}/Stages,200,400|404,,GET,/api/v1/Bills/{billId}/Stages,get_api_v1_bills_billid_stages
+Bills-api,GET /api/v1/Publications/{publicationId}/Documents/{documentId},200,400|404,,GET,/api/v1/Publications/{publicationId}/Documents/{documentId},get_api_v1_publications_publicationid_documents_documentid
+Bills-api,GET /api/v1/Publications/{publicationId}/Documents/{documentId}/Download,200,400|404,,GET,/api/v1/Publications/{publicationId}/Documents/{documentId}/Download,get_api_v1_publications_publicationid_documents_documentid_download
+Bills-api,SearchPingPongItems,200,400|404,SearchPingPongItems,GET,/api/v1/Bills/{billId}/Stages/{billStageId}/PingPongItems,searchpingpongitems
+Bills-api,GetPingPongItem,200,400|404,GetPingPongItem,GET,/api/v1/Bills/{billId}/Stages/{billStageId}/PingPongItems/{pingPongItemId},getpingpongitem
+Bills-api,GET /api/v1/PublicationTypes,200,400,,GET,/api/v1/PublicationTypes,get_api_v1_publicationtypes
+Bills-api,GetBillPublication,200,400|404,GetBillPublication,GET,/api/v1/Bills/{billId}/Publications,getbillpublication
+Bills-api,GET /api/v1/Bills/{billId}/Stages/{stageId}/Publications,200,400|404,,GET,/api/v1/Bills/{billId}/Stages/{stageId}/Publications,get_api_v1_bills_billid_stages_stageid_publications
+Bills-api,GET /api/v1/Rss/allbills.rss,200,,,GET,/api/v1/Rss/allbills.rss,get_api_v1_rss_allbills_rss
+Bills-api,GET /api/v1/Rss/publicbills.rss,200,,,GET,/api/v1/Rss/publicbills.rss,get_api_v1_rss_publicbills_rss
+Bills-api,GET /api/v1/Rss/privatebills.rss,200,,,GET,/api/v1/Rss/privatebills.rss,get_api_v1_rss_privatebills_rss
+Bills-api,GET /api/v1/Rss/Bills/{id}.rss,200,400|404,,GET,/api/v1/Rss/Bills/{id}.rss,get_api_v1_rss_bills_id_rss
+Bills-api,GetSittings,200,400,GetSittings,GET,/api/v1/Sittings,getsittings
+Bills-api,GET /api/v1/Stages,200,400,,GET,/api/v1/Stages,get_api_v1_stages
+CanadaHoliday,Holidays,200,,Holidays,GET,/api/v1/holidays,holidays
+CanadaHoliday,Provinces,200,,Provinces,GET,/api/v1/provinces,provinces
+CanadaHoliday,Province,200,400,Province,GET,/api/v1/provinces/{provinceId},province
+CanadaHoliday,Holiday,200,400,Holiday,GET,/api/v1/holidays/{holidayId},holiday
+fdic,searchInstitutions,200,400,searchInstitutions,GET,/institutions,searchinstitutions
+fdic,searchLocations,200,400,searchLocations,GET,/locations,searchlocations
+fdic,getHistorical,200,400,getHistorical,GET,/summary,gethistorical
+fdic,getFailures,200,400,getFailures,GET,/failures,getfailures
+fdic,getHistory,200,400,getHistory,GET,/history,gethistory
+fdic,getFinancials,200,400,getFinancials,GET,/financials,getfinancials
+Genome-nexus-local,fetchVariantAnnotationPOST,200,,fetchVariantAnnotationPOST,POST,/annotation,fetchvariantannotationpost
+Genome-nexus-local,fetchVariantAnnotationByIdPOST,200,,fetchVariantAnnotationByIdPOST,POST,/annotation/dbsnp/,fetchvariantannotationbyidpost
+Genome-nexus-local,fetchVariantAnnotationByIdGET,200,,fetchVariantAnnotationByIdGET,GET,/annotation/dbsnp/{variantId},fetchvariantannotationbyidget
+Genome-nexus-local,fetchVariantAnnotationByGenomicLocationPOST,200,,fetchVariantAnnotationByGenomicLocationPOST,POST,/annotation/genomic,fetchvariantannotationbygenomiclocationpost
+Genome-nexus-local,fetchVariantAnnotationByGenomicLocationGET,200,,fetchVariantAnnotationByGenomicLocationGET,GET,/annotation/genomic/{genomicLocation},fetchvariantannotationbygenomiclocationget
+Genome-nexus-local,fetchVariantAnnotationGET,200,,fetchVariantAnnotationGET,GET,/annotation/{variant},fetchvariantannotationget
+Genome-nexus-local,fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST,200,,fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST,POST,/ensembl/canonical-gene/entrez,fetchcanonicalensemblgeneidbyentrezgeneidspost
+Genome-nexus-local,fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET,200,,fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET,GET,/ensembl/canonical-gene/entrez/{entrezGeneId},fetchcanonicalensemblgeneidbyentrezgeneidget
+Genome-nexus-local,fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST,200,,fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST,POST,/ensembl/canonical-gene/hgnc,fetchcanonicalensemblgeneidbyhugosymbolspost
+Genome-nexus-local,fetchCanonicalEnsemblGeneIdByHugoSymbolGET,200,,fetchCanonicalEnsemblGeneIdByHugoSymbolGET,GET,/ensembl/canonical-gene/hgnc/{hugoSymbol},fetchcanonicalensemblgeneidbyhugosymbolget
+Genome-nexus-local,fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST,200,,fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST,POST,/ensembl/canonical-transcript/hgnc,fetchcanonicalensembltranscriptsbyhugosymbolspost
+Genome-nexus-local,fetchCanonicalEnsemblTranscriptByHugoSymbolGET,200,,fetchCanonicalEnsemblTranscriptByHugoSymbolGET,GET,/ensembl/canonical-transcript/hgnc/{hugoSymbol},fetchcanonicalensembltranscriptbyhugosymbolget
+Genome-nexus-local,fetchEnsemblTranscriptsGET,200,,fetchEnsemblTranscriptsGET,GET,/ensembl/transcript,fetchensembltranscriptsget
+Genome-nexus-local,fetchEnsemblTranscriptsByEnsemblFilterPOST,200,,fetchEnsemblTranscriptsByEnsemblFilterPOST,POST,/ensembl/transcript,fetchensembltranscriptsbyensemblfilterpost
+Genome-nexus-local,fetchEnsemblTranscriptByTranscriptIdGET,200,,fetchEnsemblTranscriptByTranscriptIdGET,GET,/ensembl/transcript/{transcriptId},fetchensembltranscriptbytranscriptidget
+Genome-nexus-local,fetchGeneXrefsGET,200,,fetchGeneXrefsGET,GET,/ensembl/xrefs,fetchgenexrefsget
+Genome-nexus-local,fetchPdbHeaderPOST,200,,fetchPdbHeaderPOST,POST,/pdb/header,fetchpdbheaderpost
+Genome-nexus-local,fetchPdbHeaderGET,200,,fetchPdbHeaderGET,GET,/pdb/header/{pdbId},fetchpdbheaderget
+Genome-nexus-local,fetchPfamDomainsByPfamAccessionPOST,200,,fetchPfamDomainsByPfamAccessionPOST,POST,/pfam/domain,fetchpfamdomainsbypfamaccessionpost
+Genome-nexus-local,fetchPfamDomainsByAccessionGET,200,,fetchPfamDomainsByAccessionGET,GET,/pfam/domain/{pfamAccession},fetchpfamdomainsbyaccessionget
+Genome-nexus-local,fetchPostTranslationalModificationsGET,200,,fetchPostTranslationalModificationsGET,GET,/ptm/experimental,fetchposttranslationalmodificationsget
+Genome-nexus-local,fetchPostTranslationalModificationsByPtmFilterPOST,200,,fetchPostTranslationalModificationsByPtmFilterPOST,POST,/ptm/experimental,fetchposttranslationalmodificationsbyptmfilterpost
+Genome-nexus-local,fetchVersionGET,200,,fetchVersionGET,GET,/version,fetchversionget
+Genome-nexus,fetchVariantAnnotationPOST,200,,fetchVariantAnnotationPOST,POST,/annotation,fetchvariantannotationpost
+Genome-nexus,fetchVariantAnnotationByIdPOST,200,,fetchVariantAnnotationByIdPOST,POST,/annotation/dbsnp/,fetchvariantannotationbyidpost
+Genome-nexus,fetchVariantAnnotationByIdGET,200,,fetchVariantAnnotationByIdGET,GET,/annotation/dbsnp/{variantId},fetchvariantannotationbyidget
+Genome-nexus,fetchVariantAnnotationByGenomicLocationPOST,200,,fetchVariantAnnotationByGenomicLocationPOST,POST,/annotation/genomic,fetchvariantannotationbygenomiclocationpost
+Genome-nexus,fetchVariantAnnotationByGenomicLocationGET,200,,fetchVariantAnnotationByGenomicLocationGET,GET,/annotation/genomic/{genomicLocation},fetchvariantannotationbygenomiclocationget
+Genome-nexus,fetchVariantAnnotationGET,200,,fetchVariantAnnotationGET,GET,/annotation/{variant},fetchvariantannotationget
+Genome-nexus,fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST,200,,fetchCanonicalEnsemblGeneIdByEntrezGeneIdsPOST,POST,/ensembl/canonical-gene/entrez,fetchcanonicalensemblgeneidbyentrezgeneidspost
+Genome-nexus,fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET,200,,fetchCanonicalEnsemblGeneIdByEntrezGeneIdGET,GET,/ensembl/canonical-gene/entrez/{entrezGeneId},fetchcanonicalensemblgeneidbyentrezgeneidget
+Genome-nexus,fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST,200,,fetchCanonicalEnsemblGeneIdByHugoSymbolsPOST,POST,/ensembl/canonical-gene/hgnc,fetchcanonicalensemblgeneidbyhugosymbolspost
+Genome-nexus,fetchCanonicalEnsemblGeneIdByHugoSymbolGET,200,,fetchCanonicalEnsemblGeneIdByHugoSymbolGET,GET,/ensembl/canonical-gene/hgnc/{hugoSymbol},fetchcanonicalensemblgeneidbyhugosymbolget
+Genome-nexus,fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST,200,,fetchCanonicalEnsemblTranscriptsByHugoSymbolsPOST,POST,/ensembl/canonical-transcript/hgnc,fetchcanonicalensembltranscriptsbyhugosymbolspost
+Genome-nexus,fetchCanonicalEnsemblTranscriptByHugoSymbolGET,200,,fetchCanonicalEnsemblTranscriptByHugoSymbolGET,GET,/ensembl/canonical-transcript/hgnc/{hugoSymbol},fetchcanonicalensembltranscriptbyhugosymbolget
+Genome-nexus,fetchEnsemblTranscriptsGET,200,,fetchEnsemblTranscriptsGET,GET,/ensembl/transcript,fetchensembltranscriptsget
+Genome-nexus,fetchEnsemblTranscriptsByEnsemblFilterPOST,200,,fetchEnsemblTranscriptsByEnsemblFilterPOST,POST,/ensembl/transcript,fetchensembltranscriptsbyensemblfilterpost
+Genome-nexus,fetchEnsemblTranscriptByTranscriptIdGET,200,,fetchEnsemblTranscriptByTranscriptIdGET,GET,/ensembl/transcript/{transcriptId},fetchensembltranscriptbytranscriptidget
+Genome-nexus,fetchGeneXrefsGET,200,,fetchGeneXrefsGET,GET,/ensembl/xrefs,fetchgenexrefsget
+Genome-nexus,fetchPdbHeaderPOST,200,,fetchPdbHeaderPOST,POST,/pdb/header,fetchpdbheaderpost
+Genome-nexus,fetchPdbHeaderGET,200,,fetchPdbHeaderGET,GET,/pdb/header/{pdbId},fetchpdbheaderget
+Genome-nexus,fetchPfamDomainsByPfamAccessionPOST,200,,fetchPfamDomainsByPfamAccessionPOST,POST,/pfam/domain,fetchpfamdomainsbypfamaccessionpost
+Genome-nexus,fetchPfamDomainsByAccessionGET,200,,fetchPfamDomainsByAccessionGET,GET,/pfam/domain/{pfamAccession},fetchpfamdomainsbyaccessionget
+Genome-nexus,fetchPostTranslationalModificationsGET,200,,fetchPostTranslationalModificationsGET,GET,/ptm/experimental,fetchposttranslationalmodificationsget
+Genome-nexus,fetchPostTranslationalModificationsByPtmFilterPOST,200,,fetchPostTranslationalModificationsByPtmFilterPOST,POST,/ptm/experimental,fetchposttranslationalmodificationsbyptmfilterpost
+Genome-nexus,fetchVersionGET,200,,fetchVersionGET,GET,/version,fetchversionget
+GitLabBranch,GET /projects,200,400,,GET,/projects,get_projects
+GitLabBranch,POST /projects,201,400,,POST,/projects,post_projects
+GitLabBranch,GET /projects/{id}/repository/branches,200,,,GET,/projects/{id}/repository/branches,get_projects_id_repository_branches
+GitLabBranch,POST /projects/{id}/repository/branches,201,,,POST,/projects/{id}/repository/branches,post_projects_id_repository_branches
+GitLabBranch,GET /projects/{id}/repository/branches/{branch},200,,,GET,/projects/{id}/repository/branches/{branch},get_projects_id_repository_branches_branch
+GitLabBranch,DELETE /projects/{id}/repository/branches/{branch},202,,,DELETE,/projects/{id}/repository/branches/{branch},delete_projects_id_repository_branches_branch
+GitLabBranch,POST /projects/{id}/protected_branches,201,,,POST,/projects/{id}/protected_branches,post_projects_id_protected_branches
+GitLabBranch,DELETE /projects/{id}/protected_branches/{name},202,,,DELETE,/projects/{id}/protected_branches/{name},delete_projects_id_protected_branches_name
+GitLabBranch,DELETE /projects/{id}/repository/merged_branches,202,,,DELETE,/projects/{id}/repository/merged_branches,delete_projects_id_repository_merged_branches
+GitLabCommit,GET /projects,200,400,,GET,/projects,get_projects
+GitLabCommit,POST /projects,201,400,,POST,/projects,post_projects
+GitLabCommit,GET /projects/{id}/repository/commits,200,400,,GET,/projects/{id}/repository/commits,get_projects_id_repository_commits
+GitLabCommit,POST /projects/{id}/repository/commits,201,400,,POST,/projects/{id}/repository/commits,post_projects_id_repository_commits
+GitLabCommit,GET /projects/{id}/repository/commits/{sha},200,400,,GET,/projects/{id}/repository/commits/{sha},get_projects_id_repository_commits_sha
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/refs,200,400,,GET,/projects/{id}/repository/commits/{sha}/refs,get_projects_id_repository_commits_sha_refs
+GitLabCommit,POST /projects/{id}/repository/commits/{sha}/cherry_pick,201,400,,POST,/projects/{id}/repository/commits/{sha}/cherry_pick,post_projects_id_repository_commits_sha_cherry_pick
+GitLabCommit,POST /projects/{id}/repository/commits/{sha}/revert,201,400,,POST,/projects/{id}/repository/commits/{sha}/revert,post_projects_id_repository_commits_sha_revert
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/diff,200,400,,GET,/projects/{id}/repository/commits/{sha}/diff,get_projects_id_repository_commits_sha_diff
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/comments,201,400,,GET,/projects/{id}/repository/commits/{sha}/comments,get_projects_id_repository_commits_sha_comments
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/discussions,200,400,,GET,/projects/{id}/repository/commits/{sha}/discussions,get_projects_id_repository_commits_sha_discussions
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/statuses,200,400,,GET,/projects/{id}/repository/commits/{sha}/statuses,get_projects_id_repository_commits_sha_statuses
+GitLabCommit,POST /projects/{id}/statuses/{sha},201,400,,POST,/projects/{id}/statuses/{sha},post_projects_id_statuses_sha
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/merge_requests,200,400,,GET,/projects/{id}/repository/commits/{sha}/merge_requests,get_projects_id_repository_commits_sha_merge_requests
+GitLabCommit,GET /projects/{id}/repository/commits/{sha}/signature,200,400,,GET,/projects/{id}/repository/commits/{sha}/signature,get_projects_id_repository_commits_sha_signature
+GitLabGroups,GET /groups,200,400,,GET,/groups,get_groups
+GitLabGroups,POST /groups,201,400,,POST,/groups,post_groups
+GitLabGroups,GET /groups/{id},200,400,,GET,/groups/{id},get_groups_id
+GitLabGroups,PUT /groups/{id},200,400,,PUT,/groups/{id},put_groups_id
+GitLabGroups,DELETE /groups/{id},202,400,,DELETE,/groups/{id},delete_groups_id
+GitLabGroups,POST /groups/{id}/share,200,400,,POST,/groups/{id}/share,post_groups_id_share
+GitLabGroups,DELETE /groups/{id}/share/{group_id},204,400,,DELETE,/groups/{id}/share/{group_id},delete_groups_id_share_group_id
+GitLabGroups,GET /groups/{id}/subgroups,200,400,,GET,/groups/{id}/subgroups,get_groups_id_subgroups
+GitLabGroups,GET /groups/{id}/hooks,200,400,,GET,/groups/{id}/hooks,get_groups_id_hooks
+GitLabGroups,POST /groups/{id}/hooks,201,400,,POST,/groups/{id}/hooks,post_groups_id_hooks
+GitLabGroups,GET /groups/{id}/hooks/{hook_id},200,400,,GET,/groups/{id}/hooks/{hook_id},get_groups_id_hooks_hook_id
+GitLabGroups,PUT /groups/{id}/hooks/{hook_id},200,400,,PUT,/groups/{id}/hooks/{hook_id},put_groups_id_hooks_hook_id
+GitLabGroups,DELETE /groups/{id}/hooks/{hook_id},204,400,,DELETE,/groups/{id}/hooks/{hook_id},delete_groups_id_hooks_hook_id
+GitLabGroups,GET /groups/{id}/descendant_groups,200,400,,GET,/groups/{id}/descendant_groups,get_groups_id_descendant_groups
+GitLabGroups,GET /groups/{id}/projects,200,400,,GET,/groups/{id}/projects,get_groups_id_projects
+GitLabGroups,POST /groups/{id}/projects/{project_id},201,400,,POST,/groups/{id}/projects/{project_id},post_groups_id_projects_project_id
+GitLabGroups,GET /groups/{id}/projects/shared,200,400,,GET,/groups/{id}/projects/shared,get_groups_id_projects_shared
+GitLabIssues,GET /projects,200,400,,GET,/projects,get_projects
+GitLabIssues,POST /projects,201,400,,POST,/projects,post_projects
+GitLabIssues,GET /issues,200,400,,GET,/issues,get_issues
+GitLabIssues,GET /issues/{id},200,400,,GET,/issues/{id},get_issues_id
+GitLabIssues,GET /groups,200,400,,GET,/groups,get_groups
+GitLabIssues,POST /groups,201,400,,POST,/groups,post_groups
+GitLabIssues,GET /groups/{id}/issues,200,400,,GET,/groups/{id}/issues,get_groups_id_issues
+GitLabIssues,GET /projects/{id}/issues,200,400,,GET,/projects/{id}/issues,get_projects_id_issues
+GitLabIssues,POST /projects/{id}/issues,201,400,,POST,/projects/{id}/issues,post_projects_id_issues
+GitLabIssues,GET /projects/{id}/issues/{issue_iid},200,400,,GET,/projects/{id}/issues/{issue_iid},get_projects_id_issues_issue_iid
+GitLabIssues,PUT /projects/{id}/issues/{issue_iid},200,400,,PUT,/projects/{id}/issues/{issue_iid},put_projects_id_issues_issue_iid
+GitLabIssues,DELETE /projects/{id}/issues/{issue_iid},204,400,,DELETE,/projects/{id}/issues/{issue_iid},delete_projects_id_issues_issue_iid
+GitLabIssues,PUT /projects/{id}/issues/{issue_iid}/reorder,200,400,,PUT,/projects/{id}/issues/{issue_iid}/reorder,put_projects_id_issues_issue_iid_reorder
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/move,200,400,,POST,/projects/{id}/issues/{issue_iid}/move,post_projects_id_issues_issue_iid_move
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/subscribe,201,400,,POST,/projects/{id}/issues/{issue_iid}/subscribe,post_projects_id_issues_issue_iid_subscribe
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/unsubscribe,201,400,,POST,/projects/{id}/issues/{issue_iid}/unsubscribe,post_projects_id_issues_issue_iid_unsubscribe
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/todo,201,400,,POST,/projects/{id}/issues/{issue_iid}/todo,post_projects_id_issues_issue_iid_todo
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/time_estimate,201,400,,POST,/projects/{id}/issues/{issue_iid}/time_estimate,post_projects_id_issues_issue_iid_time_estimate
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/reset_time_estimate,201,400,,POST,/projects/{id}/issues/{issue_iid}/reset_time_estimate,post_projects_id_issues_issue_iid_reset_time_estimate
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/add_spent_time,201,400,,POST,/projects/{id}/issues/{issue_iid}/add_spent_time,post_projects_id_issues_issue_iid_add_spent_time
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/reset_spent_time,201,400,,POST,/projects/{id}/issues/{issue_iid}/reset_spent_time,post_projects_id_issues_issue_iid_reset_spent_time
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/time_stats,200,400,,GET,/projects/{id}/issues/{issue_iid}/time_stats,get_projects_id_issues_issue_iid_time_stats
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/related_merge_requests,200,400,,GET,/projects/{id}/issues/{issue_iid}/related_merge_requests,get_projects_id_issues_issue_iid_related_merge_requests
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/closed_by,200,400,,GET,/projects/{id}/issues/{issue_iid}/closed_by,get_projects_id_issues_issue_iid_closed_by
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/participants,200,400,,GET,/projects/{id}/issues/{issue_iid}/participants,get_projects_id_issues_issue_iid_participants
+GitLabIssues,GET /projects/{id}/issues/{issue_iid}/metric_images,200,400,,GET,/projects/{id}/issues/{issue_iid}/metric_images,get_projects_id_issues_issue_iid_metric_images
+GitLabIssues,POST /projects/{id}/issues/{issue_iid}/metric_images,201,400,,POST,/projects/{id}/issues/{issue_iid}/metric_images,post_projects_id_issues_issue_iid_metric_images
+GitLabProject,GET /projects,200,400,,GET,/projects,get_projects
+GitLabProject,POST /projects,201,400,,POST,/projects,post_projects
+GitLabProject,POST /projects/user/{user_id},201,400,,POST,/projects/user/{user_id},post_projects_user_user_id
+GitLabProject,GET /projects/{id},200,400,,GET,/projects/{id},get_projects_id
+GitLabProject,PUT /projects/{id},201,400,,PUT,/projects/{id},put_projects_id
+GitLabProject,DELETE /projects/{id},204,400,,DELETE,/projects/{id},delete_projects_id
+GitLabProject,GET /projects/{id}/users,200,400,,GET,/projects/{id}/users,get_projects_id_users
+GitLabProject,POST /projects/{id}/fork,201,400,,POST,/projects/{id}/fork,post_projects_id_fork
+GitLabProject,DELETE /projects/{id}/fork,204,400,,DELETE,/projects/{id}/fork,delete_projects_id_fork
+GitLabProject,GET /projects/{id}/forks,200,400,,GET,/projects/{id}/forks,get_projects_id_forks
+GitLabProject,POST /projects/{id}/star,201,400,,POST,/projects/{id}/star,post_projects_id_star
+GitLabProject,POST /projects/{id}/unstar,201,400,,POST,/projects/{id}/unstar,post_projects_id_unstar
+GitLabProject,GET /projects/{id}/starrers,200,400,,GET,/projects/{id}/starrers,get_projects_id_starrers
+GitLabProject,GET /projects/{id}/languages,200,400,,GET,/projects/{id}/languages,get_projects_id_languages
+GitLabProject,POST /projects/{id}/archive,201,400,,POST,/projects/{id}/archive,post_projects_id_archive
+GitLabProject,POST /projects/{id}/unarchive,201,400,,POST,/projects/{id}/unarchive,post_projects_id_unarchive
+GitLabProject,POST /projects/{id}/restore,201,400,,POST,/projects/{id}/restore,post_projects_id_restore
+GitLabProject,POST /projects/{id}/uploads,201,400,,POST,/projects/{id}/uploads,post_projects_id_uploads
+GitLabProject,POST /projects/{id}/share,201,400,,POST,/projects/{id}/share,post_projects_id_share
+GitLabProject,DELETE /projects/{id}/share/{group_id},204,400,,DELETE,/projects/{id}/share/{group_id},delete_projects_id_share_group_id
+GitLabProject,GET /projects/{id}/hooks,200,400,,GET,/projects/{id}/hooks,get_projects_id_hooks
+GitLabProject,POST /projects/{id}/hooks,201,400,,POST,/projects/{id}/hooks,post_projects_id_hooks
+GitLabProject,GET /projects/{id}/hooks/{hook_id},200,400,,GET,/projects/{id}/hooks/{hook_id},get_projects_id_hooks_hook_id
+GitLabProject,PUT /projects/{id}/hooks/{hook_id},200,400,,PUT,/projects/{id}/hooks/{hook_id},put_projects_id_hooks_hook_id
+GitLabProject,DELETE /projects/{id}/hooks/{hook_id},200,400,,DELETE,/projects/{id}/hooks/{hook_id},delete_projects_id_hooks_hook_id
+GitLabProject,POST /projects/{id}/housekeeping,201,400,,POST,/projects/{id}/housekeeping,post_projects_id_housekeeping
+GitLabProject,PUT /projects/{id}/transfer,200,400,,PUT,/projects/{id}/transfer,put_projects_id_transfer
+GitLabProject,POST /projects/{id}/fork/{forked_from_id},201,400,,POST,/projects/{id}/fork/{forked_from_id},post_projects_id_fork_forked_from_id
+GitLabProject,GET /projects/{id}/snapshot,200,400,,GET,/projects/{id}/snapshot,get_projects_id_snapshot
+GitLabProject,GET /users/{user_id}/projects,200,400,,GET,/users/{user_id}/projects,get_users_user_id_projects
+GitLabProject,GET /users/{user_id}/starred_projects,200,400,,GET,/users/{user_id}/starred_projects,get_users_user_id_starred_projects
+GitLabRepository,GET /projects,200,400,,GET,/projects,get_projects
+GitLabRepository,POST /projects,201,400,,POST,/projects,post_projects
+GitLabRepository,GET /projects/{id}/repository/tree,200,400,,GET,/projects/{id}/repository/tree,get_projects_id_repository_tree
+GitLabRepository,GET /projects/{id}/repository/blobs/{sha},200,,,GET,/projects/{id}/repository/blobs/{sha},get_projects_id_repository_blobs_sha
+GitLabRepository,GET /projects/{id}/repository/blobs/{sha}/raw,200,,,GET,/projects/{id}/repository/blobs/{sha}/raw,get_projects_id_repository_blobs_sha_raw
+GitLabRepository,GET /projects/{id}/repository/archive,200,,,GET,/projects/{id}/repository/archive,get_projects_id_repository_archive
+GitLabRepository,GET /projects/{id}/repository/compare,200,,,GET,/projects/{id}/repository/compare,get_projects_id_repository_compare
+GitLabRepository,GET /projects/{id}/repository/contributors,200,,,GET,/projects/{id}/repository/contributors,get_projects_id_repository_contributors
+GitLabRepository,GET /projects/{id}/repository/merge_base,200,,,GET,/projects/{id}/repository/merge_base,get_projects_id_repository_merge_base
+GitLabRepository,GET /projects/{id}/repository/changelog,200,,,GET,/projects/{id}/repository/changelog,get_projects_id_repository_changelog
+jhipster-sample-app,getOperation,200,,getOperation,GET,/api/operations/{id},getoperation
+jhipster-sample-app,updateOperation,200,,updateOperation,PUT,/api/operations/{id},updateoperation
+jhipster-sample-app,deleteOperation,200,,deleteOperation,DELETE,/api/operations/{id},deleteoperation
+jhipster-sample-app,partialUpdateOperation,200,,partialUpdateOperation,PATCH,/api/operations/{id},partialupdateoperation
+jhipster-sample-app,getLabel,200,,getLabel,GET,/api/labels/{id},getlabel
+jhipster-sample-app,updateLabel,200,,updateLabel,PUT,/api/labels/{id},updatelabel
+jhipster-sample-app,deleteLabel,200,,deleteLabel,DELETE,/api/labels/{id},deletelabel
+jhipster-sample-app,partialUpdateLabel,200,,partialUpdateLabel,PATCH,/api/labels/{id},partialupdatelabel
+jhipster-sample-app,getBankAccount,200,,getBankAccount,GET,/api/bank-accounts/{id},getbankaccount
+jhipster-sample-app,updateBankAccount,200,,updateBankAccount,PUT,/api/bank-accounts/{id},updatebankaccount
+jhipster-sample-app,deleteBankAccount,200,,deleteBankAccount,DELETE,/api/bank-accounts/{id},deletebankaccount
+jhipster-sample-app,partialUpdateBankAccount,200,,partialUpdateBankAccount,PATCH,/api/bank-accounts/{id},partialupdatebankaccount
+jhipster-sample-app,getUser,200,,getUser,GET,/api/admin/users/{login},getuser
+jhipster-sample-app,updateUser,200,,updateUser,PUT,/api/admin/users/{login},updateuser
+jhipster-sample-app,deleteUser,200,,deleteUser,DELETE,/api/admin/users/{login},deleteuser
+jhipster-sample-app,getAllUsers,200,,getAllUsers,GET,/api/admin/users,getallusers
+jhipster-sample-app,updateUser_1,200,,updateUser_1,PUT,/api/admin/users,updateuser_1
+jhipster-sample-app,createUser,200,,createUser,POST,/api/admin/users,createuser
+jhipster-sample-app,registerAccount,201,,registerAccount,POST,/api/register,registeraccount
+jhipster-sample-app,getAllOperations,200,,getAllOperations,GET,/api/operations,getalloperations
+jhipster-sample-app,createOperation,200,,createOperation,POST,/api/operations,createoperation
+jhipster-sample-app,getAllLabels,200,,getAllLabels,GET,/api/labels,getalllabels
+jhipster-sample-app,createLabel,200,,createLabel,POST,/api/labels,createlabel
+jhipster-sample-app,getAllBankAccounts,200,,getAllBankAccounts,GET,/api/bank-accounts,getallbankaccounts
+jhipster-sample-app,createBankAccount,200,,createBankAccount,POST,/api/bank-accounts,createbankaccount
+jhipster-sample-app,getAllAuthorities,200,,getAllAuthorities,GET,/api/authorities,getallauthorities
+jhipster-sample-app,createAuthority,200,,createAuthority,POST,/api/authorities,createauthority
+jhipster-sample-app,isAuthenticated,200,,isAuthenticated,GET,/api/authenticate,isauthenticated
+jhipster-sample-app,authorize,200,,authorize,POST,/api/authenticate,authorize
+jhipster-sample-app,getAccount,200,,getAccount,GET,/api/account,getaccount
+jhipster-sample-app,saveAccount,200,,saveAccount,POST,/api/account,saveaccount
+jhipster-sample-app,requestPasswordReset,200,,requestPasswordReset,POST,/api/account/reset-password/init,requestpasswordreset
+jhipster-sample-app,finishPasswordReset,200,,finishPasswordReset,POST,/api/account/reset-password/finish,finishpasswordreset
+jhipster-sample-app,changePassword,200,,changePassword,POST,/api/account/change-password,changepassword
+jhipster-sample-app,getAllPublicUsers,200,,getAllPublicUsers,GET,/api/users,getallpublicusers
+jhipster-sample-app,getAuthority,200,,getAuthority,GET,/api/authorities/{id},getauthority
+jhipster-sample-app,deleteAuthority,200,,deleteAuthority,DELETE,/api/authorities/{id},deleteauthority
+jhipster-sample-app,activateAccount,200,,activateAccount,GET,/api/activate,activateaccount
+language-tool,POST /check,200,,,POST,/check,post_check
+language-tool,GET /languages,200,,,GET,/languages,get_languages
+ohsome copy,area,200,400|401|404|405|413,area,GET,/elements/area,area
+ohsome copy,area_1,200,400|401|404|405|413,area_1,POST,/elements/area,area_1
+ohsome copy,areaDensity,200,400|401|404|405|413,areaDensity,GET,/elements/area/density,areadensity
+ohsome copy,areaDensity_1,200,400|401|404|405|413,areaDensity_1,POST,/elements/area/density,areadensity_1
+ohsome copy,areaDensityGroupByBoundary,200,400|401|404|405|413,areaDensityGroupByBoundary,GET,/elements/area/density/groupBy/boundary,areadensitygroupbyboundary
+ohsome copy,areaDensityGroupByBoundary_1,200,400|401|404|405|413,areaDensityGroupByBoundary_1,POST,/elements/area/density/groupBy/boundary,areadensitygroupbyboundary_1
+ohsome copy,areaDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag,GET,/elements/area/density/groupBy/boundary/groupBy/tag,areadensitygroupbyboundarygroupbytag
+ohsome copy,areaDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_1,POST,/elements/area/density/groupBy/boundary/groupBy/tag,areadensitygroupbyboundarygroupbytag_1
+ohsome copy,areaDensityGroupByTag,200,400|401|404|405|413,areaDensityGroupByTag,GET,/elements/area/density/groupBy/tag,areadensitygroupbytag
+ohsome copy,areaDensityGroupByTag_1,200,400|401|404|405|413,areaDensityGroupByTag_1,POST,/elements/area/density/groupBy/tag,areadensitygroupbytag_1
+ohsome copy,areaDensityGroupByType,200,400|401|404|405|413,areaDensityGroupByType,GET,/elements/area/density/groupBy/type,areadensitygroupbytype
+ohsome copy,areaDensityGroupByType_1,200,400|401|404|405|413,areaDensityGroupByType_1,POST,/elements/area/density/groupBy/type,areadensitygroupbytype_1
+ohsome copy,areaGroupByBoundary,200,400|401|404|405|413,areaGroupByBoundary,GET,/elements/area/groupBy/boundary,areagroupbyboundary
+ohsome copy,areaGroupByBoundary_1,200,400|401|404|405|413,areaGroupByBoundary_1,POST,/elements/area/groupBy/boundary,areagroupbyboundary_1
+ohsome copy,areaGroupByBoundaryGroupByTag,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag,GET,/elements/area/groupBy/boundary/groupBy/tag,areagroupbyboundarygroupbytag
+ohsome copy,areaGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_1,POST,/elements/area/groupBy/boundary/groupBy/tag,areagroupbyboundarygroupbytag_1
+ohsome copy,areaGroupByKey,200,400|401|404|405|413,areaGroupByKey,GET,/elements/area/groupBy/key,areagroupbykey
+ohsome copy,areaGroupByKey_1,200,400|401|404|405|413,areaGroupByKey_1,POST,/elements/area/groupBy/key,areagroupbykey_1
+ohsome copy,areaGroupByTag,200,400|401|404|405|413,areaGroupByTag,GET,/elements/area/groupBy/tag,areagroupbytag
+ohsome copy,areaGroupByTag_1,200,400|401|404|405|413,areaGroupByTag_1,POST,/elements/area/groupBy/tag,areagroupbytag_1
+ohsome copy,areaGroupByType,200,400|401|404|405|413,areaGroupByType,GET,/elements/area/groupBy/type,areagroupbytype
+ohsome copy,areaGroupByType_1,200,400|401|404|405|413,areaGroupByType_1,POST,/elements/area/groupBy/type,areagroupbytype_1
+ohsome copy,areaRatio,200,400|401|404|405|413,areaRatio,GET,/elements/area/ratio,arearatio
+ohsome copy,areaRatio_1,200,400|401|404|405|413,areaRatio_1,POST,/elements/area/ratio,arearatio_1
+ohsome copy,areaRatioGroupByBoundary,200,400|401|404|405|413,areaRatioGroupByBoundary,GET,/elements/area/ratio/groupBy/boundary,arearatiogroupbyboundary
+ohsome copy,areaRatioGroupByBoundary_1,200,400|401|404|405|413,areaRatioGroupByBoundary_1,POST,/elements/area/ratio/groupBy/boundary,arearatiogroupbyboundary_1
+ohsome copy,count,200,400|401|404|405|413,count,GET,/elements/count,count
+ohsome copy,count_1,200,400|401|404|405|413,count_1,POST,/elements/count,count_1
+ohsome copy,countDensity,200,400|401|404|405|413,countDensity,GET,/elements/count/density,countdensity
+ohsome copy,countDensity_1,200,400|401|404|405|413,countDensity_1,POST,/elements/count/density,countdensity_1
+ohsome copy,countDensityGroupByBoundary,200,400|401|404|405|413,countDensityGroupByBoundary,GET,/elements/count/density/groupBy/boundary,countdensitygroupbyboundary
+ohsome copy,countDensityGroupByBoundary_1,200,400|401|404|405|413,countDensityGroupByBoundary_1,POST,/elements/count/density/groupBy/boundary,countdensitygroupbyboundary_1
+ohsome copy,countDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag,GET,/elements/count/density/groupBy/boundary/groupBy/tag,countdensitygroupbyboundarygroupbytag
+ohsome copy,countDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_1,POST,/elements/count/density/groupBy/boundary/groupBy/tag,countdensitygroupbyboundarygroupbytag_1
+ohsome copy,countDensityGroupByTag,200,400|401|404|405|413,countDensityGroupByTag,GET,/elements/count/density/groupBy/tag,countdensitygroupbytag
+ohsome copy,countDensityGroupByTag_1,200,400|401|404|405|413,countDensityGroupByTag_1,POST,/elements/count/density/groupBy/tag,countdensitygroupbytag_1
+ohsome copy,countDensityGroupByType,200,400|401|404|405|413,countDensityGroupByType,GET,/elements/count/density/groupBy/type,countdensitygroupbytype
+ohsome copy,countDensityGroupByType_1,200,400|401|404|405|413,countDensityGroupByType_1,POST,/elements/count/density/groupBy/type,countdensitygroupbytype_1
+ohsome copy,countGroupByBoundary,200,400|401|404|405|413,countGroupByBoundary,GET,/elements/count/groupBy/boundary,countgroupbyboundary
+ohsome copy,countGroupByBoundary_1,200,400|401|404|405|413,countGroupByBoundary_1,POST,/elements/count/groupBy/boundary,countgroupbyboundary_1
+ohsome copy,countGroupByBoundaryGroupByTag,200,400|401|404|405|413,countGroupByBoundaryGroupByTag,GET,/elements/count/groupBy/boundary/groupBy/tag,countgroupbyboundarygroupbytag
+ohsome copy,countGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_1,POST,/elements/count/groupBy/boundary/groupBy/tag,countgroupbyboundarygroupbytag_1
+ohsome copy,countGroupByKey,200,400|401|404|405|413,countGroupByKey,GET,/elements/count/groupBy/key,countgroupbykey
+ohsome copy,countGroupByKey_1,200,400|401|404|405|413,countGroupByKey_1,POST,/elements/count/groupBy/key,countgroupbykey_1
+ohsome copy,countGroupByTag,200,400|401|404|405|413,countGroupByTag,GET,/elements/count/groupBy/tag,countgroupbytag
+ohsome copy,countGroupByTag_1,200,400|401|404|405|413,countGroupByTag_1,POST,/elements/count/groupBy/tag,countgroupbytag_1
+ohsome copy,countGroupByType,200,400|401|404|405|413,countGroupByType,GET,/elements/count/groupBy/type,countgroupbytype
+ohsome copy,countGroupByType_1,200,400|401|404|405|413,countGroupByType_1,POST,/elements/count/groupBy/type,countgroupbytype_1
+ohsome copy,countRatio,200,400|401|404|405|413,countRatio,GET,/elements/count/ratio,countratio
+ohsome copy,countRatio_1,200,400|401|404|405|413,countRatio_1,POST,/elements/count/ratio,countratio_1
+ohsome copy,countRatioGroupByBoundary,200,400|401|404|405|413,countRatioGroupByBoundary,GET,/elements/count/ratio/groupBy/boundary,countratiogroupbyboundary
+ohsome copy,countRatioGroupByBoundary_1,200,400|401|404|405|413,countRatioGroupByBoundary_1,POST,/elements/count/ratio/groupBy/boundary,countratiogroupbyboundary_1
+ohsome copy,length,200,400|401|404|405|413,length,GET,/elements/length,length
+ohsome copy,length_1,200,400|401|404|405|413,length_1,POST,/elements/length,length_1
+ohsome copy,lengthDensity,200,400|401|404|405|413,lengthDensity,GET,/elements/length/density,lengthdensity
+ohsome copy,lengthDensity_1,200,400|401|404|405|413,lengthDensity_1,POST,/elements/length/density,lengthdensity_1
+ohsome copy,lengthDensityGroupByBoundary,200,400|401|404|405|413,lengthDensityGroupByBoundary,GET,/elements/length/density/groupBy/boundary,lengthdensitygroupbyboundary
+ohsome copy,lengthDensityGroupByBoundary_1,200,400|401|404|405|413,lengthDensityGroupByBoundary_1,POST,/elements/length/density/groupBy/boundary,lengthdensitygroupbyboundary_1
+ohsome copy,lengthDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag,GET,/elements/length/density/groupBy/boundary/groupBy/tag,lengthdensitygroupbyboundarygroupbytag
+ohsome copy,lengthDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_1,POST,/elements/length/density/groupBy/boundary/groupBy/tag,lengthdensitygroupbyboundarygroupbytag_1
+ohsome copy,lengthDensityGroupByTag,200,400|401|404|405|413,lengthDensityGroupByTag,GET,/elements/length/density/groupBy/tag,lengthdensitygroupbytag
+ohsome copy,lengthDensityGroupByTag_1,200,400|401|404|405|413,lengthDensityGroupByTag_1,POST,/elements/length/density/groupBy/tag,lengthdensitygroupbytag_1
+ohsome copy,lengthDensityGroupByType,200,400|401|404|405|413,lengthDensityGroupByType,GET,/elements/length/density/groupBy/type,lengthdensitygroupbytype
+ohsome copy,lengthDensityGroupByType_1,200,400|401|404|405|413,lengthDensityGroupByType_1,POST,/elements/length/density/groupBy/type,lengthdensitygroupbytype_1
+ohsome copy,lengthGroupByBoundary,200,400|401|404|405|413,lengthGroupByBoundary,GET,/elements/length/groupBy/boundary,lengthgroupbyboundary
+ohsome copy,lengthGroupByBoundary_1,200,400|401|404|405|413,lengthGroupByBoundary_1,POST,/elements/length/groupBy/boundary,lengthgroupbyboundary_1
+ohsome copy,lengthGroupByBoundaryGroupByTag,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag,GET,/elements/length/groupBy/boundary/groupBy/tag,lengthgroupbyboundarygroupbytag
+ohsome copy,lengthGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_1,POST,/elements/length/groupBy/boundary/groupBy/tag,lengthgroupbyboundarygroupbytag_1
+ohsome copy,lengthGroupByKey,200,400|401|404|405|413,lengthGroupByKey,GET,/elements/length/groupBy/key,lengthgroupbykey
+ohsome copy,lengthGroupByKey_1,200,400|401|404|405|413,lengthGroupByKey_1,POST,/elements/length/groupBy/key,lengthgroupbykey_1
+ohsome copy,lengthGroupByTag,200,400|401|404|405|413,lengthGroupByTag,GET,/elements/length/groupBy/tag,lengthgroupbytag
+ohsome copy,lengthGroupByTag_1,200,400|401|404|405|413,lengthGroupByTag_1,POST,/elements/length/groupBy/tag,lengthgroupbytag_1
+ohsome copy,lengthGroupByType,200,400|401|404|405|413,lengthGroupByType,GET,/elements/length/groupBy/type,lengthgroupbytype
+ohsome copy,lengthGroupByType_1,200,400|401|404|405|413,lengthGroupByType_1,POST,/elements/length/groupBy/type,lengthgroupbytype_1
+ohsome copy,lengthRatio,200,400|401|404|405|413,lengthRatio,GET,/elements/length/ratio,lengthratio
+ohsome copy,lengthRatio_1,200,400|401|404|405|413,lengthRatio_1,POST,/elements/length/ratio,lengthratio_1
+ohsome copy,lengthRatioGroupByBoundary,200,400|401|404|405|413,lengthRatioGroupByBoundary,GET,/elements/length/ratio/groupBy/boundary,lengthratiogroupbyboundary
+ohsome copy,lengthRatioGroupByBoundary_1,200,400|401|404|405|413,lengthRatioGroupByBoundary_1,POST,/elements/length/ratio/groupBy/boundary,lengthratiogroupbyboundary_1
+ohsome copy,perimeter,200,400|401|404|405|413,perimeter,GET,/elements/perimeter,perimeter
+ohsome copy,perimeter_1,200,400|401|404|405|413,perimeter_1,POST,/elements/perimeter,perimeter_1
+ohsome copy,perimeterDensity,200,400|401|404|405|413,perimeterDensity,GET,/elements/perimeter/density,perimeterdensity
+ohsome copy,perimeterDensity_1,200,400|401|404|405|413,perimeterDensity_1,POST,/elements/perimeter/density,perimeterdensity_1
+ohsome copy,perimeterDensityGroupByBoundary,200,400|401|404|405|413,perimeterDensityGroupByBoundary,GET,/elements/perimeter/density/groupBy/boundary,perimeterdensitygroupbyboundary
+ohsome copy,perimeterDensityGroupByBoundary_1,200,400|401|404|405|413,perimeterDensityGroupByBoundary_1,POST,/elements/perimeter/density/groupBy/boundary,perimeterdensitygroupbyboundary_1
+ohsome copy,perimeterDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag,GET,/elements/perimeter/density/groupBy/boundary/groupBy/tag,perimeterdensitygroupbyboundarygroupbytag
+ohsome copy,perimeterDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_1,POST,/elements/perimeter/density/groupBy/boundary/groupBy/tag,perimeterdensitygroupbyboundarygroupbytag_1
+ohsome copy,perimeterDensityGroupByTag,200,400|401|404|405|413,perimeterDensityGroupByTag,GET,/elements/perimeter/density/groupBy/tag,perimeterdensitygroupbytag
+ohsome copy,perimeterDensityGroupByTag_1,200,400|401|404|405|413,perimeterDensityGroupByTag_1,POST,/elements/perimeter/density/groupBy/tag,perimeterdensitygroupbytag_1
+ohsome copy,perimeterDensityGroupByType,200,400|401|404|405|413,perimeterDensityGroupByType,GET,/elements/perimeter/density/groupBy/type,perimeterdensitygroupbytype
+ohsome copy,perimeterDensityGroupByType_1,200,400|401|404|405|413,perimeterDensityGroupByType_1,POST,/elements/perimeter/density/groupBy/type,perimeterdensitygroupbytype_1
+ohsome copy,perimeterGroupByBoundary,200,400|401|404|405|413,perimeterGroupByBoundary,GET,/elements/perimeter/groupBy/boundary,perimetergroupbyboundary
+ohsome copy,perimeterGroupByBoundary_1,200,400|401|404|405|413,perimeterGroupByBoundary_1,POST,/elements/perimeter/groupBy/boundary,perimetergroupbyboundary_1
+ohsome copy,perimeterGroupByBoundaryGroupByTag,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag,GET,/elements/perimeter/groupBy/boundary/groupBy/tag,perimetergroupbyboundarygroupbytag
+ohsome copy,perimeterGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_1,POST,/elements/perimeter/groupBy/boundary/groupBy/tag,perimetergroupbyboundarygroupbytag_1
+ohsome copy,perimeterGroupByKey,200,400|401|404|405|413,perimeterGroupByKey,GET,/elements/perimeter/groupBy/key,perimetergroupbykey
+ohsome copy,perimeterGroupByKey_1,200,400|401|404|405|413,perimeterGroupByKey_1,POST,/elements/perimeter/groupBy/key,perimetergroupbykey_1
+ohsome copy,perimeterGroupByTag,200,400|401|404|405|413,perimeterGroupByTag,GET,/elements/perimeter/groupBy/tag,perimetergroupbytag
+ohsome copy,perimeterGroupByTag_1,200,400|401|404|405|413,perimeterGroupByTag_1,POST,/elements/perimeter/groupBy/tag,perimetergroupbytag_1
+ohsome copy,perimeterGroupByType,200,400|401|404|405|413,perimeterGroupByType,GET,/elements/perimeter/groupBy/type,perimetergroupbytype
+ohsome copy,perimeterGroupByType_1,200,400|401|404|405|413,perimeterGroupByType_1,POST,/elements/perimeter/groupBy/type,perimetergroupbytype_1
+ohsome copy,perimeterRatio,200,400|401|404|405|413,perimeterRatio,GET,/elements/perimeter/ratio,perimeterratio
+ohsome copy,perimeterRatio_1,200,400|401|404|405|413,perimeterRatio_1,POST,/elements/perimeter/ratio,perimeterratio_1
+ohsome copy,perimeterRatioGroupByBoundary,200,400|401|404|405|413,perimeterRatioGroupByBoundary,GET,/elements/perimeter/ratio/groupBy/boundary,perimeterratiogroupbyboundary
+ohsome copy,perimeterRatioGroupByBoundary_1,200,400|401|404|405|413,perimeterRatioGroupByBoundary_1,POST,/elements/perimeter/ratio/groupBy/boundary,perimeterratiogroupbyboundary_1
+ohsome copy,count_2,200,400|401|404|405|413,count_2,GET,/users/count,count_2
+ohsome copy,count_3,200,400|401|404|405|413,count_3,POST,/users/count,count_3
+ohsome copy,countDensity_2,200,400|401|404|405|413,countDensity_2,GET,/users/count/density,countdensity_2
+ohsome copy,countDensity_3,200,400|401|404|405|413,countDensity_3,POST,/users/count/density,countdensity_3
+ohsome copy,countDensityGroupByBoundary_2,200,400|401|404|405|413,countDensityGroupByBoundary_2,GET,/users/count/density/groupBy/boundary,countdensitygroupbyboundary_2
+ohsome copy,countDensityGroupByBoundary_3,200,400|401|404|405|413,countDensityGroupByBoundary_3,POST,/users/count/density/groupBy/boundary,countdensitygroupbyboundary_3
+ohsome copy,countDensityGroupByTag_2,200,400|401|404|405|413,countDensityGroupByTag_2,GET,/users/count/density/groupBy/tag,countdensitygroupbytag_2
+ohsome copy,countDensityGroupByTag_3,200,400|401|404|405|413,countDensityGroupByTag_3,POST,/users/count/density/groupBy/tag,countdensitygroupbytag_3
+ohsome copy,countDensityGroupByType_2,200,400|401|404|405|413,countDensityGroupByType_2,GET,/users/count/density/groupBy/type,countdensitygroupbytype_2
+ohsome copy,countDensityGroupByType_3,200,400|401|404|405|413,countDensityGroupByType_3,POST,/users/count/density/groupBy/type,countdensitygroupbytype_3
+ohsome copy,countGroupByBoundary_2,200,400|401|404|405|413,countGroupByBoundary_2,GET,/users/count/groupBy/boundary,countgroupbyboundary_2
+ohsome copy,countGroupByBoundary_3,200,400|401|404|405|413,countGroupByBoundary_3,POST,/users/count/groupBy/boundary,countgroupbyboundary_3
+ohsome copy,countGroupByKey_2,200,400|401|404|405|413,countGroupByKey_2,GET,/users/count/groupBy/key,countgroupbykey_2
+ohsome copy,countGroupByKey_3,200,400|401|404|405|413,countGroupByKey_3,POST,/users/count/groupBy/key,countgroupbykey_3
+ohsome copy,countGroupByTag_2,200,400|401|404|405|413,countGroupByTag_2,GET,/users/count/groupBy/tag,countgroupbytag_2
+ohsome copy,countGroupByTag_3,200,400|401|404|405|413,countGroupByTag_3,POST,/users/count/groupBy/tag,countgroupbytag_3
+ohsome copy,countGroupByType_2,200,400|401|404|405|413,countGroupByType_2,GET,/users/count/groupBy/type,countgroupbytype_2
+ohsome copy,countGroupByType_3,200,400|401|404|405|413,countGroupByType_3,POST,/users/count/groupBy/type,countgroupbytype_3
+ohsome copy,area_gen,200,400|401|404|405|413,area_gen,GET,/elements/{area1},area_gen
+ohsome copy,area_1_gen,200,400|401|404|405|413,area_1_gen,POST,/elements/{area1},area_1_gen
+ohsome copy,areaDensity_gen,200,400|401|404|405|413,areaDensity_gen,GET,/elements/area/{density1},areadensity_gen
+ohsome copy,areaDensity_1_gen,200,400|401|404|405|413,areaDensity_1_gen,POST,/elements/area/{density1},areadensity_1_gen
+ohsome copy,areaDensityGroupByBoundary_gen,200,400|401|404|405|413,areaDensityGroupByBoundary_gen,GET,/elements/area/density/groupBy/{boundary1},areadensitygroupbyboundary_gen
+ohsome copy,areaDensityGroupByBoundary_1_gen,200,400|401|404|405|413,areaDensityGroupByBoundary_1_gen,POST,/elements/area/density/groupBy/{boundary1},areadensitygroupbyboundary_1_gen
+ohsome copy,areaDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_gen,GET,/elements/area/density/groupBy/boundary/groupBy/{tag1},areadensitygroupbyboundarygroupbytag_gen
+ohsome copy,areaDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/area/density/groupBy/boundary/groupBy/{tag1},areadensitygroupbyboundarygroupbytag_1_gen
+ohsome copy,areaDensityGroupByTag_gen,200,400|401|404|405|413,areaDensityGroupByTag_gen,GET,/elements/area/density/groupBy/{tag2},areadensitygroupbytag_gen
+ohsome copy,areaDensityGroupByTag_1_gen,200,400|401|404|405|413,areaDensityGroupByTag_1_gen,POST,/elements/area/density/groupBy/{tag2},areadensitygroupbytag_1_gen
+ohsome copy,areaDensityGroupByType_gen,200,400|401|404|405|413,areaDensityGroupByType_gen,GET,/elements/area/density/groupBy/{type1},areadensitygroupbytype_gen
+ohsome copy,areaDensityGroupByType_1_gen,200,400|401|404|405|413,areaDensityGroupByType_1_gen,POST,/elements/area/density/groupBy/{type1},areadensitygroupbytype_1_gen
+ohsome copy,areaGroupByBoundary_gen,200,400|401|404|405|413,areaGroupByBoundary_gen,GET,/elements/area/groupBy/{boundary2},areagroupbyboundary_gen
+ohsome copy,areaGroupByBoundary_1_gen,200,400|401|404|405|413,areaGroupByBoundary_1_gen,POST,/elements/area/groupBy/{boundary2},areagroupbyboundary_1_gen
+ohsome copy,areaGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_gen,GET,/elements/area/groupBy/boundary/groupBy/{tag3},areagroupbyboundarygroupbytag_gen
+ohsome copy,areaGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_1_gen,POST,/elements/area/groupBy/boundary/groupBy/{tag3},areagroupbyboundarygroupbytag_1_gen
+ohsome copy,areaGroupByKey_gen,200,400|401|404|405|413,areaGroupByKey_gen,GET,/elements/area/groupBy/{key1},areagroupbykey_gen
+ohsome copy,areaGroupByKey_1_gen,200,400|401|404|405|413,areaGroupByKey_1_gen,POST,/elements/area/groupBy/{key1},areagroupbykey_1_gen
+ohsome copy,areaGroupByTag_gen,200,400|401|404|405|413,areaGroupByTag_gen,GET,/elements/area/groupBy/{tag4},areagroupbytag_gen
+ohsome copy,areaGroupByTag_1_gen,200,400|401|404|405|413,areaGroupByTag_1_gen,POST,/elements/area/groupBy/{tag4},areagroupbytag_1_gen
+ohsome copy,areaGroupByType_gen,200,400|401|404|405|413,areaGroupByType_gen,GET,/elements/area/groupBy/{type4},areagroupbytype_gen
+ohsome copy,areaGroupByType_1_gen,200,400|401|404|405|413,areaGroupByType_1_gen,POST,/elements/area/groupBy/{type4},areagroupbytype_1_gen
+ohsome copy,areaRatio_gen,200,400|401|404|405|413,areaRatio_gen,GET,/elements/area/{ratio1},arearatio_gen
+ohsome copy,areaRatio_1_gen,200,400|401|404|405|413,areaRatio_1_gen,POST,/elements/area/{ratio1},arearatio_1_gen
+ohsome copy,areaRatioGroupByBoundary_gen,200,400|401|404|405|413,areaRatioGroupByBoundary_gen,GET,/elements/area/ratio/groupBy/{boundary4},arearatiogroupbyboundary_gen
+ohsome copy,areaRatioGroupByBoundary_1_gen,200,400|401|404|405|413,areaRatioGroupByBoundary_1_gen,POST,/elements/area/ratio/groupBy/{boundary4},arearatiogroupbyboundary_1_gen
+ohsome copy,count_gen,200,400|401|404|405|413,count_gen,GET,/elements/{count1},count_gen
+ohsome copy,count_1_gen,200,400|401|404|405|413,count_1_gen,POST,/elements/{count1},count_1_gen
+ohsome copy,countDensity_gen,200,400|401|404|405|413,countDensity_gen,GET,/elements/count/{density1},countdensity_gen
+ohsome copy,countDensity_1_gen,200,400|401|404|405|413,countDensity_1_gen,POST,/elements/count/{density1},countdensity_1_gen
+ohsome copy,countDensityGroupByBoundary_gen,200,400|401|404|405|413,countDensityGroupByBoundary_gen,GET,/elements/count/density/groupBy/{boundary5},countdensitygroupbyboundary_gen
+ohsome copy,countDensityGroupByBoundary_1_gen,200,400|401|404|405|413,countDensityGroupByBoundary_1_gen,POST,/elements/count/density/groupBy/{boundary5},countdensitygroupbyboundary_1_gen
+ohsome copy,countDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_gen,GET,/elements/count/density/groupBy/boundary/groupBy/{tag7},countdensitygroupbyboundarygroupbytag_gen
+ohsome copy,countDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/count/density/groupBy/boundary/groupBy/{tag7},countdensitygroupbyboundarygroupbytag_1_gen
+ohsome copy,countDensityGroupByTag_gen,200,400|401|404|405|413,countDensityGroupByTag_gen,GET,/elements/count/density/groupBy/{tag8},countdensitygroupbytag_gen
+ohsome copy,countDensityGroupByTag_1_gen,200,400|401|404|405|413,countDensityGroupByTag_1_gen,POST,/elements/count/density/groupBy/{tag8},countdensitygroupbytag_1_gen
+ohsome copy,countDensityGroupByType_gen,200,400|401|404|405|413,countDensityGroupByType_gen,GET,/elements/count/density/groupBy/{type8},countdensitygroupbytype_gen
+ohsome copy,countDensityGroupByType_1_gen,200,400|401|404|405|413,countDensityGroupByType_1_gen,POST,/elements/count/density/groupBy/{type8},countdensitygroupbytype_1_gen
+ohsome copy,countGroupByBoundary_gen,200,400|401|404|405|413,countGroupByBoundary_gen,GET,/elements/count/groupBy/{boundary8},countgroupbyboundary_gen
+ohsome copy,countGroupByBoundary_1_gen,200,400|401|404|405|413,countGroupByBoundary_1_gen,POST,/elements/count/groupBy/{boundary8},countgroupbyboundary_1_gen
+ohsome copy,countGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_gen,GET,/elements/count/groupBy/boundary/groupBy/{tag9},countgroupbyboundarygroupbytag_gen
+ohsome copy,countGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_1_gen,POST,/elements/count/groupBy/boundary/groupBy/{tag9},countgroupbyboundarygroupbytag_1_gen
+ohsome copy,countGroupByKey_gen,200,400|401|404|405|413,countGroupByKey_gen,GET,/elements/count/groupBy/{key9},countgroupbykey_gen
+ohsome copy,countGroupByKey_1_gen,200,400|401|404|405|413,countGroupByKey_1_gen,POST,/elements/count/groupBy/{key9},countgroupbykey_1_gen
+ohsome copy,countGroupByTag_gen,200,400|401|404|405|413,countGroupByTag_gen,GET,/elements/count/groupBy/{tag10},countgroupbytag_gen
+ohsome copy,countGroupByTag_1_gen,200,400|401|404|405|413,countGroupByTag_1_gen,POST,/elements/count/groupBy/{tag10},countgroupbytag_1_gen
+ohsome copy,countGroupByType_gen,200,400|401|404|405|413,countGroupByType_gen,GET,/elements/count/groupBy/{type10},countgroupbytype_gen
+ohsome copy,countGroupByType_1_gen,200,400|401|404|405|413,countGroupByType_1_gen,POST,/elements/count/groupBy/{type10},countgroupbytype_1_gen
+ohsome copy,countRatio_gen,200,400|401|404|405|413,countRatio_gen,GET,/elements/count/{ratio10},countratio_gen
+ohsome copy,countRatio_1_gen,200,400|401|404|405|413,countRatio_1_gen,POST,/elements/count/{ratio10},countratio_1_gen
+ohsome copy,countRatioGroupByBoundary_gen,200,400|401|404|405|413,countRatioGroupByBoundary_gen,GET,/elements/count/ratio/groupBy/{boundary11},countratiogroupbyboundary_gen
+ohsome copy,countRatioGroupByBoundary_1_gen,200,400|401|404|405|413,countRatioGroupByBoundary_1_gen,POST,/elements/count/ratio/groupBy/{boundary11},countratiogroupbyboundary_1_gen
+ohsome copy,length_gen,200,400|401|404|405|413,length_gen,GET,/elements/{length1},length_gen
+ohsome copy,length_1_gen,200,400|401|404|405|413,length_1_gen,POST,/elements/{length1},length_1_gen
+ohsome copy,lengthDensity_gen,200,400|401|404|405|413,lengthDensity_gen,GET,/elements/length/{density11},lengthdensity_gen
+ohsome copy,lengthDensity_1_gen,200,400|401|404|405|413,lengthDensity_1_gen,POST,/elements/length/{density11},lengthdensity_1_gen
+ohsome copy,lengthDensityGroupByBoundary_gen,200,400|401|404|405|413,lengthDensityGroupByBoundary_gen,GET,/elements/length/density/groupBy/{boundary12},lengthdensitygroupbyboundary_gen
+ohsome copy,lengthDensityGroupByBoundary_1_gen,200,400|401|404|405|413,lengthDensityGroupByBoundary_1_gen,POST,/elements/length/density/groupBy/{boundary12},lengthdensitygroupbyboundary_1_gen
+ohsome copy,lengthDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_gen,GET,/elements/length/density/groupBy/boundary/groupBy/{tag12},lengthdensitygroupbyboundarygroupbytag_gen
+ohsome copy,lengthDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/length/density/groupBy/boundary/groupBy/{tag12},lengthdensitygroupbyboundarygroupbytag_1_gen
+ohsome copy,lengthDensityGroupByTag_gen,200,400|401|404|405|413,lengthDensityGroupByTag_gen,GET,/elements/length/density/groupBy/{tag13},lengthdensitygroupbytag_gen
+ohsome copy,lengthDensityGroupByTag_1_gen,200,400|401|404|405|413,lengthDensityGroupByTag_1_gen,POST,/elements/length/density/groupBy/{tag13},lengthdensitygroupbytag_1_gen
+ohsome copy,lengthDensityGroupByType_gen,200,400|401|404|405|413,lengthDensityGroupByType_gen,GET,/elements/length/density/groupBy/{type13},lengthdensitygroupbytype_gen
+ohsome copy,lengthDensityGroupByType_1_gen,200,400|401|404|405|413,lengthDensityGroupByType_1_gen,POST,/elements/length/density/groupBy/{type13},lengthdensitygroupbytype_1_gen
+ohsome copy,lengthGroupByBoundary_gen,200,400|401|404|405|413,lengthGroupByBoundary_gen,GET,/elements/length/groupBy/{boundary14},lengthgroupbyboundary_gen
+ohsome copy,lengthGroupByBoundary_1_gen,200,400|401|404|405|413,lengthGroupByBoundary_1_gen,POST,/elements/length/groupBy/{boundary14},lengthgroupbyboundary_1_gen
+ohsome copy,lengthGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_gen,GET,/elements/length/groupBy/boundary/groupBy/{tag15},lengthgroupbyboundarygroupbytag_gen
+ohsome copy,lengthGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_1_gen,POST,/elements/length/groupBy/boundary/groupBy/{tag15},lengthgroupbyboundarygroupbytag_1_gen
+ohsome copy,lengthGroupByKey_gen,200,400|401|404|405|413,lengthGroupByKey_gen,GET,/elements/length/groupBy/{key15},lengthgroupbykey_gen
+ohsome copy,lengthGroupByKey_1_gen,200,400|401|404|405|413,lengthGroupByKey_1_gen,POST,/elements/length/groupBy/{key15},lengthgroupbykey_1_gen
+ohsome copy,lengthGroupByTag_gen,200,400|401|404|405|413,lengthGroupByTag_gen,GET,/elements/length/groupBy/{tag16},lengthgroupbytag_gen
+ohsome copy,lengthGroupByTag_1_gen,200,400|401|404|405|413,lengthGroupByTag_1_gen,POST,/elements/length/groupBy/{tag16},lengthgroupbytag_1_gen
+ohsome copy,lengthGroupByType_gen,200,400|401|404|405|413,lengthGroupByType_gen,GET,/elements/length/groupBy/{type16},lengthgroupbytype_gen
+ohsome copy,lengthGroupByType_1_gen,200,400|401|404|405|413,lengthGroupByType_1_gen,POST,/elements/length/groupBy/{type16},lengthgroupbytype_1_gen
+ohsome copy,lengthRatio_gen,200,400|401|404|405|413,lengthRatio_gen,GET,/elements/length/{ratio17},lengthratio_gen
+ohsome copy,lengthRatio_1_gen,200,400|401|404|405|413,lengthRatio_1_gen,POST,/elements/length/{ratio17},lengthratio_1_gen
+ohsome copy,lengthRatioGroupByBoundary_gen,200,400|401|404|405|413,lengthRatioGroupByBoundary_gen,GET,/elements/length/ratio/groupBy/{boundary17},lengthratiogroupbyboundary_gen
+ohsome copy,lengthRatioGroupByBoundary_1_gen,200,400|401|404|405|413,lengthRatioGroupByBoundary_1_gen,POST,/elements/length/ratio/groupBy/{boundary17},lengthratiogroupbyboundary_1_gen
+ohsome copy,perimeter_gen,200,400|401|404|405|413,perimeter_gen,GET,/elements/{perimeter1},perimeter_gen
+ohsome copy,perimeter_1_gen,200,400|401|404|405|413,perimeter_1_gen,POST,/elements/{perimeter1},perimeter_1_gen
+ohsome copy,perimeterDensity_gen,200,400|401|404|405|413,perimeterDensity_gen,GET,/elements/perimeter/{density17},perimeterdensity_gen
+ohsome copy,perimeterDensity_1_gen,200,400|401|404|405|413,perimeterDensity_1_gen,POST,/elements/perimeter/{density17},perimeterdensity_1_gen
+ohsome copy,perimeterDensityGroupByBoundary_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundary_gen,GET,/elements/perimeter/density/groupBy/{boundary18},perimeterdensitygroupbyboundary_gen
+ohsome copy,perimeterDensityGroupByBoundary_1_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundary_1_gen,POST,/elements/perimeter/density/groupBy/{boundary18},perimeterdensitygroupbyboundary_1_gen
+ohsome copy,perimeterDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_gen,GET,/elements/perimeter/density/groupBy/boundary/groupBy/{tag18},perimeterdensitygroupbyboundarygroupbytag_gen
+ohsome copy,perimeterDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/perimeter/density/groupBy/boundary/groupBy/{tag18},perimeterdensitygroupbyboundarygroupbytag_1_gen
+ohsome copy,perimeterDensityGroupByTag_gen,200,400|401|404|405|413,perimeterDensityGroupByTag_gen,GET,/elements/perimeter/density/groupBy/{tag19},perimeterdensitygroupbytag_gen
+ohsome copy,perimeterDensityGroupByTag_1_gen,200,400|401|404|405|413,perimeterDensityGroupByTag_1_gen,POST,/elements/perimeter/density/groupBy/{tag19},perimeterdensitygroupbytag_1_gen
+ohsome copy,perimeterDensityGroupByType_gen,200,400|401|404|405|413,perimeterDensityGroupByType_gen,GET,/elements/perimeter/density/groupBy/{type19},perimeterdensitygroupbytype_gen
+ohsome copy,perimeterDensityGroupByType_1_gen,200,400|401|404|405|413,perimeterDensityGroupByType_1_gen,POST,/elements/perimeter/density/groupBy/{type19},perimeterdensitygroupbytype_1_gen
+ohsome copy,perimeterGroupByBoundary_gen,200,400|401|404|405|413,perimeterGroupByBoundary_gen,GET,/elements/perimeter/groupBy/{boundary20},perimetergroupbyboundary_gen
+ohsome copy,perimeterGroupByBoundary_1_gen,200,400|401|404|405|413,perimeterGroupByBoundary_1_gen,POST,/elements/perimeter/groupBy/{boundary20},perimetergroupbyboundary_1_gen
+ohsome copy,perimeterGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_gen,GET,/elements/perimeter/groupBy/boundary/groupBy/{tag20},perimetergroupbyboundarygroupbytag_gen
+ohsome copy,perimeterGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_1_gen,POST,/elements/perimeter/groupBy/boundary/groupBy/{tag20},perimetergroupbyboundarygroupbytag_1_gen
+ohsome copy,perimeterGroupByKey_gen,200,400|401|404|405|413,perimeterGroupByKey_gen,GET,/elements/perimeter/groupBy/{key20},perimetergroupbykey_gen
+ohsome copy,perimeterGroupByKey_1_gen,200,400|401|404|405|413,perimeterGroupByKey_1_gen,POST,/elements/perimeter/groupBy/{key20},perimetergroupbykey_1_gen
+ohsome copy,perimeterGroupByTag_gen,200,400|401|404|405|413,perimeterGroupByTag_gen,GET,/elements/perimeter/groupBy/{tag21},perimetergroupbytag_gen
+ohsome copy,perimeterGroupByTag_1_gen,200,400|401|404|405|413,perimeterGroupByTag_1_gen,POST,/elements/perimeter/groupBy/{tag21},perimetergroupbytag_1_gen
+ohsome copy,perimeterGroupByType_gen,200,400|401|404|405|413,perimeterGroupByType_gen,GET,/elements/perimeter/groupBy/{type21},perimetergroupbytype_gen
+ohsome copy,perimeterGroupByType_1_gen,200,400|401|404|405|413,perimeterGroupByType_1_gen,POST,/elements/perimeter/groupBy/{type21},perimetergroupbytype_1_gen
+ohsome copy,perimeterRatio_gen,200,400|401|404|405|413,perimeterRatio_gen,GET,/elements/perimeter/{ratio21},perimeterratio_gen
+ohsome copy,perimeterRatio_1_gen,200,400|401|404|405|413,perimeterRatio_1_gen,POST,/elements/perimeter/{ratio21},perimeterratio_1_gen
+ohsome copy,perimeterRatioGroupByBoundary_gen,200,400|401|404|405|413,perimeterRatioGroupByBoundary_gen,GET,/elements/perimeter/ratio/groupBy/{boundary21},perimeterratiogroupbyboundary_gen
+ohsome copy,perimeterRatioGroupByBoundary_1_gen,200,400|401|404|405|413,perimeterRatioGroupByBoundary_1_gen,POST,/elements/perimeter/ratio/groupBy/{boundary21},perimeterratiogroupbyboundary_1_gen
+ohsome copy,count_2_gen,200,400|401|404|405|413,count_2_gen,GET,/users/{count21},count_2_gen
+ohsome copy,count_3_gen,200,400|401|404|405|413,count_3_gen,POST,/users/{count21},count_3_gen
+ohsome copy,countDensity_2_gen,200,400|401|404|405|413,countDensity_2_gen,GET,/users/count/{density21},countdensity_2_gen
+ohsome copy,countDensity_3_gen,200,400|401|404|405|413,countDensity_3_gen,POST,/users/count/{density21},countdensity_3_gen
+ohsome copy,countDensityGroupByBoundary_2_gen,200,400|401|404|405|413,countDensityGroupByBoundary_2_gen,GET,/users/count/density/groupBy/{boundary22},countdensitygroupbyboundary_2_gen
+ohsome copy,countDensityGroupByBoundary_3_gen,200,400|401|404|405|413,countDensityGroupByBoundary_3_gen,POST,/users/count/density/groupBy/{boundary22},countdensitygroupbyboundary_3_gen
+ohsome copy,countDensityGroupByTag_2_gen,200,400|401|404|405|413,countDensityGroupByTag_2_gen,GET,/users/count/density/groupBy/{tag22},countdensitygroupbytag_2_gen
+ohsome copy,countDensityGroupByTag_3_gen,200,400|401|404|405|413,countDensityGroupByTag_3_gen,POST,/users/count/density/groupBy/{tag22},countdensitygroupbytag_3_gen
+ohsome copy,countDensityGroupByType_2_gen,200,400|401|404|405|413,countDensityGroupByType_2_gen,GET,/users/count/density/groupBy/{type22},countdensitygroupbytype_2_gen
+ohsome copy,countDensityGroupByType_3_gen,200,400|401|404|405|413,countDensityGroupByType_3_gen,POST,/users/count/density/groupBy/{type22},countdensitygroupbytype_3_gen
+ohsome copy,countGroupByBoundary_2_gen,200,400|401|404|405|413,countGroupByBoundary_2_gen,GET,/users/count/groupBy/{boundary23},countgroupbyboundary_2_gen
+ohsome copy,countGroupByBoundary_3_gen,200,400|401|404|405|413,countGroupByBoundary_3_gen,POST,/users/count/groupBy/{boundary23},countgroupbyboundary_3_gen
+ohsome copy,countGroupByKey_2_gen,200,400|401|404|405|413,countGroupByKey_2_gen,GET,/users/count/groupBy/{key24},countgroupbykey_2_gen
+ohsome copy,countGroupByKey_3_gen,200,400|401|404|405|413,countGroupByKey_3_gen,POST,/users/count/groupBy/{key24},countgroupbykey_3_gen
+ohsome copy,countGroupByTag_2_gen,200,400|401|404|405|413,countGroupByTag_2_gen,GET,/users/count/groupBy/{tag25},countgroupbytag_2_gen
+ohsome copy,countGroupByTag_3_gen,200,400|401|404|405|413,countGroupByTag_3_gen,POST,/users/count/groupBy/{tag25},countgroupbytag_3_gen
+ohsome copy,countGroupByType_2_gen,200,400|401|404|405|413,countGroupByType_2_gen,GET,/users/count/groupBy/{type25},countgroupbytype_2_gen
+ohsome copy,countGroupByType_3_gen,200,400|401|404|405|413,countGroupByType_3_gen,POST,/users/count/groupBy/{type25},countgroupbytype_3_gen
+ohsome,area,200,400|401|404|405|413,area,GET,/elements/area,area
+ohsome,area_1,200,400|401|404|405|413,area_1,POST,/elements/area,area_1
+ohsome,areaDensity,200,400|401|404|405|413,areaDensity,GET,/elements/area/density,areadensity
+ohsome,areaDensity_1,200,400|401|404|405|413,areaDensity_1,POST,/elements/area/density,areadensity_1
+ohsome,areaDensityGroupByBoundary,200,400|401|404|405|413,areaDensityGroupByBoundary,GET,/elements/area/density/groupBy/boundary,areadensitygroupbyboundary
+ohsome,areaDensityGroupByBoundary_1,200,400|401|404|405|413,areaDensityGroupByBoundary_1,POST,/elements/area/density/groupBy/boundary,areadensitygroupbyboundary_1
+ohsome,areaDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag,GET,/elements/area/density/groupBy/boundary/groupBy/tag,areadensitygroupbyboundarygroupbytag
+ohsome,areaDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_1,POST,/elements/area/density/groupBy/boundary/groupBy/tag,areadensitygroupbyboundarygroupbytag_1
+ohsome,areaDensityGroupByTag,200,400|401|404|405|413,areaDensityGroupByTag,GET,/elements/area/density/groupBy/tag,areadensitygroupbytag
+ohsome,areaDensityGroupByTag_1,200,400|401|404|405|413,areaDensityGroupByTag_1,POST,/elements/area/density/groupBy/tag,areadensitygroupbytag_1
+ohsome,areaDensityGroupByType,200,400|401|404|405|413,areaDensityGroupByType,GET,/elements/area/density/groupBy/type,areadensitygroupbytype
+ohsome,areaDensityGroupByType_1,200,400|401|404|405|413,areaDensityGroupByType_1,POST,/elements/area/density/groupBy/type,areadensitygroupbytype_1
+ohsome,areaGroupByBoundary,200,400|401|404|405|413,areaGroupByBoundary,GET,/elements/area/groupBy/boundary,areagroupbyboundary
+ohsome,areaGroupByBoundary_1,200,400|401|404|405|413,areaGroupByBoundary_1,POST,/elements/area/groupBy/boundary,areagroupbyboundary_1
+ohsome,areaGroupByBoundaryGroupByTag,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag,GET,/elements/area/groupBy/boundary/groupBy/tag,areagroupbyboundarygroupbytag
+ohsome,areaGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_1,POST,/elements/area/groupBy/boundary/groupBy/tag,areagroupbyboundarygroupbytag_1
+ohsome,areaGroupByKey,200,400|401|404|405|413,areaGroupByKey,GET,/elements/area/groupBy/key,areagroupbykey
+ohsome,areaGroupByKey_1,200,400|401|404|405|413,areaGroupByKey_1,POST,/elements/area/groupBy/key,areagroupbykey_1
+ohsome,areaGroupByTag,200,400|401|404|405|413,areaGroupByTag,GET,/elements/area/groupBy/tag,areagroupbytag
+ohsome,areaGroupByTag_1,200,400|401|404|405|413,areaGroupByTag_1,POST,/elements/area/groupBy/tag,areagroupbytag_1
+ohsome,areaGroupByType,200,400|401|404|405|413,areaGroupByType,GET,/elements/area/groupBy/type,areagroupbytype
+ohsome,areaGroupByType_1,200,400|401|404|405|413,areaGroupByType_1,POST,/elements/area/groupBy/type,areagroupbytype_1
+ohsome,areaRatio,200,400|401|404|405|413,areaRatio,GET,/elements/area/ratio,arearatio
+ohsome,areaRatio_1,200,400|401|404|405|413,areaRatio_1,POST,/elements/area/ratio,arearatio_1
+ohsome,areaRatioGroupByBoundary,200,400|401|404|405|413,areaRatioGroupByBoundary,GET,/elements/area/ratio/groupBy/boundary,arearatiogroupbyboundary
+ohsome,areaRatioGroupByBoundary_1,200,400|401|404|405|413,areaRatioGroupByBoundary_1,POST,/elements/area/ratio/groupBy/boundary,arearatiogroupbyboundary_1
+ohsome,count,200,400|401|404|405|413,count,GET,/elements/count,count
+ohsome,count_1,200,400|401|404|405|413,count_1,POST,/elements/count,count_1
+ohsome,countDensity,200,400|401|404|405|413,countDensity,GET,/elements/count/density,countdensity
+ohsome,countDensity_1,200,400|401|404|405|413,countDensity_1,POST,/elements/count/density,countdensity_1
+ohsome,countDensityGroupByBoundary,200,400|401|404|405|413,countDensityGroupByBoundary,GET,/elements/count/density/groupBy/boundary,countdensitygroupbyboundary
+ohsome,countDensityGroupByBoundary_1,200,400|401|404|405|413,countDensityGroupByBoundary_1,POST,/elements/count/density/groupBy/boundary,countdensitygroupbyboundary_1
+ohsome,countDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag,GET,/elements/count/density/groupBy/boundary/groupBy/tag,countdensitygroupbyboundarygroupbytag
+ohsome,countDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_1,POST,/elements/count/density/groupBy/boundary/groupBy/tag,countdensitygroupbyboundarygroupbytag_1
+ohsome,countDensityGroupByTag,200,400|401|404|405|413,countDensityGroupByTag,GET,/elements/count/density/groupBy/tag,countdensitygroupbytag
+ohsome,countDensityGroupByTag_1,200,400|401|404|405|413,countDensityGroupByTag_1,POST,/elements/count/density/groupBy/tag,countdensitygroupbytag_1
+ohsome,countDensityGroupByType,200,400|401|404|405|413,countDensityGroupByType,GET,/elements/count/density/groupBy/type,countdensitygroupbytype
+ohsome,countDensityGroupByType_1,200,400|401|404|405|413,countDensityGroupByType_1,POST,/elements/count/density/groupBy/type,countdensitygroupbytype_1
+ohsome,countGroupByBoundary,200,400|401|404|405|413,countGroupByBoundary,GET,/elements/count/groupBy/boundary,countgroupbyboundary
+ohsome,countGroupByBoundary_1,200,400|401|404|405|413,countGroupByBoundary_1,POST,/elements/count/groupBy/boundary,countgroupbyboundary_1
+ohsome,countGroupByBoundaryGroupByTag,200,400|401|404|405|413,countGroupByBoundaryGroupByTag,GET,/elements/count/groupBy/boundary/groupBy/tag,countgroupbyboundarygroupbytag
+ohsome,countGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_1,POST,/elements/count/groupBy/boundary/groupBy/tag,countgroupbyboundarygroupbytag_1
+ohsome,countGroupByKey,200,400|401|404|405|413,countGroupByKey,GET,/elements/count/groupBy/key,countgroupbykey
+ohsome,countGroupByKey_1,200,400|401|404|405|413,countGroupByKey_1,POST,/elements/count/groupBy/key,countgroupbykey_1
+ohsome,countGroupByTag,200,400|401|404|405|413,countGroupByTag,GET,/elements/count/groupBy/tag,countgroupbytag
+ohsome,countGroupByTag_1,200,400|401|404|405|413,countGroupByTag_1,POST,/elements/count/groupBy/tag,countgroupbytag_1
+ohsome,countGroupByType,200,400|401|404|405|413,countGroupByType,GET,/elements/count/groupBy/type,countgroupbytype
+ohsome,countGroupByType_1,200,400|401|404|405|413,countGroupByType_1,POST,/elements/count/groupBy/type,countgroupbytype_1
+ohsome,countRatio,200,400|401|404|405|413,countRatio,GET,/elements/count/ratio,countratio
+ohsome,countRatio_1,200,400|401|404|405|413,countRatio_1,POST,/elements/count/ratio,countratio_1
+ohsome,countRatioGroupByBoundary,200,400|401|404|405|413,countRatioGroupByBoundary,GET,/elements/count/ratio/groupBy/boundary,countratiogroupbyboundary
+ohsome,countRatioGroupByBoundary_1,200,400|401|404|405|413,countRatioGroupByBoundary_1,POST,/elements/count/ratio/groupBy/boundary,countratiogroupbyboundary_1
+ohsome,length,200,400|401|404|405|413,length,GET,/elements/length,length
+ohsome,length_1,200,400|401|404|405|413,length_1,POST,/elements/length,length_1
+ohsome,lengthDensity,200,400|401|404|405|413,lengthDensity,GET,/elements/length/density,lengthdensity
+ohsome,lengthDensity_1,200,400|401|404|405|413,lengthDensity_1,POST,/elements/length/density,lengthdensity_1
+ohsome,lengthDensityGroupByBoundary,200,400|401|404|405|413,lengthDensityGroupByBoundary,GET,/elements/length/density/groupBy/boundary,lengthdensitygroupbyboundary
+ohsome,lengthDensityGroupByBoundary_1,200,400|401|404|405|413,lengthDensityGroupByBoundary_1,POST,/elements/length/density/groupBy/boundary,lengthdensitygroupbyboundary_1
+ohsome,lengthDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag,GET,/elements/length/density/groupBy/boundary/groupBy/tag,lengthdensitygroupbyboundarygroupbytag
+ohsome,lengthDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_1,POST,/elements/length/density/groupBy/boundary/groupBy/tag,lengthdensitygroupbyboundarygroupbytag_1
+ohsome,lengthDensityGroupByTag,200,400|401|404|405|413,lengthDensityGroupByTag,GET,/elements/length/density/groupBy/tag,lengthdensitygroupbytag
+ohsome,lengthDensityGroupByTag_1,200,400|401|404|405|413,lengthDensityGroupByTag_1,POST,/elements/length/density/groupBy/tag,lengthdensitygroupbytag_1
+ohsome,lengthDensityGroupByType,200,400|401|404|405|413,lengthDensityGroupByType,GET,/elements/length/density/groupBy/type,lengthdensitygroupbytype
+ohsome,lengthDensityGroupByType_1,200,400|401|404|405|413,lengthDensityGroupByType_1,POST,/elements/length/density/groupBy/type,lengthdensitygroupbytype_1
+ohsome,lengthGroupByBoundary,200,400|401|404|405|413,lengthGroupByBoundary,GET,/elements/length/groupBy/boundary,lengthgroupbyboundary
+ohsome,lengthGroupByBoundary_1,200,400|401|404|405|413,lengthGroupByBoundary_1,POST,/elements/length/groupBy/boundary,lengthgroupbyboundary_1
+ohsome,lengthGroupByBoundaryGroupByTag,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag,GET,/elements/length/groupBy/boundary/groupBy/tag,lengthgroupbyboundarygroupbytag
+ohsome,lengthGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_1,POST,/elements/length/groupBy/boundary/groupBy/tag,lengthgroupbyboundarygroupbytag_1
+ohsome,lengthGroupByKey,200,400|401|404|405|413,lengthGroupByKey,GET,/elements/length/groupBy/key,lengthgroupbykey
+ohsome,lengthGroupByKey_1,200,400|401|404|405|413,lengthGroupByKey_1,POST,/elements/length/groupBy/key,lengthgroupbykey_1
+ohsome,lengthGroupByTag,200,400|401|404|405|413,lengthGroupByTag,GET,/elements/length/groupBy/tag,lengthgroupbytag
+ohsome,lengthGroupByTag_1,200,400|401|404|405|413,lengthGroupByTag_1,POST,/elements/length/groupBy/tag,lengthgroupbytag_1
+ohsome,lengthGroupByType,200,400|401|404|405|413,lengthGroupByType,GET,/elements/length/groupBy/type,lengthgroupbytype
+ohsome,lengthGroupByType_1,200,400|401|404|405|413,lengthGroupByType_1,POST,/elements/length/groupBy/type,lengthgroupbytype_1
+ohsome,lengthRatio,200,400|401|404|405|413,lengthRatio,GET,/elements/length/ratio,lengthratio
+ohsome,lengthRatio_1,200,400|401|404|405|413,lengthRatio_1,POST,/elements/length/ratio,lengthratio_1
+ohsome,lengthRatioGroupByBoundary,200,400|401|404|405|413,lengthRatioGroupByBoundary,GET,/elements/length/ratio/groupBy/boundary,lengthratiogroupbyboundary
+ohsome,lengthRatioGroupByBoundary_1,200,400|401|404|405|413,lengthRatioGroupByBoundary_1,POST,/elements/length/ratio/groupBy/boundary,lengthratiogroupbyboundary_1
+ohsome,perimeter,200,400|401|404|405|413,perimeter,GET,/elements/perimeter,perimeter
+ohsome,perimeter_1,200,400|401|404|405|413,perimeter_1,POST,/elements/perimeter,perimeter_1
+ohsome,perimeterDensity,200,400|401|404|405|413,perimeterDensity,GET,/elements/perimeter/density,perimeterdensity
+ohsome,perimeterDensity_1,200,400|401|404|405|413,perimeterDensity_1,POST,/elements/perimeter/density,perimeterdensity_1
+ohsome,perimeterDensityGroupByBoundary,200,400|401|404|405|413,perimeterDensityGroupByBoundary,GET,/elements/perimeter/density/groupBy/boundary,perimeterdensitygroupbyboundary
+ohsome,perimeterDensityGroupByBoundary_1,200,400|401|404|405|413,perimeterDensityGroupByBoundary_1,POST,/elements/perimeter/density/groupBy/boundary,perimeterdensitygroupbyboundary_1
+ohsome,perimeterDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag,GET,/elements/perimeter/density/groupBy/boundary/groupBy/tag,perimeterdensitygroupbyboundarygroupbytag
+ohsome,perimeterDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_1,POST,/elements/perimeter/density/groupBy/boundary/groupBy/tag,perimeterdensitygroupbyboundarygroupbytag_1
+ohsome,perimeterDensityGroupByTag,200,400|401|404|405|413,perimeterDensityGroupByTag,GET,/elements/perimeter/density/groupBy/tag,perimeterdensitygroupbytag
+ohsome,perimeterDensityGroupByTag_1,200,400|401|404|405|413,perimeterDensityGroupByTag_1,POST,/elements/perimeter/density/groupBy/tag,perimeterdensitygroupbytag_1
+ohsome,perimeterDensityGroupByType,200,400|401|404|405|413,perimeterDensityGroupByType,GET,/elements/perimeter/density/groupBy/type,perimeterdensitygroupbytype
+ohsome,perimeterDensityGroupByType_1,200,400|401|404|405|413,perimeterDensityGroupByType_1,POST,/elements/perimeter/density/groupBy/type,perimeterdensitygroupbytype_1
+ohsome,perimeterGroupByBoundary,200,400|401|404|405|413,perimeterGroupByBoundary,GET,/elements/perimeter/groupBy/boundary,perimetergroupbyboundary
+ohsome,perimeterGroupByBoundary_1,200,400|401|404|405|413,perimeterGroupByBoundary_1,POST,/elements/perimeter/groupBy/boundary,perimetergroupbyboundary_1
+ohsome,perimeterGroupByBoundaryGroupByTag,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag,GET,/elements/perimeter/groupBy/boundary/groupBy/tag,perimetergroupbyboundarygroupbytag
+ohsome,perimeterGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_1,POST,/elements/perimeter/groupBy/boundary/groupBy/tag,perimetergroupbyboundarygroupbytag_1
+ohsome,perimeterGroupByKey,200,400|401|404|405|413,perimeterGroupByKey,GET,/elements/perimeter/groupBy/key,perimetergroupbykey
+ohsome,perimeterGroupByKey_1,200,400|401|404|405|413,perimeterGroupByKey_1,POST,/elements/perimeter/groupBy/key,perimetergroupbykey_1
+ohsome,perimeterGroupByTag,200,400|401|404|405|413,perimeterGroupByTag,GET,/elements/perimeter/groupBy/tag,perimetergroupbytag
+ohsome,perimeterGroupByTag_1,200,400|401|404|405|413,perimeterGroupByTag_1,POST,/elements/perimeter/groupBy/tag,perimetergroupbytag_1
+ohsome,perimeterGroupByType,200,400|401|404|405|413,perimeterGroupByType,GET,/elements/perimeter/groupBy/type,perimetergroupbytype
+ohsome,perimeterGroupByType_1,200,400|401|404|405|413,perimeterGroupByType_1,POST,/elements/perimeter/groupBy/type,perimetergroupbytype_1
+ohsome,perimeterRatio,200,400|401|404|405|413,perimeterRatio,GET,/elements/perimeter/ratio,perimeterratio
+ohsome,perimeterRatio_1,200,400|401|404|405|413,perimeterRatio_1,POST,/elements/perimeter/ratio,perimeterratio_1
+ohsome,perimeterRatioGroupByBoundary,200,400|401|404|405|413,perimeterRatioGroupByBoundary,GET,/elements/perimeter/ratio/groupBy/boundary,perimeterratiogroupbyboundary
+ohsome,perimeterRatioGroupByBoundary_1,200,400|401|404|405|413,perimeterRatioGroupByBoundary_1,POST,/elements/perimeter/ratio/groupBy/boundary,perimeterratiogroupbyboundary_1
+ohsome,count_2,200,400|401|404|405|413,count_2,GET,/users/count,count_2
+ohsome,count_3,200,400|401|404|405|413,count_3,POST,/users/count,count_3
+ohsome,countDensity_2,200,400|401|404|405|413,countDensity_2,GET,/users/count/density,countdensity_2
+ohsome,countDensity_3,200,400|401|404|405|413,countDensity_3,POST,/users/count/density,countdensity_3
+ohsome,countDensityGroupByBoundary_2,200,400|401|404|405|413,countDensityGroupByBoundary_2,GET,/users/count/density/groupBy/boundary,countdensitygroupbyboundary_2
+ohsome,countDensityGroupByBoundary_3,200,400|401|404|405|413,countDensityGroupByBoundary_3,POST,/users/count/density/groupBy/boundary,countdensitygroupbyboundary_3
+ohsome,countDensityGroupByTag_2,200,400|401|404|405|413,countDensityGroupByTag_2,GET,/users/count/density/groupBy/tag,countdensitygroupbytag_2
+ohsome,countDensityGroupByTag_3,200,400|401|404|405|413,countDensityGroupByTag_3,POST,/users/count/density/groupBy/tag,countdensitygroupbytag_3
+ohsome,countDensityGroupByType_2,200,400|401|404|405|413,countDensityGroupByType_2,GET,/users/count/density/groupBy/type,countdensitygroupbytype_2
+ohsome,countDensityGroupByType_3,200,400|401|404|405|413,countDensityGroupByType_3,POST,/users/count/density/groupBy/type,countdensitygroupbytype_3
+ohsome,countGroupByBoundary_2,200,400|401|404|405|413,countGroupByBoundary_2,GET,/users/count/groupBy/boundary,countgroupbyboundary_2
+ohsome,countGroupByBoundary_3,200,400|401|404|405|413,countGroupByBoundary_3,POST,/users/count/groupBy/boundary,countgroupbyboundary_3
+ohsome,countGroupByKey_2,200,400|401|404|405|413,countGroupByKey_2,GET,/users/count/groupBy/key,countgroupbykey_2
+ohsome,countGroupByKey_3,200,400|401|404|405|413,countGroupByKey_3,POST,/users/count/groupBy/key,countgroupbykey_3
+ohsome,countGroupByTag_2,200,400|401|404|405|413,countGroupByTag_2,GET,/users/count/groupBy/tag,countgroupbytag_2
+ohsome,countGroupByTag_3,200,400|401|404|405|413,countGroupByTag_3,POST,/users/count/groupBy/tag,countgroupbytag_3
+ohsome,countGroupByType_2,200,400|401|404|405|413,countGroupByType_2,GET,/users/count/groupBy/type,countgroupbytype_2
+ohsome,countGroupByType_3,200,400|401|404|405|413,countGroupByType_3,POST,/users/count/groupBy/type,countgroupbytype_3
+petstore,updatePet,200,400|404|422,updatePet,PUT,/pet,updatepet
+petstore,addPet,200,400|422,addPet,POST,/pet,addpet
+petstore,findPetsByStatus,200,400,findPetsByStatus,GET,/pet/findByStatus,findpetsbystatus
+petstore,findPetsByTags,200,400,findPetsByTags,GET,/pet/findByTags,findpetsbytags
+petstore,getPetById,200,400|404,getPetById,GET,/pet/{petId},getpetbyid
+petstore,updatePetWithForm,200,400,updatePetWithForm,POST,/pet/{petId},updatepetwithform
+petstore,deletePet,200,400,deletePet,DELETE,/pet/{petId},deletepet
+petstore,uploadFile,200,400|404,uploadFile,POST,/pet/{petId}/uploadImage,uploadfile
+petstore,getInventory,200,,getInventory,GET,/store/inventory,getinventory
+petstore,placeOrder,200,400|422,placeOrder,POST,/store/order,placeorder
+petstore,getOrderById,200,400|404,getOrderById,GET,/store/order/{orderId},getorderbyid
+petstore,deleteOrder,200,400|404,deleteOrder,DELETE,/store/order/{orderId},deleteorder
+petstore,createUser,200,,createUser,POST,/user,createuser
+petstore,createUsersWithListInput,200,,createUsersWithListInput,POST,/user/createWithList,createuserswithlistinput
+petstore,loginUser,200,400,loginUser,GET,/user/login,loginuser
+petstore,logoutUser,200,,logoutUser,GET,/user/logout,logoutuser
+petstore,getUserByName,200,400|404,getUserByName,GET,/user/{username},getuserbyname
+petstore,updateUser,200,400|404,updateUser,PUT,/user/{username},updateuser
+petstore,deleteUser,200,400|404,deleteUser,DELETE,/user/{username},deleteuser
+rest-countries,v1All,200,,v1All,GET,/v1/all,v1all
+rest-countries,v1Alphacode,200,,v1Alphacode,GET,/v1/alpha/{alphacode},v1alphacode
+rest-countries,v1Alphacodes,200,,v1Alphacodes,GET,/v1/alpha,v1alphacodes
+rest-countries,v1Currency,200,,v1Currency,GET,/v1/currency/{currency},v1currency
+rest-countries,v1Name,200,,v1Name,GET,/v1/name/{name},v1name
+rest-countries,v1Callingcode,200,,v1Callingcode,GET,/v1/callingcode/{callingcode},v1callingcode
+rest-countries,v1Capital,200,,v1Capital,GET,/v1/capital/{capital},v1capital
+rest-countries,v1Region,200,,v1Region,GET,/v1/region/{region},v1region
+rest-countries,v1Subregion,200,,v1Subregion,GET,/v1/subregion/{subregion},v1subregion
+rest-countries,v1Lang,200,,v1Lang,GET,/v1/lang/{lang},v1lang
+rest-countries,v2All,200,,v2All,GET,/v2/all,v2all
+rest-countries,v2Alphacode,200,,v2Alphacode,GET,/v2/alpha/{alphacode},v2alphacode
+rest-countries,v2Alphacodes,200,,v2Alphacodes,GET,/v2/alpha,v2alphacodes
+rest-countries,v2Currency,200,,v2Currency,GET,/v2/currency/{currency},v2currency
+rest-countries,v2Name,200,,v2Name,GET,/v2/name/{name},v2name
+rest-countries,v2Callingcode,200,,v2Callingcode,GET,/v2/callingcode/{callingcode},v2callingcode
+rest-countries,v2Capital,200,,v2Capital,GET,/v2/capital/{capital},v2capital
+rest-countries,v2Region,200,,v2Region,GET,/v2/region/{region},v2region
+rest-countries,v2Subregion,200,,v2Subregion,GET,/v2/subregion/{subregion},v2subregion
+rest-countries,v2Lang,200,,v2Lang,GET,/v2/lang/{lang},v2lang
+rest-countries,v2Demonym,200,,v2Demonym,GET,/v2/demonym/{demonym},v2demonym
+rest-countries,v2Regionalbloc,200,,v2Regionalbloc,GET,/v2/regionalbloc/{regionalbloc},v2regionalbloc

@@ -17,9 +17,13 @@
 # location = "datasets/GitLabBranch.json"
 # location = "datasets/GitLabRepository.json"
 # location = "datasets/petstore.json"
-location = "datasets/language-tool.json"
+# location = "datasets/language-tool.json"
 # location = "datasets/rest-countries.json"
 # location = "datasets/Genome-nexus-local.json"
+# location = "datasets/petstore.json"
+# location = "datasets/ohsome.json"
+# location = "datasets/fdic.json"
+location = "datasets/spring-petclinic-rest.yaml"
 
 
 # Maximum times a circular/self-reference may appear in the resolution stack.
@@ -99,8 +103,8 @@ max_exploration = 1   # epsilon; decays over time to 0.1
 # Duration for generation in seconds.
 # time_duration = 1200
 # time_duration = 400
-time_duration = 3600
-# time_duration = 5400
+# time_duration = 3600
+time_duration = 5400
 # time_duration = 7200
 
 # Probability of mutating request parameters during generation.
@@ -121,7 +125,7 @@ enabled = true
 
 # Persist aggregate JSON outputs every N seconds or every N HTTP attempts, whichever comes first.
 snapshot_interval_seconds = 300
-snapshot_interval_requests = 20000
+snapshot_interval_requests = 1000
 
 # Limit serialized request/response previews written into trace files.
 max_preview_chars = 4000
