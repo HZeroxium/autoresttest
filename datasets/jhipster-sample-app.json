@@ -23,9 +23,7 @@
   "paths": {
     "/api/operations/{id}": {
       "get": {
-        "tags": [
-          "operation-resource"
-        ],
+        "tags": ["operation-resource"],
         "operationId": "getOperation",
         "parameters": [
           {
@@ -52,9 +50,7 @@
         }
       },
       "put": {
-        "tags": [
-          "operation-resource"
-        ],
+        "tags": ["operation-resource"],
         "operationId": "updateOperation",
         "parameters": [
           {
@@ -91,9 +87,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "operation-resource"
-        ],
+        "tags": ["operation-resource"],
         "operationId": "deleteOperation",
         "parameters": [
           {
@@ -113,9 +107,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "operation-resource"
-        ],
+        "tags": ["operation-resource"],
         "operationId": "partialUpdateOperation",
         "parameters": [
           {
@@ -159,9 +151,7 @@
     },
     "/api/labels/{id}": {
       "get": {
-        "tags": [
-          "label-resource"
-        ],
+        "tags": ["label-resource"],
         "operationId": "getLabel",
         "parameters": [
           {
@@ -188,9 +178,7 @@
         }
       },
       "put": {
-        "tags": [
-          "label-resource"
-        ],
+        "tags": ["label-resource"],
         "operationId": "updateLabel",
         "parameters": [
           {
@@ -227,9 +215,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "label-resource"
-        ],
+        "tags": ["label-resource"],
         "operationId": "deleteLabel",
         "parameters": [
           {
@@ -249,9 +235,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "label-resource"
-        ],
+        "tags": ["label-resource"],
         "operationId": "partialUpdateLabel",
         "parameters": [
           {
@@ -295,9 +279,7 @@
     },
     "/api/bank-accounts/{id}": {
       "get": {
-        "tags": [
-          "bank-account-resource"
-        ],
+        "tags": ["bank-account-resource"],
         "operationId": "getBankAccount",
         "parameters": [
           {
@@ -324,9 +306,7 @@
         }
       },
       "put": {
-        "tags": [
-          "bank-account-resource"
-        ],
+        "tags": ["bank-account-resource"],
         "operationId": "updateBankAccount",
         "parameters": [
           {
@@ -363,9 +343,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "bank-account-resource"
-        ],
+        "tags": ["bank-account-resource"],
         "operationId": "deleteBankAccount",
         "parameters": [
           {
@@ -385,9 +363,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "bank-account-resource"
-        ],
+        "tags": ["bank-account-resource"],
         "operationId": "partialUpdateBankAccount",
         "parameters": [
           {
@@ -431,9 +407,7 @@
     },
     "/api/admin/users/{login}": {
       "get": {
-        "tags": [
-          "user-resource"
-        ],
+        "tags": ["user-resource"],
         "operationId": "getUser",
         "parameters": [
           {
@@ -460,9 +434,7 @@
         }
       },
       "put": {
-        "tags": [
-          "user-resource"
-        ],
+        "tags": ["user-resource"],
         "operationId": "updateUser",
         "parameters": [
           {
@@ -499,9 +471,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "user-resource"
-        ],
+        "tags": ["user-resource"],
         "operationId": "deleteUser",
         "parameters": [
           {
@@ -523,9 +493,7 @@
     },
     "/api/admin/users": {
       "get": {
-        "tags": [
-          "user-resource"
-        ],
+        "tags": ["user-resource"],
         "operationId": "getAllUsers",
         "parameters": [
           {
@@ -580,9 +548,7 @@
         }
       },
       "put": {
-        "tags": [
-          "user-resource"
-        ],
+        "tags": ["user-resource"],
         "operationId": "updateUser_1",
         "parameters": [],
         "requestBody": {
@@ -609,9 +575,7 @@
         }
       },
       "post": {
-        "tags": [
-          "user-resource"
-        ],
+        "tags": ["user-resource"],
         "operationId": "createUser",
         "requestBody": {
           "content": {
@@ -639,9 +603,7 @@
     },
     "/api/register": {
       "post": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "registerAccount",
         "requestBody": {
           "content": {
@@ -662,9 +624,7 @@
     },
     "/api/operations": {
       "get": {
-        "tags": [
-          "operation-resource"
-        ],
+        "tags": ["operation-resource"],
         "operationId": "getAllOperations",
         "parameters": [
           {
@@ -728,9 +688,7 @@
         }
       },
       "post": {
-        "tags": [
-          "operation-resource"
-        ],
+        "tags": ["operation-resource"],
         "operationId": "createOperation",
         "requestBody": {
           "content": {
@@ -758,9 +716,7 @@
     },
     "/api/labels": {
       "get": {
-        "tags": [
-          "label-resource"
-        ],
+        "tags": ["label-resource"],
         "operationId": "getAllLabels",
         "responses": {
           "200": {
@@ -779,9 +735,7 @@
         }
       },
       "post": {
-        "tags": [
-          "label-resource"
-        ],
+        "tags": ["label-resource"],
         "operationId": "createLabel",
         "requestBody": {
           "content": {
@@ -809,9 +763,7 @@
     },
     "/api/bank-accounts": {
       "get": {
-        "tags": [
-          "bank-account-resource"
-        ],
+        "tags": ["bank-account-resource"],
         "operationId": "getAllBankAccounts",
         "parameters": [
           {
@@ -841,9 +793,7 @@
         }
       },
       "post": {
-        "tags": [
-          "bank-account-resource"
-        ],
+        "tags": ["bank-account-resource"],
         "operationId": "createBankAccount",
         "requestBody": {
           "content": {
@@ -871,9 +821,7 @@
     },
     "/api/authorities": {
       "get": {
-        "tags": [
-          "authority-resource"
-        ],
+        "tags": ["authority-resource"],
         "operationId": "getAllAuthorities",
         "responses": {
           "200": {
@@ -892,9 +840,7 @@
         }
       },
       "post": {
-        "tags": [
-          "authority-resource"
-        ],
+        "tags": ["authority-resource"],
         "operationId": "createAuthority",
         "requestBody": {
           "content": {
@@ -922,9 +868,7 @@
     },
     "/api/authenticate": {
       "get": {
-        "tags": [
-          "authenticate-controller"
-        ],
+        "tags": ["authenticate-controller"],
         "operationId": "isAuthenticated",
         "responses": {
           "200": {
@@ -933,9 +877,7 @@
         }
       },
       "post": {
-        "tags": [
-          "authenticate-controller"
-        ],
+        "tags": ["authenticate-controller"],
         "operationId": "authorize",
         "requestBody": {
           "content": {
@@ -963,9 +905,7 @@
     },
     "/api/account": {
       "get": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "getAccount",
         "responses": {
           "200": {
@@ -981,9 +921,7 @@
         }
       },
       "post": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "saveAccount",
         "requestBody": {
           "content": {
@@ -1004,9 +942,7 @@
     },
     "/api/account/reset-password/init": {
       "post": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "requestPasswordReset",
         "requestBody": {
           "content": {
@@ -1027,9 +963,7 @@
     },
     "/api/account/reset-password/finish": {
       "post": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "finishPasswordReset",
         "requestBody": {
           "content": {
@@ -1050,9 +984,7 @@
     },
     "/api/account/change-password": {
       "post": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "changePassword",
         "requestBody": {
           "content": {
@@ -1073,9 +1005,7 @@
     },
     "/api/users": {
       "get": {
-        "tags": [
-          "public-user-resource"
-        ],
+        "tags": ["public-user-resource"],
         "operationId": "getAllPublicUsers",
         "parameters": [
           {
@@ -1132,9 +1062,7 @@
     },
     "/api/authorities/{id}": {
       "get": {
-        "tags": [
-          "authority-resource"
-        ],
+        "tags": ["authority-resource"],
         "operationId": "getAuthority",
         "parameters": [
           {
@@ -1160,9 +1088,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "authority-resource"
-        ],
+        "tags": ["authority-resource"],
         "operationId": "deleteAuthority",
         "parameters": [
           {
@@ -1183,9 +1109,7 @@
     },
     "/api/activate": {
       "get": {
-        "tags": [
-          "account-resource"
-        ],
+        "tags": ["account-resource"],
         "operationId": "activateAccount",
         "parameters": [
           {
@@ -1221,10 +1145,7 @@
             "type": "number"
           }
         },
-        "required": [
-          "balance",
-          "name"
-        ]
+        "required": ["balance", "name"]
       },
       "Label": {
         "type": "object",
@@ -1239,9 +1160,7 @@
             "minLength": 3
           }
         },
-        "required": [
-          "label"
-        ]
+        "required": ["label"]
       },
       "Operation": {
         "type": "object",
@@ -1271,10 +1190,7 @@
             "uniqueItems": true
           }
         },
-        "required": [
-          "amount",
-          "date"
-        ]
+        "required": ["amount", "date"]
       },
       "User": {
         "type": "object",
@@ -1337,10 +1253,7 @@
             "format": "date-time"
           }
         },
-        "required": [
-          "activated",
-          "login"
-        ]
+        "required": ["activated", "login"]
       },
       "AdminUserDTO": {
         "type": "object",
@@ -1406,9 +1319,7 @@
             "uniqueItems": true
           }
         },
-        "required": [
-          "login"
-        ]
+        "required": ["login"]
       },
       "ManagedUserVM": {
         "type": "object",
@@ -1479,9 +1390,7 @@
             "minLength": 4
           }
         },
-        "required": [
-          "login"
-        ]
+        "required": ["login"]
       },
       "Authority": {
         "type": "object",
@@ -1492,9 +1401,7 @@
             "minLength": 0
           }
         },
-        "required": [
-          "name"
-        ]
+        "required": ["name"]
       },
       "LoginVM": {
         "type": "object",
@@ -1513,10 +1420,7 @@
             "type": "boolean"
           }
         },
-        "required": [
-          "password",
-          "username"
-        ]
+        "required": ["password", "username"]
       },
       "JWTToken": {
         "type": "object",

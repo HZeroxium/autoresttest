@@ -225,250 +225,6 @@ jhipster-sample-app,deleteAuthority,200,,deleteAuthority,DELETE,/api/authorities
 jhipster-sample-app,activateAccount,200,,activateAccount,GET,/api/activate,activateaccount
 language-tool,POST /check,200,,,POST,/check,post_check
 language-tool,GET /languages,200,,,GET,/languages,get_languages
-ohsome copy,area,200,400|401|404|405|413,area,GET,/elements/area,area
-ohsome copy,area_1,200,400|401|404|405|413,area_1,POST,/elements/area,area_1
-ohsome copy,areaDensity,200,400|401|404|405|413,areaDensity,GET,/elements/area/density,areadensity
-ohsome copy,areaDensity_1,200,400|401|404|405|413,areaDensity_1,POST,/elements/area/density,areadensity_1
-ohsome copy,areaDensityGroupByBoundary,200,400|401|404|405|413,areaDensityGroupByBoundary,GET,/elements/area/density/groupBy/boundary,areadensitygroupbyboundary
-ohsome copy,areaDensityGroupByBoundary_1,200,400|401|404|405|413,areaDensityGroupByBoundary_1,POST,/elements/area/density/groupBy/boundary,areadensitygroupbyboundary_1
-ohsome copy,areaDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag,GET,/elements/area/density/groupBy/boundary/groupBy/tag,areadensitygroupbyboundarygroupbytag
-ohsome copy,areaDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_1,POST,/elements/area/density/groupBy/boundary/groupBy/tag,areadensitygroupbyboundarygroupbytag_1
-ohsome copy,areaDensityGroupByTag,200,400|401|404|405|413,areaDensityGroupByTag,GET,/elements/area/density/groupBy/tag,areadensitygroupbytag
-ohsome copy,areaDensityGroupByTag_1,200,400|401|404|405|413,areaDensityGroupByTag_1,POST,/elements/area/density/groupBy/tag,areadensitygroupbytag_1
-ohsome copy,areaDensityGroupByType,200,400|401|404|405|413,areaDensityGroupByType,GET,/elements/area/density/groupBy/type,areadensitygroupbytype
-ohsome copy,areaDensityGroupByType_1,200,400|401|404|405|413,areaDensityGroupByType_1,POST,/elements/area/density/groupBy/type,areadensitygroupbytype_1
-ohsome copy,areaGroupByBoundary,200,400|401|404|405|413,areaGroupByBoundary,GET,/elements/area/groupBy/boundary,areagroupbyboundary
-ohsome copy,areaGroupByBoundary_1,200,400|401|404|405|413,areaGroupByBoundary_1,POST,/elements/area/groupBy/boundary,areagroupbyboundary_1
-ohsome copy,areaGroupByBoundaryGroupByTag,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag,GET,/elements/area/groupBy/boundary/groupBy/tag,areagroupbyboundarygroupbytag
-ohsome copy,areaGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_1,POST,/elements/area/groupBy/boundary/groupBy/tag,areagroupbyboundarygroupbytag_1
-ohsome copy,areaGroupByKey,200,400|401|404|405|413,areaGroupByKey,GET,/elements/area/groupBy/key,areagroupbykey
-ohsome copy,areaGroupByKey_1,200,400|401|404|405|413,areaGroupByKey_1,POST,/elements/area/groupBy/key,areagroupbykey_1
-ohsome copy,areaGroupByTag,200,400|401|404|405|413,areaGroupByTag,GET,/elements/area/groupBy/tag,areagroupbytag
-ohsome copy,areaGroupByTag_1,200,400|401|404|405|413,areaGroupByTag_1,POST,/elements/area/groupBy/tag,areagroupbytag_1
-ohsome copy,areaGroupByType,200,400|401|404|405|413,areaGroupByType,GET,/elements/area/groupBy/type,areagroupbytype
-ohsome copy,areaGroupByType_1,200,400|401|404|405|413,areaGroupByType_1,POST,/elements/area/groupBy/type,areagroupbytype_1
-ohsome copy,areaRatio,200,400|401|404|405|413,areaRatio,GET,/elements/area/ratio,arearatio
-ohsome copy,areaRatio_1,200,400|401|404|405|413,areaRatio_1,POST,/elements/area/ratio,arearatio_1
-ohsome copy,areaRatioGroupByBoundary,200,400|401|404|405|413,areaRatioGroupByBoundary,GET,/elements/area/ratio/groupBy/boundary,arearatiogroupbyboundary
-ohsome copy,areaRatioGroupByBoundary_1,200,400|401|404|405|413,areaRatioGroupByBoundary_1,POST,/elements/area/ratio/groupBy/boundary,arearatiogroupbyboundary_1
-ohsome copy,count,200,400|401|404|405|413,count,GET,/elements/count,count
-ohsome copy,count_1,200,400|401|404|405|413,count_1,POST,/elements/count,count_1
-ohsome copy,countDensity,200,400|401|404|405|413,countDensity,GET,/elements/count/density,countdensity
-ohsome copy,countDensity_1,200,400|401|404|405|413,countDensity_1,POST,/elements/count/density,countdensity_1
-ohsome copy,countDensityGroupByBoundary,200,400|401|404|405|413,countDensityGroupByBoundary,GET,/elements/count/density/groupBy/boundary,countdensitygroupbyboundary
-ohsome copy,countDensityGroupByBoundary_1,200,400|401|404|405|413,countDensityGroupByBoundary_1,POST,/elements/count/density/groupBy/boundary,countdensitygroupbyboundary_1
-ohsome copy,countDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag,GET,/elements/count/density/groupBy/boundary/groupBy/tag,countdensitygroupbyboundarygroupbytag
-ohsome copy,countDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_1,POST,/elements/count/density/groupBy/boundary/groupBy/tag,countdensitygroupbyboundarygroupbytag_1
-ohsome copy,countDensityGroupByTag,200,400|401|404|405|413,countDensityGroupByTag,GET,/elements/count/density/groupBy/tag,countdensitygroupbytag
-ohsome copy,countDensityGroupByTag_1,200,400|401|404|405|413,countDensityGroupByTag_1,POST,/elements/count/density/groupBy/tag,countdensitygroupbytag_1
-ohsome copy,countDensityGroupByType,200,400|401|404|405|413,countDensityGroupByType,GET,/elements/count/density/groupBy/type,countdensitygroupbytype
-ohsome copy,countDensityGroupByType_1,200,400|401|404|405|413,countDensityGroupByType_1,POST,/elements/count/density/groupBy/type,countdensitygroupbytype_1
-ohsome copy,countGroupByBoundary,200,400|401|404|405|413,countGroupByBoundary,GET,/elements/count/groupBy/boundary,countgroupbyboundary
-ohsome copy,countGroupByBoundary_1,200,400|401|404|405|413,countGroupByBoundary_1,POST,/elements/count/groupBy/boundary,countgroupbyboundary_1
-ohsome copy,countGroupByBoundaryGroupByTag,200,400|401|404|405|413,countGroupByBoundaryGroupByTag,GET,/elements/count/groupBy/boundary/groupBy/tag,countgroupbyboundarygroupbytag
-ohsome copy,countGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_1,POST,/elements/count/groupBy/boundary/groupBy/tag,countgroupbyboundarygroupbytag_1
-ohsome copy,countGroupByKey,200,400|401|404|405|413,countGroupByKey,GET,/elements/count/groupBy/key,countgroupbykey
-ohsome copy,countGroupByKey_1,200,400|401|404|405|413,countGroupByKey_1,POST,/elements/count/groupBy/key,countgroupbykey_1
-ohsome copy,countGroupByTag,200,400|401|404|405|413,countGroupByTag,GET,/elements/count/groupBy/tag,countgroupbytag
-ohsome copy,countGroupByTag_1,200,400|401|404|405|413,countGroupByTag_1,POST,/elements/count/groupBy/tag,countgroupbytag_1
-ohsome copy,countGroupByType,200,400|401|404|405|413,countGroupByType,GET,/elements/count/groupBy/type,countgroupbytype
-ohsome copy,countGroupByType_1,200,400|401|404|405|413,countGroupByType_1,POST,/elements/count/groupBy/type,countgroupbytype_1
-ohsome copy,countRatio,200,400|401|404|405|413,countRatio,GET,/elements/count/ratio,countratio
-ohsome copy,countRatio_1,200,400|401|404|405|413,countRatio_1,POST,/elements/count/ratio,countratio_1
-ohsome copy,countRatioGroupByBoundary,200,400|401|404|405|413,countRatioGroupByBoundary,GET,/elements/count/ratio/groupBy/boundary,countratiogroupbyboundary
-ohsome copy,countRatioGroupByBoundary_1,200,400|401|404|405|413,countRatioGroupByBoundary_1,POST,/elements/count/ratio/groupBy/boundary,countratiogroupbyboundary_1
-ohsome copy,length,200,400|401|404|405|413,length,GET,/elements/length,length
-ohsome copy,length_1,200,400|401|404|405|413,length_1,POST,/elements/length,length_1
-ohsome copy,lengthDensity,200,400|401|404|405|413,lengthDensity,GET,/elements/length/density,lengthdensity
-ohsome copy,lengthDensity_1,200,400|401|404|405|413,lengthDensity_1,POST,/elements/length/density,lengthdensity_1
-ohsome copy,lengthDensityGroupByBoundary,200,400|401|404|405|413,lengthDensityGroupByBoundary,GET,/elements/length/density/groupBy/boundary,lengthdensitygroupbyboundary
-ohsome copy,lengthDensityGroupByBoundary_1,200,400|401|404|405|413,lengthDensityGroupByBoundary_1,POST,/elements/length/density/groupBy/boundary,lengthdensitygroupbyboundary_1
-ohsome copy,lengthDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag,GET,/elements/length/density/groupBy/boundary/groupBy/tag,lengthdensitygroupbyboundarygroupbytag
-ohsome copy,lengthDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_1,POST,/elements/length/density/groupBy/boundary/groupBy/tag,lengthdensitygroupbyboundarygroupbytag_1
-ohsome copy,lengthDensityGroupByTag,200,400|401|404|405|413,lengthDensityGroupByTag,GET,/elements/length/density/groupBy/tag,lengthdensitygroupbytag
-ohsome copy,lengthDensityGroupByTag_1,200,400|401|404|405|413,lengthDensityGroupByTag_1,POST,/elements/length/density/groupBy/tag,lengthdensitygroupbytag_1
-ohsome copy,lengthDensityGroupByType,200,400|401|404|405|413,lengthDensityGroupByType,GET,/elements/length/density/groupBy/type,lengthdensitygroupbytype
-ohsome copy,lengthDensityGroupByType_1,200,400|401|404|405|413,lengthDensityGroupByType_1,POST,/elements/length/density/groupBy/type,lengthdensitygroupbytype_1
-ohsome copy,lengthGroupByBoundary,200,400|401|404|405|413,lengthGroupByBoundary,GET,/elements/length/groupBy/boundary,lengthgroupbyboundary
-ohsome copy,lengthGroupByBoundary_1,200,400|401|404|405|413,lengthGroupByBoundary_1,POST,/elements/length/groupBy/boundary,lengthgroupbyboundary_1
-ohsome copy,lengthGroupByBoundaryGroupByTag,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag,GET,/elements/length/groupBy/boundary/groupBy/tag,lengthgroupbyboundarygroupbytag
-ohsome copy,lengthGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_1,POST,/elements/length/groupBy/boundary/groupBy/tag,lengthgroupbyboundarygroupbytag_1
-ohsome copy,lengthGroupByKey,200,400|401|404|405|413,lengthGroupByKey,GET,/elements/length/groupBy/key,lengthgroupbykey
-ohsome copy,lengthGroupByKey_1,200,400|401|404|405|413,lengthGroupByKey_1,POST,/elements/length/groupBy/key,lengthgroupbykey_1
-ohsome copy,lengthGroupByTag,200,400|401|404|405|413,lengthGroupByTag,GET,/elements/length/groupBy/tag,lengthgroupbytag
-ohsome copy,lengthGroupByTag_1,200,400|401|404|405|413,lengthGroupByTag_1,POST,/elements/length/groupBy/tag,lengthgroupbytag_1
-ohsome copy,lengthGroupByType,200,400|401|404|405|413,lengthGroupByType,GET,/elements/length/groupBy/type,lengthgroupbytype
-ohsome copy,lengthGroupByType_1,200,400|401|404|405|413,lengthGroupByType_1,POST,/elements/length/groupBy/type,lengthgroupbytype_1
-ohsome copy,lengthRatio,200,400|401|404|405|413,lengthRatio,GET,/elements/length/ratio,lengthratio
-ohsome copy,lengthRatio_1,200,400|401|404|405|413,lengthRatio_1,POST,/elements/length/ratio,lengthratio_1
-ohsome copy,lengthRatioGroupByBoundary,200,400|401|404|405|413,lengthRatioGroupByBoundary,GET,/elements/length/ratio/groupBy/boundary,lengthratiogroupbyboundary
-ohsome copy,lengthRatioGroupByBoundary_1,200,400|401|404|405|413,lengthRatioGroupByBoundary_1,POST,/elements/length/ratio/groupBy/boundary,lengthratiogroupbyboundary_1
-ohsome copy,perimeter,200,400|401|404|405|413,perimeter,GET,/elements/perimeter,perimeter
-ohsome copy,perimeter_1,200,400|401|404|405|413,perimeter_1,POST,/elements/perimeter,perimeter_1
-ohsome copy,perimeterDensity,200,400|401|404|405|413,perimeterDensity,GET,/elements/perimeter/density,perimeterdensity
-ohsome copy,perimeterDensity_1,200,400|401|404|405|413,perimeterDensity_1,POST,/elements/perimeter/density,perimeterdensity_1
-ohsome copy,perimeterDensityGroupByBoundary,200,400|401|404|405|413,perimeterDensityGroupByBoundary,GET,/elements/perimeter/density/groupBy/boundary,perimeterdensitygroupbyboundary
-ohsome copy,perimeterDensityGroupByBoundary_1,200,400|401|404|405|413,perimeterDensityGroupByBoundary_1,POST,/elements/perimeter/density/groupBy/boundary,perimeterdensitygroupbyboundary_1
-ohsome copy,perimeterDensityGroupByBoundaryGroupByTag,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag,GET,/elements/perimeter/density/groupBy/boundary/groupBy/tag,perimeterdensitygroupbyboundarygroupbytag
-ohsome copy,perimeterDensityGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_1,POST,/elements/perimeter/density/groupBy/boundary/groupBy/tag,perimeterdensitygroupbyboundarygroupbytag_1
-ohsome copy,perimeterDensityGroupByTag,200,400|401|404|405|413,perimeterDensityGroupByTag,GET,/elements/perimeter/density/groupBy/tag,perimeterdensitygroupbytag
-ohsome copy,perimeterDensityGroupByTag_1,200,400|401|404|405|413,perimeterDensityGroupByTag_1,POST,/elements/perimeter/density/groupBy/tag,perimeterdensitygroupbytag_1
-ohsome copy,perimeterDensityGroupByType,200,400|401|404|405|413,perimeterDensityGroupByType,GET,/elements/perimeter/density/groupBy/type,perimeterdensitygroupbytype
-ohsome copy,perimeterDensityGroupByType_1,200,400|401|404|405|413,perimeterDensityGroupByType_1,POST,/elements/perimeter/density/groupBy/type,perimeterdensitygroupbytype_1
-ohsome copy,perimeterGroupByBoundary,200,400|401|404|405|413,perimeterGroupByBoundary,GET,/elements/perimeter/groupBy/boundary,perimetergroupbyboundary
-ohsome copy,perimeterGroupByBoundary_1,200,400|401|404|405|413,perimeterGroupByBoundary_1,POST,/elements/perimeter/groupBy/boundary,perimetergroupbyboundary_1
-ohsome copy,perimeterGroupByBoundaryGroupByTag,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag,GET,/elements/perimeter/groupBy/boundary/groupBy/tag,perimetergroupbyboundarygroupbytag
-ohsome copy,perimeterGroupByBoundaryGroupByTag_1,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_1,POST,/elements/perimeter/groupBy/boundary/groupBy/tag,perimetergroupbyboundarygroupbytag_1
-ohsome copy,perimeterGroupByKey,200,400|401|404|405|413,perimeterGroupByKey,GET,/elements/perimeter/groupBy/key,perimetergroupbykey
-ohsome copy,perimeterGroupByKey_1,200,400|401|404|405|413,perimeterGroupByKey_1,POST,/elements/perimeter/groupBy/key,perimetergroupbykey_1
-ohsome copy,perimeterGroupByTag,200,400|401|404|405|413,perimeterGroupByTag,GET,/elements/perimeter/groupBy/tag,perimetergroupbytag
-ohsome copy,perimeterGroupByTag_1,200,400|401|404|405|413,perimeterGroupByTag_1,POST,/elements/perimeter/groupBy/tag,perimetergroupbytag_1
-ohsome copy,perimeterGroupByType,200,400|401|404|405|413,perimeterGroupByType,GET,/elements/perimeter/groupBy/type,perimetergroupbytype
-ohsome copy,perimeterGroupByType_1,200,400|401|404|405|413,perimeterGroupByType_1,POST,/elements/perimeter/groupBy/type,perimetergroupbytype_1
-ohsome copy,perimeterRatio,200,400|401|404|405|413,perimeterRatio,GET,/elements/perimeter/ratio,perimeterratio
-ohsome copy,perimeterRatio_1,200,400|401|404|405|413,perimeterRatio_1,POST,/elements/perimeter/ratio,perimeterratio_1
-ohsome copy,perimeterRatioGroupByBoundary,200,400|401|404|405|413,perimeterRatioGroupByBoundary,GET,/elements/perimeter/ratio/groupBy/boundary,perimeterratiogroupbyboundary
-ohsome copy,perimeterRatioGroupByBoundary_1,200,400|401|404|405|413,perimeterRatioGroupByBoundary_1,POST,/elements/perimeter/ratio/groupBy/boundary,perimeterratiogroupbyboundary_1
-ohsome copy,count_2,200,400|401|404|405|413,count_2,GET,/users/count,count_2
-ohsome copy,count_3,200,400|401|404|405|413,count_3,POST,/users/count,count_3
-ohsome copy,countDensity_2,200,400|401|404|405|413,countDensity_2,GET,/users/count/density,countdensity_2
-ohsome copy,countDensity_3,200,400|401|404|405|413,countDensity_3,POST,/users/count/density,countdensity_3
-ohsome copy,countDensityGroupByBoundary_2,200,400|401|404|405|413,countDensityGroupByBoundary_2,GET,/users/count/density/groupBy/boundary,countdensitygroupbyboundary_2
-ohsome copy,countDensityGroupByBoundary_3,200,400|401|404|405|413,countDensityGroupByBoundary_3,POST,/users/count/density/groupBy/boundary,countdensitygroupbyboundary_3
-ohsome copy,countDensityGroupByTag_2,200,400|401|404|405|413,countDensityGroupByTag_2,GET,/users/count/density/groupBy/tag,countdensitygroupbytag_2
-ohsome copy,countDensityGroupByTag_3,200,400|401|404|405|413,countDensityGroupByTag_3,POST,/users/count/density/groupBy/tag,countdensitygroupbytag_3
-ohsome copy,countDensityGroupByType_2,200,400|401|404|405|413,countDensityGroupByType_2,GET,/users/count/density/groupBy/type,countdensitygroupbytype_2
-ohsome copy,countDensityGroupByType_3,200,400|401|404|405|413,countDensityGroupByType_3,POST,/users/count/density/groupBy/type,countdensitygroupbytype_3
-ohsome copy,countGroupByBoundary_2,200,400|401|404|405|413,countGroupByBoundary_2,GET,/users/count/groupBy/boundary,countgroupbyboundary_2
-ohsome copy,countGroupByBoundary_3,200,400|401|404|405|413,countGroupByBoundary_3,POST,/users/count/groupBy/boundary,countgroupbyboundary_3
-ohsome copy,countGroupByKey_2,200,400|401|404|405|413,countGroupByKey_2,GET,/users/count/groupBy/key,countgroupbykey_2
-ohsome copy,countGroupByKey_3,200,400|401|404|405|413,countGroupByKey_3,POST,/users/count/groupBy/key,countgroupbykey_3
-ohsome copy,countGroupByTag_2,200,400|401|404|405|413,countGroupByTag_2,GET,/users/count/groupBy/tag,countgroupbytag_2
-ohsome copy,countGroupByTag_3,200,400|401|404|405|413,countGroupByTag_3,POST,/users/count/groupBy/tag,countgroupbytag_3
-ohsome copy,countGroupByType_2,200,400|401|404|405|413,countGroupByType_2,GET,/users/count/groupBy/type,countgroupbytype_2
-ohsome copy,countGroupByType_3,200,400|401|404|405|413,countGroupByType_3,POST,/users/count/groupBy/type,countgroupbytype_3
-ohsome copy,area_gen,200,400|401|404|405|413,area_gen,GET,/elements/{area1},area_gen
-ohsome copy,area_1_gen,200,400|401|404|405|413,area_1_gen,POST,/elements/{area1},area_1_gen
-ohsome copy,areaDensity_gen,200,400|401|404|405|413,areaDensity_gen,GET,/elements/area/{density1},areadensity_gen
-ohsome copy,areaDensity_1_gen,200,400|401|404|405|413,areaDensity_1_gen,POST,/elements/area/{density1},areadensity_1_gen
-ohsome copy,areaDensityGroupByBoundary_gen,200,400|401|404|405|413,areaDensityGroupByBoundary_gen,GET,/elements/area/density/groupBy/{boundary1},areadensitygroupbyboundary_gen
-ohsome copy,areaDensityGroupByBoundary_1_gen,200,400|401|404|405|413,areaDensityGroupByBoundary_1_gen,POST,/elements/area/density/groupBy/{boundary1},areadensitygroupbyboundary_1_gen
-ohsome copy,areaDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_gen,GET,/elements/area/density/groupBy/boundary/groupBy/{tag1},areadensitygroupbyboundarygroupbytag_gen
-ohsome copy,areaDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,areaDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/area/density/groupBy/boundary/groupBy/{tag1},areadensitygroupbyboundarygroupbytag_1_gen
-ohsome copy,areaDensityGroupByTag_gen,200,400|401|404|405|413,areaDensityGroupByTag_gen,GET,/elements/area/density/groupBy/{tag2},areadensitygroupbytag_gen
-ohsome copy,areaDensityGroupByTag_1_gen,200,400|401|404|405|413,areaDensityGroupByTag_1_gen,POST,/elements/area/density/groupBy/{tag2},areadensitygroupbytag_1_gen
-ohsome copy,areaDensityGroupByType_gen,200,400|401|404|405|413,areaDensityGroupByType_gen,GET,/elements/area/density/groupBy/{type1},areadensitygroupbytype_gen
-ohsome copy,areaDensityGroupByType_1_gen,200,400|401|404|405|413,areaDensityGroupByType_1_gen,POST,/elements/area/density/groupBy/{type1},areadensitygroupbytype_1_gen
-ohsome copy,areaGroupByBoundary_gen,200,400|401|404|405|413,areaGroupByBoundary_gen,GET,/elements/area/groupBy/{boundary2},areagroupbyboundary_gen
-ohsome copy,areaGroupByBoundary_1_gen,200,400|401|404|405|413,areaGroupByBoundary_1_gen,POST,/elements/area/groupBy/{boundary2},areagroupbyboundary_1_gen
-ohsome copy,areaGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_gen,GET,/elements/area/groupBy/boundary/groupBy/{tag3},areagroupbyboundarygroupbytag_gen
-ohsome copy,areaGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,areaGroupByBoundaryGroupByTag_1_gen,POST,/elements/area/groupBy/boundary/groupBy/{tag3},areagroupbyboundarygroupbytag_1_gen
-ohsome copy,areaGroupByKey_gen,200,400|401|404|405|413,areaGroupByKey_gen,GET,/elements/area/groupBy/{key1},areagroupbykey_gen
-ohsome copy,areaGroupByKey_1_gen,200,400|401|404|405|413,areaGroupByKey_1_gen,POST,/elements/area/groupBy/{key1},areagroupbykey_1_gen
-ohsome copy,areaGroupByTag_gen,200,400|401|404|405|413,areaGroupByTag_gen,GET,/elements/area/groupBy/{tag4},areagroupbytag_gen
-ohsome copy,areaGroupByTag_1_gen,200,400|401|404|405|413,areaGroupByTag_1_gen,POST,/elements/area/groupBy/{tag4},areagroupbytag_1_gen
-ohsome copy,areaGroupByType_gen,200,400|401|404|405|413,areaGroupByType_gen,GET,/elements/area/groupBy/{type4},areagroupbytype_gen
-ohsome copy,areaGroupByType_1_gen,200,400|401|404|405|413,areaGroupByType_1_gen,POST,/elements/area/groupBy/{type4},areagroupbytype_1_gen
-ohsome copy,areaRatio_gen,200,400|401|404|405|413,areaRatio_gen,GET,/elements/area/{ratio1},arearatio_gen
-ohsome copy,areaRatio_1_gen,200,400|401|404|405|413,areaRatio_1_gen,POST,/elements/area/{ratio1},arearatio_1_gen
-ohsome copy,areaRatioGroupByBoundary_gen,200,400|401|404|405|413,areaRatioGroupByBoundary_gen,GET,/elements/area/ratio/groupBy/{boundary4},arearatiogroupbyboundary_gen
-ohsome copy,areaRatioGroupByBoundary_1_gen,200,400|401|404|405|413,areaRatioGroupByBoundary_1_gen,POST,/elements/area/ratio/groupBy/{boundary4},arearatiogroupbyboundary_1_gen
-ohsome copy,count_gen,200,400|401|404|405|413,count_gen,GET,/elements/{count1},count_gen
-ohsome copy,count_1_gen,200,400|401|404|405|413,count_1_gen,POST,/elements/{count1},count_1_gen
-ohsome copy,countDensity_gen,200,400|401|404|405|413,countDensity_gen,GET,/elements/count/{density1},countdensity_gen
-ohsome copy,countDensity_1_gen,200,400|401|404|405|413,countDensity_1_gen,POST,/elements/count/{density1},countdensity_1_gen
-ohsome copy,countDensityGroupByBoundary_gen,200,400|401|404|405|413,countDensityGroupByBoundary_gen,GET,/elements/count/density/groupBy/{boundary5},countdensitygroupbyboundary_gen
-ohsome copy,countDensityGroupByBoundary_1_gen,200,400|401|404|405|413,countDensityGroupByBoundary_1_gen,POST,/elements/count/density/groupBy/{boundary5},countdensitygroupbyboundary_1_gen
-ohsome copy,countDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_gen,GET,/elements/count/density/groupBy/boundary/groupBy/{tag7},countdensitygroupbyboundarygroupbytag_gen
-ohsome copy,countDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,countDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/count/density/groupBy/boundary/groupBy/{tag7},countdensitygroupbyboundarygroupbytag_1_gen
-ohsome copy,countDensityGroupByTag_gen,200,400|401|404|405|413,countDensityGroupByTag_gen,GET,/elements/count/density/groupBy/{tag8},countdensitygroupbytag_gen
-ohsome copy,countDensityGroupByTag_1_gen,200,400|401|404|405|413,countDensityGroupByTag_1_gen,POST,/elements/count/density/groupBy/{tag8},countdensitygroupbytag_1_gen
-ohsome copy,countDensityGroupByType_gen,200,400|401|404|405|413,countDensityGroupByType_gen,GET,/elements/count/density/groupBy/{type8},countdensitygroupbytype_gen
-ohsome copy,countDensityGroupByType_1_gen,200,400|401|404|405|413,countDensityGroupByType_1_gen,POST,/elements/count/density/groupBy/{type8},countdensitygroupbytype_1_gen
-ohsome copy,countGroupByBoundary_gen,200,400|401|404|405|413,countGroupByBoundary_gen,GET,/elements/count/groupBy/{boundary8},countgroupbyboundary_gen
-ohsome copy,countGroupByBoundary_1_gen,200,400|401|404|405|413,countGroupByBoundary_1_gen,POST,/elements/count/groupBy/{boundary8},countgroupbyboundary_1_gen
-ohsome copy,countGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_gen,GET,/elements/count/groupBy/boundary/groupBy/{tag9},countgroupbyboundarygroupbytag_gen
-ohsome copy,countGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,countGroupByBoundaryGroupByTag_1_gen,POST,/elements/count/groupBy/boundary/groupBy/{tag9},countgroupbyboundarygroupbytag_1_gen
-ohsome copy,countGroupByKey_gen,200,400|401|404|405|413,countGroupByKey_gen,GET,/elements/count/groupBy/{key9},countgroupbykey_gen
-ohsome copy,countGroupByKey_1_gen,200,400|401|404|405|413,countGroupByKey_1_gen,POST,/elements/count/groupBy/{key9},countgroupbykey_1_gen
-ohsome copy,countGroupByTag_gen,200,400|401|404|405|413,countGroupByTag_gen,GET,/elements/count/groupBy/{tag10},countgroupbytag_gen
-ohsome copy,countGroupByTag_1_gen,200,400|401|404|405|413,countGroupByTag_1_gen,POST,/elements/count/groupBy/{tag10},countgroupbytag_1_gen
-ohsome copy,countGroupByType_gen,200,400|401|404|405|413,countGroupByType_gen,GET,/elements/count/groupBy/{type10},countgroupbytype_gen
-ohsome copy,countGroupByType_1_gen,200,400|401|404|405|413,countGroupByType_1_gen,POST,/elements/count/groupBy/{type10},countgroupbytype_1_gen
-ohsome copy,countRatio_gen,200,400|401|404|405|413,countRatio_gen,GET,/elements/count/{ratio10},countratio_gen
-ohsome copy,countRatio_1_gen,200,400|401|404|405|413,countRatio_1_gen,POST,/elements/count/{ratio10},countratio_1_gen
-ohsome copy,countRatioGroupByBoundary_gen,200,400|401|404|405|413,countRatioGroupByBoundary_gen,GET,/elements/count/ratio/groupBy/{boundary11},countratiogroupbyboundary_gen
-ohsome copy,countRatioGroupByBoundary_1_gen,200,400|401|404|405|413,countRatioGroupByBoundary_1_gen,POST,/elements/count/ratio/groupBy/{boundary11},countratiogroupbyboundary_1_gen
-ohsome copy,length_gen,200,400|401|404|405|413,length_gen,GET,/elements/{length1},length_gen
-ohsome copy,length_1_gen,200,400|401|404|405|413,length_1_gen,POST,/elements/{length1},length_1_gen
-ohsome copy,lengthDensity_gen,200,400|401|404|405|413,lengthDensity_gen,GET,/elements/length/{density11},lengthdensity_gen
-ohsome copy,lengthDensity_1_gen,200,400|401|404|405|413,lengthDensity_1_gen,POST,/elements/length/{density11},lengthdensity_1_gen
-ohsome copy,lengthDensityGroupByBoundary_gen,200,400|401|404|405|413,lengthDensityGroupByBoundary_gen,GET,/elements/length/density/groupBy/{boundary12},lengthdensitygroupbyboundary_gen
-ohsome copy,lengthDensityGroupByBoundary_1_gen,200,400|401|404|405|413,lengthDensityGroupByBoundary_1_gen,POST,/elements/length/density/groupBy/{boundary12},lengthdensitygroupbyboundary_1_gen
-ohsome copy,lengthDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_gen,GET,/elements/length/density/groupBy/boundary/groupBy/{tag12},lengthdensitygroupbyboundarygroupbytag_gen
-ohsome copy,lengthDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,lengthDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/length/density/groupBy/boundary/groupBy/{tag12},lengthdensitygroupbyboundarygroupbytag_1_gen
-ohsome copy,lengthDensityGroupByTag_gen,200,400|401|404|405|413,lengthDensityGroupByTag_gen,GET,/elements/length/density/groupBy/{tag13},lengthdensitygroupbytag_gen
-ohsome copy,lengthDensityGroupByTag_1_gen,200,400|401|404|405|413,lengthDensityGroupByTag_1_gen,POST,/elements/length/density/groupBy/{tag13},lengthdensitygroupbytag_1_gen
-ohsome copy,lengthDensityGroupByType_gen,200,400|401|404|405|413,lengthDensityGroupByType_gen,GET,/elements/length/density/groupBy/{type13},lengthdensitygroupbytype_gen
-ohsome copy,lengthDensityGroupByType_1_gen,200,400|401|404|405|413,lengthDensityGroupByType_1_gen,POST,/elements/length/density/groupBy/{type13},lengthdensitygroupbytype_1_gen
-ohsome copy,lengthGroupByBoundary_gen,200,400|401|404|405|413,lengthGroupByBoundary_gen,GET,/elements/length/groupBy/{boundary14},lengthgroupbyboundary_gen
-ohsome copy,lengthGroupByBoundary_1_gen,200,400|401|404|405|413,lengthGroupByBoundary_1_gen,POST,/elements/length/groupBy/{boundary14},lengthgroupbyboundary_1_gen
-ohsome copy,lengthGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_gen,GET,/elements/length/groupBy/boundary/groupBy/{tag15},lengthgroupbyboundarygroupbytag_gen
-ohsome copy,lengthGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,lengthGroupByBoundaryGroupByTag_1_gen,POST,/elements/length/groupBy/boundary/groupBy/{tag15},lengthgroupbyboundarygroupbytag_1_gen
-ohsome copy,lengthGroupByKey_gen,200,400|401|404|405|413,lengthGroupByKey_gen,GET,/elements/length/groupBy/{key15},lengthgroupbykey_gen
-ohsome copy,lengthGroupByKey_1_gen,200,400|401|404|405|413,lengthGroupByKey_1_gen,POST,/elements/length/groupBy/{key15},lengthgroupbykey_1_gen
-ohsome copy,lengthGroupByTag_gen,200,400|401|404|405|413,lengthGroupByTag_gen,GET,/elements/length/groupBy/{tag16},lengthgroupbytag_gen
-ohsome copy,lengthGroupByTag_1_gen,200,400|401|404|405|413,lengthGroupByTag_1_gen,POST,/elements/length/groupBy/{tag16},lengthgroupbytag_1_gen
-ohsome copy,lengthGroupByType_gen,200,400|401|404|405|413,lengthGroupByType_gen,GET,/elements/length/groupBy/{type16},lengthgroupbytype_gen
-ohsome copy,lengthGroupByType_1_gen,200,400|401|404|405|413,lengthGroupByType_1_gen,POST,/elements/length/groupBy/{type16},lengthgroupbytype_1_gen
-ohsome copy,lengthRatio_gen,200,400|401|404|405|413,lengthRatio_gen,GET,/elements/length/{ratio17},lengthratio_gen
-ohsome copy,lengthRatio_1_gen,200,400|401|404|405|413,lengthRatio_1_gen,POST,/elements/length/{ratio17},lengthratio_1_gen
-ohsome copy,lengthRatioGroupByBoundary_gen,200,400|401|404|405|413,lengthRatioGroupByBoundary_gen,GET,/elements/length/ratio/groupBy/{boundary17},lengthratiogroupbyboundary_gen
-ohsome copy,lengthRatioGroupByBoundary_1_gen,200,400|401|404|405|413,lengthRatioGroupByBoundary_1_gen,POST,/elements/length/ratio/groupBy/{boundary17},lengthratiogroupbyboundary_1_gen
-ohsome copy,perimeter_gen,200,400|401|404|405|413,perimeter_gen,GET,/elements/{perimeter1},perimeter_gen
-ohsome copy,perimeter_1_gen,200,400|401|404|405|413,perimeter_1_gen,POST,/elements/{perimeter1},perimeter_1_gen
-ohsome copy,perimeterDensity_gen,200,400|401|404|405|413,perimeterDensity_gen,GET,/elements/perimeter/{density17},perimeterdensity_gen
-ohsome copy,perimeterDensity_1_gen,200,400|401|404|405|413,perimeterDensity_1_gen,POST,/elements/perimeter/{density17},perimeterdensity_1_gen
-ohsome copy,perimeterDensityGroupByBoundary_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundary_gen,GET,/elements/perimeter/density/groupBy/{boundary18},perimeterdensitygroupbyboundary_gen
-ohsome copy,perimeterDensityGroupByBoundary_1_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundary_1_gen,POST,/elements/perimeter/density/groupBy/{boundary18},perimeterdensitygroupbyboundary_1_gen
-ohsome copy,perimeterDensityGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_gen,GET,/elements/perimeter/density/groupBy/boundary/groupBy/{tag18},perimeterdensitygroupbyboundarygroupbytag_gen
-ohsome copy,perimeterDensityGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,perimeterDensityGroupByBoundaryGroupByTag_1_gen,POST,/elements/perimeter/density/groupBy/boundary/groupBy/{tag18},perimeterdensitygroupbyboundarygroupbytag_1_gen
-ohsome copy,perimeterDensityGroupByTag_gen,200,400|401|404|405|413,perimeterDensityGroupByTag_gen,GET,/elements/perimeter/density/groupBy/{tag19},perimeterdensitygroupbytag_gen
-ohsome copy,perimeterDensityGroupByTag_1_gen,200,400|401|404|405|413,perimeterDensityGroupByTag_1_gen,POST,/elements/perimeter/density/groupBy/{tag19},perimeterdensitygroupbytag_1_gen
-ohsome copy,perimeterDensityGroupByType_gen,200,400|401|404|405|413,perimeterDensityGroupByType_gen,GET,/elements/perimeter/density/groupBy/{type19},perimeterdensitygroupbytype_gen
-ohsome copy,perimeterDensityGroupByType_1_gen,200,400|401|404|405|413,perimeterDensityGroupByType_1_gen,POST,/elements/perimeter/density/groupBy/{type19},perimeterdensitygroupbytype_1_gen
-ohsome copy,perimeterGroupByBoundary_gen,200,400|401|404|405|413,perimeterGroupByBoundary_gen,GET,/elements/perimeter/groupBy/{boundary20},perimetergroupbyboundary_gen
-ohsome copy,perimeterGroupByBoundary_1_gen,200,400|401|404|405|413,perimeterGroupByBoundary_1_gen,POST,/elements/perimeter/groupBy/{boundary20},perimetergroupbyboundary_1_gen
-ohsome copy,perimeterGroupByBoundaryGroupByTag_gen,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_gen,GET,/elements/perimeter/groupBy/boundary/groupBy/{tag20},perimetergroupbyboundarygroupbytag_gen
-ohsome copy,perimeterGroupByBoundaryGroupByTag_1_gen,200,400|401|404|405|413,perimeterGroupByBoundaryGroupByTag_1_gen,POST,/elements/perimeter/groupBy/boundary/groupBy/{tag20},perimetergroupbyboundarygroupbytag_1_gen
-ohsome copy,perimeterGroupByKey_gen,200,400|401|404|405|413,perimeterGroupByKey_gen,GET,/elements/perimeter/groupBy/{key20},perimetergroupbykey_gen
-ohsome copy,perimeterGroupByKey_1_gen,200,400|401|404|405|413,perimeterGroupByKey_1_gen,POST,/elements/perimeter/groupBy/{key20},perimetergroupbykey_1_gen
-ohsome copy,perimeterGroupByTag_gen,200,400|401|404|405|413,perimeterGroupByTag_gen,GET,/elements/perimeter/groupBy/{tag21},perimetergroupbytag_gen
-ohsome copy,perimeterGroupByTag_1_gen,200,400|401|404|405|413,perimeterGroupByTag_1_gen,POST,/elements/perimeter/groupBy/{tag21},perimetergroupbytag_1_gen
-ohsome copy,perimeterGroupByType_gen,200,400|401|404|405|413,perimeterGroupByType_gen,GET,/elements/perimeter/groupBy/{type21},perimetergroupbytype_gen
-ohsome copy,perimeterGroupByType_1_gen,200,400|401|404|405|413,perimeterGroupByType_1_gen,POST,/elements/perimeter/groupBy/{type21},perimetergroupbytype_1_gen
-ohsome copy,perimeterRatio_gen,200,400|401|404|405|413,perimeterRatio_gen,GET,/elements/perimeter/{ratio21},perimeterratio_gen
-ohsome copy,perimeterRatio_1_gen,200,400|401|404|405|413,perimeterRatio_1_gen,POST,/elements/perimeter/{ratio21},perimeterratio_1_gen
-ohsome copy,perimeterRatioGroupByBoundary_gen,200,400|401|404|405|413,perimeterRatioGroupByBoundary_gen,GET,/elements/perimeter/ratio/groupBy/{boundary21},perimeterratiogroupbyboundary_gen
-ohsome copy,perimeterRatioGroupByBoundary_1_gen,200,400|401|404|405|413,perimeterRatioGroupByBoundary_1_gen,POST,/elements/perimeter/ratio/groupBy/{boundary21},perimeterratiogroupbyboundary_1_gen
-ohsome copy,count_2_gen,200,400|401|404|405|413,count_2_gen,GET,/users/{count21},count_2_gen
-ohsome copy,count_3_gen,200,400|401|404|405|413,count_3_gen,POST,/users/{count21},count_3_gen
-ohsome copy,countDensity_2_gen,200,400|401|404|405|413,countDensity_2_gen,GET,/users/count/{density21},countdensity_2_gen
-ohsome copy,countDensity_3_gen,200,400|401|404|405|413,countDensity_3_gen,POST,/users/count/{density21},countdensity_3_gen
-ohsome copy,countDensityGroupByBoundary_2_gen,200,400|401|404|405|413,countDensityGroupByBoundary_2_gen,GET,/users/count/density/groupBy/{boundary22},countdensitygroupbyboundary_2_gen
-ohsome copy,countDensityGroupByBoundary_3_gen,200,400|401|404|405|413,countDensityGroupByBoundary_3_gen,POST,/users/count/density/groupBy/{boundary22},countdensitygroupbyboundary_3_gen
-ohsome copy,countDensityGroupByTag_2_gen,200,400|401|404|405|413,countDensityGroupByTag_2_gen,GET,/users/count/density/groupBy/{tag22},countdensitygroupbytag_2_gen
-ohsome copy,countDensityGroupByTag_3_gen,200,400|401|404|405|413,countDensityGroupByTag_3_gen,POST,/users/count/density/groupBy/{tag22},countdensitygroupbytag_3_gen
-ohsome copy,countDensityGroupByType_2_gen,200,400|401|404|405|413,countDensityGroupByType_2_gen,GET,/users/count/density/groupBy/{type22},countdensitygroupbytype_2_gen
-ohsome copy,countDensityGroupByType_3_gen,200,400|401|404|405|413,countDensityGroupByType_3_gen,POST,/users/count/density/groupBy/{type22},countdensitygroupbytype_3_gen
-ohsome copy,countGroupByBoundary_2_gen,200,400|401|404|405|413,countGroupByBoundary_2_gen,GET,/users/count/groupBy/{boundary23},countgroupbyboundary_2_gen
-ohsome copy,countGroupByBoundary_3_gen,200,400|401|404|405|413,countGroupByBoundary_3_gen,POST,/users/count/groupBy/{boundary23},countgroupbyboundary_3_gen
-ohsome copy,countGroupByKey_2_gen,200,400|401|404|405|413,countGroupByKey_2_gen,GET,/users/count/groupBy/{key24},countgroupbykey_2_gen
-ohsome copy,countGroupByKey_3_gen,200,400|401|404|405|413,countGroupByKey_3_gen,POST,/users/count/groupBy/{key24},countgroupbykey_3_gen
-ohsome copy,countGroupByTag_2_gen,200,400|401|404|405|413,countGroupByTag_2_gen,GET,/users/count/groupBy/{tag25},countgroupbytag_2_gen
-ohsome copy,countGroupByTag_3_gen,200,400|401|404|405|413,countGroupByTag_3_gen,POST,/users/count/groupBy/{tag25},countgroupbytag_3_gen
-ohsome copy,countGroupByType_2_gen,200,400|401|404|405|413,countGroupByType_2_gen,GET,/users/count/groupBy/{type25},countgroupbytype_2_gen
-ohsome copy,countGroupByType_3_gen,200,400|401|404|405|413,countGroupByType_3_gen,POST,/users/count/groupBy/{type25},countgroupbytype_3_gen
 ohsome,area,200,400|401|404|405|413,area,GET,/elements/area,area
 ohsome,area_1,200,400|401|404|405|413,area_1,POST,/elements/area,area_1
 ohsome,areaDensity,200,400|401|404|405|413,areaDensity,GET,/elements/area/density,areadensity
@@ -632,3 +388,38 @@ rest-countries,v2Subregion,200,,v2Subregion,GET,/v2/subregion/{subregion},v2subr
 rest-countries,v2Lang,200,,v2Lang,GET,/v2/lang/{lang},v2lang
 rest-countries,v2Demonym,200,,v2Demonym,GET,/v2/demonym/{demonym},v2demonym
 rest-countries,v2Regionalbloc,200,,v2Regionalbloc,GET,/v2/regionalbloc/{regionalbloc},v2regionalbloc
+spring-petclinic-rest,failingRequest,200,400,failingRequest,GET,/oops,failingrequest
+spring-petclinic-rest,addOwner,201,400,addOwner,POST,/owners,addowner
+spring-petclinic-rest,listOwners,200,,listOwners,GET,/owners,listowners
+spring-petclinic-rest,getOwner,200,400|404,getOwner,GET,/owners/{ownerId},getowner
+spring-petclinic-rest,updateOwner,200,400|404,updateOwner,PUT,/owners/{ownerId},updateowner
+spring-petclinic-rest,deleteOwner,200,400|404,deleteOwner,DELETE,/owners/{ownerId},deleteowner
+spring-petclinic-rest,addPetToOwner,201,400|404,addPetToOwner,POST,/owners/{ownerId}/pets,addpettoowner
+spring-petclinic-rest,getOwnersPet,200,400|404,getOwnersPet,GET,/owners/{ownerId}/pets/{petId},getownerspet
+spring-petclinic-rest,updateOwnersPet,204,400|404,updateOwnersPet,PUT,/owners/{ownerId}/pets/{petId},updateownerspet
+spring-petclinic-rest,addVisitToOwner,201,400|404,addVisitToOwner,POST,/owners/{ownerId}/pets/{petId}/visits,addvisittoowner
+spring-petclinic-rest,listPetTypes,200,,listPetTypes,GET,/pettypes,listpettypes
+spring-petclinic-rest,addPetType,200,400|404,addPetType,POST,/pettypes,addpettype
+spring-petclinic-rest,getPetType,200,400|404,getPetType,GET,/pettypes/{petTypeId},getpettype
+spring-petclinic-rest,updatePetType,200,400|404,updatePetType,PUT,/pettypes/{petTypeId},updatepettype
+spring-petclinic-rest,deletePetType,200,400|404,deletePetType,DELETE,/pettypes/{petTypeId},deletepettype
+spring-petclinic-rest,listPets,200,,listPets,GET,/pets,listpets
+spring-petclinic-rest,getPet,200,400|404,getPet,GET,/pets/{petId},getpet
+spring-petclinic-rest,updatePet,200,400|404,updatePet,PUT,/pets/{petId},updatepet
+spring-petclinic-rest,deletePet,200,400|404,deletePet,DELETE,/pets/{petId},deletepet
+spring-petclinic-rest,listVisits,200,,listVisits,GET,/visits,listvisits
+spring-petclinic-rest,addVisit,200,400|404,addVisit,POST,/visits,addvisit
+spring-petclinic-rest,getVisit,200,400|404,getVisit,GET,/visits/{visitId},getvisit
+spring-petclinic-rest,updateVisit,200,400|404,updateVisit,PUT,/visits/{visitId},updatevisit
+spring-petclinic-rest,deleteVisit,200,400|404,deleteVisit,DELETE,/visits/{visitId},deletevisit
+spring-petclinic-rest,listSpecialties,200,,listSpecialties,GET,/specialties,listspecialties
+spring-petclinic-rest,addSpecialty,200,400|404,addSpecialty,POST,/specialties,addspecialty
+spring-petclinic-rest,getSpecialty,200,400|404,getSpecialty,GET,/specialties/{specialtyId},getspecialty
+spring-petclinic-rest,updateSpecialty,200,400|404,updateSpecialty,PUT,/specialties/{specialtyId},updatespecialty
+spring-petclinic-rest,deleteSpecialty,200,400|404,deleteSpecialty,DELETE,/specialties/{specialtyId},deletespecialty
+spring-petclinic-rest,listVets,200,,listVets,GET,/vets,listvets
+spring-petclinic-rest,addVet,200,400|404,addVet,POST,/vets,addvet
+spring-petclinic-rest,getVet,200,400|404,getVet,GET,/vets/{vetId},getvet
+spring-petclinic-rest,updateVet,200,400|404,updateVet,PUT,/vets/{vetId},updatevet
+spring-petclinic-rest,deleteVet,200,400|404,deleteVet,DELETE,/vets/{vetId},deletevet
+spring-petclinic-rest,addUser,200,400|404,addUser,POST,/users,adduser

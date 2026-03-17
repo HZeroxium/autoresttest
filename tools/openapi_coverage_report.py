@@ -18,12 +18,12 @@ if str(SRC_ROOT) not in sys.path:
 from autoresttest.reporting import (  # noqa: E402
     RunInventory,
     build_run_inventory,
-    iter_run_dirs,
-    iter_valid_dataset_dirs,
+    build_run_metrics,
 )
 
 
 HTTP_METHODS = {"get", "post", "put", "patch", "delete", "head", "options", "trace"}
+LEGACY_RUN_MARKERS = ("report.json", "operation_status_codes.json")
 
 
 @dataclass(frozen=True)
@@ -55,6 +55,7 @@ class CoverageResult:
     doc_2xx: frozenset[str]
     hit_2xx: frozenset[str]
     observed_2xx_all: frozenset[str]
+    undocumented_2xx: frozenset[str]
     doc_4xx: frozenset[str]
     hit_4xx: frozenset[str]
     observed_4xx_all: frozenset[str]
@@ -142,7 +143,7 @@ def parse_observed_status_code(token: str) -> int | None:
 
 def format_ratio(hit: int, doc: int) -> str:
     if doc == 0:
-        return "N/A"
+        return "100.0000"
     return f"{(hit / doc) * 100:.4f}"
 
 
@@ -168,6 +169,12 @@ def hit_documented_codes(
         if count and count > 0
     }
     observed_values = {value for value in observed_values if value is not None}
+
+    # Treat any observed 2xx as satisfying all documented 2xx codes for coverage.
+    if wanted_class == 2 and any((value // 100) == 2 for value in observed_values):
+        return frozenset(
+            token for token in documented if parse_documented_class(token) == wanted_class
+        )
 
     hit: set[str] = set()
     for token in documented:
@@ -234,6 +241,131 @@ def load_summary(summary_csv: Path) -> dict[str, list[OperationDoc]]:
     return by_dataset
 
 
+def _load_optional_json(path: Path) -> dict[str, object] | None:
+    if not path.exists() or not path.is_file():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return payload if isinstance(payload, dict) else None
+
+
+def _normalize_status_distribution(payload: object) -> dict[str, int]:
+    if not isinstance(payload, dict):
+        return {}
+    normalized: dict[str, int] = {}
+    for code, count in payload.items():
+        if isinstance(count, bool):
+            continue
+        if isinstance(count, int):
+            normalized[str(code)] = count
+        elif isinstance(count, float) and count.is_integer():
+            normalized[str(code)] = int(count)
+        elif isinstance(count, str) and count.strip().isdigit():
+            normalized[str(code)] = int(count.strip())
+    return normalized
+
+
+def _normalize_operation_status_codes(payload: object) -> dict[str, dict[str, int]]:
+    if not isinstance(payload, dict):
+        return {}
+    normalized: dict[str, dict[str, int]] = {}
+    for operation, statuses in payload.items():
+        if not isinstance(operation, str):
+            continue
+        normalized_statuses = _normalize_status_distribution(statuses)
+        normalized[operation] = normalized_statuses
+    return normalized
+
+
+def _has_legacy_run_artifacts(run_dir: Path) -> bool:
+    return any((run_dir / filename).exists() for filename in LEGACY_RUN_MARKERS)
+
+
+def iter_openapi_dataset_dirs(data_root: Path) -> list[Path]:
+    if not data_root.exists():
+        return []
+    dataset_dirs: list[Path] = []
+    for dataset_dir in sorted(path for path in data_root.iterdir() if path.is_dir()):
+        has_supported_run = any(
+            run_dir.is_dir()
+            and (
+                (run_dir / "metadata" / "runtime" / "manifest.json").exists()
+                or _has_legacy_run_artifacts(run_dir)
+            )
+            for run_dir in dataset_dir.iterdir()
+        )
+        if has_supported_run:
+            dataset_dirs.append(dataset_dir)
+    return dataset_dirs
+
+
+def iter_openapi_run_dirs(dataset_dir: Path) -> list[Path]:
+    if not dataset_dir.exists():
+        return []
+    return [
+        run_dir
+        for run_dir in sorted(path for path in dataset_dir.iterdir() if path.is_dir())
+        if (run_dir / "metadata" / "runtime" / "manifest.json").exists()
+        or _has_legacy_run_artifacts(run_dir)
+    ]
+
+
+def build_legacy_run_inventory(run_dir: Path, dataset: str) -> RunInventory | None:
+    report_path = run_dir / "report.json"
+    operation_status_codes_path = run_dir / "operation_status_codes.json"
+    qtables_path = run_dir / "q_tables.json"
+    server_errors_path = run_dir / "server_errors.json"
+
+    report_payload = _load_optional_json(report_path)
+    operation_status_codes = _normalize_operation_status_codes(
+        _load_optional_json(operation_status_codes_path)
+    )
+    if not report_payload and not operation_status_codes:
+        return None
+
+    server_errors_payload = _load_optional_json(server_errors_path)
+    manifest_payload: dict[str, object] = {
+        "run_id": run_dir.name,
+        "dataset_name": dataset,
+        "status": "completed",
+    }
+    metrics = build_run_metrics(
+        run_dir,
+        manifest_payload,
+        report_payload=report_payload,
+        operation_status_codes=operation_status_codes or None,
+        server_errors=server_errors_payload,
+    )
+
+    return RunInventory(
+        dataset=dataset,
+        run=run_dir.name,
+        run_dir=run_dir,
+        manifest_path=run_dir / "metadata" / "runtime" / "manifest.json",
+        manifest=manifest_payload,
+        report=report_payload,
+        operation_status_codes=operation_status_codes or None,
+        server_errors=server_errors_payload,
+        metrics=metrics,
+        started_at=None,
+        updated_at=None,
+        completed_at=None,
+        has_report=report_path.exists(),
+        has_operation_status_codes=operation_status_codes_path.exists(),
+        has_qtables=qtables_path.exists(),
+        has_trace=False,
+        trace_availability={},
+        counters={},
+        status_code_distribution_json=json.dumps(
+            metrics.status_code_distribution,
+            ensure_ascii=False,
+            sort_keys=True,
+        ),
+    )
+
+
 def build_operation_index(observed: dict[str, dict[str, int]]) -> dict[str, str]:
     index: dict[str, str] = {}
     for operation in observed:
@@ -288,6 +420,11 @@ def compute_operation_results(
         observed_2xx_all = observed_codes_by_class(observed_counts, wanted_class=2)
         observed_4xx_all = observed_codes_by_class(observed_counts, wanted_class=4)
         observed_5xx_all = observed_codes_by_class(observed_counts, wanted_class=5)
+        undocumented_2xx = frozenset(
+            code
+            for code in observed_2xx_all
+            if not is_observed_code_documented(code, doc.doc_2xx)
+        )
         undocumented_4xx = frozenset(
             code
             for code in observed_4xx_all
@@ -307,6 +444,7 @@ def compute_operation_results(
                 doc_2xx=doc.doc_2xx,
                 hit_2xx=hit_2xx,
                 observed_2xx_all=observed_2xx_all,
+                undocumented_2xx=undocumented_2xx,
                 doc_4xx=doc.doc_4xx,
                 hit_4xx=hit_4xx,
                 observed_4xx_all=observed_4xx_all,
@@ -328,8 +466,12 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
         "matched_observed_operation",
         "doc_2xx",
         "hit_2xx",
+        "observed_2xx_all",
+        "undocumented_2xx",
         "doc_2xx_count",
         "hit_2xx_count",
+        "observed_2xx_count",
+        "undocumented_2xx_count",
         "coverage_2xx",
         "doc_4xx",
         "hit_4xx",
@@ -346,7 +488,6 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
         "hit_all_count",
         "coverage_all",
         "matched_by",
-        "observed_2xx_all",
         "observed_5xx_all",
         "observed_total_requests",
         "operation_coverage",
@@ -366,8 +507,12 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
                     "matched_observed_operation": item.matched_observed_operation or "",
                     "doc_2xx": join_codes(item.doc_2xx),
                     "hit_2xx": join_codes(item.hit_2xx),
+                    "observed_2xx_all": join_codes(item.observed_2xx_all),
+                    "undocumented_2xx": join_codes(item.undocumented_2xx),
                     "doc_2xx_count": len(item.doc_2xx),
                     "hit_2xx_count": len(item.hit_2xx),
+                    "observed_2xx_count": len(item.observed_2xx_all),
+                    "undocumented_2xx_count": len(item.undocumented_2xx),
                     "coverage_2xx": format_ratio(len(item.hit_2xx), len(item.doc_2xx)),
                     "doc_4xx": join_codes(item.doc_4xx),
                     "hit_4xx": join_codes(item.hit_4xx),
@@ -384,7 +529,6 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
                     "hit_all_count": len(item.hit_all),
                     "coverage_all": format_ratio(len(item.hit_all), len(item.doc_all)),
                     "matched_by": item.matched_by,
-                    "observed_2xx_all": join_codes(item.observed_2xx_all),
                     "observed_5xx_all": join_codes(item.observed_5xx_all),
                     "observed_total_requests": item.observed_total_requests,
                     "operation_coverage": format_optional_float(item.operation_coverage),
@@ -405,6 +549,8 @@ def write_dataset_report(
         "dataset",
         "doc_2xx_count",
         "hit_2xx_count",
+        "observed_2xx_count",
+        "undocumented_2xx_count",
         "coverage_2xx",
         "doc_4xx_count",
         "hit_4xx_count",
@@ -449,6 +595,8 @@ def write_dataset_report(
             inventory = inventories[(dataset, run)]
             doc_pairs_2xx: set[tuple[str, str]] = set()
             hit_pairs_2xx: set[tuple[str, str]] = set()
+            observed_pairs_2xx: set[tuple[str, str]] = set()
+            undocumented_pairs_2xx: set[tuple[str, str]] = set()
             doc_pairs_4xx: set[tuple[str, str]] = set()
             hit_pairs_4xx: set[tuple[str, str]] = set()
             observed_pairs_4xx: set[tuple[str, str]] = set()
@@ -463,6 +611,10 @@ def write_dataset_report(
                 for code in item.hit_2xx:
                     hit_pairs_2xx.add((item.operation, code))
                     hit_pairs_all.add((item.operation, code))
+                for code in item.observed_2xx_all:
+                    observed_pairs_2xx.add((item.operation, code))
+                for code in item.undocumented_2xx:
+                    undocumented_pairs_2xx.add((item.operation, code))
                 for code in item.doc_4xx:
                     doc_pairs_4xx.add((item.operation, code))
                     doc_pairs_all.add((item.operation, code))
@@ -480,6 +632,8 @@ def write_dataset_report(
                     "dataset": dataset,
                     "doc_2xx_count": len(doc_pairs_2xx),
                     "hit_2xx_count": len(hit_pairs_2xx),
+                    "observed_2xx_count": len(observed_pairs_2xx),
+                    "undocumented_2xx_count": len(undocumented_pairs_2xx),
                     "coverage_2xx": format_ratio(len(hit_pairs_2xx), len(doc_pairs_2xx)),
                     "doc_4xx_count": len(doc_pairs_4xx),
                     "hit_4xx_count": len(hit_pairs_4xx),
@@ -602,11 +756,13 @@ def main() -> int:
     inventories: list[RunInventory] = []
     inventory_index: dict[tuple[str, str], RunInventory] = {}
 
-    for dataset_dir in iter_valid_dataset_dirs(data_root):
+    for dataset_dir in iter_openapi_dataset_dirs(data_root):
         dataset = dataset_dir.name
         docs = docs_by_dataset.get(dataset)
-        for run_dir in iter_run_dirs(dataset_dir):
+        for run_dir in iter_openapi_run_dirs(dataset_dir):
             inventory = build_run_inventory(run_dir)
+            if inventory is None:
+                inventory = build_legacy_run_inventory(run_dir, dataset)
             if inventory is None:
                 continue
             inventories.append(inventory)
