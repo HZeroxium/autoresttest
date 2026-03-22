@@ -557,6 +557,7 @@ def write_dataset_report(
         "observed_4xx_count",
         "undocumented_4xx_count",
         "coverage_4xx",
+        "unique_500_operation_count",
         "doc_all_count",
         "hit_all_count",
         "coverage_all",
@@ -603,6 +604,7 @@ def write_dataset_report(
             undocumented_pairs_4xx: set[tuple[str, str]] = set()
             doc_pairs_all: set[tuple[str, str]] = set()
             hit_pairs_all: set[tuple[str, str]] = set()
+            ops_with_exact_500: set[str] = set()
 
             for item in items:
                 for code in item.doc_2xx:
@@ -625,6 +627,8 @@ def write_dataset_report(
                     observed_pairs_4xx.add((item.operation, code))
                 for code in item.undocumented_4xx:
                     undocumented_pairs_4xx.add((item.operation, code))
+                if "500" in item.observed_5xx_all:
+                    ops_with_exact_500.add(item.operation)
 
             writer.writerow(
                 {
@@ -640,6 +644,7 @@ def write_dataset_report(
                     "observed_4xx_count": len(observed_pairs_4xx),
                     "undocumented_4xx_count": len(undocumented_pairs_4xx),
                     "coverage_4xx": format_ratio(len(hit_pairs_4xx), len(doc_pairs_4xx)),
+                    "unique_500_operation_count": len(ops_with_exact_500),
                     "doc_all_count": len(doc_pairs_all),
                     "hit_all_count": len(hit_pairs_all),
                     "coverage_all": format_ratio(len(hit_pairs_all), len(doc_pairs_all)),

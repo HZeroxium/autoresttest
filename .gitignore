@@ -39,6 +39,7 @@ log_*
 *LOG_PATH*
 org.jacoco.*
 jacoco_*
+!jacoco_overall_report.py
 workloadResultsFile.xlsx
 faultloadResultsFile.xlsx
 
@@ -65,3 +66,6 @@ evomaster-benchmark-cs-rest-artificial-news.iml
 evomaster.jar
 test.py
 results
+
+!services/jhipster-sample-app/src/main/resources/config/liquibase/data/
+!services/jhipster-sample-app/src/main/resources/config/liquibase/data/**

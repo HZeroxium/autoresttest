@@ -429,11 +429,13 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
     assert "event_sequence" in dataset_reader.fieldnames
     assert "observed_2xx_count" in dataset_reader.fieldnames
     assert "undocumented_2xx_count" in dataset_reader.fieldnames
+    assert "unique_500_operation_count" in dataset_reader.fieldnames
     dataset_by_run = {row["run"]: row for row in dataset_rows}
     assert dataset_by_run["demo-20260305T000000Z-1000"]["coverage_2xx"] == "100.0000"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["observed_2xx_count"] == "1"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["undocumented_2xx_count"] == "0"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["coverage_4xx"] == "100.0000"
+    assert dataset_by_run["demo-20260305T000000Z-1000"]["unique_500_operation_count"] == "1"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["coverage_all"] == "100.0000"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["operation_coverage"] == "100.0"
     assert dataset_by_run["demo-20260305T000000Z-1000"]["total_requests_sent"] == "4"
@@ -442,6 +444,7 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
     assert dataset_by_run["demo-20260305T000100Z-1000"]["observed_2xx_count"] == "0"
     assert dataset_by_run["demo-20260305T000100Z-1000"]["undocumented_2xx_count"] == "0"
     assert dataset_by_run["demo-20260305T000100Z-1000"]["coverage_4xx"] == "0.0000"
+    assert dataset_by_run["demo-20260305T000100Z-1000"]["unique_500_operation_count"] == "0"
     assert dataset_by_run["demo-20260305T000100Z-1000"]["coverage_all"] == "0.0000"
     assert dataset_by_run["demo-20260305T000100Z-1000"]["operation_coverage"] == "80.0"
     assert dataset_by_run["demo-20260305T000100Z-1000"]["run_status"] == "failed"
@@ -597,6 +600,88 @@ def test_openapi_coverage_report_handles_2xx_substitution_and_zero_doc_coverage(
     assert operation_by_run["zero-20260305T000000Z-1000"]["coverage_2xx"] == "100.0000"
     assert operation_by_run["zero-20260305T000000Z-1000"]["coverage_4xx"] == "100.0000"
     assert operation_by_run["zero-20260305T000000Z-1000"]["coverage_all"] == "100.0000"
+
+
+def test_openapi_coverage_report_counts_unique_500_per_operation(tmp_path) -> None:
+    summary_csv = tmp_path / "datasets" / "openapi_status_summary.csv"
+    data_root = tmp_path / "data"
+    out_dir = tmp_path / "coverage_results"
+    summary_csv.parent.mkdir(parents=True, exist_ok=True)
+    with summary_csv.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "dataset",
+                "operation",
+                "2xx_code",
+                "4xx_code",
+                "operation_id",
+                "method",
+                "path",
+                "normalized_operation",
+            ],
+        )
+        writer.writeheader()
+        for operation, normalized in [
+            ("GET /alpha", "get_alpha"),
+            ("GET /beta", "get_beta"),
+            ("GET /gamma", "get_gamma"),
+        ]:
+            writer.writerow(
+                {
+                    "dataset": "fivehundred",
+                    "operation": operation,
+                    "2xx_code": "200",
+                    "4xx_code": "",
+                    "operation_id": "",
+                    "method": "GET",
+                    "path": operation.split(maxsplit=1)[1],
+                    "normalized_operation": normalized,
+                }
+            )
+
+    _write_run(
+        data_root,
+        "fivehundred",
+        "fivehundred-20260319T000000Z-1000",
+        report={
+            "Title": "Exact 500 uniqueness run",
+            "Total Requests Sent": 112,
+        },
+        operation_status_codes={
+            "get_alpha": {"500": 99},
+            "get_beta": {"500": 1, "503": 5},
+            "get_gamma": {"503": 7},
+        },
+    )
+
+    _run_script(
+        "tools/openapi_coverage_report.py",
+        "--summary-csv",
+        str(summary_csv),
+        "--data-root",
+        str(data_root),
+        "--out-dir",
+        str(out_dir),
+    )
+
+    with (out_dir / "dataset_coverage.csv").open("r", encoding="utf-8", newline="") as handle:
+        dataset_by_run = {row["run"]: row for row in csv.DictReader(handle)}
+    assert (
+        dataset_by_run["fivehundred-20260319T000000Z-1000"]["unique_500_operation_count"]
+        == "2"
+    )
+
+    with (out_dir / "operation_coverage.csv").open("r", encoding="utf-8", newline="") as handle:
+        operation_rows = list(csv.DictReader(handle))
+    operation_by_name = {
+        row["operation"]: row
+        for row in operation_rows
+        if row["run"] == "fivehundred-20260319T000000Z-1000"
+    }
+    assert operation_by_name["GET /alpha"]["observed_5xx_all"] == "500"
+    assert operation_by_name["GET /beta"]["observed_5xx_all"] == "500|503"
+    assert operation_by_name["GET /gamma"]["observed_5xx_all"] == "503"
 
 
 def test_jacoco_overall_report_parses_overall_totals(tmp_path) -> None:
@@ -803,6 +888,7 @@ def test_openapi_coverage_report_includes_legacy_runs_without_manifest(tmp_path)
         dataset_by_run = {row["run"]: row for row in csv.DictReader(handle)}
     assert dataset_by_run["demo-run1"]["coverage_2xx"] == "100.0000"
     assert dataset_by_run["demo-run1"]["coverage_4xx"] == "100.0000"
+    assert dataset_by_run["demo-run1"]["unique_500_operation_count"] == "0"
     assert dataset_by_run["demo-run1"]["coverage_all"] == "100.0000"
     assert dataset_by_run["demo-run1"]["operation_coverage"] == "100.0"
     assert dataset_by_run["demo-run1"]["total_requests_sent"] == "2"
