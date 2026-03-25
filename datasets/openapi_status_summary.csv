@@ -225,6 +225,18 @@ jhipster-sample-app,deleteAuthority,200,,deleteAuthority,DELETE,/api/authorities
 jhipster-sample-app,activateAccount,200,,activateAccount,GET,/api/activate,activateaccount
 language-tool,POST /check,200,,,POST,/check,post_check
 language-tool,GET /languages,200,,,GET,/languages,get_languages
+ohsome,contributionsCount,200,400|401|404|405|413,contributionsCount,GET,/contributions/count,contributionscount
+ohsome,contributionsCount_1,200,400|401|404|405|413,contributionsCount_1,POST,/contributions/count,contributionscount_1
+ohsome,contributionsCountDensity,200,400|401|404|405|413,contributionsCountDensity,GET,/contributions/count/density,contributionscountdensity
+ohsome,contributionsCountDensity_1,200,400|401|404|405|413,contributionsCountDensity_1,POST,/contributions/count/density,contributionscountdensity_1
+ohsome,contributionsCountDensityGroupByBoundary,200,400|401|404|405|413,contributionsCountDensityGroupByBoundary,GET,/contributions/count/density/groupBy/boundary,contributionscountdensitygroupbyboundary
+ohsome,contributionsCountDensityGroupByBoundary_1,200,400|401|404|405|413,contributionsCountDensityGroupByBoundary_1,POST,/contributions/count/density/groupBy/boundary,contributionscountdensitygroupbyboundary_1
+ohsome,contributionsCountGroupByBoundary,200,400|401|404|405|413,contributionsCountGroupByBoundary,GET,/contributions/count/groupBy/boundary,contributionscountgroupbyboundary
+ohsome,contributionsCountGroupByBoundary_1,200,400|401|404|405|413,contributionsCountGroupByBoundary_1,POST,/contributions/count/groupBy/boundary,contributionscountgroupbyboundary_1
+ohsome,contributionsLatestCount,200,400|401|404|405|413,contributionsLatestCount,GET,/contributions/latest/count,contributionslatestcount
+ohsome,contributionsLatestCount_1,200,400|401|404|405|413,contributionsLatestCount_1,POST,/contributions/latest/count,contributionslatestcount_1
+ohsome,contributionsLatestCountDensity,200,400|401|404|405|413,contributionsLatestCountDensity,GET,/contributions/latest/count/density,contributionslatestcountdensity
+ohsome,contributionsLatestCountDensity_1,200,400|401|404|405|413,contributionsLatestCountDensity_1,POST,/contributions/latest/count/density,contributionslatestcountdensity_1
 ohsome,area,200,400|401|404|405|413,area,GET,/elements/area,area
 ohsome,area_1,200,400|401|404|405|413,area_1,POST,/elements/area,area_1
 ohsome,areaDensity,200,400|401|404|405|413,areaDensity,GET,/elements/area/density,areadensity
