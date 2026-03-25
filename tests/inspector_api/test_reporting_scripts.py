@@ -28,6 +28,14 @@ def _write_jsonl(path: Path, rows: list[dict[str, object]]) -> None:
     )
 
 
+def _write_http_attempt_trace(run_dir: Path, rows: list[dict[str, object]]) -> Path:
+    trace_dir = run_dir / "metadata" / "trace"
+    trace_dir.mkdir(parents=True, exist_ok=True)
+    path = trace_dir / "http_attempts.jsonl"
+    _write_jsonl(path, rows)
+    return path
+
+
 def _write_run(
     data_root: Path,
     dataset_id: str,
@@ -682,6 +690,95 @@ def test_openapi_coverage_report_counts_unique_500_per_operation(tmp_path) -> No
     assert operation_by_name["GET /alpha"]["observed_5xx_all"] == "500"
     assert operation_by_name["GET /beta"]["observed_5xx_all"] == "500|503"
     assert operation_by_name["GET /gamma"]["observed_5xx_all"] == "503"
+
+
+def test_http_attempt_phase_extract_writes_minimal_phase_outputs(tmp_path) -> None:
+    run_dir = tmp_path / "data" / "demo" / "demo-20260325T000000Z-1000"
+    _write_http_attempt_trace(
+        run_dir,
+        [
+            {
+                "trace_kind": "http_attempt",
+                "phase": "value_agent_q_table_generation",
+                "logical_operation_id": "bootstrap_alpha",
+                "url": "https://example.test/alpha",
+                "response": {"status_code": 400},
+                "ignored": "value",
+            },
+            {
+                "trace_kind": "http_attempt",
+                "phase": "marl_request_generation",
+                "logical_operation_id": "marl_beta",
+                "url": "https://example.test/beta",
+                "response": {"status_code": None},
+            },
+            {
+                "trace_kind": "llm_call",
+                "phase": "marl_request_generation",
+                "logical_operation_id": "should_be_ignored",
+                "url": "https://example.test/ignored",
+                "response": {"status_code": 500},
+            },
+            {
+                "phase": "value_agent_q_table_generation",
+                "operation_id": "bootstrap_gamma",
+                "url": "https://example.test/gamma",
+                "status_code": 201,
+            },
+            {
+                "trace_kind": "http_attempt",
+                "phase": "exploration",
+                "logical_operation_id": "other_phase",
+                "url": "https://example.test/other",
+                "response": {"status_code": 202},
+            },
+            {
+                "trace_kind": "http_attempt",
+                "phase": "marl_request_generation",
+                "logical_operation_id": "marl_delta",
+                "url": "https://example.test/delta",
+                "response": {"status_code": 503},
+            },
+        ],
+    )
+
+    result = _run_script("tools/http_attempt_phase_extract.py", str(run_dir))
+
+    assert "[OK] Wrote 2 value_agent_q_table_generation rows:" in result.stdout
+    assert "[OK] Wrote 2 marl_request_generation rows:" in result.stdout
+
+    value_agent_path = run_dir / "value_agent_q_table_generation.json"
+    marl_path = run_dir / "marl.json"
+    assert value_agent_path.exists()
+    assert marl_path.exists()
+
+    value_agent_rows = json.loads(value_agent_path.read_text(encoding="utf-8"))
+    marl_rows = json.loads(marl_path.read_text(encoding="utf-8"))
+
+    assert value_agent_rows == [
+        {
+            "operation_id": "bootstrap_alpha",
+            "url": "https://example.test/alpha",
+            "status_code": 400,
+        },
+        {
+            "operation_id": "bootstrap_gamma",
+            "url": "https://example.test/gamma",
+            "status_code": 201,
+        },
+    ]
+    assert marl_rows == [
+        {
+            "operation_id": "marl_beta",
+            "url": "https://example.test/beta",
+            "status_code": None,
+        },
+        {
+            "operation_id": "marl_delta",
+            "url": "https://example.test/delta",
+            "status_code": 503,
+        },
+    ]
 
 
 def test_jacoco_overall_report_parses_overall_totals(tmp_path) -> None:
