@@ -59,6 +59,8 @@ class CoverageResult:
     doc_4xx: frozenset[str]
     hit_4xx: frozenset[str]
     observed_4xx_all: frozenset[str]
+    observed_500_all: frozenset[str]
+    observed_5xx_other_all: frozenset[str]
     observed_5xx_all: frozenset[str]
     undocumented_4xx: frozenset[str]
     observed_total_requests: int
@@ -157,6 +159,33 @@ def join_codes(codes: Iterable[str]) -> str:
     return "|".join(sorted(codes))
 
 
+def sort_codes(codes: Iterable[str]) -> list[str]:
+    def key(code: str) -> tuple[int, int | str]:
+        if code.isdigit():
+            return (0, int(code))
+        return (1, code)
+
+    return sorted(set(codes), key=key)
+
+
+def json_text(value: object) -> str:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True)
+
+
+def uses_gitlab_default_4xx_semantics(dataset: str) -> bool:
+    return dataset.startswith("GitLab")
+
+
+def build_operation_code_map(pairs: Iterable[tuple[str, str]]) -> dict[str, list[str]]:
+    grouped: dict[str, set[str]] = {}
+    for operation, code in pairs:
+        grouped.setdefault(operation, set()).add(code)
+    return {
+        operation: sort_codes(codes)
+        for operation, codes in sorted(grouped.items())
+    }
+
+
 def hit_documented_codes(
     documented: frozenset[str], observed_counts: dict[str, int], wanted_class: int
 ) -> frozenset[str]:
@@ -202,6 +231,16 @@ def observed_codes_by_class(observed_counts: dict[str, int], wanted_class: int) 
         if value is not None and (value // 100) == wanted_class
     )
     return frozenset(typed)
+
+
+def observed_exact_status_codes(
+    observed_counts: dict[str, int], wanted_codes: frozenset[str]
+) -> frozenset[str]:
+    return frozenset(
+        code
+        for code, count in observed_counts.items()
+        if count and count > 0 and str(code) in wanted_codes
+    )
 
 
 def is_observed_code_documented(observed_code: str, documented: frozenset[str]) -> bool:
@@ -416,19 +455,27 @@ def compute_operation_results(
             unmatched_doc_ops.append(doc.operation)
 
         hit_2xx = hit_documented_codes(doc.doc_2xx, observed_counts, wanted_class=2)
-        hit_4xx = hit_documented_codes(doc.doc_4xx, observed_counts, wanted_class=4)
         observed_2xx_all = observed_codes_by_class(observed_counts, wanted_class=2)
         observed_4xx_all = observed_codes_by_class(observed_counts, wanted_class=4)
         observed_5xx_all = observed_codes_by_class(observed_counts, wanted_class=5)
+        observed_500_all = frozenset(code for code in observed_5xx_all if code == "500")
+        observed_5xx_other_all = frozenset(
+            code for code in observed_5xx_all if code != "500"
+        )
+        if uses_gitlab_default_4xx_semantics(doc.dataset) and doc.doc_4xx and observed_4xx_all:
+            hit_4xx = doc.doc_4xx
+            undocumented_4xx = frozenset()
+        else:
+            hit_4xx = hit_documented_codes(doc.doc_4xx, observed_counts, wanted_class=4)
+            undocumented_4xx = frozenset(
+                code
+                for code in observed_4xx_all
+                if not is_observed_code_documented(code, doc.doc_4xx)
+            )
         undocumented_2xx = frozenset(
             code
             for code in observed_2xx_all
             if not is_observed_code_documented(code, doc.doc_2xx)
-        )
-        undocumented_4xx = frozenset(
-            code
-            for code in observed_4xx_all
-            if not is_observed_code_documented(code, doc.doc_4xx)
         )
 
         results.append(
@@ -448,6 +495,8 @@ def compute_operation_results(
                 doc_4xx=doc.doc_4xx,
                 hit_4xx=hit_4xx,
                 observed_4xx_all=observed_4xx_all,
+                observed_500_all=observed_500_all,
+                observed_5xx_other_all=observed_5xx_other_all,
                 observed_5xx_all=observed_5xx_all,
                 undocumented_4xx=undocumented_4xx,
                 observed_total_requests=sum(observed_counts.values()),
@@ -488,6 +537,8 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
         "hit_all_count",
         "coverage_all",
         "matched_by",
+        "observed_500_all",
+        "observed_5xx_other_all",
         "observed_5xx_all",
         "observed_total_requests",
         "operation_coverage",
@@ -529,6 +580,8 @@ def write_operation_report(path: Path, results: list[CoverageResult]) -> None:
                     "hit_all_count": len(item.hit_all),
                     "coverage_all": format_ratio(len(item.hit_all), len(item.doc_all)),
                     "matched_by": item.matched_by,
+                    "observed_500_all": join_codes(item.observed_500_all),
+                    "observed_5xx_other_all": join_codes(item.observed_5xx_other_all),
                     "observed_5xx_all": join_codes(item.observed_5xx_all),
                     "observed_total_requests": item.observed_total_requests,
                     "operation_coverage": format_optional_float(item.operation_coverage),
@@ -627,7 +680,7 @@ def write_dataset_report(
                     observed_pairs_4xx.add((item.operation, code))
                 for code in item.undocumented_4xx:
                     undocumented_pairs_4xx.add((item.operation, code))
-                if "500" in item.observed_5xx_all:
+                if item.observed_500_all:
                     ops_with_exact_500.add(item.operation)
 
             writer.writerow(
@@ -673,6 +726,65 @@ def write_dataset_report(
                     "llm_call_count": inventory.metrics.llm_call_count or 0,
                     "checkpoint_count": inventory.metrics.checkpoint_count or 0,
                     "status_code_distribution_json": inventory.status_code_distribution_json,
+                }
+            )
+
+
+def write_dataset_union_report(path: Path, results: list[CoverageResult]) -> None:
+    fieldnames = [
+        "dataset",
+        "run_count",
+        "undocumented_2xx_union_count",
+        "undocumented_2xx_union_json",
+        "undocumented_4xx_union_count",
+        "undocumented_4xx_union_json",
+        "unique_500_operation_union_count",
+        "unique_500_operations_json",
+        "observed_5xx_other_union_json",
+    ]
+
+    grouped: dict[str, list[CoverageResult]] = {}
+    for row in results:
+        grouped.setdefault(row.dataset, []).append(row)
+
+    with path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for dataset, items in sorted(grouped.items()):
+            undocumented_pairs_2xx: set[tuple[str, str]] = set()
+            undocumented_pairs_4xx: set[tuple[str, str]] = set()
+            ops_with_exact_500: set[str] = set()
+            observed_5xx_other_pairs: set[tuple[str, str]] = set()
+            run_ids = {item.run for item in items}
+
+            for item in items:
+                for code in item.undocumented_2xx:
+                    undocumented_pairs_2xx.add((item.operation, code))
+                for code in item.undocumented_4xx:
+                    undocumented_pairs_4xx.add((item.operation, code))
+                if item.observed_500_all:
+                    ops_with_exact_500.add(item.operation)
+                for code in item.observed_5xx_other_all:
+                    observed_5xx_other_pairs.add((item.operation, code))
+
+            writer.writerow(
+                {
+                    "dataset": dataset,
+                    "run_count": len(run_ids),
+                    "undocumented_2xx_union_count": len(undocumented_pairs_2xx),
+                    "undocumented_2xx_union_json": json_text(
+                        build_operation_code_map(undocumented_pairs_2xx)
+                    ),
+                    "undocumented_4xx_union_count": len(undocumented_pairs_4xx),
+                    "undocumented_4xx_union_json": json_text(
+                        build_operation_code_map(undocumented_pairs_4xx)
+                    ),
+                    "unique_500_operation_union_count": len(ops_with_exact_500),
+                    "unique_500_operations_json": json_text(sorted(ops_with_exact_500)),
+                    "observed_5xx_other_union_json": json_text(
+                        build_operation_code_map(observed_5xx_other_pairs)
+                    ),
                 }
             )
 
@@ -830,16 +942,19 @@ def main() -> int:
 
     operation_report = out_dir / "operation_coverage.csv"
     dataset_report = out_dir / "dataset_coverage.csv"
+    dataset_union_report = out_dir / "dataset_union_coverage.csv"
     unmatched_report = out_dir / "operation_matching_issues.csv"
     run_inventory_report = out_dir / "run_inventory.csv"
 
     write_operation_report(operation_report, all_operation_results)
     write_dataset_report(dataset_report, all_operation_results, inventory_index)
+    write_dataset_union_report(dataset_union_report, all_operation_results)
     write_unmatched_report(unmatched_report, unmatched_rows)
     write_run_inventory(run_inventory_report, inventories)
 
     print(f"[OK] Wrote operation report: {operation_report}")
     print(f"[OK] Wrote dataset report:   {dataset_report}")
+    print(f"[OK] Wrote dataset union:    {dataset_union_report}")
     print(f"[OK] Wrote matching issues:  {unmatched_report}")
     print(f"[OK] Wrote run inventory:    {run_inventory_report}")
     print(f"[OK] Total operation rows:   {len(all_operation_results)}")

@@ -466,6 +466,8 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
     assert "undocumented_2xx" in operation_reader.fieldnames
     assert "observed_2xx_count" in operation_reader.fieldnames
     assert "undocumented_2xx_count" in operation_reader.fieldnames
+    assert "observed_500_all" in operation_reader.fieldnames
+    assert "observed_5xx_other_all" in operation_reader.fieldnames
     assert "observed_5xx_all" in operation_reader.fieldnames
     assert "run_status" in operation_reader.fieldnames
     operation_by_run = {row["run"]: row for row in operation_rows}
@@ -478,6 +480,8 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
     assert operation_by_run["demo-20260305T000000Z-1000"]["undocumented_2xx"] == ""
     assert operation_by_run["demo-20260305T000000Z-1000"]["observed_2xx_count"] == "1"
     assert operation_by_run["demo-20260305T000000Z-1000"]["undocumented_2xx_count"] == "0"
+    assert operation_by_run["demo-20260305T000000Z-1000"]["observed_500_all"] == "500"
+    assert operation_by_run["demo-20260305T000000Z-1000"]["observed_5xx_other_all"] == ""
     assert operation_by_run["demo-20260305T000000Z-1000"]["observed_5xx_all"] == "500"
     assert operation_by_run["demo-20260305T000000Z-1000"]["observed_total_requests"] == "4"
     assert operation_by_run["demo-20260305T000100Z-1000"]["coverage_2xx"] == "0.0000"
@@ -498,6 +502,21 @@ def test_openapi_coverage_report_emits_enriched_csvs_and_skips_pseudo_datasets(
         (row["run"], row["kind"])
         for row in issues
     } >= {("demo-20260305T000100Z-1000", "run_missing_operation_status_codes")}
+
+    with (out_dir / "dataset_union_coverage.csv").open(
+        "r",
+        encoding="utf-8",
+        newline="",
+    ) as handle:
+        union_by_dataset = {row["dataset"]: row for row in csv.DictReader(handle)}
+    assert union_by_dataset["demo"]["run_count"] == "2"
+    assert union_by_dataset["demo"]["undocumented_2xx_union_count"] == "0"
+    assert union_by_dataset["demo"]["undocumented_4xx_union_count"] == "0"
+    assert union_by_dataset["demo"]["unique_500_operation_union_count"] == "1"
+    assert json.loads(union_by_dataset["demo"]["unique_500_operations_json"]) == [
+        "GET /users/{id}"
+    ]
+    assert json.loads(union_by_dataset["demo"]["observed_5xx_other_union_json"]) == {}
 
 
 def test_openapi_coverage_report_handles_2xx_substitution_and_zero_doc_coverage(
@@ -687,9 +706,212 @@ def test_openapi_coverage_report_counts_unique_500_per_operation(tmp_path) -> No
         for row in operation_rows
         if row["run"] == "fivehundred-20260319T000000Z-1000"
     }
+    assert operation_by_name["GET /alpha"]["observed_500_all"] == "500"
+    assert operation_by_name["GET /alpha"]["observed_5xx_other_all"] == ""
     assert operation_by_name["GET /alpha"]["observed_5xx_all"] == "500"
+    assert operation_by_name["GET /beta"]["observed_500_all"] == "500"
+    assert operation_by_name["GET /beta"]["observed_5xx_other_all"] == "503"
     assert operation_by_name["GET /beta"]["observed_5xx_all"] == "500|503"
+    assert operation_by_name["GET /gamma"]["observed_500_all"] == ""
+    assert operation_by_name["GET /gamma"]["observed_5xx_other_all"] == "503"
     assert operation_by_name["GET /gamma"]["observed_5xx_all"] == "503"
+
+
+def test_openapi_coverage_report_applies_gitlab_default_4xx_semantics(tmp_path) -> None:
+    summary_csv = tmp_path / "datasets" / "openapi_status_summary.csv"
+    data_root = tmp_path / "data"
+    out_dir = tmp_path / "coverage_results"
+    summary_csv.parent.mkdir(parents=True, exist_ok=True)
+    with summary_csv.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "dataset",
+                "operation",
+                "2xx_code",
+                "4xx_code",
+                "operation_id",
+                "method",
+                "path",
+                "normalized_operation",
+            ],
+        )
+        writer.writeheader()
+        writer.writerow(
+            {
+                "dataset": "GitLabDemo",
+                "operation": "GET /alpha",
+                "2xx_code": "200",
+                "4xx_code": "400",
+                "operation_id": "",
+                "method": "GET",
+                "path": "/alpha",
+                "normalized_operation": "get_alpha",
+            }
+        )
+        writer.writerow(
+            {
+                "dataset": "GitLabDemo",
+                "operation": "GET /beta",
+                "2xx_code": "200",
+                "4xx_code": "400",
+                "operation_id": "",
+                "method": "GET",
+                "path": "/beta",
+                "normalized_operation": "get_beta",
+            }
+        )
+
+    _write_run(
+        data_root,
+        "GitLabDemo",
+        "GitLabDemo-20260326T000000Z-1000",
+        report={
+            "Title": "GitLab default 4xx run",
+            "Total Requests Sent": 3,
+        },
+        operation_status_codes={
+            "get_alpha": {"404": 1},
+            "get_beta": {"401": 1, "404": 1},
+        },
+    )
+
+    _run_script(
+        "tools/openapi_coverage_report.py",
+        "--summary-csv",
+        str(summary_csv),
+        "--data-root",
+        str(data_root),
+        "--out-dir",
+        str(out_dir),
+    )
+
+    with (out_dir / "dataset_coverage.csv").open("r", encoding="utf-8", newline="") as handle:
+        dataset_by_run = {row["run"]: row for row in csv.DictReader(handle)}
+    assert dataset_by_run["GitLabDemo-20260326T000000Z-1000"]["hit_4xx_count"] == "2"
+    assert dataset_by_run["GitLabDemo-20260326T000000Z-1000"]["coverage_4xx"] == "100.0000"
+    assert (
+        dataset_by_run["GitLabDemo-20260326T000000Z-1000"]["undocumented_4xx_count"] == "0"
+    )
+
+    with (out_dir / "operation_coverage.csv").open("r", encoding="utf-8", newline="") as handle:
+        operation_rows = list(csv.DictReader(handle))
+    operation_by_name = {
+        row["operation"]: row
+        for row in operation_rows
+        if row["run"] == "GitLabDemo-20260326T000000Z-1000"
+    }
+    assert operation_by_name["GET /alpha"]["hit_4xx"] == "400"
+    assert operation_by_name["GET /alpha"]["coverage_4xx"] == "100.0000"
+    assert operation_by_name["GET /alpha"]["undocumented_4xx"] == ""
+    assert operation_by_name["GET /beta"]["hit_4xx"] == "400"
+    assert operation_by_name["GET /beta"]["coverage_4xx"] == "100.0000"
+    assert operation_by_name["GET /beta"]["undocumented_4xx"] == ""
+
+
+def test_openapi_coverage_report_writes_dataset_union_coverage(tmp_path) -> None:
+    summary_csv = tmp_path / "datasets" / "openapi_status_summary.csv"
+    data_root = tmp_path / "data"
+    out_dir = tmp_path / "coverage_results"
+    summary_csv.parent.mkdir(parents=True, exist_ok=True)
+    with summary_csv.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "dataset",
+                "operation",
+                "2xx_code",
+                "4xx_code",
+                "operation_id",
+                "method",
+                "path",
+                "normalized_operation",
+            ],
+        )
+        writer.writeheader()
+        writer.writerow(
+            {
+                "dataset": "uniondemo",
+                "operation": "GET /alpha",
+                "2xx_code": "200",
+                "4xx_code": "",
+                "operation_id": "",
+                "method": "GET",
+                "path": "/alpha",
+                "normalized_operation": "get_alpha",
+            }
+        )
+        writer.writerow(
+            {
+                "dataset": "uniondemo",
+                "operation": "GET /beta",
+                "2xx_code": "200",
+                "4xx_code": "",
+                "operation_id": "",
+                "method": "GET",
+                "path": "/beta",
+                "normalized_operation": "get_beta",
+            }
+        )
+
+    _write_run(
+        data_root,
+        "uniondemo",
+        "uniondemo-20260326T000000Z-1000",
+        report={
+            "Title": "Union run 1",
+            "Total Requests Sent": 3,
+        },
+        operation_status_codes={
+            "get_alpha": {"201": 1, "404": 1, "500": 1},
+        },
+    )
+    _write_run(
+        data_root,
+        "uniondemo",
+        "uniondemo-20260326T000100Z-1000",
+        report={
+            "Title": "Union run 2",
+            "Total Requests Sent": 2,
+        },
+        operation_status_codes={
+            "get_alpha": {"503": 1},
+            "get_beta": {"401": 1},
+        },
+    )
+
+    _run_script(
+        "tools/openapi_coverage_report.py",
+        "--summary-csv",
+        str(summary_csv),
+        "--data-root",
+        str(data_root),
+        "--out-dir",
+        str(out_dir),
+    )
+
+    with (out_dir / "dataset_union_coverage.csv").open(
+        "r",
+        encoding="utf-8",
+        newline="",
+    ) as handle:
+        union_by_dataset = {row["dataset"]: row for row in csv.DictReader(handle)}
+    row = union_by_dataset["uniondemo"]
+    assert row["run_count"] == "2"
+    assert row["undocumented_2xx_union_count"] == "1"
+    assert row["undocumented_4xx_union_count"] == "2"
+    assert row["unique_500_operation_union_count"] == "1"
+    assert json.loads(row["undocumented_2xx_union_json"]) == {
+        "GET /alpha": ["201"],
+    }
+    assert json.loads(row["undocumented_4xx_union_json"]) == {
+        "GET /alpha": ["404"],
+        "GET /beta": ["401"],
+    }
+    assert json.loads(row["unique_500_operations_json"]) == ["GET /alpha"]
+    assert json.loads(row["observed_5xx_other_union_json"]) == {
+        "GET /alpha": ["503"],
+    }
 
 
 def test_http_attempt_phase_extract_writes_minimal_phase_outputs(tmp_path) -> None:
